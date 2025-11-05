@@ -6,6 +6,9 @@ class_name Main
 @export var is_paused := false
 @export var game_speed := 20.0
 
+func _ready() -> void:
+	Global.game_setup()
+
 func _physics_process(delta: float) -> void:
 	if is_paused:
 		return

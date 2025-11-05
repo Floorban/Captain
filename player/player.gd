@@ -8,6 +8,7 @@ class_name Player
 @export var input_down := "down1"
 
 ## --- Attributes ---
+var is_dead: bool = false
 @export var is_captain: bool = false
 @export var move_speed: float = 100.0
 @export var friction: float = 0.99
@@ -58,6 +59,8 @@ func _physics_process(delta: float) -> void:
 
 ## --- Input ---
 func _get_move_input() -> Vector2:
+	if is_dead: 
+		return Vector2.ZERO
 	var h_dir := Input.get_axis(input_left, input_right)
 	var v_dir := Input.get_axis(input_up, input_down)
 	return Vector2(h_dir, v_dir).normalized()

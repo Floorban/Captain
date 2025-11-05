@@ -7,6 +7,6 @@ class_name Station
 func _ready() -> void:
 	interaction.interact = Callable(self, "_on_enter_station")
 
-func _on_enter_station(interactor: Node) -> void:
+func _on_enter_station(_interactor: Node) -> void:
 	#if interactor.has_node("InventoryComponent"): #if player's reputation is over 10 or some lol
 	Global.enter_station(self)

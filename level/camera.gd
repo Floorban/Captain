@@ -11,6 +11,10 @@ func _physics_process(delta: float) -> void:
 	if targets.is_empty():
 		return
 	
+	for t in targets:
+		if not is_instance_valid(t):
+			return
+	
 	# --- calculate average position of all targets ---
 	var center := Vector2.ZERO
 	var valid_targets := 0

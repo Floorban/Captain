@@ -24,28 +24,26 @@ func _physics_process(delta: float) -> void:
 	_anim_sprite(delta)
 
 func _on_pickup(interactor: Node) -> void:
-	call_deferred("queue_free")
-	
 	if item_data.item_type == ItemData.ITEM_TYPE.SHIELD:
 		if interactor.has_node("HitboxComponent"):
 			var hb = interactor.get_node("HitboxComponent") as HitboxComponent
-			hb.is_invulnerable = true
-			#call_deferred("queue_free")
-		return
+			if hb.is_invulnerable == false:
+				hb.is_invulnerable = true
+				call_deferred("queue_free")
+			return
 	
 	if item_data.item_type == ItemData.ITEM_TYPE.HEAL:
 		if interactor.has_node("HealthComponent"):
 			var hl = interactor.get_node("HealthComponent") as HealthComponent
 			if hl.cur_hp < hl.max_hp:
 				hl.cur_hp += item_data.value
-				#call_deferred("queue_free")
-			return
 		
 	if interactor.has_node("InventoryComponent"):
 		var inv = interactor.get_node("InventoryComponent") as InventoryComponent
 		inv.add_item(item_data, quantity)
 	
-	#call_deferred("queue_free")
+	call_deferred("queue_free")
+	
 
 func _anim_sprite(delta: float):
 	if texture == null or not can_anim:

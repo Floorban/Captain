@@ -27,6 +27,7 @@ friction = 0.8
 interaction = NodePath("InteractionComponent")
 
 [node name="Sprite2D" parent="." index="0"]
+z_index = -1
 scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_kgmax")
 
@@ -35,16 +36,8 @@ scale = Vector2(2.5, 2.5)
 build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, 5)
-
-[node name="InteractionController" parent="." index="3"]
-collision_layer = 8
-
-[node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionController" index="0"]
-scale = Vector2(2.5, 2.5)
-build_mode = 1
-polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
 [node name="InteractionComponent" parent="." index="4" instance=ExtResource("4_kgmax")]
 interact_name = "Captain Ship"
@@ -58,7 +51,17 @@ scale = Vector2(2.5, 2.5)
 build_mode = 1
 polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
-[node name="HealthBar" parent="." index="5"]
+[node name="InteractionController" parent="." index="5"]
+collision_layer = 8
+
+[node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionController" index="0"]
+scale = Vector2(2.5, 2.5)
+build_mode = 1
+polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
+
+[node name="Boundary" parent="." index="6" instance=ExtResource("2_biafw")]
+
+[node name="HealthBar" parent="." index="7"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -73,13 +76,11 @@ grow_vertical = 2
 pivot_offset = Vector2(30, 30)
 texture = SubResource("AtlasTexture_umdq8")
 
-[node name="Boundary" parent="." index="6" instance=ExtResource("2_biafw")]
-
 [node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="HitboxComponent" index="1"]
 scale = Vector2(2.5, 2.5)
 build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
-[editable path="InteractionController"]
 [editable path="InteractionComponent"]
+[editable path="InteractionController"]
 [editable path="HitboxComponent"]
