@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cge6vs6qifriy"]
+
+[ext_resource type="PackedScene" uid="uid://dfhrsd3cdrmtl" path="res://level/stations/station.tscn" id="1_1cun5"]
+
+[node name="Station1" instance=ExtResource("1_1cun5")]
+
+[editable path="InteractionComponent"]

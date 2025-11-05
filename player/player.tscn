@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://k8inc765efmm"]
+[gd_scene load_steps=11 format=3 uid="uid://k8inc765efmm"]
 
 [ext_resource type="Script" uid="uid://dndjlx1hbskks" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cdsuu2inp4asx" path="res://assets/Main Ship - Base - Full health.png" id="2_yw30f"]
+[ext_resource type="Texture2D" uid="uid://benn0ymhkvyku" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="3_boad6"]
 [ext_resource type="PackedScene" uid="uid://ca72j03t2tr6m" path="res://components/interaction_controller.tscn" id="3_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://baja0n03nvi3b" path="res://components/health_component.tscn" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://cfvs1slauxxpc" path="res://components/hitbox_component.tscn" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_g6k8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
+atlas = ExtResource("3_boad6")
+region = Rect2(88, 32, 16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qjkh3"]
 load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
@@ -22,6 +27,11 @@ script = ExtResource("1_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yw30f")
+
+[node name="ShieldSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_rgyib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

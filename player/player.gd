@@ -15,7 +15,11 @@ class_name Player
 @export var rotation_threshold: float = 0.1
 @export var rotation_smoothness: float = 8.0
 
-## --- Stun / Knockback ---
+## --- Damage Effect ---
+@onready var health_component: HealthComponent = %HealthComponent
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
+
+@onready var shield_sprite: Sprite2D = $ShieldSprite
 var is_stunned: bool = false
 var stun_timer: float = 0.0
 var knockback_velocity: Vector2 = Vector2.ZERO
@@ -25,8 +29,27 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @export var interaction : InteractionComponent
 
 func _ready() -> void:
+	_init_player_signals()
 	if is_captain and interaction != null:
 		interaction.interact = Callable(self, "_receive_items")
+	if shield_sprite:
+		shield_sprite.hide()
+
+func _init_player_signals():
+	health_component.died.connect(_on_player_dead)
+	hitbox_component.turn_invulnerable.connect(_toggle_player_shield)
+
+func _on_player_dead():
+	## explode particle here
+	queue_free()
+
+func _toggle_player_shield(has_shield: bool):
+	if not shield_sprite:
+		return
+	if has_shield:
+		shield_sprite.show()
+	else:
+		shield_sprite.hide()
 
 func _physics_process(delta: float) -> void:
 	_process_knockback(delta)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5t6r77gj5aa7"]
 
 [ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="1_s60o6"]
-[ext_resource type="Resource" uid="uid://b782kgbo7651y" path="res://objs/data/fuel.tres" id="2_0up7d"]
+[ext_resource type="Resource" uid="uid://b782kgbo7651y" path="res://objs/pickup_items/data/fuel.tres" id="2_0up7d"]
 [ext_resource type="Texture2D" uid="uid://db3da1se4j37p" path="res://assets/access_card_item.png" id="3_hd4s8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek00k"]

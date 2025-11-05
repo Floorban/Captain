@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfhrsd3cdrmtl"]
 
 [ext_resource type="Texture2D" uid="uid://dlsk0gb3rteja" path="res://assets/tile sheet 1.png" id="1_is73u"]
-[ext_resource type="Script" uid="uid://cx4tikchnd24s" path="res://level/station.gd" id="1_wrbuq"]
+[ext_resource type="Script" uid="uid://cx4tikchnd24s" path="res://level/stations/station.gd" id="1_wrbuq"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="2_h3y18"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3y18"]
@@ -14,7 +14,7 @@ radius = 144.392
 [node name="Station" type="Node2D"]
 script = ExtResource("1_wrbuq")
 
-[node name="MiniMapIcon" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(20, 20)
 texture = SubResource("AtlasTexture_h3y18")

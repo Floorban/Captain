@@ -36,5 +36,8 @@ func add_health(amount: int) -> void:
 func add_shield(amount: int) -> void:
 	print("Shield boosted by:", amount)
 
+func enter_station(station: Station):
+	print("player has entered ", station.name)
+
 func game_over():
 	print("--- Game Over ---")

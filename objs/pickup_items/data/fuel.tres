@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b782kgbo7651y"]
 
-[ext_resource type="Script" uid="uid://bjljm860oh4bu" path="res://objs/data/item_data.gd" id="1_8j8tl"]
-[ext_resource type="Texture2D" uid="uid://db3da1se4j37p" path="res://assets/access_card_item.png" id="1_yp4wq"]
+[ext_resource type="Texture2D" uid="uid://db3da1se4j37p" path="res://assets/access_card_item.png" id="1_1achf"]
+[ext_resource type="Script" uid="uid://bjljm860oh4bu" path="res://objs/pickup_items/data/item_data.gd" id="2_mhxec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3bde"]
-atlas = ExtResource("1_yp4wq")
+atlas = ExtResource("1_1achf")
 region = Rect2(8, 8, 16, 16)
 
 [resource]
-script = ExtResource("1_8j8tl")
+script = ExtResource("2_mhxec")
 item_name = "fuel"
 icon = SubResource("AtlasTexture_x3bde")
 item_type = 0
 value = 50.0
 is_stackable = true
-max_stack = 2
+max_stack = 4
 description = ""
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

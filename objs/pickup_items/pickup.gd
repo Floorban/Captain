@@ -7,6 +7,7 @@ class_name Pickup
 @onready var interaction: InteractionComponent = $InteractionComponent
 @onready var sprite: Sprite2D = $Sprite2D
 
+@export var can_anim := true
 var texture: AtlasTexture
 var frame: int = 0
 @export var frame_count: int = 12
@@ -14,9 +15,7 @@ var frame: int = 0
 var frame_timer: float = 0.0
 
 func _ready() -> void:
-	if interaction:
-		interaction.interact = Callable(self, "_on_pickup")
-
+	interaction.interact = Callable(self, "_on_pickup")
 	var t := sprite.texture as AtlasTexture
 	if t != null:
 		texture = t
@@ -25,13 +24,31 @@ func _physics_process(delta: float) -> void:
 	_anim_sprite(delta)
 
 func _on_pickup(interactor: Node) -> void:
+	call_deferred("queue_free")
+	
+	if item_data.item_type == ItemData.ITEM_TYPE.SHIELD:
+		if interactor.has_node("HitboxComponent"):
+			var hb = interactor.get_node("HitboxComponent") as HitboxComponent
+			hb.is_invulnerable = true
+			#call_deferred("queue_free")
+		return
+	
+	if item_data.item_type == ItemData.ITEM_TYPE.HEAL:
+		if interactor.has_node("HealthComponent"):
+			var hl = interactor.get_node("HealthComponent") as HealthComponent
+			if hl.cur_hp < hl.max_hp:
+				hl.cur_hp += item_data.value
+				#call_deferred("queue_free")
+			return
+		
 	if interactor.has_node("InventoryComponent"):
 		var inv = interactor.get_node("InventoryComponent") as InventoryComponent
 		inv.add_item(item_data, quantity)
-	call_deferred("queue_free")
+	
+	#call_deferred("queue_free")
 
 func _anim_sprite(delta: float):
-	if texture == null:
+	if texture == null or not can_anim:
 		return
 
 	frame_timer += delta

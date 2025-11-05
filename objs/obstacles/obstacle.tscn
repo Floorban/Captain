@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfcrrry3qqv4i"]
+[gd_scene load_steps=8 format=3 uid="uid://bfcrrry3qqv4i"]
 
 [ext_resource type="PackedScene" uid="uid://dhf8rr770xsqx" path="res://objs/object.tscn" id="1_sp7f0"]
-[ext_resource type="Texture2D" uid="uid://bunmuf6apqxfe" path="res://assets/Asteroid 01 - Base.png" id="2_edhjt"]
+[ext_resource type="Texture2D" uid="uid://benn0ymhkvyku" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="2_miwr7"]
+[ext_resource type="Script" uid="uid://coh3irofycf56" path="res://objs/obstacles/obstacle.gd" id="2_vak6t"]
 [ext_resource type="PackedScene" uid="uid://dw7xbffokiusi" path="res://components/attack_component.tscn" id="3_ua8cb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vak6t"]
+atlas = ExtResource("2_miwr7")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edhjt"]
 radius = 14.1421
@@ -13,9 +18,13 @@ radius = 17.0294
 [node name="Obstacle" instance=ExtResource("1_sp7f0")]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("2_vak6t")
+min_speed = 20.0
+max_speed = 50.0
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_edhjt")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_vak6t")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_edhjt")

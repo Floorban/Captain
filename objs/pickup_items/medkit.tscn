@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://du3txt64l58r3"]
 
 [ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="1_1nhge"]
-[ext_resource type="Resource" uid="uid://h7ifupesyoq5" path="res://objs/data/medkit.tres" id="2_kff1h"]
+[ext_resource type="Resource" uid="uid://h7ifupesyoq5" path="res://objs/pickup_items/data/medkit.tres" id="2_kff1h"]
 [ext_resource type="Texture2D" uid="uid://c5t11beb0ri4b" path="res://assets/medkit_item.png" id="3_kff1h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p31j3"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgcrj8r0lolgm"]
+
+[ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="1_1kba7"]
+[ext_resource type="Resource" uid="uid://dchmvfra38mv0" path="res://objs/pickup_items/data/shield.tres" id="2_7lxed"]
+[ext_resource type="Texture2D" uid="uid://b80x2pokgqdh" path="res://assets/SpaceShooterAssetPack_IU.png" id="2_jk3a4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lxed"]
+atlas = ExtResource("2_jk3a4")
+region = Rect2(64, 80, 8, 8)
+
+[node name="Shield" instance=ExtResource("1_1kba7")]
+item_data = ExtResource("2_7lxed")
+can_anim = false
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_7lxed")
+
+[editable path="InteractionComponent"]
