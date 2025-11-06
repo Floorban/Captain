@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv7qy8pw7x2ne"]
+[gd_scene load_steps=4 format=3 uid="uid://cv7qy8pw7x2ne"]
 
 [ext_resource type="PackedScene" uid="uid://dfhrsd3cdrmtl" path="res://level/stations/station.tscn" id="1_qpgn2"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qpgn2"]
+load_path = "res://.godot/imported/tile sheet 1.png-61c5062cbbc43a58bbc4c13b2a82822d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4jcc"]
+atlas = SubResource("CompressedTexture2D_qpgn2")
+region = Rect2(0, 48, 16, 16)
+
 [node name="Station5" instance=ExtResource("1_qpgn2")]
+
+[node name="Icon" parent="." index="0"]
+texture = SubResource("AtlasTexture_v4jcc")
 
 [editable path="InteractionComponent"]

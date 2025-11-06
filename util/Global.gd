@@ -6,7 +6,7 @@ enum GAME_STATE {
 	STOP
 }
 
-@onready var main = get_tree().get_first_node_in_group("main")
+@onready var main : Main = get_tree().get_first_node_in_group("main")
 var players : Array[Player]
 
 var game_speed := 1.0
@@ -26,14 +26,15 @@ func game_setup():
 	_init_signals()
 
 func _init_signals():
-	if health_component:
-		health_component.died.disconnect(game_over) if health_component.died.is_connected(game_over) else health_component.died.connect(game_over)
+	if health_component and not health_component.died.is_connected(game_over):
+		health_component.died.connect(game_over)
 
 func _physics_process(delta: float) -> void:
 	_process_fuel(delta)
 
 func _process_fuel(delta: float):
 	cur_fuel -= fuel_heating_speed * delta
+	main.update_fuel_bar(cur_fuel / max_fuel)
 	if cur_fuel <= 0: 
 		cur_fuel = 0.0
 		if main: main.is_paused = true
@@ -67,6 +68,13 @@ func add_shield(amount: int) -> void:
 
 func enter_station(station: Station):
 	print("player has entered ", station.name)
+	main.open_shop()
+
+func exit_station():
+	game_setup()
+	main.close_shop()
+	for p in players:
+		p.health_component.cur_hp += p.health_component.max_hp
 
 func game_over():
 	print("--- Game Over ---")

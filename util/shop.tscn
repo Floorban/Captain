@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3vc3ph36wid8"]
+
+[ext_resource type="Script" uid="uid://dg7o5o2jhue32" path="res://util/shop.gd" id="1_iqm1x"]
+
+[node name="Shop" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -517.0
+offset_top = -116.0
+offset_right = -517.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iqm1x")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(2000, 2000)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 523.0
+offset_right = 652.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 48
+text = "Mycado Training (Upgrades)"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 655.0
+offset_right = 858.0
+offset_bottom = 663.0
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

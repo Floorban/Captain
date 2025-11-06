@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_wokey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wokey"]
-radius = 11.0
+radius = 15.0
 
 [node name="Pickup" instance=ExtResource("1_3gk17")]
 collision_layer = 1
 script = ExtResource("2_3ikt5")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(2, 2)
 
 [node name="HitboxComponent" parent="." index="3" node_paths=PackedStringArray("health_component")]
 health_component = NodePath("../HealthComponent")

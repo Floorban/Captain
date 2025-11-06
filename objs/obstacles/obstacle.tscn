@@ -10,10 +10,10 @@ atlas = ExtResource("2_miwr7")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edhjt"]
-radius = 14.1421
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua8cb"]
-radius = 17.0294
+radius = 19.0
 
 [node name="Obstacle" instance=ExtResource("1_sp7f0")]
 collision_layer = 4
@@ -21,7 +21,7 @@ collision_mask = 0
 script = ExtResource("2_vak6t")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_vak6t")
 
 [node name="CollisionShape2D" parent="." index="1"]
