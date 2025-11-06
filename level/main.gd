@@ -23,3 +23,17 @@ func open_shop():
 
 func close_shop():
 	shop.hide()
+
+@export var window_scene : PackedScene
+@export var spawn_size_width: float = 1000.0
+@export var spawn_size_height: float = 1000.0
+
+func random_pos(spawn_size: float) -> float:
+	return randf_range(-spawn_size / 2, spawn_size / 2)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("primary"):
+		var w = window_scene.instantiate()
+		if w is Wwindow:
+			w.init_window(random_pos(spawn_size_width), random_pos(spawn_size_height))
+		add_child(w)

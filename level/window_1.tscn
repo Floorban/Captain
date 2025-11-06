@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvk7bblhp2fhf"]
+
+[ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://util/window.gd" id="1_tf624"]
+[ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_x0s74"]
+[ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="3_midlr"]
+[ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="4_8m5jh"]
+
+[node name="Window1" type="Window"]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "crew1"
+position = Vector2i(0, 36)
+size = Vector2i(500, 500)
+unresizable = true
+always_on_top = true
+content_scale_aspect = 1
+script = ExtResource("1_tf624")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_x0s74")]
+targets = [NodePath("../PlayerCrew_1")]
+
+[node name="PlayerCrew_1" parent="." instance=ExtResource("3_midlr")]
+position = Vector2(350, 570)
+
+[node name="Background" parent="." instance=ExtResource("4_8m5jh")]
+script = null

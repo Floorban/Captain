@@ -1,14 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=20 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
+[ext_resource type="PackedScene" uid="uid://copai3i4angwa" path="res://util/window.tscn" id="2_pjfo3"]
 [ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="3_fh3di"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="3_qh04p"]
 [ext_resource type="PackedScene" uid="uid://b5t6r77gj5aa7" path="res://objs/pickup_items/fuel.tscn" id="4_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/medkit.tscn" id="5_7vc00"]
 [ext_resource type="PackedScene" uid="uid://bv4abk1tuw7oi" path="res://util/fuel_bar.tscn" id="6_177d4"]
-[ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="6_klgnm"]
+[ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="6_i7a4y"]
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
+[ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map_camera.gd" id="7_pjfo3"]
 [ext_resource type="PackedScene" uid="uid://cgcrj8r0lolgm" path="res://objs/pickup_items/shield.tscn" id="8_ry1g7"]
 [ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="10_tdkxd"]
 [ext_resource type="PackedScene" uid="uid://ceg3eg7t8ni4j" path="res://level/stations/instances/station_2.tscn" id="12_b6row"]
@@ -17,19 +19,19 @@
 [ext_resource type="PackedScene" uid="uid://cge6vs6qifriy" path="res://level/stations/instances/station_1.tscn" id="15_b6row"]
 [ext_resource type="PackedScene" uid="uid://cv7qy8pw7x2ne" path="res://level/stations/instances/station_5.tscn" id="15_pjfo3"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpfyc"]
+shader = ExtResource("6_i7a4y")
+shader_parameter/radius = 1.0
+
 [node name="Main" type="Node2D" groups=["main"]]
 position = Vector2(576, 13)
 script = ExtResource("1_414cb")
 speed = 10.0
+window_scene = ExtResource("2_pjfo3")
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
 top_level = true
 position = Vector2(562, 334)
-
-[node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("6_klgnm")]
-position = Vector2(562, 334)
-targets = [NodePath("../PlayerCaptain")]
-max_zoom = 0.8
 
 [node name="MainUI" type="CanvasLayer" parent="."]
 
@@ -44,6 +46,33 @@ top_level = true
 [node name="Shop" parent="MainUI" instance=ExtResource("3_fh3di")]
 unique_name_in_owner = true
 visible = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainUI"]
+visible = false
+material = SubResource("ShaderMaterial_lpfyc")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MainUI/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(600, 600)
+render_target_update_mode = 0
+
+[node name="MiniMapCamera" type="Camera2D" parent="MainUI/SubViewportContainer/SubViewport" node_paths=PackedStringArray("player", "pois")]
+script = ExtResource("7_pjfo3")
+scan_radius = 1000.0
+player = NodePath("../../../../PlayerCaptain")
+pois = [NodePath("../../../../Stations/Station1"), NodePath("../../../../Stations/Station2"), NodePath("../../../../Stations/Station3"), NodePath("../../../../Stations/Station4"), NodePath("../../../../Stations/Station5")]
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("3_qh04p")

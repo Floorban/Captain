@@ -9,8 +9,8 @@ extends Node
 func _ready():
 #sharing the same world as subwindow
 	_MainSubWindow.world_2d = _MainWindow.world_2d
-	_SubWindow1.world_2d = _MainWindow.world_2d
-	_SubWindow2.world_2d = _MainWindow.world_2d
+	if _SubWindow1: _SubWindow1.world_2d = _MainWindow.world_2d
+	if _SubWindow2: _SubWindow2.world_2d = _MainWindow.world_2d
 # declare the variables...
 
 		# Enable per-pixel transparency, required for transparent windows but has a performance cost

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://copai3i4angwa"]
+
+[ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://util/window.gd" id="1_iwyyp"]
+
+[node name="Window" type="Window"]
+oversampling_override = 1.0
+unresizable = true
+always_on_top = true
+script = ExtResource("1_iwyyp")

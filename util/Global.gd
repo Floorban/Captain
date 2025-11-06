@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 
 func _process_fuel(delta: float):
 	cur_fuel -= fuel_heating_speed * delta
-	main.update_fuel_bar(cur_fuel / max_fuel)
+	if main: main.update_fuel_bar(cur_fuel / max_fuel)
 	if cur_fuel <= 0: 
 		cur_fuel = 0.0
 		if main: main.is_paused = true

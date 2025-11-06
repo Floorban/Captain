@@ -1,19 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk0n86nx6c871"]
+[gd_scene load_steps=7 format=3 uid="uid://dk0n86nx6c871"]
 
 [ext_resource type="Script" uid="uid://3c8lk3o1he7f" path="res://level/root.gd" id="1_nyff5"]
 [ext_resource type="PackedScene" uid="uid://dejkcym2erm1l" path="res://level/main.tscn" id="1_urc1q"]
-[ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_3hbfx"]
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="3_17qf6"]
 [ext_resource type="Script" uid="uid://cjn2sufltatvv" path="res://util/windows_manager.gd" id="3_j1rh4"]
-[ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="6_17qf6"]
-[ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://util/window.gd" id="7_jkfj7"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17qf6"]
-load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkfj7"]
-atlas = SubResource("CompressedTexture2D_17qf6")
-region = Rect2(0, 0, 48, 48)
+[ext_resource type="PackedScene" uid="uid://bvk7bblhp2fhf" path="res://level/window_1.tscn" id="5_17qf6"]
+[ext_resource type="PackedScene" uid="uid://cbd7qrsom1gsh" path="res://level/window_2.tscn" id="6_jkfj7"]
 
 [node name="Root" type="Node" groups=["root"]]
 script = ExtResource("1_nyff5")
@@ -21,8 +13,8 @@ script = ExtResource("1_nyff5")
 [node name="WindowsManager" type="Node" parent="." node_paths=PackedStringArray("_MainSubWindow", "_SubWindow1", "_SubWindow2")]
 script = ExtResource("3_j1rh4")
 _MainSubWindow = NodePath("MainWindow")
-_SubWindow1 = NodePath("Window1")
-_SubWindow2 = NodePath("Window2")
+_SubWindow1 = NodePath("")
+_SubWindow2 = NodePath("")
 
 [node name="MainWindow" type="Window" parent="WindowsManager"]
 canvas_item_default_texture_filter = 0
@@ -594,55 +586,8 @@ position = Vector2(251.014, 568.841)
 [node name="Background" parent="WindowsManager/MainWindow" instance=ExtResource("3_17qf6")]
 unique_name_in_owner = true
 
-[node name="Window1" type="Window" parent="WindowsManager"]
-canvas_item_default_texture_filter = 0
-oversampling_override = 1.0
-title = "crew1"
-position = Vector2i(0, 36)
-size = Vector2i(500, 500)
-unresizable = true
-always_on_top = true
-content_scale_aspect = 1
-script = ExtResource("7_jkfj7")
+[node name="Window1" parent="WindowsManager" instance=ExtResource("5_17qf6")]
 
-[node name="Camera" parent="WindowsManager/Window1" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../PlayerCrew_1")]
-
-[node name="PlayerCrew_1" parent="WindowsManager/Window1" instance=ExtResource("6_17qf6")]
-position = Vector2(350, 570)
-
-[node name="Background" parent="WindowsManager/Window1" instance=ExtResource("3_17qf6")]
-script = null
-
-[node name="Window2" type="Window" parent="WindowsManager"]
-canvas_item_default_texture_filter = 0
-oversampling_override = 1.0
-title = "crew2"
-position = Vector2i(0, 36)
-size = Vector2i(500, 500)
-unresizable = true
-always_on_top = true
-content_scale_aspect = 1
-script = ExtResource("7_jkfj7")
-x = 1420
-
-[node name="Camera" parent="WindowsManager/Window2" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../PlayerCrew_2")]
-
-[node name="PlayerCrew_2" parent="WindowsManager/Window2" instance=ExtResource("6_17qf6")]
-position = Vector2(770, 570)
-input_left = "left1"
-input_right = "right1"
-input_up = "up1"
-input_down = "down1"
-
-[node name="HealthBar" parent="WindowsManager/Window2/PlayerCrew_2" index="5"]
-texture = SubResource("AtlasTexture_jkfj7")
-
-[node name="Background" parent="WindowsManager/Window2" instance=ExtResource("3_17qf6")]
-script = null
+[node name="Window2" parent="WindowsManager" instance=ExtResource("6_jkfj7")]
 
 [editable path="WindowsManager/MainWindow/Main"]
-[editable path="WindowsManager/Window2/PlayerCrew_2"]
-[editable path="WindowsManager/Window2/PlayerCrew_2/InteractionController"]
-[editable path="WindowsManager/Window2/PlayerCrew_2/HitboxComponent"]
