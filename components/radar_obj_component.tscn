@@ -3,5 +3,7 @@
 [node name="RadarObjComponent" type="Sprite2D"]
 visible = false
 top_level = true
+light_mask = 0
+visibility_layer = 2
 z_index = 1
-scale = Vector2(3, 3)
+scale = Vector2(20, 20)

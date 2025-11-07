@@ -10,11 +10,11 @@
 atlas = ExtResource("2_umdq8")
 region = Rect2(0, 0, 40, 56)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mshal"]
 load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umdq8"]
-atlas = SubResource("CompressedTexture2D_biafw")
+atlas = SubResource("CompressedTexture2D_mshal")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mshal"]
@@ -27,12 +27,11 @@ input_right = "right3"
 input_up = "up3"
 input_down = "down3"
 is_captain = true
-move_speed = 80.0
+move_speed = 800.0
 friction = 0.8
 interaction = NodePath("InteractionComponent")
 
 [node name="Sprite2D" parent="." index="0"]
-visible = false
 z_index = -1
 scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_kgmax")
@@ -87,6 +86,7 @@ build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
 [node name="RadarObjComponent" parent="." index="10"]
+scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_mshal")
 
 [editable path="InteractionComponent"]

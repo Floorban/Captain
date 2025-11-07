@@ -24,6 +24,7 @@ script = ExtResource("1_wrbuq")
 
 [node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-12.999999, -9.999999)
 scale = Vector2(20, 20)
 texture = SubResource("AtlasTexture_rw7lb")
 
@@ -36,6 +37,8 @@ interact_duration = 2.0
 shape = SubResource("CircleShape2D_h3y18")
 
 [node name="RadarObjComponent" parent="." instance=ExtResource("3_j800o")]
+visible = true
+scale = Vector2(70, 70)
 texture = SubResource("AtlasTexture_h7qgn")
 
 [editable path="InteractionComponent"]

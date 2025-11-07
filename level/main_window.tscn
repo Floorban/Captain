@@ -5,6 +5,7 @@
 
 [node name="MainWindow" type="Window"]
 canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4293918722
 oversampling_override = 1.0
 title = "captain"
 initial_position = 2
@@ -14,6 +15,12 @@ maximize_disabled = true
 
 [node name="Main" parent="." instance=ExtResource("1_o043x")]
 
-[node name="MiniMap" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_bso6d")]
+[node name="MiniMapCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+
+[node name="MiniMap" parent="." node_paths=PackedStringArray("player", "mini_map_camera") instance=ExtResource("3_bso6d")]
 unique_name_in_owner = true
 player = NodePath("../Main/PlayerCaptain")
+mini_map_camera = NodePath("../MiniMapCamera")

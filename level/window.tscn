@@ -7,6 +7,7 @@
 
 [node name="Window" type="Window"]
 canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4294967293
 oversampling_override = 1.0
 title = "crew1"
 position = Vector2i(0, 36)
