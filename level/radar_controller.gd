@@ -37,6 +37,8 @@ func _input(event: InputEvent) -> void:
 				curve_dist * cos(player.global_rotation) + player.global_position.y
 			)
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
+	if event.is_action_pressed("right1"):
+		Global.windows_manager.spawn_window()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("secondary"):

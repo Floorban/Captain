@@ -4,6 +4,7 @@ class_name Main
 @export var is_paused := false
 @onready var shop: Shop = %Shop
 @onready var fuel_bar: ProgressBar = %FuelBar
+@onready var mini_map: MiniMap = %MiniMap
 
 func _ready() -> void:
 	Global.game_setup()

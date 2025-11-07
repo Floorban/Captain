@@ -23,7 +23,7 @@ canvas_cull_mask = 4293918722
 oversampling_override = 1.0
 title = "captain"
 initial_position = 2
-size = Vector2i(850, 950)
+size = Vector2i(750, 900)
 maximize_disabled = true
 
 [node name="Main" parent="." instance=ExtResource("1_o043x")]

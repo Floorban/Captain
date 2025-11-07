@@ -36,6 +36,7 @@ func _ready() -> void:
 		interaction.interact = Callable(self, "_receive_items")
 	if shield_sprite:
 		shield_sprite.hide()
+	if not is_captain: Global.main.mini_map.get_minimap_objs()
 
 func _init_player_signals():
 	health_component.died.connect(_on_player_dead)

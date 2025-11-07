@@ -28,19 +28,20 @@ func _physics_process(_delta: float) -> void:
 	var radius = (viewport.get_viewport_rect().size.x / 2) / mini_map_camera.zoom.x / (get_window().size.x / viewport.size.x)
 	for obj in markers:
 		var marker = markers[obj] as RadarObjComponent
-		var obj_pos = obj.global_transform.origin
+		var obj_pos = obj.global_position
 		var marker_offset : Vector2 = (obj.global_position - player.global_position)
 		var distance = marker_offset.length()
 		#obj_pos.x = clamp(obj_pos.x, 0, get_window().size.x)
 		#obj_pos.y = clamp(obj_pos.y, 0, get_window().size.y)
+		marker.global_rotation = obj.global_rotation
 		if distance > radius:
 			#print(distance)
 			var clamped_offset = marker_offset.normalized() * radius
-			marker.position = player.global_position + clamped_offset
+			marker.global_position = player.global_position + clamped_offset
 			marker.scale = Vector2(0.5,0.5)
 			marker.modulate.a = 0.5
 		else:
-			marker.position = obj_pos
+			marker.global_position = obj_pos
 			marker.scale = Vector2(1,1)
 			marker.modulate.a = 1.0
 
@@ -54,7 +55,8 @@ func init_player_marker():
 func get_minimap_objs():
 	var map_objs = get_tree().get_nodes_in_group("radar_objs")
 	for obj in map_objs:
-		var marker = obj.get_node("RadarObjComponent") as RadarObjComponent
-		if marker:
-			marker.show()
-			markers[obj] = marker
+		if not obj in markers:
+			var marker = obj.get_node("RadarObjComponent") as RadarObjComponent
+			if marker:
+				marker.show()
+				markers[obj] = marker
