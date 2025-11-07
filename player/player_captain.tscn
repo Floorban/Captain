@@ -18,7 +18,7 @@ region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mshal"]
 atlas = ExtResource("2_umdq8")
-region = Rect2(64, 112, 8, 8)
+region = Rect2(120, 120, 8, 8)
 
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
@@ -86,7 +86,7 @@ build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
-position = Vector2(-10.999999, 13.999999)
+position = Vector2(-2.3841858e-07, 3)
 texture = SubResource("AtlasTexture_mshal")
 
 [editable path="InteractionComponent"]

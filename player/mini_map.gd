@@ -17,6 +17,7 @@ func _ready() -> void:
 func update_camera():
 	if not mini_map_camera: return
 	mini_map_camera.global_position = player.global_position
+	#mini_map_camera.global_rotation = player.global_rotation
 
 func _physics_process(_delta: float) -> void:
 	if not player: return

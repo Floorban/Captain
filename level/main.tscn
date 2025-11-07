@@ -1,27 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=11 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
-[ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="3_fh3di"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="3_qh04p"]
-[ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="4_i7a4y"]
 [ext_resource type="PackedScene" uid="uid://b5t6r77gj5aa7" path="res://objs/pickup_items/fuel.tscn" id="4_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/medkit.tscn" id="5_7vc00"]
-[ext_resource type="PackedScene" uid="uid://bv4abk1tuw7oi" path="res://util/fuel_bar.tscn" id="6_177d4"]
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
 [ext_resource type="PackedScene" uid="uid://cgcrj8r0lolgm" path="res://objs/pickup_items/shield.tscn" id="8_ry1g7"]
-[ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="10_tdkxd"]
 [ext_resource type="PackedScene" uid="uid://cge6vs6qifriy" path="res://level/stations/instances/station_1.tscn" id="15_b6row"]
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="16_177d4"]
 
 [sub_resource type="Curve2D" id="Curve2D_ns06i"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
-load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjfo3"]
-atlas = SubResource("CompressedTexture2D_biafw")
-region = Rect2(0, 0, 48, 48)
 
 [node name="Main" type="Node2D" groups=["main"]]
 position = Vector2(576, 13)
@@ -32,7 +21,7 @@ top_level = true
 position = Vector2(436, 486)
 
 [node name="HealthComponent" parent="PlayerCaptain" index="8" node_paths=PackedStringArray("health_bar")]
-health_bar = NodePath("../../MainUI/HealthBar")
+health_bar = NodePath("")
 
 [node name="Path2D" type="Path2D" parent="."]
 top_level = true
@@ -40,37 +29,6 @@ light_mask = 0
 visibility_layer = 3
 position = Vector2(-140, 486)
 curve = SubResource("Curve2D_ns06i")
-
-[node name="MainUI" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="FuelBar" parent="MainUI" instance=ExtResource("6_177d4")]
-unique_name_in_owner = true
-
-[node name="HealthBar" type="TextureRect" parent="MainUI"]
-unique_name_in_owner = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(30, 30)
-texture = SubResource("AtlasTexture_pjfo3")
-expand_mode = 1
-script = ExtResource("4_i7a4y")
-
-[node name="GameOverScreen" parent="MainUI" instance=ExtResource("10_tdkxd")]
-unique_name_in_owner = true
-visible = false
-top_level = true
-
-[node name="Shop" parent="MainUI" instance=ExtResource("3_fh3di")]
-unique_name_in_owner = true
-visible = false
 
 [node name="Background" parent="." instance=ExtResource("16_177d4")]
 unique_name_in_owner = true

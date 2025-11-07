@@ -1,14 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=7 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
-[ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="3_lpfyc"]
+[ext_resource type="Shader" path="res://player/radar.gdshader" id="3_lpfyc"]
+[ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="4_dh8qp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpfyc"]
 shader = ExtResource("1_r8eax")
 shader_parameter/radius = 1.0
+shader_parameter/circle_width = 0.10000000149012
+shader_parameter/wait_time = 0.5000000074506
+shader_parameter/speed = 0.5000000074506
+shader_parameter/alpha_boost = 2.0000000149012003
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh8qp"]
+shader = ExtResource("3_lpfyc")
+shader_parameter/speed = 0.5
+shader_parameter/pixelation = 10.0
+shader_parameter/zoom = 2.0
+shader_parameter/gradient_pixelation = 0.2
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.154000007315
+shader_parameter/color_mid_threshold = 0.48
+shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
+shader_parameter/color_mid = Color(0.023083137, 0.12169146, 0.12187549, 1)
+shader_parameter/color_high = Color(1, 1, 1, 1)
+shader_parameter/global_alpha = 0.4650000220875
 
 [node name="MiniMap" type="CanvasLayer"]
+layer = -1
 script = ExtResource("1_1la25")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -22,27 +42,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(500, 500)
+size = Vector2i(800, 800)
 render_target_update_mode = 4
 
 [node name="Background" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.63529414)
+modulate = Color(0.3254902, 0.37254903, 0.7647059, 0.5411765)
 z_index = -1
+texture_filter = 1
+material = SubResource("ShaderMaterial_dh8qp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_lpfyc")
+texture = ExtResource("4_dh8qp")
 expand_mode = 1

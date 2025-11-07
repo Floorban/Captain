@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
 		if path_follow.progress_ratio + player.move_speed * delta < 1.0:
 			path_follow.progress_ratio += player.move_speed * delta
+			Global._process_fuel(delta)
 		elif not has_arrived:
 			has_arrived = true
 			print("arrive")

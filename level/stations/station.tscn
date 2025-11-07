@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_h3y18")
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 position = Vector2(-5, 0)
-scale = Vector2(45, 45)
+scale = Vector2(40, 40)
 texture = SubResource("AtlasTexture_j800o")
 
 [editable path="InteractionComponent"]

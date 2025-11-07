@@ -1,10 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7okfrd288s7i"]
+[gd_scene load_steps=11 format=3 uid="uid://b7okfrd288s7i"]
 
 [ext_resource type="PackedScene" uid="uid://dejkcym2erm1l" path="res://level/main.tscn" id="1_o043x"]
 [ext_resource type="Script" uid="uid://u5q4bunpqynb" path="res://level/radar_controller.gd" id="2_bso6d"]
 [ext_resource type="PackedScene" uid="uid://d03w3uebf0ig6" path="res://player/mini_map.tscn" id="3_bso6d"]
+[ext_resource type="PackedScene" uid="uid://bv4abk1tuw7oi" path="res://util/fuel_bar.tscn" id="3_n56ur"]
+[ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="4_a8etk"]
+[ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="5_qyphg"]
+[ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="6_rk545"]
 
 [sub_resource type="Curve2D" id="Curve2D_o043x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
+load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoaw7"]
+atlas = SubResource("CompressedTexture2D_biafw")
+region = Rect2(0, 0, 48, 48)
 
 [node name="MainWindow" type="Window"]
 canvas_item_default_texture_filter = 0
@@ -22,8 +33,10 @@ visibility_layer = 3
 unique_name_in_owner = true
 light_mask = 0
 visibility_layer = 2
+z_index = 10
 position = Vector2(460, 40)
-zoom = Vector2(0.2, 0.2)
+ignore_rotation = false
+zoom = Vector2(0.3, 0.3)
 script = ExtResource("2_bso6d")
 
 [node name="Path2D" type="Path2D" parent="MiniMapCamera"]
@@ -34,6 +47,45 @@ position = Vector2(-460, -40)
 curve = SubResource("Curve2D_o043x")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="MiniMapCamera/Path2D"]
+
+[node name="MainUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="FuelBar" parent="MainUI" instance=ExtResource("3_n56ur")]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+
+[node name="HealthBar" type="TextureRect" parent="MainUI"]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(30, 30)
+texture = SubResource("AtlasTexture_aoaw7")
+expand_mode = 1
+script = ExtResource("4_a8etk")
+
+[node name="GameOverScreen" parent="MainUI" instance=ExtResource("5_qyphg")]
+unique_name_in_owner = true
+visible = false
+top_level = true
+light_mask = 0
+visibility_layer = 2
+
+[node name="Shop" parent="MainUI" instance=ExtResource("6_rk545")]
+unique_name_in_owner = true
+visible = false
+light_mask = 0
+visibility_layer = 2
 
 [node name="MiniMap" parent="." node_paths=PackedStringArray("player", "mini_map_camera") instance=ExtResource("3_bso6d")]
 unique_name_in_owner = true

@@ -19,20 +19,15 @@ var health_component: HealthComponent
 
 var windows_manager: WindowManager
 
-func _ready() -> void:
-	add_fuel(max_fuel)
-
 func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component
 	_init_signals()
+	add_fuel(max_fuel)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):
 		health_component.died.connect(game_over)
-
-func _physics_process(delta: float) -> void:
-	_process_fuel(delta)
 
 func _process_fuel(delta: float):
 	cur_fuel -= fuel_heating_speed * delta
@@ -59,7 +54,9 @@ func get_captain() -> Player:
 func add_fuel(amount: float) -> void:
 	print("Fuel increased by:", amount)
 	cur_fuel = clampf(cur_fuel + amount, 0, max_fuel)
-	if cur_fuel > 0 and main: main.is_paused = false
+	if main:
+		main.update_fuel_bar(cur_fuel / max_fuel)
+		if cur_fuel > 0: main.is_paused = false
 
 func add_health(amount: int) -> void:
 	print("Healed by:", amount)
