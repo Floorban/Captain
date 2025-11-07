@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7okfrd288s7i"]
+[gd_scene load_steps=12 format=3 uid="uid://b7okfrd288s7i"]
 
 [ext_resource type="PackedScene" uid="uid://dejkcym2erm1l" path="res://level/main.tscn" id="1_o043x"]
 [ext_resource type="Script" uid="uid://u5q4bunpqynb" path="res://level/radar_controller.gd" id="2_bso6d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="4_a8etk"]
 [ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="5_qyphg"]
 [ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="6_rk545"]
+[ext_resource type="PackedScene" uid="uid://3spqdxuucmkk" path="res://retro-modernized_pip_boy_editable_screen/monitor.tscn" id="8_a8etk"]
 
 [sub_resource type="Curve2D" id="Curve2D_o043x"]
 
@@ -36,7 +37,7 @@ visibility_layer = 2
 z_index = 10
 position = Vector2(460, 40)
 ignore_rotation = false
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.15, 0.15)
 script = ExtResource("2_bso6d")
 
 [node name="Path2D" type="Path2D" parent="MiniMapCamera"]
@@ -91,3 +92,16 @@ visibility_layer = 2
 unique_name_in_owner = true
 player = NodePath("../Main/PlayerCaptain")
 mini_map_camera = NodePath("../MiniMapCamera")
+
+[node name="SubViewportContainer" parent="MiniMap" index="0"]
+offset_left = -217.0
+offset_top = -176.0
+offset_right = 114.0
+offset_bottom = 224.0
+
+[node name="SubViewport" parent="MiniMap/SubViewportContainer" index="0"]
+size = Vector2i(331, 400)
+
+[node name="Monitor" parent="." instance=ExtResource("8_a8etk")]
+
+[editable path="MiniMap"]

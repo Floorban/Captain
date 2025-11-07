@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://3spqdxuucmkk"]
+
+[ext_resource type="PackedScene" uid="uid://dhmtncdtq4ft2" path="res://retro-modernized_pip_boy_editable_screen/scene.gltf" id="1_lfn3r"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfn3r"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4l1ov"]
+sky_material = SubResource("ProceduralSkyMaterial_lfn3r")
+
+[sub_resource type="Environment" id="Environment_1rldd"]
+background_mode = 2
+sky = SubResource("Sky_4l1ov")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Monitor" instance=ExtResource("1_lfn3r")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_1rldd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-0.8321094, -0.2774981, 0.48019657, 0.23998725, 0.6004122, 0.7628311, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." index="3"]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0.047648907, 7.6516323, 0.03942442)
+fov = 20.0
+size = 2.0

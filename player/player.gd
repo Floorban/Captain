@@ -10,6 +10,7 @@ class_name Player
 ## --- Attributes ---
 var is_dead: bool = false
 var can_control: bool = true
+var can_move: bool = true
 @export var is_captain: bool = false
 @export var move_speed: float = 100.0
 @export var friction: float = 0.99
@@ -68,7 +69,7 @@ func _get_move_input() -> Vector2:
 	return Vector2(h_dir, v_dir).normalized()
 
 func _process_movement(delta: float) -> void:
-	if is_stunned:
+	if is_stunned or not can_move:
 		velocity = knockback_velocity
 		velocity *= friction
 		move_and_slide()

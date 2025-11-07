@@ -6,6 +6,7 @@ class_name RadarController
 @onready var path_follow = $Path2D/PathFollow2D
 
 var target = position
+var dist : float
 var curve_point = position
 var curve_dist = 300.0
 var curve_angle = 60.0
@@ -19,7 +20,7 @@ func _input(event: InputEvent) -> void:
 		has_arrived = false
 		
 		target = get_global_mouse_position()
-		var dist = player.global_position.distance_to(target)
+		dist = player.global_position.distance_to(target)
 		var to_target = (target - player.global_position).normalized()
 		var forward = Vector2(
 			cos(player.global_rotation - deg_to_rad(90)), 
@@ -41,7 +42,7 @@ func _input(event: InputEvent) -> void:
 		Global.windows_manager.spawn_window()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("secondary"):
+	if player.can_move and dist > 0:
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
 		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
