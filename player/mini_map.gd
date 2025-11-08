@@ -3,6 +3,7 @@ class_name MiniMap
 
 @onready var background: TextureRect = %Background
 @onready var viewport: SubViewportContainer = %SubViewportContainer
+@onready var radius = (viewport.get_viewport_rect().size.x / 2) / mini_map_camera.zoom.x / (get_window().size.x / viewport.size.x)
 
 @export var player: Player
 var player_marker
@@ -11,12 +12,13 @@ var markers := {}
 @export var mini_map_camera: Camera2D
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 2.0
+var scan_wait_time := 4.0
 var marker_age := {}   # { obj: seconds_since_seen }
 var fade_speed := 0.3
-@onready var mat: ShaderMaterial = viewport.material
+@onready var mat: ShaderMaterial = $SubViewportContainer/SubViewport/ScanEffect.material
 var scan_elapsed := 0.0
 var scanning := false
+@onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport
 
 func _ready() -> void:
 	init_player_marker()
@@ -46,6 +48,13 @@ func _physics_process(delta: float) -> void:
 		marker_age[obj] += delta
 		var new_alpha = clamp(1.0 - marker_age[obj] * fade_speed, 0.0, 1.0)
 		marker.modulate.a = new_alpha
+		var marker_offset = obj.global_position - player.global_position
+		var distance = marker_offset.length()
+		if distance > radius:
+			var clamped_offset = marker_offset.normalized() * radius
+			marker.global_position = player.global_position + clamped_offset
+			marker.global_position = marker.global_position
+			marker.scale = Vector2(0.65, 0.65)
 
 func _on_scan_timer_timeout() -> void:
 	scan_timer.wait_time = scan_wait_time
@@ -81,7 +90,6 @@ func get_minimap_objs():
 	_on_scan_timer_timeout()
 
 func update_markers_position():
-	var radius = (viewport.get_viewport_rect().size.x / 2) / mini_map_camera.zoom.x / (get_window().size.x / viewport.size.x)
 	for obj in markers.keys():
 		var marker: RadarObjComponent = markers[obj]
 		var marker_offset = obj.global_position - player.global_position
@@ -92,7 +100,7 @@ func update_markers_position():
 		if distance > radius:
 			var clamped_offset = marker_offset.normalized() * radius
 			marker.global_position = player.global_position + clamped_offset
-			marker.scale = Vector2(0.5, 0.5)
+			marker.scale = Vector2(0.65, 0.65)
 		else:
 			marker.global_position = obj.global_position
 			marker.scale = Vector2(1, 1)

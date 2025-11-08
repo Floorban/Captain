@@ -3,10 +3,15 @@ class_name Monitor
 
 @onready var blades: MeshInstance3D = $Env/Ventilation_2/Ventilation_2_blades
 @onready var camera: Camera3D = $Camera3D
+@onready var screen: Sprite3D = $"Collada visual scene group/Cube/Screen"
+@onready var mini_map: MiniMap = %MiniMap
 
 var target_speed := 0.0 
 var current_speed := 0.0
 var accel := 0.8
+
+func _ready() -> void:
+	screen.texture.viewport_path = mini_map.sub_viewport.get_path()
 
 func _process(delta: float) -> void:
 	update_cam_shake(delta)

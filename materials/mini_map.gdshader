@@ -18,8 +18,8 @@ void fragment() {
 	float mod_dist = dist - current_radius + 0.5;
 	//float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
 	COLOR.a *= 1.0 - step(0.5, mod_dist);
-	COLOR.a -= step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
-	COLOR.a += smoothstep(0.5 - circle_width / 2.0, 0.5 + circle_width / 2.0, mod_dist);
+	COLOR.a += step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
+	COLOR.a -= smoothstep(0.5 - circle_width / 2.0, 0.5 + circle_width / 2.0, mod_dist);
 	COLOR.a -= 2.0 * dist;
 	COLOR.a *= alpha_boost;
 }

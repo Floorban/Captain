@@ -77,9 +77,11 @@ func _go_to_destination(delta):
 			Global._process_fuel(delta)
 		elif not has_arrived:
 			has_arrived = true
+			monitor.trauma = 0.3
 			monitor.target_speed = 0.0
+			Input.action_release("secondary")
 			print("arrive")
-	elif Input.is_action_just_released("secondary"):
+	if Input.is_action_just_released("secondary") and not has_arrived:
 		monitor.trauma = 0.3
 		monitor.target_speed = 0.0
 
