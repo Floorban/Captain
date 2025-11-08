@@ -11,8 +11,9 @@ var markers := {}
 @export var mini_map_camera: Camera2D
 
 @onready var scan_timer: Timer = %ScanTimer
+var scan_wait_time := 2.0
 var marker_age := {}   # { obj: seconds_since_seen }
-var fade_speed := 0.5
+var fade_speed := 0.3
 @onready var mat: ShaderMaterial = viewport.material
 var scan_elapsed := 0.0
 var scanning := false
@@ -47,7 +48,8 @@ func _physics_process(delta: float) -> void:
 		marker.modulate.a = new_alpha
 
 func _on_scan_timer_timeout() -> void:
-	#scan_timer.start()
+	scan_timer.wait_time = scan_wait_time
+	scan_timer.start()
 	mat.set_shader_parameter("scan_active", true)
 	scanning = true
 	scan_elapsed = 0.0

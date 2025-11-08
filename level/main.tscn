@@ -20,9 +20,6 @@ script = ExtResource("1_414cb")
 top_level = true
 position = Vector2(436, 486)
 
-[node name="HealthComponent" parent="PlayerCaptain" index="8" node_paths=PackedStringArray("health_bar")]
-health_bar = NodePath("")
-
 [node name="Path2D" type="Path2D" parent="."]
 top_level = true
 light_mask = 0

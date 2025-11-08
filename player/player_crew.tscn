@@ -50,10 +50,16 @@ texture = ExtResource("2_gbhii")
 shape = SubResource("CircleShape2D_gbhii")
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
-position = Vector2(3, 3)
+position = Vector2(5, 3)
 rotation = 3.1415927
-scale = Vector2(5, 5)
+scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_mbj16")
+
+[node name="PixelEffect" parent="RadarObjComponent/MiniMapIcon" index="0"]
+offset_left = -500.00006
+offset_top = -497.59995
+offset_right = 491.99994
+offset_bottom = 494.40005
 
 [editable path="InteractionController"]
 [editable path="HitboxComponent"]

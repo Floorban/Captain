@@ -1,7 +1,5 @@
 shader_type canvas_item;
 
-uniform float radius = 1.0;
-
 uniform float circle_width: hint_range(0.0, 1.0, 0.05) = 0.15;
 uniform float wait_time: hint_range(0.0, 5.0, 0.1) = 0.5;
 uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
@@ -11,19 +9,10 @@ uniform bool scan_active = false;
 uniform float scan_time = 0.0;  
 
 void fragment() {
-	float dist = distance(UV, vec2(0.5)) * 0.5;
-	
-	vec2 center = vec2(0.5, 0.5);
-	vec2 local_coords = UV - center;
-	float distance = length(local_coords);
-	float circleRadius = radius * 0.5;
-	if (distance > circleRadius) {
-		discard;
-	}
-
 	if (!scan_active) {
 		discard;
 	}
+	float dist = distance(UV, vec2(0.5)) * 0.5;
 	float current_radius = scan_time * speed;
 	float mod_dist = dist - current_radius + 0.5;
 	//float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
