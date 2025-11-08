@@ -66,7 +66,8 @@ func _set_destination(event):
 
 func _go_to_destination(delta):
 	if Input.is_action_pressed("secondary") and target != null:
-		monitor.target_speed = 5.0
+		monitor.trauma = 0.2
+		monitor.target_speed = 8.0
 		select_marker.hide_labels()
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
@@ -79,6 +80,7 @@ func _go_to_destination(delta):
 			monitor.target_speed = 0.0
 			print("arrive")
 	elif Input.is_action_just_released("secondary"):
+		monitor.trauma = 0.3
 		monitor.target_speed = 0.0
 
 func send_ship(event):

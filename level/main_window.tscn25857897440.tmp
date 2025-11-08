@@ -366,7 +366,6 @@ light_mask = 0
 visibility_layer = 2
 z_index = 10
 position = Vector2(460, 40)
-ignore_rotation = false
 zoom = Vector2(0.12, 0.12)
 limit_enabled = false
 script = ExtResource("2_bso6d")
