@@ -1,28 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://c26nlcncwew4"]
+[gd_scene load_steps=4 format=3 uid="uid://c26nlcncwew4"]
 
 [ext_resource type="Shader" uid="uid://bbgopq8da5k5y" path="res://materials/scrolling_background.gdshader" id="1_ua1tw"]
 [ext_resource type="Script" uid="uid://lehxrq0mpi0" path="res://level/background.gd" id="2_ua1tw"]
-[ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="3_ua1tw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75weh"]
 shader = ExtResource("1_ua1tw")
-shader_parameter/speed = 0.1
-shader_parameter/pixelation = 8.0
-shader_parameter/zoom = 2.0
-shader_parameter/gradient_pixelation = 0.2
+shader_parameter/speed = 0.9
+shader_parameter/pixelation = 2.0
+shader_parameter/zoom = 3.215
+shader_parameter/gradient_pixelation = 1.0
 shader_parameter/background_threshold = 0.0
-shader_parameter/color_low_threshold = 0.24
-shader_parameter/color_mid_threshold = 0.48
-shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
-shader_parameter/color_mid = Color(0.5, 0.1, 0.3, 1)
-shader_parameter/color_high = Color(1, 1, 1, 1)
-shader_parameter/global_alpha = 0.3
+shader_parameter/color_low_threshold = 0.0430000020425
+shader_parameter/color_mid_threshold = 0.486000023085
+shader_parameter/color_low = Color(0.03901455, 0.40380257, 0.49321133, 1)
+shader_parameter/color_mid = Color(0.26693353, 0.5905187, 0.73760307, 1)
+shader_parameter/color_high = Color(0.7851237, 0.15504648, 0.15504648, 1)
+shader_parameter/global_alpha = 0.7790000370025
 
 [node name="Background" type="CanvasLayer"]
 layer = -1
 script = ExtResource("2_ua1tw")
 
-[node name="BackgroundTexture" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundTexture" type="ColorRect" parent="."]
 visibility_layer = 7
 texture_repeat = 2
 material = SubResource("ShaderMaterial_75weh")
@@ -33,5 +40,3 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("3_ua1tw")
-expand_mode = 1

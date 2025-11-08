@@ -19,6 +19,7 @@ var fade_speed := 0.3
 var scan_elapsed := 0.0
 var scanning := false
 @onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport
+@onready var side_sub_viewport: SubViewport = $"../GameControl/SideScreen/SubViewport"
 
 func _ready() -> void:
 	init_player_marker()

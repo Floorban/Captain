@@ -30,7 +30,7 @@ func _set_destination(event):
 		print(click_pos)
 		if click_pos.x < 275 or click_pos.x > 630 or click_pos.y < 125 or click_pos.y > 470:
 			return
-		select_marker.global_position = click_pos
+		select_marker.global_position = click_pos + Vector2(-10,-10)
 		select_marker.no_result()
 
 		target = get_global_mouse_position()
