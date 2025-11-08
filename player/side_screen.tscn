@@ -255,3 +255,5 @@ custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "NOTHIN"
+
+[connection signal="mouse_entered" from="SubViewport/Background/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]

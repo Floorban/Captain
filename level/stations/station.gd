@@ -7,7 +7,6 @@ var has_entered := false
 
 func _ready() -> void:
 	interaction.interact = Callable(self, "_on_enter_station")
-	print(global_position)
 
 func _on_enter_station(_interactor: Node) -> void:
 	#if interactor.has_node("InventoryComponent"): #if player's reputation is over 10 or some lol

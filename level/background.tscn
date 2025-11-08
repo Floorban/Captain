@@ -1,13 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://c26nlcncwew4"]
+[gd_scene load_steps=6 format=3 uid="uid://c26nlcncwew4"]
 
 [ext_resource type="Shader" uid="uid://bbgopq8da5k5y" path="res://materials/scrolling_background.gdshader" id="1_ua1tw"]
+[ext_resource type="Shader" uid="uid://b7o425oiotkmd" path="res://level/cctv.gdshader" id="2_75weh"]
 [ext_resource type="Script" uid="uid://lehxrq0mpi0" path="res://level/background.gd" id="2_ua1tw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rfem"]
+shader = ExtResource("2_75weh")
+shader_parameter/exposure = 1.3950000597427301
+shader_parameter/contrast = 0.6730000082175001
+shader_parameter/saturation = 0.54000002565
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 4.1290001486275
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 23.82800103683
+shader_parameter/dither_strength = 0.5650000268375
+shader_parameter/chrom_aberration = 0.2790000132525
+shader_parameter/vignette_strength = 0.3290000156275
+shader_parameter/grain_strength = 0.25
+shader_parameter/tint_strength = 0.5750000273125
+shader_parameter/scanline_density = 240.0
+shader_parameter/scanline_strength = 0.0830000039425
+shader_parameter/glitch_strength = 0.67200003192
+shader_parameter/glitch_speed = 6.3130002998675
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75weh"]
 shader = ExtResource("1_ua1tw")
 shader_parameter/speed = 0.9
 shader_parameter/pixelation = 2.0
-shader_parameter/zoom = 3.215
+shader_parameter/zoom = 2.0
 shader_parameter/gradient_pixelation = 1.0
 shader_parameter/background_threshold = 0.0
 shader_parameter/color_low_threshold = 0.0430000020425
@@ -22,6 +43,7 @@ layer = -1
 script = ExtResource("2_ua1tw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4rfem")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,8 +52,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="BackgroundTexture" type="ColorRect" parent="."]
-visibility_layer = 7
-texture_repeat = 2
+light_mask = 0
 material = SubResource("ShaderMaterial_75weh")
 anchors_preset = 15
 anchor_right = 1.0
