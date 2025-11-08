@@ -48,7 +48,6 @@ func close_all_windows():
 			w.visible = false
 	subwindows.clear()
 
-
 func _on_files_dropped(files: PackedStringArray):
 	for f in files:
 		print("File dropped:", f)

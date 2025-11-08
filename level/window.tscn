@@ -23,6 +23,8 @@ script = ExtResource("1_iwyyp")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nen6l")]
 targets = [NodePath("../Player")]
+min_zoom = 0.2
+max_zoom = 1.0
 
 [node name="Player" parent="." instance=ExtResource("3_lsbgt")]
 position = Vector2(350, 570)

@@ -1,8 +1,8 @@
 extends Window
 class_name Wwindow
 
-@export var width_range: Vector2i = Vector2i(400, 800)
-@export var height_range: Vector2i = Vector2i(400, 800)
+@export var width_range: Vector2i = Vector2i(400, 400)
+@export var height_range: Vector2i = Vector2i(400, 400)
 
 @export var max_distance: float = 500.0  # beyond this, window is minimum size
 @export var min_window_size: Vector2i = Vector2i(250, 250)
@@ -32,7 +32,7 @@ func init_window(_x: float, _y: float):
 
 func init_player_pos():
 	if not player: return
-	player.position = Vector2.ZERO
+	player.global_position = Vector2.ZERO
 
 func init_window_signals():
 	focus_entered.connect(_on_focus_entered)

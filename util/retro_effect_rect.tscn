@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvmm2mco26814"]
+
+[ext_resource type="Shader" uid="uid://fcr5pmj46rrv" path="res://level/retro.gdshader" id="1_xco6q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyphg"]
+shader = ExtResource("1_xco6q")
+shader_parameter/shake = 0.010000000475
+shader_parameter/noiseQuality = 76.80000114441215
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.0029999999241
+shader_parameter/colorOffsetIntensity = 0.20900000666762
+shader_parameter/pixelSize = 200.0
+shader_parameter/grainIntensity = 0.04
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.014000000665
+
+[node name="RetroEffectRect" type="ColorRect"]
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_qyphg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

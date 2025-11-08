@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://b0xv8a2br0nfc"]
+[gd_scene load_steps=107 format=4 uid="uid://b0xv8a2br0nfc"]
 
 [ext_resource type="Texture2D" uid="uid://d2c27bint8oj3" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_baseColor.jpeg" id="1_n6pra"]
 [ext_resource type="Texture2D" uid="uid://c7a5d2bue3oif" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_metallicRoughness.png" id="2_guvov"]
@@ -8,19 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ckj8fknlehn6f" path="res://retro-modernized_pip_boy_editable_screen/textures/PIP_Main_emissive.jpeg" id="6_yralg"]
 [ext_resource type="Texture2D" uid="uid://dn2ef03sqiimc" path="res://retro-modernized_pip_boy_editable_screen/textures/PIP_Main_normal.png" id="7_e2f1t"]
 [ext_resource type="PackedScene" uid="uid://btpv6s8xmhjrx" path="res://env.tscn" id="8_mjpe0"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7qsf4"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_dsjqh"]
-sky_material = SubResource("ProceduralSkyMaterial_7qsf4")
-
-[sub_resource type="Environment" id="Environment_dsjqh"]
-background_mode = 2
-sky = SubResource("Sky_dsjqh")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knr4f"]
 resource_name = "Leather"
@@ -1665,13 +1652,9 @@ shadow_mesh = SubResource("ArrayMesh_6xiqq")
 
 [node name="Monitor" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_dsjqh")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.81783795, 0.40860716, 0.40519273, -0.57544494, -0.58321124, -0.57334787, 0.002038926, -0.70207196, 0.71210337, 0, 0, 0)
+transform = Transform3D(-0.015666725, 0.5271406, 0.8496337, -0.94983715, -0.27329606, 0.15204746, 0.31235197, -0.80463177, 0.5049793, 0, 0, 0)
 light_color = Color(0.58950764, 0.24470821, 0.29689917, 1)
-light_energy = 0.1
 shadow_enabled = true
 
 [node name="Collada visual scene group" type="Node3D" parent="."]
@@ -1973,3 +1956,11 @@ fov = 30.0
 
 [node name="Env" parent="." instance=ExtResource("8_mjpe0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.7148317, -4.549717)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8076286)
+light_color = Color(0.23532882, 0.600735, 0.84817356, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5668464, 0.73005784, -2.1406257)
+light_color = Color(0.8902681, 0.444882, 0.42229986, 1)

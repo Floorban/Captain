@@ -11,7 +11,7 @@ var markers := {}
 @export var mini_map_camera: Camera2D
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 2.0
+var scan_wait_time := 5.0
 var marker_age := {}   # { obj: seconds_since_seen }
 var fade_speed := 0.3
 @onready var mat: ShaderMaterial = viewport.material

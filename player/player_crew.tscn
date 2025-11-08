@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dbtxjqy13rgxw" path="res://assets/SpaceShooterAssetPack_Ships.png" id="4_c6f1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prtci"]
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6f1t"]
-radius = 19.0263
+radius = 33.13608
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbhii"]
-radius = 18.0
+radius = 26.172504
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbj16"]
 atlas = ExtResource("4_c6f1t")
@@ -23,15 +24,21 @@ input_right = "right2"
 input_up = "up2"
 input_down = "down2"
 
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2, 2)
+
+[node name="ShieldSprite" parent="." index="1"]
+scale = Vector2(4, 4)
+
 [node name="InventoryComponent" parent="." index="2" instance=ExtResource("2_prtci")]
 anchors_preset = 15
 anchor_left = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -22.0
-offset_top = -40.0
+offset_top = -50.0
 offset_right = 22.0
-offset_bottom = -20.0
+offset_bottom = -30.0
 grow_vertical = 2
 
 [node name="CollisionShape2D" parent="." index="3"]
@@ -44,15 +51,18 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_c6f1t")
 
 [node name="HealthBar" parent="." index="5"]
+offset_top = 16.0
+offset_bottom = 46.0
 texture = ExtResource("2_gbhii")
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_gbhii")
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
-position = Vector2(5, 3)
+modulate = Color(0.597697, 0.6536664, 0.9049115, 1)
+position = Vector2(7, 6)
 rotation = 3.1415927
-scale = Vector2(10, 10)
+scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_mbj16")
 
 [node name="PixelEffect" parent="RadarObjComponent/MiniMapIcon" index="0"]
