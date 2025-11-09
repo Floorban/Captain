@@ -16,6 +16,7 @@ var has_arrived := false
 
 var send_ship_delay := 500
 @onready var monitor: Monitor = $"../Monitor"
+var can_control := false
 
 func _input(event: InputEvent) -> void:
 	_set_destination(event)
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	_go_to_destination(delta)
 
 func _set_destination(event):
-	if event.is_action_pressed("primary"):
+	if event.is_action_pressed("primary") and can_control:
 		var click_pos = event.global_position
 		print(click_pos)
 		if click_pos.x < 275 or click_pos.x > 630 or click_pos.y < 125 or click_pos.y > 470:
@@ -66,7 +67,7 @@ func _set_destination(event):
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
 
 func _go_to_destination(delta):
-	if Input.is_action_pressed("secondary") and target != null:
+	if Input.is_action_pressed("secondary") and target != null and can_control:
 		monitor.trauma = 0.2
 		monitor.target_speed = 8.0
 		select_marker.hide_labels()
@@ -82,7 +83,7 @@ func _go_to_destination(delta):
 			monitor.target_speed = 0.0
 			Input.action_release("secondary")
 			print("arrive")
-	if Input.is_action_just_released("secondary") and not has_arrived:
+	if Input.is_action_just_released("secondary") and not has_arrived and can_control:
 		monitor.trauma = 0.3
 		monitor.target_speed = 0.0
 

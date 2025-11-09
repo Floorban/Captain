@@ -19,6 +19,8 @@ var health_component: HealthComponent
 
 var windows_manager: WindowManager
 
+var game_controller: GameControl
+
 func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component
