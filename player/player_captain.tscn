@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://631pf63y7wqo"]
+[gd_scene load_steps=9 format=3 uid="uid://631pf63y7wqo"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
 [ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
 [ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="2_umdq8"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_kgmax"]
-[ext_resource type="Texture2D" uid="uid://dbtxjqy13rgxw" path="res://assets/SpaceShooterAssetPack_Ships.png" id="5_mshal"]
+[ext_resource type="Texture2D" uid="uid://mlmboodiiuvb" path="res://assets/160+ Cursors Crosshairs - Pack (32x32)/white/80.png" id="5_mshal"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgmax"]
 atlas = ExtResource("2_umdq8")
@@ -16,10 +16,6 @@ load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.c
 [sub_resource type="AtlasTexture" id="AtlasTexture_umdq8"]
 atlas = SubResource("CompressedTexture2D_mshal")
 region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m7lgq"]
-atlas = ExtResource("5_mshal")
-region = Rect2(8, 16, 8, 8)
 
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
@@ -87,10 +83,11 @@ build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
-modulate = Color(2.3353064, 2.3353064, 2.3353064, 1)
-position = Vector2(0.9999981, 7)
-scale = Vector2(15, 15)
-texture = SubResource("AtlasTexture_m7lgq")
+modulate = Color(0.27835503, 1.4178978, 0.55013067, 1)
+position = Vector2(0.9999981, 31.999998)
+rotation = 3.1415927
+scale = Vector2(10, 10)
+texture = ExtResource("5_mshal")
 
 [editable path="InteractionComponent"]
 [editable path="InteractionController"]
