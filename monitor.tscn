@@ -1962,7 +1962,7 @@ mesh = SubResource("ArrayMesh_xbyli")
 skeleton = NodePath("")
 
 [node name="Screen" type="Sprite3D" parent="Collada visual scene group/Cube"]
-transform = Transform3D(0.2799583, -4.21226e-10, -0.0048182653, -0.0048182653, -1.223557e-08, -0.27995855, 2.1061297e-10, 0.27999976, -1.2240998e-08, 0.049999997, 0.8, 0.16680488)
+transform = Transform3D(-1.2239179e-08, -0.27999976, -1.223919e-08, 0, -1.2239179e-08, 0.28000003, -0.27999976, 1.2239179e-08, 5.34992e-16, 0.049999997, 0.8, 0.16907646)
 texture = SubResource("ViewportTexture_dsjqh")
 
 [node name="Camera3D" type="Camera3D" parent="."]

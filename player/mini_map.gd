@@ -4,6 +4,7 @@ class_name MiniMap
 @onready var background: TextureRect = %Background
 @onready var viewport: SubViewportContainer = %SubViewportContainer
 @onready var radius = (viewport.get_viewport_rect().size.x / 2) / mini_map_camera.zoom.x / (get_window().size.x / viewport.size.x)
+@onready var scan_effect: ColorRect = %ScanEffect
 
 @export var player: Player
 var player_marker
@@ -15,7 +16,7 @@ var markers := {}
 var scan_wait_time := 4.0
 var marker_age := {}   # { obj: seconds_since_seen }
 var fade_speed := 0.3
-@onready var mat: ShaderMaterial = $SubViewportContainer/SubViewport/ScanEffect.material
+@onready var mat: ShaderMaterial = scan_effect.material
 var scan_elapsed := 0.0
 var scanning := false
 @onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport

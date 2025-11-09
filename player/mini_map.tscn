@@ -258,8 +258,6 @@ handle_input_locally = false
 size = Vector2i(350, 350)
 render_target_update_mode = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
-
 [node name="Background" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
 modulate = Color(0.69687116, 0.05970768, 0.05970768, 1)
@@ -287,42 +285,78 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RadarTexture" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+[node name="Radar" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RadarTexture" type="TextureRect" parent="SubViewportContainer/SubViewport/Radar"]
 visibility_layer = 3
 material = SubResource("ShaderMaterial_60amn")
 custom_minimum_size = Vector2(550, 550)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -275.0
-offset_right = 275.0
-offset_bottom = 275.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_l0kmr")
 expand_mode = 1
 
-[node name="ScanEffect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+[node name="ScanEffect" type="ColorRect" parent="SubViewportContainer/SubViewport/Radar"]
+unique_name_in_owner = true
 modulate = Color(0.8465545, 1.8247963, 0.790655, 1)
 light_mask = 0
 visibility_layer = 2
 material = SubResource("ShaderMaterial_67s8b")
 custom_minimum_size = Vector2(300, 300)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -175.0
-offset_right = 175.0
-offset_bottom = 175.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.7722081, 1.353256, 0.77744275, 1)
+
+[node name="ControlMenu" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/ControlMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "CONTROL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScanTimer" type="Timer" parent="."]
 unique_name_in_owner = true
