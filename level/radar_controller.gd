@@ -81,7 +81,7 @@ func _go_to_destination(delta):
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
 		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
-		if path_follow.progress_ratio + player.move_speed * delta < 1.0:
+		if path.curve.point_count > 0 and path_follow.progress_ratio + player.move_speed * delta < 1.0:
 			path_follow.progress_ratio += player.move_speed * delta
 			Global._process_fuel(delta)
 		elif not has_arrived:
@@ -139,12 +139,11 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
+		ship_amonut -= 1
 	)
 
 func remove_ship_radar_obj(ship: Node2D):
 	if not ship:
 		return
-	ship_amonut = clampi(ship_amonut - 1, 0, 3)
-	print(ship_amonut)
-	ship.queue_free()
+	ship_amonut += 1
 	mini_map.remove_marker(ship)

@@ -12,6 +12,11 @@ func _ready():
 	_init_main_window()
 	main_sub_window.files_dropped.connect(_on_files_dropped)
 	main_sub_window.world_2d = main_window.world_2d
+	var screen_size = DisplayServer.screen_get_size()
+	main_sub_window.position = Vector2(
+		(screen_size.x - main_sub_window.size.x) / 2,
+		screen_size.y - main_sub_window.size.y - 150
+	)
 	main_sub_window.grab_focus()
 
 func _init_main_window():
@@ -29,18 +34,30 @@ func spawn_window(pos: Vector2):
 
 	var w = window_scene.instantiate()
 	if w is Wwindow:
-		var x = randf_range(0, spawn_area.x)
-		var y = randf_range(0, spawn_area.y)
 		w.world_2d = main_window.world_2d
-		subwindows.append(w)
 		w.tree_exited.connect(func():
 			subwindows.erase(w)
 			print("Removed window:", w.name)
 		)
-		
 		w.name = "SubWindow_%d" % subwindows.size()
 		add_child(w)
-		w.init_window(x, y, pos)
+		subwindows.append(w)
+		var index = subwindows.size() - 1
+		var fixed_positions = get_fixed_positions_top_row(w)
+		var spawn_pos = fixed_positions[index % fixed_positions.size()]
+		w.init_window(spawn_pos.x, spawn_pos.y, pos)
+
+func get_fixed_positions_top_row(w) -> Array:
+	var screen_size = DisplayServer.screen_get_size()
+	var y = 100  # distance from top edge
+	var spacing = 600  # horizontal spacing from the center
+
+	var center_x = (screen_size.x - w.size.x) / 2
+	return [
+		Vector2(center_x - spacing, y),
+		Vector2(center_x, y),
+		Vector2(center_x + spacing, y)
+	]
 
 func close_all_windows():
 	for w in subwindows:

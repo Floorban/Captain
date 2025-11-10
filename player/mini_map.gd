@@ -124,10 +124,11 @@ func update_markers_position():
 				marker.global_position = obj.global_position
 				marker.scale = Vector2(1, 1)
 
-func remove_marker(marker_obj):
+func remove_marker(marker_obj: Node2D):
 	for obj in markers.keys():
 		if obj == marker_obj:
 			var window : Wwindow = obj.get_parent()
 			markers.erase(obj)
 			window._clear_window()
 	get_minimap_objs()
+	marker_obj.call_deferred("queue_free")
