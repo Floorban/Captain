@@ -10,4 +10,3 @@ window_scene = ExtResource("2_naofy")
 main_sub_window = NodePath("MainWindow")
 
 [node name="MainWindow" parent="." instance=ExtResource("3_msa7g")]
-size = Vector2i(900, 600)

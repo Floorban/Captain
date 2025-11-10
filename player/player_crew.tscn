@@ -23,6 +23,7 @@ input_left = "left2"
 input_right = "right2"
 input_up = "up2"
 input_down = "down2"
+move_speed = 150.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(2, 2)

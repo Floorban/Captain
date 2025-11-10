@@ -17,7 +17,6 @@ func random_size() -> Vector2i:
 func init_window(_x: float, _y: float, _t: Vector2):
 	position.x = int(_x)
 	position.y = int(_y)
-	resize_window(random_size())
 	player.hide()
 	#await get_tree().create_timer(delay).timeout
 	init_player(_t)
@@ -73,3 +72,4 @@ func _on_focus_exited() -> void:
 
 func _clear_window():
 	print("close")
+	queue_free()

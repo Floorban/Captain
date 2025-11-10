@@ -61,17 +61,18 @@ func _physics_process(delta: float) -> void:
 		player_marker.rotation = player.rotation
 	update_camera()
 	for obj in markers.keys():
-		var marker : RadarObjComponent = markers[obj]
-		marker_age[obj] += delta
-		var new_alpha = clamp(1.0 - marker_age[obj] * fade_speed, 0.0, 1.0)
-		marker.modulate.a = new_alpha
-		var marker_offset = obj.global_position - player.global_position
-		var distance = marker_offset.length()
-		if distance > radius:
-			var clamped_offset = marker_offset.normalized() * radius
-			marker.global_position = player.global_position + clamped_offset
-			marker.global_position = marker.global_position
-			marker.scale = Vector2(0.65, 0.65)
+		if is_instance_valid(obj):
+			var marker : RadarObjComponent = markers[obj]
+			marker_age[obj] += delta
+			var new_alpha = clamp(1.0 - marker_age[obj] * fade_speed, 0.0, 1.0)
+			marker.modulate.a = new_alpha
+			var marker_offset = obj.global_position - player.global_position
+			var distance = marker_offset.length()
+			if distance > radius:
+				var clamped_offset = marker_offset.normalized() * radius
+				marker.global_position = player.global_position + clamped_offset
+				marker.global_position = marker.global_position
+				marker.scale = Vector2(0.65, 0.65)
 
 func _on_scan_timer_timeout() -> void:
 	scan_timer.wait_time = scan_wait_time
@@ -108,16 +109,26 @@ func get_minimap_objs():
 
 func update_markers_position():
 	for obj in markers.keys():
-		var marker: RadarObjComponent = markers[obj]
-		var marker_offset = obj.global_position - player.global_position
-		var distance = marker_offset.length()
+		if is_instance_valid(obj):
+			var marker: RadarObjComponent = markers[obj]
+			var marker_offset = obj.global_position - player.global_position
+			var distance = marker_offset.length()
 
-		marker.global_rotation = obj.global_rotation
+			marker.global_rotation = obj.global_rotation
 
-		if distance > radius:
-			var clamped_offset = marker_offset.normalized() * radius
-			marker.global_position = player.global_position + clamped_offset
-			marker.scale = Vector2(0.65, 0.65)
-		else:
-			marker.global_position = obj.global_position
-			marker.scale = Vector2(1, 1)
+			if distance > radius:
+				var clamped_offset = marker_offset.normalized() * radius
+				marker.global_position = player.global_position + clamped_offset
+				marker.scale = Vector2(0.65, 0.65)
+			else:
+				marker.global_position = obj.global_position
+				marker.scale = Vector2(1, 1)
+
+func remove_marker(marker_obj: Node2D):
+	if not marker_obj or not markers.has(marker_obj):
+		return
+	var window: Wwindow = marker_obj.get_parent()
+	markers.erase(marker_obj)
+	marker_age.erase(marker_obj)
+	window._clear_window()
+	marker_obj.call_deferred("queue_free")

@@ -39,11 +39,12 @@ offset_bottom = 106.0
 theme_override_constants/separation = -6
 
 [node name="LabelName" type="Label" parent="VBoxContainer"]
+modulate = Color(0.26666668, 0.9882353, 0.5372549, 1)
 light_mask = 0
 visibility_layer = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "???"
+text = "YOU"
 
 [node name="LabelX" type="Label" parent="VBoxContainer"]
 light_mask = 0

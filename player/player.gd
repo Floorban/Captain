@@ -113,6 +113,8 @@ func _receive_items(interactor: Node):
 		inv.item_delivered.connect(_on_item_delivered)
 		inv.deliver_inventory()
 		inv.item_delivered.disconnect(_on_item_delivered)
+	if interactor != self and interactor is Player:
+		Global.radar_controller.remove_ship_radar_obj(interactor)
 
 func _on_item_delivered(item: ItemData, count: int):
 	print("Captain received:", item.item_name, "x", count)
