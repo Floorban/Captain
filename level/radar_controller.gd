@@ -72,7 +72,7 @@ func _set_destination(event):
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
 
 func _go_to_destination(delta):
-	if Input.is_action_pressed("secondary") and target != null and can_control:
+	if Input.is_action_pressed("secondary") and target != null and can_control and player.can_move:
 		monitor.trauma = 0.2
 		monitor.target_speed = 8.0
 		select_marker.hide_labels()

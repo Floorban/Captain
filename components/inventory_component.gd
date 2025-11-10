@@ -4,7 +4,7 @@ class_name InventoryComponent
 signal inventory_changed
 signal item_delivered(item: ItemData, count: int)
 
-var hotbar_size := 2
+var hotbar_size := 3
 var hotbar : Array[InventorySlot]
 
 func _init() -> void:

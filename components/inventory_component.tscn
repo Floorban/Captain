@@ -6,13 +6,13 @@
 
 [node name="InventoryComponent" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 30)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -42.0
-offset_right = -17.0
-offset_bottom = 20.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_right = 80.0
+offset_bottom = 15.0
+grow_vertical = 2
 script = ExtResource("1_6xqhe")
 
 [node name="Hotbar" type="HBoxContainer" parent="."]
@@ -25,4 +25,7 @@ script = ExtResource("2_putkx")
 layout_mode = 2
 
 [node name="InventorySlot2" parent="Hotbar" instance=ExtResource("2_vohru")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Hotbar" instance=ExtResource("2_vohru")]
 layout_mode = 2

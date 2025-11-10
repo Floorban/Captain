@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckhsfu8dljb37"]
+[gd_scene load_steps=10 format=3 uid="uid://ckhsfu8dljb37"]
 
 [ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
@@ -13,9 +13,6 @@ bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1pwk"]
 bg_color = Color(0.22571012, 0.5318337, 0.31789196, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbyui"]
-bg_color = Color(0.8796685, 0.47173643, 0.30632022, 1)
 
 [node name="Window" type="Window"]
 canvas_item_default_texture_filter = 0
@@ -41,7 +38,7 @@ max_zoom = 1.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("hp_bar", "inventory") instance=ExtResource("3_lsbgt")]
 position = Vector2(350, 570)
-hp_bar = NodePath("../UI/ShipUI/Bar_Hp")
+hp_bar = NodePath("../UI/ShipUI/Header/Bar_Hp")
 inventory = NodePath("../UI/ShipUI/Bottom/InventoryComponent")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -58,17 +55,39 @@ grow_vertical = 2
 
 [node name="Header" type="TextureRect" parent="UI/ShipUI"]
 texture_filter = 1
-custom_minimum_size = Vector2(320, 30)
+custom_minimum_size = Vector2(320, 20)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_bottom = 30.0
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -20.0
+offset_right = 175.0
 grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("7_tbyui")
 expand_mode = 1
 
+[node name="Bar_Hp" type="ProgressBar" parent="UI/ShipUI/Header"]
+texture_filter = 1
+custom_minimum_size = Vector2(350, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y1pwk")
+step = 0.1
+value = 50.0
+show_percentage = false
+script = ExtResource("5_tbyui")
+
 [node name="Label_Fuel" type="Label" parent="UI/ShipUI/Header"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,6 +98,7 @@ text = " Fuel"
 vertical_alignment = 1
 
 [node name="Labek)_HP" type="Label" parent="UI/ShipUI/Header"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,84 +109,30 @@ text = "HP "
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Bar_Hp" type="ProgressBar" parent="UI/ShipUI"]
-texture_filter = 1
-custom_minimum_size = Vector2(15, 300)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -4.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
-theme_override_styles/fill = SubResource("StyleBoxFlat_y1pwk")
-step = 0.1
-value = 50.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("5_tbyui")
-
-[node name="Bar_Fuel" type="ProgressBar" parent="UI/ShipUI"]
-texture_filter = 1
-custom_minimum_size = Vector2(15, 300)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 15.0
-grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
-theme_override_styles/fill = SubResource("StyleBoxFlat_tbyui")
-step = 0.1
-value = 62.2
-fill_mode = 3
-show_percentage = false
-
 [node name="Bottom" type="TextureRect" parent="UI/ShipUI"]
 texture_filter = 1
-custom_minimum_size = Vector2(320, 30)
+custom_minimum_size = Vector2(220, 30)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -30.0
-offset_right = 160.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_right = 200.0
+offset_bottom = 30.0
 texture = ExtResource("7_tbyui")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="UI/ShipUI/Bottom"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 75.0
-grow_vertical = 0
-text = "   Inventory:"
+offset_right = 73.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = " Inventory:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryComponent" parent="UI/ShipUI/Bottom" instance=ExtResource("5_sb0gl")]
-custom_minimum_size = Vector2(220, 30)
+custom_minimum_size = Vector2(70, 30)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -70.0
-offset_top = -30.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_left = 75.0
+offset_right = 205.0
 
 [node name="Background" parent="." instance=ExtResource("4_o4h07")]
 script = null

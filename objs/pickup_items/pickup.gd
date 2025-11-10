@@ -40,9 +40,8 @@ func _on_pickup(interactor: Node) -> void:
 		
 	if interactor is Player and interactor.inventory != null:
 		var inv = interactor.inventory as InventoryComponent
-		inv.add_item(item_data, quantity)
-	
-	call_deferred("queue_free")
+		if inv.add_item(item_data, quantity):
+			call_deferred("queue_free")
 	
 
 func _anim_sprite(delta: float):

@@ -11,7 +11,7 @@ var players : Array[Player]
 
 var game_speed := 1.0
 
-@export var max_fuel := 100.0
+@export var max_fuel := 20.0
 var cur_fuel := 0.0
 var fuel_heating_speed := 5.0
 
@@ -38,7 +38,7 @@ func _process_fuel(delta: float):
 	if main: main.update_fuel_bar(cur_fuel / max_fuel)
 	if cur_fuel <= 0: 
 		cur_fuel = 0.0
-		if main: main.is_paused = true
+		get_captain().can_move = false
 
 func get_players() -> Array[Player]:
 	var nodes = get_tree().get_nodes_in_group("player")

@@ -32,7 +32,6 @@ curve = SubResource("Curve2D_ns06i")
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("3_qh04p")
 is_paused = false
-spawn_size_height = 1000.0
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("3_nt2wp")]
 position = Vector2(-324.074, -179.891)
