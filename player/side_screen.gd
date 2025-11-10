@@ -32,6 +32,6 @@ func set_game_menu():
 	main_menu.hide()
 	game_menu.show()
 	b_1.grab_focus()
-	b_1.text = "INVENTORY"
-	b_2.text = "SEND X"
+	b_1.text = "SEND A SHIP"
+	b_2.text = "GO UP"
 	b_3.text = "STATS"

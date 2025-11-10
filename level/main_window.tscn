@@ -188,17 +188,6 @@ environment = SubResource("Environment_qyphg")
 [node name="MainUI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="FuelBar" parent="MainUI" instance=ExtResource("3_n56ur")]
-unique_name_in_owner = true
-light_mask = 0
-visibility_layer = 2
-custom_minimum_size = Vector2(345, 30)
-offset_left = -170.0
-offset_top = -121.0
-offset_right = 175.0
-offset_bottom = -91.0
-theme_override_constants/outline_size = 3
-
 [node name="HealthBar" type="TextureRect" parent="MainUI"]
 unique_name_in_owner = true
 visible = false
@@ -249,6 +238,17 @@ unique_name_in_owner = true
 
 [node name="SelectMarker" parent="GameControl" instance=ExtResource("12_dol8q")]
 unique_name_in_owner = true
+
+[node name="FuelBar" parent="GameControl" instance=ExtResource("3_n56ur")]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+custom_minimum_size = Vector2(345, 30)
+offset_left = -170.0
+offset_top = -121.0
+offset_right = 175.0
+offset_bottom = -91.0
+theme_override_constants/outline_size = 3
 
 [node name="Monitor" parent="." instance=ExtResource("8_a8etk")]
 

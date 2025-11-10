@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvcyx2gvb822c"]
+[gd_scene load_steps=7 format=3 uid="uid://bvcyx2gvb822c"]
 
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="1_1ftww"]
 [ext_resource type="Script" uid="uid://dt8orla2jidtw" path="res://player/side_screen.gd" id="1_1x5p7"]
+[ext_resource type="StyleBox" uid="uid://cyqon26itkt1j" path="res://btn_press_style.tres" id="3_l53wi"]
+[ext_resource type="StyleBox" uid="uid://dr50ts51okksv" path="res://btn_hover_style.tres" id="4_1xwaj"]
 
 [sub_resource type="Shader" id="Shader_aoaw7"]
 code = "shader_type canvas_item;
@@ -252,6 +254,9 @@ focus_neighbor_top = NodePath("../Button4")
 focus_neighbor_right = NodePath("../Button2")
 focus_neighbor_bottom = NodePath("../Button2")
 theme_override_font_sizes/font_size = 23
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="Button2" type="Button" parent="SubViewport/Background/MainMenu"]
@@ -263,6 +268,9 @@ focus_neighbor_top = NodePath("../Button1")
 focus_neighbor_right = NodePath("../Button3")
 focus_neighbor_bottom = NodePath("../Button3")
 theme_override_font_sizes/font_size = 23
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="Button3" type="Button" parent="SubViewport/Background/MainMenu"]
@@ -274,6 +282,9 @@ focus_neighbor_top = NodePath("../Button2")
 focus_neighbor_right = NodePath("../Button4")
 focus_neighbor_bottom = NodePath("../Button4")
 theme_override_font_sizes/font_size = 23
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="Button4" type="Button" parent="SubViewport/Background/MainMenu"]
@@ -285,6 +296,9 @@ focus_neighbor_top = NodePath("../Button3")
 focus_neighbor_right = NodePath("../Button1")
 focus_neighbor_bottom = NodePath("../Button1")
 theme_override_font_sizes/font_size = 23
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="GameMenu" type="MarginContainer" parent="SubViewport/Background"]
@@ -303,9 +317,8 @@ theme_override_constants/margin_bottom = 6
 [node name="Panel" type="Panel" parent="SubViewport/Background/GameMenu"]
 layout_mode = 2
 
-[node name="LabelTitle" type="Label" parent="SubViewport/Background/GameMenu/Panel"]
-visible = false
-custom_minimum_size = Vector2(120, 25)
+[node name="LabelControl" type="Label" parent="SubViewport/Background/GameMenu/Panel"]
+custom_minimum_size = Vector2(140, 95)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -314,9 +327,28 @@ offset_left = -60.0
 offset_right = 60.0
 offset_bottom = 25.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 18
-text = "TITLE"
-horizontal_alignment = 1
+theme_override_constants/line_spacing = 6
+theme_override_font_sizes/font_size = 17
+text = "Left Click: Select
+Right Click: Move
+Space: Press Btn"
+
+[node name="LabelInventory" type="Label" parent="SubViewport/Background/GameMenu/Panel"]
+visible = false
+custom_minimum_size = Vector2(140, 95)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 25.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 6
+theme_override_font_sizes/font_size = 17
+text = "Left Click: Select
+Right Click: Move
+Space: Press Btn"
 vertical_alignment = 1
 
 [node name="B1" type="Button" parent="SubViewport/Background/GameMenu/Panel"]
@@ -332,6 +364,9 @@ focus_neighbor_top = NodePath("../HBoxContainer/B3")
 focus_neighbor_right = NodePath("../HBoxContainer/B2")
 focus_neighbor_bottom = NodePath("../HBoxContainer/B2")
 theme_override_font_sizes/font_size = 18
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Background/GameMenu/Panel"]
@@ -357,6 +392,9 @@ focus_neighbor_top = NodePath("../../B1")
 focus_neighbor_right = NodePath("../B3")
 focus_neighbor_bottom = NodePath("../B3")
 theme_override_font_sizes/font_size = 18
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="B3" type="Button" parent="SubViewport/Background/GameMenu/Panel/HBoxContainer"]
@@ -368,4 +406,7 @@ focus_neighbor_top = NodePath("../B2")
 focus_neighbor_right = NodePath("../../B1")
 focus_neighbor_bottom = NodePath("../../B1")
 theme_override_font_sizes/font_size = 18
+theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
