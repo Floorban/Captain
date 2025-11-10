@@ -43,10 +43,11 @@ func _set_destination(event):
 		dist = player.global_position.distance_to(target)
 		
 		for obj in mini_map.markers:
-			var marker : RadarObjComponent = mini_map.markers[obj]
-			var distance = obj.global_position.distance_to(target)
-			if distance < 100 and marker.modulate.a > 0.1:
-				select_marker.set_label_text(obj.name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
+			if is_instance_valid(obj):
+				var marker : RadarObjComponent = mini_map.markers[obj]
+				var distance = obj.global_position.distance_to(target)
+				if distance < 100 and marker.modulate.a > 0.1:
+					select_marker.set_label_text(obj.name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
 				
 		path.global_position = player.global_position
 		path_follow.progress = 0.01
@@ -99,6 +100,8 @@ func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
 		var delay := distance / send_ship_delay
 		wait_and_spawn(delay, target, btn, loading_bar, axis_label)
 
+var ship_amonut := 3
+
 var send_ship_tween : Tween
 var is_sending := false
 var can_send := false
@@ -114,6 +117,10 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
+		return
+	if ship_amonut <= 0:
+		btn.text = "NOT ENOUGH"
+		axis_label.text = "RUN OUT OF \n SHIPS"
 		return
 	is_sending = true
 	axis_label.text = "SENDING TO\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
@@ -133,3 +140,11 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		select_marker.hide()
 		can_send = false
 	)
+
+func remove_ship_radar_obj(ship: Node2D):
+	if not ship:
+		return
+	ship_amonut = clampi(ship_amonut - 1, 0, 3)
+	print(ship_amonut)
+	ship.queue_free()
+	mini_map.remove_marker(ship)

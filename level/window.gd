@@ -73,3 +73,4 @@ func _on_focus_exited() -> void:
 
 func _clear_window():
 	print("close")
+	queue_free()

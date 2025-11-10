@@ -465,12 +465,15 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 28.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 16
-text = "FUEL IS NOT FULL"
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 17
+text = "FUEL IS NOT FULL
+COLLECT MORE
+WITH SMALL SHIP"
 horizontal_alignment = 1
 
 [node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]
-custom_minimum_size = Vector2(130, 30)
+custom_minimum_size = Vector2(140, 12)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -478,11 +481,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -65.0
-offset_top = -35.0
+offset_top = -17.0
 offset_right = 65.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
+value = 60.0
+show_percentage = false
 
 [node name="B1" type="Button" parent="SubViewport/Background/GameMenu/Panel"]
 unique_name_in_owner = true

@@ -44,7 +44,7 @@ func set_game_menu():
 	b_1.grab_focus()
 	b_1.pressed.connect(set_send_screen) 
 	b_2.pressed.connect(set_stats_screen)
-	b_3.pressed.connect(set_control_screen)
+	b_3.pressed.connect(set_ascend_screen)
 	b_1.text = "SEND A SHIP"
 	b_2.text = "STATS"
 	b_3.text = "GO UP"
@@ -53,11 +53,13 @@ func set_control_screen():
 	hud_control.show()
 	hud_send.hide()
 	hud_stats.hide()
+	hud_goup.hide()
 
 func set_send_screen():
 	hud_control.hide()
 	hud_send.show()
 	hud_stats.hide()
+	hud_goup.hide()
 	label_send.text = "SELECT A \n DESTINATION"
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
@@ -65,6 +67,10 @@ func set_stats_screen():
 	hud_control.hide()
 	hud_send.hide()
 	hud_stats.show()
+	hud_goup.hide()
 
 func set_ascend_screen():
-	pass
+	hud_control.hide()
+	hud_send.hide()
+	hud_stats.hide()
+	hud_goup.show()
