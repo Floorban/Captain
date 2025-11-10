@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckhsfu8dljb37"]
+[gd_scene load_steps=9 format=3 uid="uid://ckhsfu8dljb37"]
 
 [ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
 [ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="3_lsbgt"]
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="4_o4h07"]
+[ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="5_sb0gl"]
+[ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://player/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbyui"]
 
 [node name="Window" type="Window"]
 canvas_item_default_texture_filter = 0
@@ -13,6 +19,7 @@ title = "crew1"
 position = Vector2i(0, 36)
 size = Vector2i(350, 350)
 unresizable = true
+borderless = true
 always_on_top = true
 sharp_corners = true
 minimize_disabled = true
@@ -26,8 +33,113 @@ targets = [NodePath("../Player")]
 min_zoom = 0.2
 max_zoom = 1.0
 
-[node name="Player" parent="." instance=ExtResource("3_lsbgt")]
+[node name="Player" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("3_lsbgt")]
 position = Vector2(350, 570)
+inventory = NodePath("../UI/ShipUI/Bottom/InventoryComponent")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ShipUI" type="Control" parent="UI"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="TextureRect" parent="UI/ShipUI"]
+texture_filter = 1
+custom_minimum_size = Vector2(320, 30)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_bottom = 30.0
+grow_horizontal = 2
+texture = ExtResource("7_tbyui")
+expand_mode = 1
+
+[node name="Bar_Hp" type="ProgressBar" parent="UI/ShipUI"]
+texture_filter = 1
+custom_minimum_size = Vector2(15, 300)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tbyui")
+step = 0.1
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Bar_Fuel" type="ProgressBar" parent="UI/ShipUI"]
+texture_filter = 1
+custom_minimum_size = Vector2(15, 300)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 15.0
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tbyui")
+step = 0.1
+value = 62.2
+fill_mode = 3
+show_percentage = false
+
+[node name="Bottom" type="TextureRect" parent="UI/ShipUI"]
+texture_filter = 1
+custom_minimum_size = Vector2(320, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -30.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_tbyui")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/ShipUI/Bottom"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 75.0
+grow_vertical = 0
+text = "   Inventory:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryComponent" parent="UI/ShipUI/Bottom" instance=ExtResource("5_sb0gl")]
+custom_minimum_size = Vector2(220, 30)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -30.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Background" parent="." instance=ExtResource("4_o4h07")]
 script = null
+
+[editable path="UI/ShipUI/Bottom/InventoryComponent"]

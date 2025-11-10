@@ -38,8 +38,8 @@ func _on_pickup(interactor: Node) -> void:
 			if hl.cur_hp < hl.max_hp:
 				hl.cur_hp += item_data.value
 		
-	if interactor.has_node("InventoryComponent"):
-		var inv = interactor.get_node("InventoryComponent") as InventoryComponent
+	if interactor is Player and interactor.inventory != null:
+		var inv = interactor.inventory as InventoryComponent
 		inv.add_item(item_data, quantity)
 	
 	call_deferred("queue_free")

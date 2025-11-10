@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dq3logm4i46in" path="res://components/inventory_slot.tscn" id="2_vohru"]
 
 [node name="InventoryComponent" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 30)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -15,7 +16,9 @@ grow_horizontal = 2
 script = ExtResource("1_6xqhe")
 
 [node name="Hotbar" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+theme_override_constants/separation = 20
 script = ExtResource("2_putkx")
 
 [node name="InventorySlot" parent="Hotbar" instance=ExtResource("2_vohru")]

@@ -30,6 +30,7 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 ## --- Interaction ---
 @onready var interaction_controller : InteractionController = $InteractionController
 @export var interaction : InteractionComponent
+@export var inventory : InventoryComponent
 
 func _ready() -> void:
 	_init_player_signals()
@@ -108,8 +109,8 @@ func apply_knockback(direction: Vector2, strength: float, duration: float) -> vo
 	knockback_velocity = direction.normalized() * strength
 
 func _receive_items(interactor: Node):
-	if interactor.has_node("InventoryComponent"):
-		var inv = interactor.get_node("InventoryComponent") as InventoryComponent
+	if interactor is Player and interactor.inventory != null:
+		var inv = interactor.inventory as InventoryComponent
 		inv.item_delivered.connect(_on_item_delivered)
 		inv.deliver_inventory()
 		inv.item_delivered.disconnect(_on_item_delivered)
