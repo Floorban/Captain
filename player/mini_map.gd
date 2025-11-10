@@ -24,9 +24,14 @@ var scanning := false
 @onready var radar: Control = $SubViewportContainer/SubViewport/Radar
 @onready var control_menu: Control = $SubViewportContainer/SubViewport/Menu
 
+@onready var menu_screens: Array[Control] = [%About, %Control, %Control2, %Start]
+
 func set_menu(menu_id: int):
 	radar.hide()
 	control_menu.show()
+	for screen in menu_screens:
+		screen.hide()
+	menu_screens[menu_id].show()
 
 func set_game():
 	control_menu.hide()

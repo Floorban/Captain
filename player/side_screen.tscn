@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvcyx2gvb822c"]
+[gd_scene load_steps=5 format=3 uid="uid://bvcyx2gvb822c"]
 
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="1_1ftww"]
 [ext_resource type="Script" uid="uid://dt8orla2jidtw" path="res://player/side_screen.gd" id="1_1x5p7"]
@@ -193,14 +193,6 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 1.0
 
-[sub_resource type="InputEventKey" id="InputEventKey_1x5p7"]
-device = -1
-keycode = 87
-unicode = 119
-
-[sub_resource type="Shortcut" id="Shortcut_l53wi"]
-events = [SubResource("InputEventKey_1x5p7")]
-
 [node name="SideScreen" type="SubViewportContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(160, 190)
@@ -237,6 +229,7 @@ texture = ExtResource("1_1ftww")
 expand_mode = 1
 
 [node name="MainMenu" type="VBoxContainer" parent="SubViewport/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -254,36 +247,47 @@ grow_vertical = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 40)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button4")
+focus_neighbor_top = NodePath("../Button4")
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button2")
 theme_override_font_sizes/font_size = 23
-shortcut = SubResource("Shortcut_l53wi")
 text = "START"
 
 [node name="Button2" type="Button" parent="SubViewport/Background/MainMenu"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 40)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button1")
+focus_neighbor_top = NodePath("../Button1")
+focus_neighbor_right = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../Button3")
 theme_override_font_sizes/font_size = 23
-shortcut = SubResource("Shortcut_l53wi")
 text = "START"
 
 [node name="Button3" type="Button" parent="SubViewport/Background/MainMenu"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 40)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_right = NodePath("../Button4")
+focus_neighbor_bottom = NodePath("../Button4")
 theme_override_font_sizes/font_size = 23
-shortcut = SubResource("Shortcut_l53wi")
 text = "START"
 
 [node name="Button4" type="Button" parent="SubViewport/Background/MainMenu"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 40)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button3")
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_right = NodePath("../Button1")
+focus_neighbor_bottom = NodePath("../Button1")
 theme_override_font_sizes/font_size = 23
-shortcut = SubResource("Shortcut_l53wi")
 text = "START"
 
 [node name="GameMenu" type="MarginContainer" parent="SubViewport/Background"]
-visible = false
 custom_minimum_size = Vector2(150, 180)
 layout_mode = 1
 anchors_preset = 15
@@ -300,21 +304,37 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 
 [node name="LabelTitle" type="Label" parent="SubViewport/Background/GameMenu/Panel"]
-custom_minimum_size = Vector2(120, 35)
+visible = false
+custom_minimum_size = Vector2(120, 25)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -60.0
 offset_right = 60.0
-offset_bottom = 35.0
+offset_bottom = 25.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="SubViewport/Background/GameMenu/Panel"]
+[node name="B1" type="Button" parent="SubViewport/Background/GameMenu/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(135, 35)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 97.0
+offset_right = 140.0
+offset_bottom = 132.0
+focus_neighbor_left = NodePath("../HBoxContainer/B3")
+focus_neighbor_top = NodePath("../HBoxContainer/B3")
+focus_neighbor_right = NodePath("../HBoxContainer/B2")
+focus_neighbor_bottom = NodePath("../HBoxContainer/B2")
+theme_override_font_sizes/font_size = 18
+text = "START"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Background/GameMenu/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -322,61 +342,30 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -67.0
-offset_top = -79.0
+offset_top = -43.0
 offset_right = 67.0
-offset_bottom = -5.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 2
 
-[node name="Button1" type="Button" parent="SubViewport/Background/GameMenu/Panel/GridContainer"]
+[node name="B2" type="Button" parent="SubViewport/Background/GameMenu/Panel/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(65, 35)
 layout_mode = 2
-focus_neighbor_left = NodePath("../Button4")
-focus_neighbor_top = NodePath("../Button3")
-focus_neighbor_right = NodePath("../Button2")
-focus_neighbor_bottom = NodePath("../Button3")
-focus_next = NodePath("../Button2")
-focus_previous = NodePath("../Button4")
+focus_neighbor_left = NodePath("../../B1")
+focus_neighbor_top = NodePath("../../B1")
+focus_neighbor_right = NodePath("../B3")
+focus_neighbor_bottom = NodePath("../B3")
 theme_override_font_sizes/font_size = 18
-shortcut = SubResource("Shortcut_l53wi")
 text = "START"
 
-[node name="Button2" type="Button" parent="SubViewport/Background/GameMenu/Panel/GridContainer"]
+[node name="B3" type="Button" parent="SubViewport/Background/GameMenu/Panel/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(65, 35)
 layout_mode = 2
-focus_neighbor_left = NodePath("../Button1")
-focus_neighbor_top = NodePath("../Button4")
-focus_neighbor_right = NodePath("../Button3")
-focus_neighbor_bottom = NodePath("../Button4")
-focus_next = NodePath("../Button3")
-focus_previous = NodePath("../Button1")
+focus_neighbor_left = NodePath("../B2")
+focus_neighbor_top = NodePath("../B2")
+focus_neighbor_right = NodePath("../../B1")
+focus_neighbor_bottom = NodePath("../../B1")
 theme_override_font_sizes/font_size = 18
-shortcut = SubResource("Shortcut_l53wi")
-text = "START"
-
-[node name="Button3" type="Button" parent="SubViewport/Background/GameMenu/Panel/GridContainer"]
-custom_minimum_size = Vector2(65, 35)
-layout_mode = 2
-focus_neighbor_left = NodePath("../Button2")
-focus_neighbor_top = NodePath("../Button1")
-focus_neighbor_right = NodePath("../Button4")
-focus_neighbor_bottom = NodePath("../Button1")
-focus_next = NodePath("../Button4")
-focus_previous = NodePath("../Button2")
-theme_override_font_sizes/font_size = 18
-shortcut = SubResource("Shortcut_l53wi")
-text = "START"
-
-[node name="Button4" type="Button" parent="SubViewport/Background/GameMenu/Panel/GridContainer"]
-custom_minimum_size = Vector2(65, 35)
-layout_mode = 2
-focus_neighbor_left = NodePath("../Button3")
-focus_neighbor_top = NodePath("../Button2")
-focus_neighbor_right = NodePath("../Button1")
-focus_neighbor_bottom = NodePath("../Button2")
-focus_next = NodePath("../Button1")
-focus_previous = NodePath("../Button3")
-theme_override_font_sizes/font_size = 18
-shortcut = SubResource("Shortcut_l53wi")
 text = "START"

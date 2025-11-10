@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=13 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://cay33qbgsrg5t" path="res://player/screen_effect.gdshader" id="5_itq3j"]
 [ext_resource type="Shader" uid="uid://dqa54i3pjcfs5" path="res://player/round.gdshader" id="5_l0kmr"]
 [ext_resource type="Texture2D" uid="uid://wullxy8nd1te" path="res://assets/Radar.png" id="6_l0kmr"]
+[ext_resource type="Script" uid="uid://bunhhpoumtkwh" path="res://player/start.gd" id="7_4ereb"]
 
 [sub_resource type="Shader" id="Shader_itq3j"]
 code = "shader_type canvas_item;
@@ -330,7 +331,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+[node name="About" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -338,9 +340,121 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/About"]
+layout_mode = 2
+
+[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "About"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelAbout1" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.0
+offset_top = 45.0
+offset_right = 177.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_font_sizes/font_size = 26
+text = "About The Game:"
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel/LabelAbout1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 35.0
+offset_right = 158.0
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 21
+text = "You are stuck in here...
+Nothing's out there to help you...
+Better figure out what's up and...
+GO UP  !"
+
+[node name="Label2" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel/LabelAbout1"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = 40.0
+offset_right = 166.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 20
+text = "Themes: Nothing and What's up.
+Focus on Programming & Design.
+All the art are from online.
+Check more details about the
+development in the video :)"
+
+[node name="LabelAbout2" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.0
+offset_top = 205.0
+offset_right = 177.0
+offset_bottom = 255.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_font_sizes/font_size = 26
+text = "Be Aware:"
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel/LabelAbout2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 35.0
+offset_right = 158.0
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 21
+text = "The game consists multiple 
+windows to play at some point.
+You only have one chance.
+"
+
+[node name="Control" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/Control"]
@@ -356,7 +470,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "CONTROL"
+text = "CONTROL - 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -379,15 +493,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -166.0
+offset_left = -171.0
 offset_top = 40.0
-offset_right = 166.0
+offset_right = 161.0
 offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 24
-text = "W&S: Navigate Menu
-Space bar: Confirm"
+text = "WASD: Navigate menu.
+Space bar: Confirm."
 
 [node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel"]
 layout_mode = 1
@@ -408,34 +522,36 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -166.0
+offset_left = -171.0
 offset_top = 40.0
-offset_right = 166.0
-offset_bottom = 148.0
+offset_right = 169.0
+offset_bottom = 176.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 24
-text = "Left Click: Select Target 
-Right Click: Hold to move
-Focus on the window first 
-to take over its control"
+text = "Left Click: Select target.
+Right Click: Hold to move.
+WASD: Move small ships
+when focu on side windows."
 
-[node name="Credits" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+[node name="Control2" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/Credits"]
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/Control2"]
 layout_mode = 2
 
-[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel"]
+[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -445,11 +561,11 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
-text = "Credits"
+text = "CONTROL - 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelMenuC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel"]
+[node name="LabelMenuC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -461,56 +577,108 @@ offset_bottom = 95.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
 theme_override_font_sizes/font_size = 26
-text = "About The Game:"
+text = "Windows Controls:"
 
-[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel/LabelMenuC"]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel/LabelMenuC"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -166.0
-offset_top = 40.0
-offset_right = 166.0
-offset_bottom = 115.0
+offset_left = -171.0
+offset_top = 35.0
+offset_right = 161.0
+offset_bottom = 125.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 16
-text = "Themes: Nothing and What's up
-\"You are stuck in here, figure out
-what's up and go up to escape,
-There's nothing down there......\"
-Focused on Programming, Design, all the
-art are from online"
+theme_override_font_sizes/font_size = 21
+text = "Focus on (left click) the window 
+first to take over its control.
+"
 
-[node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel"]
+[node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -155.0
-offset_top = 240.0
+offset_top = 150.0
 offset_right = 177.0
-offset_bottom = 290.0
+offset_bottom = 200.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.41977924, 0.95484024, 0.38950685, 1)
 theme_override_font_sizes/font_size = 26
-text = "Assets Links:"
+text = "File Controls:"
 
-[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel/LabelGameC"]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel/LabelGameC"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -166.0
-offset_top = 40.0
-offset_right = 166.0
-offset_bottom = 148.0
+offset_left = -171.0
+offset_top = 35.0
+offset_right = 161.0
+offset_bottom = 185.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 12
-text = "Left Click: Select Target 
-Right Click: Hold to move
-"
+theme_override_font_sizes/font_size = 21
+text = "Find the folder 'something' in 
+the game files.
+You'll need to drag and drop
+the needed files into the main
+window until there's nothing."
+
+[node name="Start" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("7_4ereb")
+
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/Start"]
+layout_mode = 2
+
+[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Menu/Start/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -45.0
+offset_right = 86.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadingBar" type="ProgressBar" parent="SubViewportContainer/SubViewport/Menu/Start/Panel"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 5.0
+offset_right = 150.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+step = 0.1
 
 [node name="ScanTimer" type="Timer" parent="."]
 unique_name_in_owner = true
