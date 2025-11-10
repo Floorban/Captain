@@ -1,6 +1,7 @@
 extends Area2D
 class_name InteractionComponent
 
+@export var need_input := false
 @export var interact_name := "Pickup"
 @export var interact_duration := 1.0
 

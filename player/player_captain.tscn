@@ -35,8 +35,8 @@ disabled = true
 position = Vector2(0, 5)
 
 [node name="InteractionComponent" parent="." index="4" instance=ExtResource("4_kgmax")]
-interact_name = "Captain Ship"
-interact_duration = 1.5
+interact_name = "Enter"
+interact_duration = 2.0
 
 [node name="CollisionShape2D" parent="InteractionComponent" index="0"]
 position = Vector2(0, 2)

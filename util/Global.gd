@@ -11,7 +11,7 @@ var players : Array[Player]
 
 var game_speed := 1.0
 
-@export var max_fuel := 20.0
+@export var max_fuel := 100.0
 var cur_fuel := 0.0
 var fuel_heating_speed := 5.0
 

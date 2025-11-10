@@ -10,18 +10,27 @@ var active_areas: Array[InteractionComponent] = []
 var current_pickup: InteractionComponent = null
 var pickup_timer := 0.0
 var pickup_speed := 1.0
-
-func _on_interacting(_area: Node) -> void:
-	if _area is InteractionComponent:
-		_area._on_interacted()
+var waiting_for_input := false
 
 func _ready() -> void:
-	area_entered.connect(_on_interacting)
 	interact_progress_bar.hide()
 	label.hide()
 
 func _process(delta: float) -> void:
 	label.global_position += global_position
+	# Wait for input if needed
+	if waiting_for_input and current_pickup != null:
+		pickup_timer = 0.0
+		_update_ui(delta)
+		label.text = current_pickup.interact_name
+		label.global_position = current_pickup.global_position + Vector2(-label.size.x / 2, -24)
+		label.show()
+		# Wait for interaction key
+		if Input.is_action_just_pressed("scan"):
+			waiting_for_input = false
+			active_areas.push_back(current_pickup)
+		return
+	
 	if active_areas.size() > 0 and can_interact:
 		active_areas.sort_custom(_sort_by_distance)
 		current_pickup = active_areas[0]
@@ -35,7 +44,12 @@ func _sort_by_distance(area1, area2):
 	return dist_to_area1 < dist_to_area2
 
 func register_area(area: InteractionComponent):
-	active_areas.push_back(area)
+	if area.need_input:
+		# show UI but don’t start pickup timer yet
+		waiting_for_input = true
+		current_pickup = area
+	else:
+		active_areas.push_back(area)
 
 func unregister_area(area: InteractionComponent):
 	var index = active_areas.find(area)
@@ -65,6 +79,7 @@ func _update_ui(delta: float) -> void:
 		_reset_pickup()
 
 func _reset_pickup() -> void:
+	waiting_for_input = false
 	pickup_timer = 0.0
 	current_pickup = null
 	interact_progress_bar.value = 0

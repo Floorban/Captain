@@ -30,9 +30,8 @@ texture = SubResource("AtlasTexture_rgyib")
 
 [node name="InteractionController" parent="." instance=ExtResource("3_g6k8r")]
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("3_yw30f")]
+[node name="HealthComponent" parent="." instance=ExtResource("3_yw30f")]
 unique_name_in_owner = true
-health_bar = NodePath("")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "knockback_node") instance=ExtResource("4_qjkh3")]
 collision_layer = 2

@@ -37,6 +37,8 @@ func _on_pickup(interactor: Node) -> void:
 			var hl = interactor.get_node("HealthComponent") as HealthComponent
 			if hl.cur_hp < hl.max_hp:
 				hl.cur_hp += item_data.value
+				call_deferred("queue_free")
+				return
 		
 	if interactor is Player and interactor.inventory != null:
 		var inv = interactor.inventory as InventoryComponent
