@@ -23,7 +23,7 @@ func _init_main_window():
 	main_window.min_size = Vector2.ZERO
 	main_window.size = Vector2.ZERO
 
-func spawn_window(pos: Vector2, delay: float):
+func spawn_window(pos: Vector2):
 	if not window_scene:
 		return
 
@@ -40,7 +40,7 @@ func spawn_window(pos: Vector2, delay: float):
 		
 		w.name = "SubWindow_%d" % subwindows.size()
 		add_child(w)
-		w.init_window(x, y, pos, delay)
+		w.init_window(x, y, pos)
 
 func close_all_windows():
 	for w in subwindows:

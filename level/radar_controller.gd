@@ -7,6 +7,8 @@ class_name RadarController
 @onready var mini_map: MiniMap = %MiniMap
 @onready var select_marker: SelectMarker = %SelectMarker
 
+var click_pos
+
 var target
 var dist : float
 var curve_point = position
@@ -17,6 +19,8 @@ var has_arrived := false
 var send_ship_delay := 500
 @onready var monitor: Monitor = $"../Monitor"
 var can_control := false
+func _ready() -> void:
+	Global.radar_controller = self
 
 func _input(event: InputEvent) -> void:
 	_set_destination(event)
@@ -27,12 +31,11 @@ func _physics_process(delta: float) -> void:
 
 func _set_destination(event):
 	if event.is_action_pressed("primary") and can_control:
-		var click_pos = event.global_position
-		print(click_pos)
-		if click_pos.x < 275 or click_pos.x > 630 or click_pos.y < 125 or click_pos.y > 470:
+		if event.global_position.x < 275 or event.global_position.x > 630 or event.global_position.y < 125 or event.global_position.y > 470:
 			return
+		click_pos = event.global_position
 		select_marker.global_position = click_pos + Vector2(-10,-10)
-		select_marker.no_result()
+		select_marker.no_result(("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
 
 		target = get_global_mouse_position()
 		dist = player.global_position.distance_to(target)
@@ -87,11 +90,36 @@ func _go_to_destination(delta):
 		monitor.trauma = 0.3
 		monitor.target_speed = 0.0
 
-func send_ship(event):
-	if event.is_action_pressed("scan") and target != null:
+func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
+	if target != null:
 		var distance := player.global_position.distance_to(target)
 		var delay := distance / send_ship_delay
-		wait_and_spawn(delay, target)
+		wait_and_spawn(delay, target, btn, loading_bar, axis_label)
 
-func wait_and_spawn(delay: float, pos: Vector2) -> void:
-	Global.windows_manager.spawn_window(pos, delay)
+var send_ship_tween : Tween
+var is_sending := false
+
+func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: ProgressBar, axis_label: Label) -> void:
+	if is_sending:
+		if send_ship_tween:
+			send_ship_tween.kill()
+		loading_bar.value = 0.0
+		is_sending = false
+		btn.text = "SEND A SHIP"
+		axis_label.text = ""
+		return
+	is_sending = true
+	axis_label.text = "SENDING TO\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
+	btn.text = "STOP"
+	var end_value := loading_bar.max_value
+	if send_ship_tween:
+		send_ship_tween.kill()
+	send_ship_tween = get_tree().create_tween()
+	send_ship_tween.tween_property(loading_bar, "value", end_value, delay)
+	send_ship_tween.finished.connect(func():
+		Global.windows_manager.spawn_window(pos)
+		loading_bar.value = 0.0
+		is_sending = false
+		btn.text = "SEND A SHIP"
+		axis_label.text = ""
+	)

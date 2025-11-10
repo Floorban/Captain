@@ -12,6 +12,9 @@ class_name SideScreen
 @onready var b_2: Button = %B2
 @onready var b_3: Button = %B3
 
+@onready var send_ship_bar: ProgressBar = %SendShipBar
+@onready var label: Label = $SubViewport/Background/GameMenu/Panel/SendShipBar/Label
+
 func bind_button_to_menu(id:int):
 	Global.game_controller.set_game_menu_content(id)
 
@@ -32,6 +35,7 @@ func set_game_menu():
 	main_menu.hide()
 	game_menu.show()
 	b_1.grab_focus()
+	b_1.pressed.connect(Global.radar_controller.send_ship.bind(b_1, send_ship_bar, label)) 
 	b_1.text = "SEND A SHIP"
 	b_2.text = "GO UP"
 	b_3.text = "STATS"

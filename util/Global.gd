@@ -21,6 +21,8 @@ var windows_manager: WindowManager
 
 var game_controller: GameControl
 
+var radar_controller: RadarController
+
 func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component

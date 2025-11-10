@@ -5,13 +5,15 @@ class_name SelectMarker
 @onready var label_x: Label = $VBoxContainer/LabelX
 @onready var label_y: Label = $VBoxContainer/LabelY
 
-func no_result():
+func no_result(x,y):
 	show()
 	label_name.text = "???"
 	label_name.modulate = Color.WHITE
+	label_x.text = x
+	label_y.text = y
 	label_name.show()
-	label_x.hide()
-	label_y.hide()
+	label_x.show()
+	label_y.show()
 
 func set_label_text(n,x,y):
 	show()
