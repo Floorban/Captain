@@ -6,16 +6,18 @@ class_name GameControl
 @onready var mini_map: MiniMap = %MiniMap
 @onready var side_screen: SideScreen = %SideScreen
 @onready var retro_effect_rect: ColorRect = %RetroEffectRect
+@onready var credits: Panel = %Credits
 
 var in_main_menu := false
 var in_game := false
 
 func _ready() -> void:
 	Global.game_controller = self
-	#set_game_content()
-	set_game_menu_content(0)
+	set_game_content()
 
 func set_game_menu_content(menu_id: int):
+	if credits.visible:
+		credits.hide()
 	if not in_main_menu:
 		side_screen.set_main_menu()
 		main.hide()
@@ -27,6 +29,8 @@ func set_game_menu_content(menu_id: int):
 	mini_map.set_menu(menu_id)
 
 func set_game_content():
+	if credits.visible:
+		credits.hide()
 	if not in_game:
 		side_screen.set_game_menu()
 		main.show()

@@ -163,6 +163,7 @@ theme_override_constants/title_outline_size = 50
 
 [node name="Main" parent="." instance=ExtResource("1_o043x")]
 unique_name_in_owner = true
+visible = false
 visibility_layer = 3
 
 [node name="MiniMapCamera" type="Camera2D" parent="."]
@@ -238,15 +239,16 @@ light_mask = 0
 visibility_layer = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "CREDITS (Press Space Bar to Close This)"
+text = "CREDITS"
 
 [node name="Description" type="Label" parent="GameControl/Credits/VBoxContainer"]
 light_mask = 0
 visibility_layer = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Chosen Themes: Nothing & What's up
-Focused on programming and design. All the assets are from online."
+text = "Themes: Nothing & What's up
+Focused on mechanics, gameplay and shader programming and design. 
+All the 3D models, 2D srpites and sound effects are from online. The rest is made by me."
 
 [node name="AssetsLinks" type="Label" parent="GameControl/Credits/VBoxContainer"]
 light_mask = 0
@@ -254,19 +256,28 @@ visibility_layer = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Assets Links:
-dsada
-sdasdsa
-dsaaa
-dsadasdsa
-dsadasdsad
-dsadasd
-dsadasd"
+https://sketchfab.com/3d-models/retro-modernized-pip-boy-editable-screen-02df9777058e4cdea4fadee7660f7b43
+https://godgoldfear.itch.io/psx-industrial-environment-asset-pack
+https://kaboff.itch.io/160-cursors-crosshairs-pack-32x32
+https://felmir-productions.itch.io/configurable-space-station-sprite-set
+https://foozlecc.itch.io/sci-fi-lab-pick-ups
+https://foozlecc.itch.io/void-pickups-pack"
+
+[node name="Title2" type="Label" parent="GameControl/Credits/VBoxContainer"]
+modulate = Color(0.26666668, 0.9882353, 0.5372549, 1)
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Now, drag the text. file called \"start\" in the folder
+\"something\" to this window to start the game :)"
 
 [node name="SideScreen" parent="GameControl" instance=ExtResource("10_gvqxy")]
 unique_name_in_owner = true
 
 [node name="SelectMarker" parent="GameControl" instance=ExtResource("12_dol8q")]
 unique_name_in_owner = true
+visible = false
 offset_left = 18.0
 offset_top = -8.0
 offset_right = 38.0
@@ -274,6 +285,7 @@ offset_bottom = 12.0
 
 [node name="FuelBar" parent="GameControl" instance=ExtResource("3_n56ur")]
 unique_name_in_owner = true
+visible = false
 light_mask = 0
 visibility_layer = 2
 custom_minimum_size = Vector2(345, 30)
@@ -285,6 +297,7 @@ theme_override_constants/outline_size = 3
 
 [node name="HealthBar" type="TextureRect" parent="GameControl"]
 unique_name_in_owner = true
+visible = false
 light_mask = 0
 visibility_layer = 2
 anchors_preset = 3

@@ -14,8 +14,8 @@ func _ready():
 	main_sub_window.world_2d = main_window.world_2d
 	var screen_size = DisplayServer.screen_get_size()
 	main_sub_window.position = Vector2(
-		(screen_size.x - main_sub_window.size.x) / 2,
-		screen_size.y - main_sub_window.size.y - 150
+		screen_size.x -main_sub_window.size.x - 50,
+		screen_size.y - main_sub_window.size.y - 50
 	)
 	main_sub_window.grab_focus()
 
@@ -49,8 +49,8 @@ func spawn_window(pos: Vector2):
 
 func get_fixed_positions_top_row(w) -> Array:
 	var screen_size = DisplayServer.screen_get_size()
-	var y = 100  # distance from top edge
-	var spacing = 600  # horizontal spacing from the center
+	var y = 30  # distance from top edge
+	var spacing = 500  # horizontal spacing from the center
 
 	var center_x = (screen_size.x - w.size.x) / 2
 	return [
@@ -71,9 +71,10 @@ func _on_files_dropped(files: PackedStringArray):
 		check_file(f)
 
 func check_file(f: String):
-	#var fname = f.get_file()
-	#if fname == "new.txt" or fname == "1.txt":
-	delete_file(f)
+	var fname = f.get_file()
+	if fname == "start.txt":
+		delete_file(f)
+		Global.game_controller.set_game_menu_content(0)
 		#spawn resource in the game
 
 func delete_file(path: String) -> void:
