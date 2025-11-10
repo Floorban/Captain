@@ -89,7 +89,7 @@ func _go_to_destination(delta):
 			monitor.target_speed = 0.0
 			Input.action_release("secondary")
 			print("arrive")
-	if Input.is_action_just_released("secondary") and not has_arrived and can_control:
+	if Input.is_action_just_released("secondary") and not has_arrived and can_control and target != null:
 		monitor.trauma = 0.3
 		monitor.target_speed = 0.0
 
@@ -146,3 +146,14 @@ func remove_ship_radar_obj(ship: Node2D):
 		return
 	ship_amonut += 1
 	mini_map.remove_marker(ship)
+
+func move_interrupted():
+	monitor.trauma = 0.8
+	monitor.target_speed = 0.0
+	path.curve.clear_points()
+	select_marker.hide()
+	can_control = false
+	target = null
+	await get_tree().create_timer(0.5).timeout
+	select_marker.show()
+	can_control = true

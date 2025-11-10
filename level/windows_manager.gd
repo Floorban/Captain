@@ -60,10 +60,14 @@ func get_fixed_positions_top_row(w) -> Array:
 	]
 
 func close_all_windows():
+	var delay := randf_range(0.4, 0.7)
 	for w in subwindows:
 		if is_instance_valid(w):
-			w.visible = false
+			w._clear_window()
+			await get_tree().create_timer(delay).timeout
 	subwindows.clear()
+	main_sub_window.queue_free()
+	get_tree().call_deferred("quit")
 
 func _on_files_dropped(files: PackedStringArray):
 	for f in files:

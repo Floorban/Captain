@@ -8,10 +8,6 @@ signal died
 var cur_hp: int : set = set_cur_hp, get = get_cur_hp
 @export var health_bar: HealthBar
 
-func _ready() -> void:
-	init_hp()
-	if health_bar: health_bar.health_component = self
-
 func init_hp() -> void:
 	cur_hp = max_hp
 	emit_signal("hp_changed", cur_hp)

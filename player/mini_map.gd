@@ -11,6 +11,7 @@ var player_marker
 var markers := {}
 
 @export var mini_map_camera: Camera2D
+@onready var damage_effect: ColorRect = %DamageEffectRect
 
 @onready var scan_timer: Timer = %ScanTimer
 var scan_wait_time := 4.0
@@ -132,3 +133,8 @@ func remove_marker(marker_obj: Node2D):
 	marker_age.erase(marker_obj)
 	window._clear_window()
 	marker_obj.call_deferred("queue_free")
+
+func play_dmg_effect():
+	var tween = create_tween()
+	tween.tween_property(damage_effect.material, "shader_parameter/intensity", 1.0, 0.1)
+	tween.tween_property(damage_effect.material, "shader_parameter/intensity", 0.0, 0.2)

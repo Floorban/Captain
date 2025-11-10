@@ -84,5 +84,6 @@ func exit_station():
 
 func game_over():
 	print("--- Game Over ---")
+	windows_manager.close_all_windows()
 	for p in get_players():
 		p.is_dead = true

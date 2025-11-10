@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dq3logm4i46in"]
+[gd_scene load_steps=2 format=3 uid="uid://dq3logm4i46in"]
+
+[ext_resource type="Texture2D" uid="uid://dl6ncxkskxkb" path="res://assets/Btn01.png" id="1_aw5gb"]
 
 [node name="InventorySlot" type="TextureRect"]
 custom_minimum_size = Vector2(30, 30)
@@ -20,3 +22,9 @@ theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+texture = ExtResource("1_aw5gb")
+expand_mode = 1

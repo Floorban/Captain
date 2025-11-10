@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://k8inc765efmm"]
+[gd_scene load_steps=9 format=3 uid="uid://k8inc765efmm"]
 
 [ext_resource type="Script" uid="uid://dndjlx1hbskks" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cdsuu2inp4asx" path="res://assets/Main Ship - Base - Full health.png" id="2_yw30f"]
@@ -6,19 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ca72j03t2tr6m" path="res://components/interaction_controller.tscn" id="3_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://baja0n03nvi3b" path="res://components/health_component.tscn" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://cfvs1slauxxpc" path="res://components/hitbox_component.tscn" id="4_qjkh3"]
-[ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="8_rgyib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
 atlas = ExtResource("3_boad6")
 region = Rect2(88, 32, 16, 16)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qjkh3"]
-load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
-atlas = SubResource("CompressedTexture2D_qjkh3")
-region = Rect2(0, 0, 48, 48)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
@@ -38,20 +30,9 @@ texture = SubResource("AtlasTexture_rgyib")
 
 [node name="InteractionController" parent="." instance=ExtResource("3_g6k8r")]
 
-[node name="HealthBar" type="TextureRect" parent="."]
-unique_name_in_owner = true
-offset_left = -15.0
-offset_top = 5.0
-offset_right = 15.0
-offset_bottom = 35.0
-pivot_offset = Vector2(15, 15)
-texture = SubResource("AtlasTexture_g6k8r")
-expand_mode = 1
-script = ExtResource("5_g6k8r")
-
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("3_yw30f")]
 unique_name_in_owner = true
-health_bar = NodePath("../HealthBar")
+health_bar = NodePath("")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "knockback_node") instance=ExtResource("4_qjkh3")]
 collision_layer = 2

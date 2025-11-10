@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://631pf63y7wqo"]
+[gd_scene load_steps=7 format=3 uid="uid://631pf63y7wqo"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
 [ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
@@ -9,13 +9,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgmax"]
 atlas = ExtResource("2_umdq8")
 region = Rect2(0, 0, 40, 56)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mshal"]
-load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umdq8"]
-atlas = SubResource("CompressedTexture2D_mshal")
-region = Rect2(0, 0, 48, 48)
 
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
@@ -60,22 +53,6 @@ scale = Vector2(2.5, 2.5)
 polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
 [node name="Boundary" parent="." index="6" instance=ExtResource("2_biafw")]
-
-[node name="HealthBar" parent="." index="7"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = 50.0
-offset_right = 30.0
-offset_bottom = 110.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(30, 30)
-texture = SubResource("AtlasTexture_umdq8")
 
 [node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="HitboxComponent" index="1"]
 scale = Vector2(2.5, 2.5)

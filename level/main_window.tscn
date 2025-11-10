@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7okfrd288s7i"]
+[gd_scene load_steps=21 format=3 uid="uid://b7okfrd288s7i"]
 
 [ext_resource type="PackedScene" uid="uid://dejkcym2erm1l" path="res://level/main.tscn" id="1_o043x"]
 [ext_resource type="Script" uid="uid://u5q4bunpqynb" path="res://level/radar_controller.gd" id="2_bso6d"]
@@ -128,12 +128,31 @@ shader_parameter/lens_distortion_strength = 0.014000000665
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvqxy"]
 bg_color = Color(0.2231029, 0.2231029, 0.22310278, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
-load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aoaw7"]
+bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aoaw7"]
-atlas = SubResource("CompressedTexture2D_biafw")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dol8q"]
+bg_color = Color(0.32653823, 0.6959555, 0.3325836, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfn3b"]
+bg_color = Color(0.74536514, 0.4365484, 0.25666973, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="Environment" id="Environment_qyphg"]
 background_mode = 3
@@ -161,10 +180,14 @@ theme_override_colors/title_color = Color(0, 0, 0, 1)
 theme_override_colors/title_outline_modulate = Color(0, 0, 0, 1)
 theme_override_constants/title_outline_size = 50
 
-[node name="Main" parent="." instance=ExtResource("1_o043x")]
+[node name="Main" parent="." node_paths=PackedStringArray("fuel_bar") instance=ExtResource("1_o043x")]
 unique_name_in_owner = true
 visible = false
 visibility_layer = 3
+fuel_bar = NodePath("../GameControl/FuelBar")
+
+[node name="PlayerCaptain" parent="Main" index="0" node_paths=PackedStringArray("hp_bar")]
+hp_bar = NodePath("../../GameControl/HpBar")
 
 [node name="MiniMapCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -204,6 +227,7 @@ script = ExtResource("9_gvqxy")
 
 [node name="Credits" type="Panel" parent="GameControl"]
 unique_name_in_owner = true
+visible = false
 light_mask = 0
 visibility_layer = 2
 z_index = 20
@@ -229,8 +253,8 @@ z_index = 2
 layout_mode = 1
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 445.0
-offset_bottom = 141.0
+offset_right = 778.0
+offset_bottom = 420.0
 theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="GameControl/Credits/VBoxContainer"]
@@ -283,36 +307,34 @@ offset_top = -8.0
 offset_right = 38.0
 offset_bottom = 12.0
 
+[node name="HpBar" parent="GameControl" instance=ExtResource("3_n56ur")]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+custom_minimum_size = Vector2(345, 13)
+offset_left = -170.0
+offset_top = -123.0
+offset_right = 175.0
+offset_bottom = -108.0
+theme_override_constants/outline_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_aoaw7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dol8q")
+show_percentage = false
+script = ExtResource("4_a8etk")
+
 [node name="FuelBar" parent="GameControl" instance=ExtResource("3_n56ur")]
 unique_name_in_owner = true
-visible = false
 light_mask = 0
 visibility_layer = 2
-custom_minimum_size = Vector2(345, 30)
+custom_minimum_size = Vector2(345, 13)
 offset_left = -170.0
-offset_top = -121.0
+offset_top = -105.0
 offset_right = 175.0
-offset_bottom = -91.0
+offset_bottom = -90.0
 theme_override_constants/outline_size = 3
-
-[node name="HealthBar" type="TextureRect" parent="GameControl"]
-unique_name_in_owner = true
-visible = false
-light_mask = 0
-visibility_layer = 2
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(30, 30)
-texture = SubResource("AtlasTexture_aoaw7")
-expand_mode = 1
-script = ExtResource("4_a8etk")
+theme_override_styles/background = SubResource("StyleBoxFlat_aoaw7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yfn3b")
+show_percentage = false
 
 [node name="GameOverScreen" parent="GameControl" instance=ExtResource("5_qyphg")]
 unique_name_in_owner = true
@@ -332,4 +354,10 @@ visibility_layer = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qyphg")
 
+[editable path="Main"]
+[editable path="Main/PlayerCaptain"]
+[editable path="Main/PlayerCaptain/InteractionComponent"]
+[editable path="Main/PlayerCaptain/InteractionController"]
+[editable path="Main/PlayerCaptain/HitboxComponent"]
+[editable path="Main/PlayerCaptain/RadarObjComponent"]
 [editable path="GameControl/SideScreen"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnke1gr0k65og"]
+[gd_scene load_steps=9 format=3 uid="uid://bnke1gr0k65og"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_acesj"]
-[ext_resource type="Texture2D" uid="uid://bt7cqlnsthmow" path="res://player/hp_bar.tres" id="2_gbhii"]
 [ext_resource type="Texture2D" uid="uid://bkmyovyyqc62y" path="res://assets/set.png" id="2_mbj16"]
 [ext_resource type="Texture2D" uid="uid://bd47h2emgabos" path="res://assets/tir-et-vie-all-sprites.png" id="4_c6f1t"]
 
@@ -45,15 +44,10 @@ collision_layer = 2
 [node name="CollisionShape2D" parent="InteractionController" index="0"]
 shape = SubResource("CircleShape2D_c6f1t")
 
-[node name="HealthBar" parent="." index="4"]
-offset_top = 16.0
-offset_bottom = 46.0
-texture = ExtResource("2_gbhii")
-
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_gbhii")
 
-[node name="RadarObjComponent" parent="." index="7"]
+[node name="RadarObjComponent" parent="." index="6"]
 visible = false
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]

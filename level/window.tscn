@@ -1,15 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckhsfu8dljb37"]
+[gd_scene load_steps=11 format=3 uid="uid://ckhsfu8dljb37"]
 
 [ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
 [ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="3_lsbgt"]
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="4_o4h07"]
 [ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="5_sb0gl"]
+[ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_tbyui"]
 [ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://player/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1pwk"]
+bg_color = Color(0.22571012, 0.5318337, 0.31789196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbyui"]
+bg_color = Color(0.8796685, 0.47173643, 0.30632022, 1)
 
 [node name="Window" type="Window"]
 canvas_item_default_texture_filter = 0
@@ -33,8 +39,9 @@ targets = [NodePath("../Player")]
 min_zoom = 0.2
 max_zoom = 1.0
 
-[node name="Player" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("3_lsbgt")]
+[node name="Player" parent="." node_paths=PackedStringArray("hp_bar", "inventory") instance=ExtResource("3_lsbgt")]
 position = Vector2(350, 570)
+hp_bar = NodePath("../UI/ShipUI/Bar_Hp")
 inventory = NodePath("../UI/ShipUI/Bottom/InventoryComponent")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -61,6 +68,27 @@ grow_horizontal = 2
 texture = ExtResource("7_tbyui")
 expand_mode = 1
 
+[node name="Label_Fuel" type="Label" parent="UI/ShipUI/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " Fuel"
+vertical_alignment = 1
+
+[node name="Labek)_HP" type="Label" parent="UI/ShipUI/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP "
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Bar_Hp" type="ProgressBar" parent="UI/ShipUI"]
 texture_filter = 1
 custom_minimum_size = Vector2(15, 300)
@@ -73,11 +101,12 @@ offset_left = -4.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
-theme_override_styles/fill = SubResource("StyleBoxFlat_tbyui")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y1pwk")
 step = 0.1
-value = 100.0
+value = 50.0
 fill_mode = 3
 show_percentage = false
+script = ExtResource("5_tbyui")
 
 [node name="Bar_Fuel" type="ProgressBar" parent="UI/ShipUI"]
 texture_filter = 1

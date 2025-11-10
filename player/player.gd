@@ -21,7 +21,7 @@ var can_move: bool = false
 ## --- Damage Effect ---
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
-
+@export var hp_bar : HealthBar
 @onready var shield_sprite: Sprite2D = $ShieldSprite
 var is_stunned: bool = false
 var stun_timer: float = 0.0
@@ -43,11 +43,21 @@ func _ready() -> void:
 
 func _init_player_signals():
 	health_component.died.connect(_on_player_dead)
+	if is_captain:
+		hitbox_component.hit.connect(dmg_effect)
+	if hp_bar: 
+		health_component.health_bar = hp_bar
+		health_component.health_bar.health_component = health_component
+		health_component.init_hp()
 	hitbox_component.turn_invulnerable.connect(_toggle_player_shield)
+
+func dmg_effect():
+	Global.main.mini_map.play_dmg_effect()
+	Global.radar_controller.move_interrupted()
 
 func _on_player_dead():
 	## explode particle here
-	queue_free()
+	Global.radar_controller.remove_ship_radar_obj(self)
 
 func _toggle_player_shield(has_shield: bool):
 	if not shield_sprite:
@@ -96,7 +106,7 @@ func _process_rotation(delta: float) -> void:
 		rotation = lerp_angle(rotation, target_angle, rotation_smoothness * delta)
 
 func _process_knockback(delta: float):
-	if is_captain or is_stunned: return
+	if is_captain or not is_stunned: return
 	stun_timer -= delta
 	if stun_timer <= 0.0:
 		is_stunned = false

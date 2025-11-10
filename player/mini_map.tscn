@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=15 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
+[ext_resource type="Shader" uid="uid://6uv8dcfo04ex" path="res://player/dmg_effect.gdshader" id="4_60amn"]
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="4_dh8qp"]
 [ext_resource type="Shader" uid="uid://cay33qbgsrg5t" path="res://player/screen_effect.gdshader" id="5_itq3j"]
 [ext_resource type="Shader" uid="uid://dqa54i3pjcfs5" path="res://player/round.gdshader" id="5_l0kmr"]
@@ -211,6 +212,14 @@ shader_parameter/strike_count = 5
 shader_parameter/strike_delay = 0.25
 shader_parameter/glow_intensity = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbvrb"]
+shader = ExtResource("4_60amn")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/edge_power = 2.00000009174012
+shader_parameter/inner_ratio = 0.10000000475
+shader_parameter/feather = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60amn"]
 shader = ExtResource("5_l0kmr")
 shader_parameter/radius = 0.4
@@ -286,6 +295,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="DamageEffectRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+z_index = 2
+material = SubResource("ShaderMaterial_tbvrb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Radar" type="Control" parent="SubViewportContainer/SubViewport"]
 layout_mode = 3
 anchors_preset = 15
@@ -333,7 +354,6 @@ grow_vertical = 2
 
 [node name="About" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,10 +408,10 @@ offset_bottom = 155.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "You are stuck in here...
+text = "You are stuck under here...
 Nothing's out there to help you...
 Better figure out what's up and...
-GO UP  !"
+Drive your submarine up !"
 
 [node name="Label2" type="Label" parent="SubViewportContainer/SubViewport/Menu/About/Panel/LabelAbout1"]
 visible = false
