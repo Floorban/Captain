@@ -12,8 +12,15 @@ class_name SideScreen
 @onready var b_2: Button = %B2
 @onready var b_3: Button = %B3
 
+@onready var hud_control: Control = $SubViewport/Background/GameMenu/Panel/HUD_Control
 @onready var send_ship_bar: ProgressBar = %SendShipBar
-@onready var label: Label = $SubViewport/Background/GameMenu/Panel/SendShipBar/Label
+@onready var label_send: Label = %LabelSend
+
+@onready var hud_send: Control = $SubViewport/Background/GameMenu/Panel/HUD_Send
+
+@onready var hud_stats: Control = $SubViewport/Background/GameMenu/Panel/HUD_Stats
+
+@onready var hud_goup: Control = $SubViewport/Background/GameMenu/Panel/HUD_GOUP
 
 func bind_button_to_menu(id:int):
 	Global.game_controller.set_game_menu_content(id)
@@ -35,7 +42,29 @@ func set_game_menu():
 	main_menu.hide()
 	game_menu.show()
 	b_1.grab_focus()
-	b_1.pressed.connect(Global.radar_controller.send_ship.bind(b_1, send_ship_bar, label)) 
+	b_1.pressed.connect(set_send_screen) 
+	b_2.pressed.connect(set_stats_screen)
+	b_3.pressed.connect(set_control_screen)
 	b_1.text = "SEND A SHIP"
-	b_2.text = "GO UP"
-	b_3.text = "STATS"
+	b_2.text = "STATS"
+	b_3.text = "GO UP"
+
+func set_control_screen():
+	hud_control.show()
+	hud_send.hide()
+	hud_stats.hide()
+
+func set_send_screen():
+	hud_control.hide()
+	hud_send.show()
+	hud_stats.hide()
+	label_send.text = "SELECT A \n DESTINATION"
+	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
+
+func set_stats_screen():
+	hud_control.hide()
+	hud_send.hide()
+	hud_stats.show()
+
+func set_ascend_screen():
+	pass

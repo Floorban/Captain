@@ -317,65 +317,172 @@ theme_override_constants/margin_bottom = 6
 [node name="Panel" type="Panel" parent="SubViewport/Background/GameMenu"]
 layout_mode = 2
 
-[node name="LabelControl" type="Label" parent="SubViewport/Background/GameMenu/Panel"]
+[node name="HUD_Control" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
 visible = false
-custom_minimum_size = Vector2(140, 95)
+custom_minimum_size = Vector2(145, 95)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -60.0
-offset_right = 60.0
-offset_bottom = 25.0
+offset_left = -72.5
+offset_right = 72.5
+offset_bottom = 95.0
 grow_horizontal = 2
+
+[node name="LabelControl" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Control"]
+custom_minimum_size = Vector2(140, 95)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -47.5
+offset_right = 70.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/line_spacing = 6
 theme_override_font_sizes/font_size = 17
 text = "Left Click: Select
 Right Click: Move
 Space: Press Btn"
 
-[node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel"]
+[node name="HUD_Send" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
+visible = false
+custom_minimum_size = Vector2(145, 95)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_right = 72.5
+offset_bottom = 95.0
+grow_horizontal = 2
+
+[node name="LabelSend" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Send"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Send"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -65.0
-offset_top = 62.0
+offset_top = -35.0
 offset_right = 65.0
-offset_bottom = 89.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HUD_Stats" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
+visible = false
+custom_minimum_size = Vector2(145, 95)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_right = 72.5
+offset_bottom = 95.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="SubViewport/Background/GameMenu/Panel/SendShipBar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="HP" type="VBoxContainer" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="LabelSend" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/HP"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "HEALTH:"
+
+[node name="FuelBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/HP"]
+custom_minimum_size = Vector2(130, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+value = 65.0
+show_percentage = false
+
+[node name="FUEL" type="VBoxContainer" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="LabelSend" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/FUEL"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "FUEL:"
+
+[node name="FuelBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/FUEL"]
+custom_minimum_size = Vector2(130, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+value = 65.0
+show_percentage = false
+
+[node name="HUD_GOUP" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
+custom_minimum_size = Vector2(145, 95)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_right = 72.5
+offset_bottom = 95.0
+grow_horizontal = 2
+
+[node name="LabelGOUP" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = -61.0
 offset_right = 20.0
-offset_bottom = -33.0
+offset_bottom = 28.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
+text = "FUEL IS NOT FULL"
 horizontal_alignment = 1
 
-[node name="LabelInventory" type="Label" parent="SubViewport/Background/GameMenu/Panel"]
-visible = false
-custom_minimum_size = Vector2(140, 95)
+[node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]
+custom_minimum_size = Vector2(130, 30)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -60.0
-offset_right = 60.0
-offset_bottom = 25.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -35.0
+offset_right = 65.0
+offset_bottom = -5.0
 grow_horizontal = 2
-theme_override_constants/line_spacing = 6
-theme_override_font_sizes/font_size = 17
-text = "Left Click: Select
-Right Click: Move
-Space: Press Btn"
-vertical_alignment = 1
+grow_vertical = 0
 
 [node name="B1" type="Button" parent="SubViewport/Background/GameMenu/Panel"]
 unique_name_in_owner = true

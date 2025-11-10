@@ -19,6 +19,7 @@ var has_arrived := false
 var send_ship_delay := 500
 @onready var monitor: Monitor = $"../Monitor"
 var can_control := false
+
 func _ready() -> void:
 	Global.radar_controller = self
 
@@ -34,6 +35,7 @@ func _set_destination(event):
 		if event.global_position.x < 275 or event.global_position.x > 630 or event.global_position.y < 125 or event.global_position.y > 470:
 			return
 		click_pos = event.global_position
+		can_send = true
 		select_marker.global_position = click_pos + Vector2(-10,-10)
 		select_marker.no_result(("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
 
@@ -74,6 +76,7 @@ func _go_to_destination(delta):
 		monitor.trauma = 0.2
 		monitor.target_speed = 8.0
 		select_marker.hide_labels()
+		can_send = false
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
 		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
@@ -91,13 +94,14 @@ func _go_to_destination(delta):
 		monitor.target_speed = 0.0
 
 func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
-	if target != null:
+	if target != null and can_send:
 		var distance := player.global_position.distance_to(target)
 		var delay := distance / send_ship_delay
 		wait_and_spawn(delay, target, btn, loading_bar, axis_label)
 
 var send_ship_tween : Tween
 var is_sending := false
+var can_send := false
 
 func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: ProgressBar, axis_label: Label) -> void:
 	if is_sending:
@@ -106,7 +110,10 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		loading_bar.value = 0.0
 		is_sending = false
 		btn.text = "SEND A SHIP"
-		axis_label.text = ""
+		axis_label.text = "SELECT A \n DESTINATION"
+		path.curve.clear_points()
+		select_marker.hide()
+		can_send = false
 		return
 	is_sending = true
 	axis_label.text = "SENDING TO\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
@@ -121,5 +128,8 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		loading_bar.value = 0.0
 		is_sending = false
 		btn.text = "SEND A SHIP"
-		axis_label.text = ""
+		axis_label.text = "SELECT A \n DESTINATION"
+		path.curve.clear_points()
+		select_marker.hide()
+		can_send = false
 	)
