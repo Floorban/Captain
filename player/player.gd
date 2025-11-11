@@ -134,3 +134,16 @@ func _on_item_delivered(item: ItemData, count: int):
 			Global.add_health(item.value * count)
 		item.ITEM_TYPE.SHIELD:
 			Global.add_shield(item.value * count)
+
+var detected_obstacles : Array[Obstacle] = []
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body is Obstacle:
+		detected_obstacles.append(body)
+		Global.radar_controller.monitor.start_danger_blink()
+
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	if body is Obstacle:
+		detected_obstacles.erase(body)
+		if detected_obstacles.size() <= 0:
+			Global.radar_controller.monitor.stop_danger_blink()

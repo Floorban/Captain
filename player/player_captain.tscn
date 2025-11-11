@@ -1,14 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://631pf63y7wqo"]
+[gd_scene load_steps=10 format=3 uid="uid://631pf63y7wqo"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
 [ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
 [ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="2_umdq8"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_kgmax"]
 [ext_resource type="Texture2D" uid="uid://mlmboodiiuvb" path="res://assets/160+ Cursors Crosshairs - Pack (32x32)/white/80.png" id="5_mshal"]
+[ext_resource type="Script" uid="uid://dgsuanbsbsub0" path="res://player/detection_area.gd" id="6_fa2mc"]
+[ext_resource type="Texture2D" uid="uid://bjy71ka32hxpk" path="res://circle.png" id="6_m7lgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgmax"]
 atlas = ExtResource("2_umdq8")
 region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mshal"]
+radius = 30.0
 
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
@@ -65,6 +70,34 @@ position = Vector2(0.9999981, 31.999998)
 rotation = 3.1415927
 scale = Vector2(10, 10)
 texture = ExtResource("5_mshal")
+
+[node name="DetectionArea" type="Area2D" parent="RadarObjComponent/MiniMapIcon" index="0"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(0.10000007, 3.1999989)
+rotation = 3.1415925
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("6_fa2mc")
+
+[node name="DetectionRadius" type="Sprite2D" parent="RadarObjComponent/MiniMapIcon/DetectionArea" index="0"]
+modulate = Color(0.6, 0.6, 0.6, 0.39215687)
+light_mask = 0
+visibility_layer = 2
+z_index = -2
+position = Vector2(0.09999983, -0.5000012)
+rotation = -3.1415925
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("6_m7lgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RadarObjComponent/MiniMapIcon/DetectionArea" index="1"]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_mshal")
+
+[connection signal="body_entered" from="RadarObjComponent/MiniMapIcon/DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="RadarObjComponent/MiniMapIcon/DetectionArea" to="." method="_on_detection_area_body_exited"]
 
 [editable path="InteractionComponent"]
 [editable path="InteractionController"]
