@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dfhrsd3cdrmtl" path="res://level/stations/station.tscn" id="1_1cun5"]
 [ext_resource type="Texture2D" uid="uid://f3cw4slbaude" path="res://assets/space_station_1_refinery.png" id="2_usuyo"]
 
-[node name="Station1" instance=ExtResource("1_1cun5")]
+[node name="STATION_1" instance=ExtResource("1_1cun5")]
 
-[node name="Icon" parent="." index="0"]
+[node name="Icon" parent="." index="1"]
 scale = Vector2(3, 3)
 texture = ExtResource("2_usuyo")
 

@@ -442,23 +442,23 @@ position = Vector2(274.765, 100.719)
 
 [node name="Stations" type="Node2D" parent="."]
 
-[node name="Station1" parent="Stations" instance=ExtResource("15_b6row")]
+[node name="STATION_1" parent="Stations" instance=ExtResource("15_b6row")]
 z_index = 0
 position = Vector2(-216, 215)
 
-[node name="Station2" parent="Stations" instance=ExtResource("9_ry1g7")]
+[node name="STATION_2" parent="Stations" instance=ExtResource("9_ry1g7")]
 z_index = 0
 position = Vector2(1484, 285)
 
-[node name="Station3" parent="Stations" instance=ExtResource("10_tdkxd")]
+[node name="STATION_3" parent="Stations" instance=ExtResource("10_tdkxd")]
 z_index = 0
 position = Vector2(-179, 1395)
 
-[node name="Station4" parent="Stations" instance=ExtResource("11_fh3di")]
+[node name="STATION_4" parent="Stations" instance=ExtResource("11_fh3di")]
 z_index = 0
 position = Vector2(892, -137)
 
-[node name="Station5" parent="Stations" instance=ExtResource("12_epufq")]
+[node name="STATION_5" parent="Stations" instance=ExtResource("12_epufq")]
 z_index = 0
 position = Vector2(1063, 1226)
 

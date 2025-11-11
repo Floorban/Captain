@@ -5,6 +5,8 @@ class_name Station
 @onready var interaction: InteractionComponent = $InteractionComponent
 var has_entered := false
 
+@export var axis: Vector2
+
 func _ready() -> void:
 	interaction.interact = Callable(self, "_on_enter_station")
 

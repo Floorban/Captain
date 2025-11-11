@@ -112,6 +112,8 @@ func update_markers_position():
 	for obj in markers.keys():
 		if is_instance_valid(obj):
 			var marker: RadarObjComponent = markers[obj]
+			if marker.is_detectable: marker.show()
+			else: marker.hide()
 			var marker_offset = obj.global_position - player.global_position
 			var distance = marker_offset.length()
 

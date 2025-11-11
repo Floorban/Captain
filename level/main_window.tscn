@@ -269,9 +269,10 @@ light_mask = 0
 visibility_layer = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Themes: Nothing & What's up
-Focused on mechanics, gameplay and shader programming and design. 
-All the 3D models, 2D srpites and sound effects are from online. The rest is made by me."
+text = "Themes: Nothing & What's up.
+Focused on mechanics, gameplay and shader programming and overall design. 
+All 3D models, 2D srpites and sound effects were sourced online. 
+Everything else was created by me."
 
 [node name="AssetsLinks" type="Label" parent="GameControl/Credits/VBoxContainer"]
 light_mask = 0
@@ -291,9 +292,9 @@ modulate = Color(0.26666668, 0.9882353, 0.5372549, 1)
 light_mask = 0
 visibility_layer = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Now, drag the text. file called \"start\" in the folder
-\"something\" to this window to start the game :)"
+theme_override_font_sizes/font_size = 28
+text = "Now, find “start.txt” inside the folder “something”
+and drag it into this window to initialize the system :)"
 
 [node name="SideScreen" parent="GameControl" instance=ExtResource("10_gvqxy")]
 unique_name_in_owner = true
@@ -320,6 +321,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_aoaw7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dol8q")
 show_percentage = false
 script = ExtResource("4_a8etk")
+
+[node name="Label" type="Label" parent="GameControl/HpBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="FuelBar" parent="GameControl" instance=ExtResource("3_n56ur")]
 unique_name_in_owner = true

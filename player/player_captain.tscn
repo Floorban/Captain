@@ -1,21 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://631pf63y7wqo"]
+[gd_scene load_steps=8 format=3 uid="uid://631pf63y7wqo"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
 [ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
 [ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="2_umdq8"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_kgmax"]
 [ext_resource type="Texture2D" uid="uid://mlmboodiiuvb" path="res://assets/160+ Cursors Crosshairs - Pack (32x32)/white/80.png" id="5_mshal"]
-[ext_resource type="Script" uid="uid://dgsuanbsbsub0" path="res://player/detection_area.gd" id="6_fa2mc"]
-[ext_resource type="Texture2D" uid="uid://bjy71ka32hxpk" path="res://circle.png" id="6_m7lgq"]
+[ext_resource type="PackedScene" uid="uid://flcja1x22vf6" path="res://player/detection_area.tscn" id="6_m7lgq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgmax"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa2mc"]
 atlas = ExtResource("2_umdq8")
-region = Rect2(0, 0, 40, 56)
+region = Rect2(72, 16, 16, 24)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mshal"]
-radius = 30.0
-
-[node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
+[node name="PlayerCaptain" node_paths=PackedStringArray("interaction", "detection_area") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
 input_right = "right3"
 input_up = "up3"
@@ -25,11 +21,13 @@ move_speed = 0.1
 friction = 0.8
 rotation_smoothness = 2.0
 interaction = NodePath("InteractionComponent")
+detection_area = NodePath("RadarObjComponent/MiniMapIcon/DetectionArea")
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = -1
-scale = Vector2(2.5, 2.5)
-texture = SubResource("AtlasTexture_kgmax")
+rotation = 3.1415927
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_fa2mc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 scale = Vector2(2.5, 2.5)
@@ -64,6 +62,10 @@ scale = Vector2(2.5, 2.5)
 build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
+[node name="RadarObjComponent" parent="." index="9"]
+visible = false
+is_detectable = true
+
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(0.27835503, 1.4178978, 0.55013067, 1)
 position = Vector2(0.9999981, 31.999998)
@@ -71,33 +73,8 @@ rotation = 3.1415927
 scale = Vector2(10, 10)
 texture = ExtResource("5_mshal")
 
-[node name="DetectionArea" type="Area2D" parent="RadarObjComponent/MiniMapIcon" index="0"]
-light_mask = 0
-visibility_layer = 2
+[node name="DetectionArea" parent="RadarObjComponent/MiniMapIcon" index="0" instance=ExtResource("6_m7lgq")]
 position = Vector2(0.10000007, 3.1999989)
-rotation = 3.1415925
-scale = Vector2(0.99999994, 0.99999994)
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("6_fa2mc")
-
-[node name="DetectionRadius" type="Sprite2D" parent="RadarObjComponent/MiniMapIcon/DetectionArea" index="0"]
-modulate = Color(0.6, 0.6, 0.6, 0.39215687)
-light_mask = 0
-visibility_layer = 2
-z_index = -2
-position = Vector2(0.09999983, -0.5000012)
-rotation = -3.1415925
-scale = Vector2(0.045, 0.045)
-texture = ExtResource("6_m7lgq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RadarObjComponent/MiniMapIcon/DetectionArea" index="1"]
-light_mask = 0
-visibility_layer = 2
-shape = SubResource("CircleShape2D_mshal")
-
-[connection signal="body_entered" from="RadarObjComponent/MiniMapIcon/DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="RadarObjComponent/MiniMapIcon/DetectionArea" to="." method="_on_detection_area_body_exited"]
 
 [editable path="InteractionComponent"]
 [editable path="InteractionController"]

@@ -16,6 +16,8 @@ var accel := 0.8
 @onready var danger_light: Node3D = %danger_light
 var danger_blinking := false
 
+@onready var navigate_light: Node3D = %navigate_light
+
 func _ready() -> void:
 	screen.texture.viewport_path = mini_map.sub_viewport.get_path()
 	side_screen.texture.viewport_path = mini_map.side_sub_viewport.get_path()
@@ -110,6 +112,10 @@ func stop_danger_blink():
 func blink_danger_light() -> void:
 	while danger_blinking:
 		danger_light.visible = !danger_light.visible
-		var delay := randf_range(0.05, 0.15)
+		var delay := randf_range(0.15, 0.3)
 		await get_tree().create_timer(delay).timeout
 	danger_light.visible = false
+
+func switch_nagivate_light(on: bool):
+	if on: navigate_light.show()
+	else: navigate_light.hide()

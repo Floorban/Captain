@@ -302,7 +302,6 @@ theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="GameMenu" type="MarginContainer" parent="SubViewport/Background"]
-visible = false
 custom_minimum_size = Vector2(150, 180)
 layout_mode = 1
 anchors_preset = 15
@@ -348,6 +347,29 @@ theme_override_font_sizes/font_size = 17
 text = "Left Click: Select
 Right Click: Move
 Space: Press Btn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelDetection" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Control"]
+visible = false
+custom_minimum_size = Vector2(140, 95)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -47.5
+offset_right = 70.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5157094, 1.353256, 0.65181077, 1)
+theme_override_constants/line_spacing = 6
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD_Send" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
 visible = false
@@ -364,15 +386,20 @@ grow_horizontal = 2
 [node name="LabelSend" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Send"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -20.0
+offset_top = -46.5
 offset_right = 20.0
-offset_bottom = 28.0
+offset_bottom = 13.5
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Send"]
 unique_name_in_owner = true
@@ -468,9 +495,9 @@ offset_bottom = 28.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 1
 theme_override_font_sizes/font_size = 17
-text = "FUEL IS NOT FULL
-COLLECT MORE
-WITH SMALL SHIP"
+text = "Fuel Not Full
+Gather More
+with Drones"
 horizontal_alignment = 1
 
 [node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]

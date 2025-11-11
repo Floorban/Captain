@@ -73,6 +73,7 @@ func _set_destination(event):
 
 func _go_to_destination(delta):
 	if Input.is_action_pressed("secondary") and target != null and can_control and player.can_move:
+		monitor.switch_nagivate_light(true)
 		monitor.trauma = 0.2
 		monitor.target_speed = 8.0
 		select_marker.hide_labels()
@@ -89,7 +90,10 @@ func _go_to_destination(delta):
 			monitor.target_speed = 0.0
 			Input.action_release("secondary")
 			print("arrive")
+	else:
+			monitor.switch_nagivate_light(false)
 	if Input.is_action_just_released("secondary") and not has_arrived and can_control and target != null:
+		monitor.switch_nagivate_light(false)
 		monitor.trauma = 0.3
 		monitor.target_speed = 0.0
 
@@ -111,18 +115,18 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 			send_ship_tween.kill()
 		loading_bar.value = 0.0
 		is_sending = false
-		btn.text = "SEND A SHIP"
-		axis_label.text = "SELECT A \n DESTINATION"
+		btn.text = "SEND A DRONE"
+		axis_label.text = "Target Required"
 		path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
 		return
 	if ship_amonut <= 0:
-		btn.text = "NOT ENOUGH"
-		axis_label.text = "RUN OUT OF \n SHIPS"
+		btn.text = "NO DRONES(3/3)"
+		axis_label.text = "Recycle a Drone \n to Deploy Another"
 		return
 	is_sending = true
-	axis_label.text = "SENDING TO\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
+	axis_label.text = "Sending to\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
 	btn.text = "STOP"
 	var end_value := loading_bar.max_value
 	if send_ship_tween:
@@ -133,8 +137,8 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		Global.windows_manager.spawn_window(pos)
 		loading_bar.value = 0.0
 		is_sending = false
-		btn.text = "SEND A SHIP"
-		axis_label.text = "SELECT A \n DESTINATION"
+		btn.text = "SEND A DRONE"
+		axis_label.text = "Target Required"
 		path.curve.clear_points()
 		select_marker.hide()
 		can_send = false

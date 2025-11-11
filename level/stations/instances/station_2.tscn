@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dfhrsd3cdrmtl" path="res://level/stations/station.tscn" id="1_rtgi2"]
 [ext_resource type="Texture2D" uid="uid://cntmrlq483dd1" path="res://assets/space_station_1_hangar_bay.png" id="2_32uiv"]
 
-[node name="Station2" instance=ExtResource("1_rtgi2")]
+[node name="STATION_2" instance=ExtResource("1_rtgi2")]
 
-[node name="Icon" parent="." index="0"]
+[node name="Icon" parent="." index="1"]
+rotation = -1.5707964
 scale = Vector2(3, 3)
 texture = ExtResource("2_32uiv")
 

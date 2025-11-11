@@ -408,8 +408,8 @@ offset_bottom = 155.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "You are stuck under here...
-Nothing's out there to help you...
+text = "You are stuck deep below…
+Nothing's coming to help you.
 Better figure out what's up and...
 Drive your submarine up !"
 
@@ -458,10 +458,9 @@ offset_bottom = 155.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "The game consists multiple 
-windows to play at some point.
-You only have one chance.
-"
+text = "The game uses multiple windows,
+you’ll need to manage them all.
+Also... you only get one chance."
 
 [node name="Control" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
 unique_name_in_owner = true
@@ -521,7 +520,7 @@ grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 24
 text = "WASD: Navigate menu.
-Space bar: Confirm."
+Space: Confirm."
 
 [node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel"]
 layout_mode = 1
@@ -551,8 +550,8 @@ theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 24
 text = "Left Click: Select target.
 Right Click: Hold to move.
-WASD: Move small ships
-when focu on side windows."
+WASD: Drone movement
+(while operating its window)."
 
 [node name="Control2" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
 unique_name_in_owner = true
@@ -611,8 +610,8 @@ offset_bottom = 125.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "Focus on (left click) the window 
-first to take over its control.
+text = "Left-click a window to focus it.
+Only then it can be controlled.
 "
 
 [node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel"]
@@ -641,10 +640,10 @@ offset_bottom = 185.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "Find the folder 'something' in 
-the game files.
+text = "Locate the folder “something”
+inside the game files.
 You'll need to drag and drop
-the needed files into the main
+the required files into the main
 window until there's nothing."
 
 [node name="Start" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
@@ -673,9 +672,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -86.0
-offset_top = -45.0
+offset_top = -50.0
 offset_right = 86.0
-offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32

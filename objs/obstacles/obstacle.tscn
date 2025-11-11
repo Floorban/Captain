@@ -22,7 +22,7 @@ atlas = ExtResource("6_guss0")
 region = Rect2(56, 104, 8, 8)
 
 [node name="Obstacle" groups=["radar_objs"] instance=ExtResource("1_sp7f0")]
-collision_layer = 4
+collision_layer = 20
 collision_mask = 0
 script = ExtResource("2_vak6t")
 

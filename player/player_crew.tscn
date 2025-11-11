@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnke1gr0k65og"]
+[gd_scene load_steps=11 format=3 uid="uid://bnke1gr0k65og"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_acesj"]
 [ext_resource type="Texture2D" uid="uid://bkmyovyyqc62y" path="res://assets/set.png" id="2_mbj16"]
+[ext_resource type="PackedScene" uid="uid://flcja1x22vf6" path="res://player/detection_area.tscn" id="3_c6f1t"]
 [ext_resource type="Texture2D" uid="uid://bd47h2emgabos" path="res://assets/tir-et-vie-all-sprites.png" id="4_c6f1t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sk5ax"]
@@ -20,6 +21,9 @@ radius = 26.172504
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbj16"]
 atlas = ExtResource("4_c6f1t")
 region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbj16"]
+radius = 195.0
 
 [node name="PlayerCrew" groups=["radar_objs"] instance=ExtResource("1_acesj")]
 input_left = "left2"
@@ -48,7 +52,7 @@ shape = SubResource("CircleShape2D_c6f1t")
 shape = SubResource("CircleShape2D_gbhii")
 
 [node name="RadarObjComponent" parent="." index="6"]
-visible = false
+is_detectable = true
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(1.1050899, 1.2099015, 1.6570976, 1)
@@ -63,6 +67,19 @@ offset_top = -497.59995
 offset_right = 491.99994
 offset_bottom = 494.40005
 
+[node name="DetectionArea" parent="." index="7" instance=ExtResource("3_c6f1t")]
+visibility_layer = 3
+
+[node name="DetectionRadius" parent="DetectionArea" index="0"]
+modulate = Color(0.2597405, 0.54840225, 0.2916289, 0.39215687)
+visibility_layer = 1
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" parent="DetectionArea" index="1"]
+visibility_layer = 1
+shape = SubResource("CircleShape2D_mbj16")
+
 [editable path="InteractionController"]
 [editable path="HitboxComponent"]
 [editable path="RadarObjComponent"]
+[editable path="DetectionArea"]
