@@ -4,9 +4,11 @@ class_name ItemData
 enum ITEM_TYPE {
 	FUEL,
 	HEAL,
-	SHIELD
+	SHIELD,
+	SALVAGE
 }
 
+@export var weight := 10.0
 @export var item_name: String = "Default Item"
 @export var icon : Texture2D
 @export var item_type: ITEM_TYPE = ITEM_TYPE.FUEL

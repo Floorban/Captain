@@ -11,7 +11,7 @@
 atlas = ExtResource("2_umdq8")
 region = Rect2(72, 16, 16, 24)
 
-[node name="PlayerCaptain" node_paths=PackedStringArray("interaction", "detection_area") instance=ExtResource("1_6ae7q")]
+[node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
 input_right = "right3"
 input_up = "up3"
@@ -21,7 +21,6 @@ move_speed = 0.1
 friction = 0.8
 rotation_smoothness = 2.0
 interaction = NodePath("InteractionComponent")
-detection_area = NodePath("RadarObjComponent/MiniMapIcon/DetectionArea")
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = -1
@@ -38,7 +37,7 @@ disabled = true
 position = Vector2(0, 5)
 
 [node name="InteractionComponent" parent="." index="4" instance=ExtResource("4_kgmax")]
-interact_name = "Enter"
+interact_name = "Recycle"
 interact_duration = 2.0
 
 [node name="CollisionShape2D" parent="InteractionComponent" index="0"]

@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if has_started:
+		Global.radar_controller.monitor.trauma = 0.15
 		loading_bar.value += delta * 50.0
 		if loading_bar.value == loading_bar.max_value:
 			Global.game_controller.set_game_content()

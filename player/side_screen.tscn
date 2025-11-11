@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvcyx2gvb822c"]
+[gd_scene load_steps=8 format=3 uid="uid://bvcyx2gvb822c"]
 
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="1_1ftww"]
 [ext_resource type="Script" uid="uid://dt8orla2jidtw" path="res://player/side_screen.gd" id="1_1x5p7"]
@@ -195,6 +195,13 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xwaj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="SideScreen" type="SubViewportContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(160, 190)
@@ -318,6 +325,7 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 
 [node name="HUD_Control" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
+visible = false
 custom_minimum_size = Vector2(145, 95)
 layout_mode = 1
 anchors_preset = 5
@@ -418,7 +426,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="HUD_Stats" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
-visible = false
 custom_minimum_size = Vector2(145, 95)
 layout_mode = 1
 anchors_preset = 5
@@ -438,37 +445,46 @@ offset_left = -65.0
 offset_right = 65.0
 offset_bottom = 93.0
 grow_horizontal = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 1
 
 [node name="HP" type="VBoxContainer" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -1
 
-[node name="LabelSend" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/HP"]
+[node name="LabelHP" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/HP"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "HEALTH:"
-
-[node name="FuelBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/HP"]
-custom_minimum_size = Vector2(130, 15)
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-value = 65.0
-show_percentage = false
+theme_override_colors/font_color = Color(0.28538418, 1.2223895, 0.6308721, 1)
+theme_override_font_sizes/font_size = 17
+text = "HULL:  48%"
 
 [node name="FUEL" type="VBoxContainer" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -1
 
-[node name="LabelSend" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/FUEL"]
+[node name="LabelFUEL" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/FUEL"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1.1909814, 0.5680561, 0.33773082, 1)
 theme_override_font_sizes/font_size = 18
-text = "FUEL:"
+text = "FUEL:  56%"
 
-[node name="FuelBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/FUEL"]
+[node name="Salvage" type="VBoxContainer" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LabelLOAD" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/Salvage"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "LOAD:  100%"
+
+[node name="LoadBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_Stats/VBoxContainer/Salvage"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 15)
 layout_mode = 2
 theme_override_font_sizes/font_size = 11
+theme_override_styles/fill = SubResource("StyleBoxFlat_1xwaj")
 value = 65.0
 show_percentage = false
 

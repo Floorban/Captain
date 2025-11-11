@@ -22,6 +22,10 @@ class_name SideScreen
 @onready var hud_send: Control = $SubViewport/Background/GameMenu/Panel/HUD_Send
 
 @onready var hud_stats: Control = $SubViewport/Background/GameMenu/Panel/HUD_Stats
+@onready var label_hp: Label = %LabelHP
+@onready var label_fuel: Label = %LabelFUEL
+@onready var label_load: Label = %LabelLOAD
+@onready var load_bar: ProgressBar = %LoadBar
 
 @onready var hud_goup: Control = $SubViewport/Background/GameMenu/Panel/HUD_GOUP
 
@@ -61,8 +65,6 @@ func set_control_screen(found_target: Station, first_time := false):
 	label_control.hide()
 	label_detection.hide()
 	if found_target:
-		label_detection.text = ""
-		label_detection.show()
 		var pos := found_target.global_position
 		var msg = "Station Detected\n(%d, %d)\n%s" % [
 			int(pos.x),
@@ -91,7 +93,10 @@ func set_control_screen(found_target: Station, first_time := false):
 				of 3 Drones",
 				
 			    "Monitor Your 
-				HP & FUEL"
+				HP & FUEL",
+				
+				"Return Drones to 
+				Unload & Reuse"
 			]
 		var msg = messages.pick_random()
 		label_control.text = ""
@@ -103,14 +108,27 @@ func set_send_screen():
 	hud_send.show()
 	hud_stats.hide()
 	hud_goup.hide()
-	label_send.text = "Target Required"
+	play_label_effect(label_send, "Target Required")
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
 func set_stats_screen():
+	b_2.grab_focus()
 	hud_control.hide()
 	hud_send.hide()
 	hud_stats.show()
 	hud_goup.hide()
+	var hp_percent = (float(Global.health_component.cur_hp) / Global.health_component.max_hp) * 100
+	var fuel_percent = (Global.cur_fuel / Global.max_fuel) * 100
+	var load_value = Global.cur_load / Global.max_load
+	var load_percent = load_value * 100
+
+	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
+	var msg_fuel = "FUEL:  " + str(int(fuel_percent)) + " %"
+	var msg_load = "LOAD:  " + str(int(load_percent)) + " %"
+	play_label_effect(label_hp, msg_hp)
+	play_label_effect(label_fuel, msg_fuel)
+	play_label_effect(label_load, msg_load)
+	animate_load_bar(load_bar, load_value)
 
 func set_ascend_screen():
 	hud_control.hide()
@@ -118,22 +136,30 @@ func set_ascend_screen():
 	hud_stats.hide()
 	hud_goup.show()
 
+var label_effect_version := {}  # Label -> int
+
 func play_label_effect(label: Label, full_text: String) -> void:
+	label_effect_version[label] = label_effect_version.get(label, 0) + 1
+	var my_version = label_effect_version[label]
 	label.text = ""
 	label.show()
-	await _blink_label(label, 6, 0.05, 0.15)
-	await _type_glitch(label, full_text, 0.03, 0.5)
+	_blink_label_versioned(label, 6, 0.05, 0.15, my_version)
+	_type_glitch_versioned(label, full_text, 0.03, 0.5, my_version)
 
-func _blink_label(label: Label, blinks: int, min_delay: float, max_delay: float) -> void:
+func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
 	for i in range(blinks):
+		if label_effect_version[label] != version:
+			return
 		label.visible = not label.visible
 		await get_tree().create_timer(randf_range(min_delay, max_delay)).timeout
 	label.visible = true
 
-func _type_glitch(label: Label, text: String, char_delay: float, glitch_chance: float) -> void:
+func _type_glitch_versioned(label: Label, text: String, char_delay: float, glitch_chance: float, version: int) -> void:
 	var output := ""
-	var chars = text.split("")  # characters
+	var chars = text.split("")
 	for c in chars:
+		if label_effect_version[label] != version:
+			return
 		if randf() < glitch_chance:
 			label.text = output + _random_glitch_char()
 			await get_tree().create_timer(char_delay * 0.5).timeout
@@ -144,3 +170,17 @@ func _type_glitch(label: Label, text: String, char_delay: float, glitch_chance: 
 func _random_glitch_char() -> String:
 	var pool = ["#", "%", "&", "*", "@", "?", "/", "\\", "!", "~", "±", "§"]
 	return pool[randi() % pool.size()]
+
+func animate_load_bar(bar: ProgressBar, target_value: float, duration: float = 0.8) -> void:
+	load_bar.value = 0.0
+	await get_tree().create_timer(0.5).timeout
+	if bar.has_meta("tween") and is_instance_valid(bar.get_meta("tween")):
+		var old_tween = bar.get_meta("tween")
+		old_tween.kill()
+
+	bar.value = 0
+	var tween = get_tree().create_tween()
+	bar.set_meta("tween", tween)
+
+	# animate from 0 to target_value
+	tween.tween_property(bar, "value", target_value * bar.max_value, duration).as_relative()
