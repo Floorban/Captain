@@ -63,7 +63,7 @@ func set_control_screen(found_target: Station, first_time := false):
 	hud_stats.hide()
 	hud_goup.hide()
 	label_control.hide()
-	label_detection.hide()
+	#label_detection.hide()
 	if found_target:
 		var pos := found_target.global_position
 		var msg = "Station Detected\n(%d, %d)\n%s" % [
@@ -71,7 +71,8 @@ func set_control_screen(found_target: Station, first_time := false):
 			int(pos.y),
 		    "Be Careful"
 		]
-		play_label_effect(label_detection, msg)
+		label_control.modulate = Color.GREEN
+		play_label_effect(label_control, msg)
 	else:
 		var messages = []
 		if first_time:
@@ -99,8 +100,7 @@ func set_control_screen(found_target: Station, first_time := false):
 				Unload & Reuse"
 			]
 		var msg = messages.pick_random()
-		label_control.text = ""
-		label_control.show()
+		label_control.modulate = Color.WHITE
 		play_label_effect(label_control, msg)
 
 func set_send_screen():
@@ -108,11 +108,12 @@ func set_send_screen():
 	hud_send.show()
 	hud_stats.hide()
 	hud_goup.hide()
-	play_label_effect(label_send, "Target Required")
+	#play_label_effect(label_send, "Target Required")
+	label_send.text = "Target Required"
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
 func set_stats_screen():
-	b_2.grab_focus()
+	#b_2.grab_focus()
 	hud_control.hide()
 	hud_send.hide()
 	hud_stats.show()
@@ -144,7 +145,7 @@ func play_label_effect(label: Label, full_text: String) -> void:
 	label.text = ""
 	label.show()
 	_blink_label_versioned(label, 6, 0.05, 0.15, my_version)
-	_type_glitch_versioned(label, full_text, 0.03, 0.5, my_version)
+	_type_glitch_versioned(label, full_text, 0.04, 0.4, my_version)
 
 func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
 	for i in range(blinks):

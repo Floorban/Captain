@@ -78,5 +78,4 @@ func _on_focus_exited() -> void:
 	if player: player.can_control = false
 
 func _clear_window():
-	print("close")
 	queue_free()

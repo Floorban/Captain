@@ -122,8 +122,8 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		can_send = false
 		return
 	if ship_amonut <= 0:
-		btn.text = "NO DRONES(3/3)"
-		axis_label.text = "Recycle a Drone \n to Deploy Another"
+		btn.text = "No Drones(3/3)"
+		axis_label.text = "Recycle a Drone \n to Reuse It"
 		return
 	is_sending = true
 	axis_label.text = "Sending to\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")

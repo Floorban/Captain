@@ -59,14 +59,11 @@ func get_captain() -> Player:
 	return null
 
 func add_fuel(amount: float) -> void:
-	print("Fuel increased by:", amount)
 	cur_fuel = clampf(cur_fuel + amount, 0, max_fuel)
 	if main:
 		main.update_fuel_bar(cur_fuel / max_fuel)
-		if cur_fuel > 0: main.is_paused = false
 
 func add_health(amount: int) -> void:
-	print("Healed by:", amount)
 	if health_component: health_component.cur_hp += amount
 
 func add_load(amount: float):
@@ -75,7 +72,7 @@ func add_load(amount: float):
 func add_shield(amount: int) -> void:
 	print("Shield boosted by:", amount)
 
-func update_load():
+func update_stats():
 	game_controller.side_screen.set_stats_screen()
 
 func enter_station(station: Station):
