@@ -65,11 +65,11 @@ func set_control_screen(found_target: Station, first_time := false):
 	label_control.hide()
 	#label_detection.hide()
 	if found_target:
-		var pos := found_target.global_position
+		var pos := found_target.axis
 		var msg = "Station Detected\n(%d, %d)\n%s" % [
 			int(pos.x),
 			int(pos.y),
-		    "Be Careful"
+		    "Go Get Upgrades"
 		]
 		label_control.modulate = Color.GREEN
 		play_label_effect(label_control, msg)
@@ -124,7 +124,7 @@ func set_stats_screen():
 	var load_percent = load_value * 100
 
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
-	var msg_fuel = "FUEL:  " + str(int(fuel_percent)) + " %"
+	var msg_fuel = "CELL:  " + str(int(fuel_percent)) + " %"
 	var msg_load = "LOAD:  " + str(int(load_percent)) + " %"
 	play_label_effect(label_hp, msg_hp)
 	play_label_effect(label_fuel, msg_fuel)
@@ -145,7 +145,7 @@ func play_label_effect(label: Label, full_text: String) -> void:
 	label.text = ""
 	label.show()
 	_blink_label_versioned(label, 6, 0.05, 0.15, my_version)
-	_type_glitch_versioned(label, full_text, 0.04, 0.4, my_version)
+	_type_glitch_versioned(label, full_text, 0.03, 0.5, my_version)
 
 func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
 	for i in range(blinks):

@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name Spawner
 
@@ -16,10 +17,10 @@ func _spawn_test(_v: bool):
 	get_children_objs()
 	randomize_obj_pos()
 
-func _ready() -> void:
-	is_paused = false
-	get_children_objs()
-	randomize_obj_pos()
+#func _ready() -> void:
+	#is_paused = false
+	#get_children_objs()
+	#randomize_obj_pos()
 
 func _physics_process(delta: float) -> void:
 	move(delta)

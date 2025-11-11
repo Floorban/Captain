@@ -10,7 +10,7 @@ atlas = ExtResource("2_mbj16")
 region = Rect2(48, 176, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prtci"]
-radius = 16.0
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6f1t"]
 radius = 33.13608
@@ -33,10 +33,12 @@ input_down = "down2"
 move_speed = 150.0
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(2, 2)
+z_index = 2
+scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_sk5ax")
 
 [node name="ShieldSprite" parent="." index="1"]
+z_index = 2
 scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" parent="." index="2"]

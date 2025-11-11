@@ -44,9 +44,10 @@ func _set_destination(event):
 		for obj in mini_map.markers:
 			if is_instance_valid(obj):
 				var marker : RadarObjComponent = mini_map.markers[obj]
-				var distance = obj.global_position.distance_to(target)
-				if distance < 100 and marker.modulate.a > 0.1:
-					select_marker.set_label_text(obj.name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
+				if marker.is_detectable:
+					var distance = obj.global_position.distance_to(target)
+					if distance < 100 and marker.modulate.a > 0.1:
+						select_marker.set_label_text(obj.name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
 				
 		path.global_position = player.global_position
 		path_follow.progress = 0.01

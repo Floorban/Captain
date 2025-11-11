@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="4_a8etk"]
 [ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="5_qyphg"]
 [ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="6_rk545"]
-[ext_resource type="PackedScene" uid="uid://b0xv8a2br0nfc" path="res://monitor.tscn" id="8_a8etk"]
+[ext_resource type="PackedScene" uid="uid://b0xv8a2br0nfc" path="res://util/monitor.tscn" id="8_a8etk"]
 [ext_resource type="PackedScene" uid="uid://cvmm2mco26814" path="res://util/retro_effect_rect.tscn" id="8_qyphg"]
 [ext_resource type="Script" uid="uid://bibkhgios5jko" path="res://level/game_control.gd" id="9_gvqxy"]
 [ext_resource type="PackedScene" uid="uid://bvcyx2gvb822c" path="res://player/side_screen.tscn" id="10_gvqxy"]
@@ -133,8 +133,8 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dol8q"]
 bg_color = Color(0.32653823, 0.6959555, 0.3325836, 1)
-border_width_top = 2
-border_width_bottom = 2
+border_width_top = 1
+border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
@@ -143,10 +143,8 @@ corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfn3b"]
 bg_color = Color(0.74536514, 0.4365484, 0.25666973, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_top = 1
+border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
@@ -333,9 +331,9 @@ light_mask = 0
 visibility_layer = 2
 custom_minimum_size = Vector2(345, 13)
 offset_left = -170.0
-offset_top = -105.0
+offset_top = -107.0
 offset_right = 175.0
-offset_bottom = -90.0
+offset_bottom = -92.0
 theme_override_constants/outline_size = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_aoaw7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yfn3b")

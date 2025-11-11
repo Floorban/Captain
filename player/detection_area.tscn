@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://flcja1x22vf6"]
 
 [ext_resource type="Script" uid="uid://dgsuanbsbsub0" path="res://player/detection_area.gd" id="1_wa5c0"]
-[ext_resource type="Texture2D" uid="uid://bjy71ka32hxpk" path="res://circle.png" id="2_s1mtw"]
+[ext_resource type="Texture2D" uid="uid://bjy71ka32hxpk" path="res://assets/circle.png" id="2_s1mtw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mshal"]
 radius = 30.0

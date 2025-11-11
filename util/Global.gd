@@ -30,7 +30,7 @@ func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component
 	_init_signals()
-	add_fuel(max_fuel)
+	add_fuel(max_fuel/2)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):
@@ -62,6 +62,8 @@ func add_fuel(amount: float) -> void:
 	cur_fuel = clampf(cur_fuel + amount, 0, max_fuel)
 	if main:
 		main.update_fuel_bar(cur_fuel / max_fuel)
+	if cur_fuel > 0:
+		get_captain().can_move = true
 
 func add_health(amount: int) -> void:
 	if health_component: health_component.cur_hp += amount

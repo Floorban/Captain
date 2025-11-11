@@ -19,6 +19,7 @@ func init_sprite():
 		sprite.texture = item_data.icon
 
 func _ready() -> void:
+	rotation_degrees = randf() * 360.0
 	interaction.interact = Callable(self, "_on_pickup")
 	interaction.interact_name = item_data.item_name
 	init_sprite()

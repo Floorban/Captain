@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="4_o4h07"]
 [ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="5_sb0gl"]
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_tbyui"]
-[ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://player/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
+[ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://assets/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
 [ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="7_y1pwk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]

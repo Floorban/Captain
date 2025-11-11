@@ -12,10 +12,10 @@ atlas = ExtResource("2_miwr7")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edhjt"]
-radius = 15.0
+radius = 29.068884
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua8cb"]
-radius = 19.0
+radius = 35.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nd6li"]
 atlas = ExtResource("6_guss0")
@@ -25,9 +25,11 @@ region = Rect2(56, 104, 8, 8)
 collision_layer = 20
 collision_mask = 0
 script = ExtResource("2_vak6t")
+min_speed = 0.0
+max_speed = 0.0
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_vak6t")
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -51,7 +53,7 @@ shape = SubResource("CircleShape2D_ua8cb")
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
 position = Vector2(0, -1)
-scale = Vector2(12, 12)
+scale = Vector2(18, 18)
 texture = SubResource("AtlasTexture_nd6li")
 
 [editable path="HitboxComponent"]

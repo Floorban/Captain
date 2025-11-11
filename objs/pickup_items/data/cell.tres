@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b782kgbo7651y"]
+
+[ext_resource type="Texture2D" uid="uid://oyxymgrlmfi5" path="res://assets/consommables-1-all-sprites.png" id="1_ojpkf"]
+[ext_resource type="Script" uid="uid://bjljm860oh4bu" path="res://objs/pickup_items/data/item_data.gd" id="2_1nlsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3bde"]
+atlas = ExtResource("1_ojpkf")
+region = Rect2(0, 96, 16, 16)
+
+[resource]
+script = ExtResource("2_1nlsp")
+item_name = "Cell"
+icon = SubResource("AtlasTexture_x3bde")
+value = 20.0
+max_stack = 2
+metadata/_custom_type_script = "uid://bjljm860oh4bu"

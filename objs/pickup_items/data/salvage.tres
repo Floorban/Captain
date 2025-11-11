@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://chxjghf0c5mv0"]
+
+[ext_resource type="Texture2D" uid="uid://so01503vx3e1" path="res://assets/parts/parts_1.png" id="1_ty1ed"]
+[ext_resource type="Script" uid="uid://bjljm860oh4bu" path="res://objs/pickup_items/data/item_data.gd" id="2_k3i7p"]
+
+[resource]
+script = ExtResource("2_k3i7p")
+item_name = "Sqalvage"
+icon = ExtResource("1_ty1ed")
+item_type = 2
+value = 1.0
+is_stackable = false
+metadata/_custom_type_script = "uid://bjljm860oh4bu"

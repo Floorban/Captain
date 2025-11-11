@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3cuhhtwie32y"]
+
+[ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="1_wk4w7"]
+
+[node name="Obstacle_Hard" instance=ExtResource("1_wk4w7")]
+min_speed = 20.0
+max_speed = 40.0
+
+[editable path="HitboxComponent"]
+[editable path="AttackComponent"]
+[editable path="RadarObjComponent"]

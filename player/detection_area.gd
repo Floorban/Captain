@@ -22,7 +22,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		var o : Obstacle = body
 		detected_obstacles.append(o)
 		Global.radar_controller.monitor.start_danger_blink()
-	elif body is Station:
+	if body is Station:
 		var s : Station = body
 		detected_stations.append(s)
 		Global.game_controller.side_screen.set_control_screen(s)
@@ -30,11 +30,13 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 	if not marker: return
-	marker.is_detectable = false
 	if body is Obstacle and detected_obstacles.has(body):
+		marker.is_detectable = false
 		detected_obstacles.erase(body)
 		if detected_obstacles.size() <= 0:
 			Global.radar_controller.monitor.stop_danger_blink()
-	elif body is Station and detected_stations.has(body):
+	if body is Station and detected_stations.has(body):
+		marker.is_detectable = false
 		detected_stations.erase(body)
-		Global.game_controller.side_screen.set_control_screen(null)
+		if detected_stations.size() <= 0:
+			Global.game_controller.side_screen.set_control_screen(null)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5t6r77gj5aa7"]
+
+[ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="1_fkqvl"]
+[ext_resource type="Resource" uid="uid://b782kgbo7651y" path="res://objs/pickup_items/data/cell.tres" id="2_gcbs1"]
+[ext_resource type="Texture2D" uid="uid://oyxymgrlmfi5" path="res://assets/consommables-1-all-sprites.png" id="3_fkqvl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek00k"]
+atlas = ExtResource("3_fkqvl")
+region = Rect2(0, 96, 16, 16)
+
+[node name="Cell" instance=ExtResource("1_fkqvl")]
+item_data = ExtResource("2_gcbs1")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.3, 1.5)
+texture = SubResource("AtlasTexture_ek00k")
+
+[node name="InteractionComponent" parent="." index="4"]
+interact_name = "Fuel"
+
+[editable path="InteractionComponent"]

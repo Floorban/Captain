@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://b2se7omluun8b" path="res://assets/space_station_1_core.png" id="2_6vrhq"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="2_h3y18"]
 [ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="3_j800o"]
-[ext_resource type="Texture2D" uid="uid://oyxymgrlmfi5" path="res://assets/consommables-1-all-sprites.png" id="4_j800o"]
+[ext_resource type="Texture2D" uid="uid://d364675shhcy6" path="res://assets/power-up.png" id="5_6vrhq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vrhq"]
-radius = 200.0
+radius = 92.00543
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3y18"]
-radius = 132.00378
+radius = 105.00476
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j800o"]
-atlas = ExtResource("4_j800o")
+atlas = ExtResource("5_6vrhq")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Station" type="StaticBody2D" groups=["radar_objs"]]
@@ -28,7 +28,7 @@ shape = SubResource("CircleShape2D_6vrhq")
 [node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = -5
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_6vrhq")
 
 [node name="InteractionComponent" parent="." instance=ExtResource("2_h3y18")]
@@ -40,11 +40,12 @@ interact_duration = 2.0
 shape = SubResource("CircleShape2D_h3y18")
 
 [node name="RadarObjComponent" parent="." instance=ExtResource("3_j800o")]
+is_detectable = true
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(1.8299679, 1.8181071, 1.8181071, 1)
-position = Vector2(6.9999995, -4.9999995)
-scale = Vector2(14, 14)
+position = Vector2(5, 3)
+scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_j800o")
 
 [node name="PixelEffect" parent="RadarObjComponent/MiniMapIcon" index="0"]

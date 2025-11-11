@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://f3cw4slbaude" path="res://assets/space_station_1_refinery.png" id="2_usuyo"]
 
 [node name="STATION_1" instance=ExtResource("1_1cun5")]
+axis = Vector2(372, 268)
 
 [node name="Icon" parent="." index="1"]
 scale = Vector2(3, 3)
