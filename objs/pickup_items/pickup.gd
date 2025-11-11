@@ -14,14 +14,20 @@ var frame: int = 0
 @export var frame_speed: float = 10.0
 var frame_timer: float = 0.0
 
+func init_sprite():
+	if item_data:
+		sprite.texture = item_data.icon
+
 func _ready() -> void:
 	interaction.interact = Callable(self, "_on_pickup")
+	interaction.interact_name = item_data.item_name
+	init_sprite()
 	var t := sprite.texture as AtlasTexture
 	if t != null:
 		texture = t
 
-func _physics_process(delta: float) -> void:
-	_anim_sprite(delta)
+#func _physics_process(delta: float) -> void:
+	#_anim_sprite(delta)
 
 func _on_pickup(interactor: Node) -> void:
 	if item_data.item_type == ItemData.ITEM_TYPE.SHIELD:

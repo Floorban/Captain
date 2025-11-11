@@ -10,6 +10,8 @@ class_name Wwindow
 var size_tween : Tween
 
 @onready var player: Player = $Player
+@onready var button_drop: Button = %ButtonDrop
+@onready var inventory_component: InventoryComponent = %InventoryComponent
 
 func random_size() -> Vector2i:
 	return Vector2(randi_range(width_range.x, width_range.y), randi_range(height_range.x, height_range.y))
@@ -33,6 +35,7 @@ func init_window(_x: float, _y: float, _t: Vector2):
 
 func init_player(target_pos: Vector2):
 	if not player: return
+	button_drop.pressed.connect(try_drop)
 	player.show()
 	player.global_position = target_pos
 	Global.main.mini_map.get_minimap_objs()
@@ -63,8 +66,12 @@ func check_window_size():
 			Global.windows_manager.main_sub_window.grab_focus()
 			visible = false
 
+func try_drop():
+	inventory_component.drop_item(player.global_position + Vector2(randf_range(-30,30), randf_range(-30,30)))
+
 func _on_focus_entered() -> void:
 	if player: player.can_control = true
+	button_drop.grab_focus()
 	#if has_focus(): resize_window(size*0.8)
 
 func _on_focus_exited() -> void:

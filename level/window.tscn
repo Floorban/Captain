@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckhsfu8dljb37"]
+[gd_scene load_steps=11 format=3 uid="uid://ckhsfu8dljb37"]
 
 [ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="5_sb0gl"]
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_tbyui"]
 [ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://player/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
+[ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="7_y1pwk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]
 bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
@@ -52,6 +53,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ButtonDrop" type="Button" parent="UI/ShipUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "Space to 
+drop item"
 
 [node name="Header" type="TextureRect" parent="UI/ShipUI"]
 texture_filter = 1
@@ -129,10 +142,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryComponent" parent="UI/ShipUI/Bottom" instance=ExtResource("5_sb0gl")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 1
 offset_left = 75.0
 offset_right = 205.0
+pickup_scene = ExtResource("7_y1pwk")
 
 [node name="Background" parent="." instance=ExtResource("4_o4h07")]
 script = null

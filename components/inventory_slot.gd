@@ -10,6 +10,13 @@ func is_empty() -> bool:
 func can_stack(other: ItemData) -> bool:
 	return not is_empty() and item == other and item.is_stackable and count < item.max_stack
 
+func drop():
+	if is_empty(): return
+	if count > 1:
+		count -= 1
+	else:
+		clear()
+
 func clear():
 	item = null
 	count = 0

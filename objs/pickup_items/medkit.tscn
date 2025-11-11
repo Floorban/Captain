@@ -16,6 +16,5 @@ texture = SubResource("AtlasTexture_p31j3")
 
 [node name="InteractionComponent" parent="." index="4"]
 interact_name = "Medkit"
-interact_duration = 0.8
 
 [editable path="InteractionComponent"]

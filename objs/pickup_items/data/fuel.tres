@@ -12,5 +12,5 @@ script = ExtResource("2_mhxec")
 item_name = "fuel"
 icon = SubResource("AtlasTexture_x3bde")
 value = 50.0
-max_stack = 4
+max_stack = 2
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

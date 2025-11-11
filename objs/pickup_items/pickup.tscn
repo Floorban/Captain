@@ -18,6 +18,7 @@ scale = Vector2(2, 2)
 health_component = NodePath("../HealthComponent")
 
 [node name="InteractionComponent" parent="." index="4" instance=ExtResource("4_wokey")]
+interact_duration = 1.5
 
 [node name="CollisionShape2D" parent="InteractionComponent" index="0"]
 shape = SubResource("CircleShape2D_wokey")
