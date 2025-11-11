@@ -11,6 +11,8 @@ var target_speed := 0.0
 var current_speed := 0.0
 var accel := 0.8
 
+@onready var lights: Array[Node3D] = [%Light1, %Light2, %Light3]
+
 func _ready() -> void:
 	screen.texture.viewport_path = mini_map.sub_viewport.get_path()
 	side_screen.texture.viewport_path = mini_map.side_sub_viewport.get_path()
@@ -52,3 +54,17 @@ func cam_shake() -> void:
 	
 	camera.position = cam_original_position + _offset
 	camera.rotation_degrees = cam_original_rotation + _rotation
+
+func switch_light(index: int, turn_on := false):
+	index = clampi(index, 0, 2)
+	#for light in lights:
+		#light.hide()
+	lights[index].show()
+	var off_light = lights[index].get_child(0)
+	var real_light = lights[index].get_child(1)
+	if not turn_on:
+		off_light.show()
+		real_light.hide()
+	else:
+		real_light.show()
+		off_light.hide()

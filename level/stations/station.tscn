@@ -1,16 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfhrsd3cdrmtl"]
+[gd_scene load_steps=8 format=3 uid="uid://dfhrsd3cdrmtl"]
 
 [ext_resource type="Script" uid="uid://cx4tikchnd24s" path="res://level/stations/station.gd" id="1_wrbuq"]
+[ext_resource type="Texture2D" uid="uid://b2se7omluun8b" path="res://assets/space_station_1_core.png" id="2_6vrhq"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="2_h3y18"]
 [ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="3_j800o"]
 [ext_resource type="Texture2D" uid="uid://oyxymgrlmfi5" path="res://assets/consommables-1-all-sprites.png" id="4_j800o"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0u0k"]
-load_path = "res://.godot/imported/tile sheet 1.png-61c5062cbbc43a58bbc4c13b2a82822d.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rw7lb"]
-atlas = SubResource("CompressedTexture2D_c0u0k")
-region = Rect2(48, 64, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3y18"]
 radius = 132.00378
@@ -26,9 +20,8 @@ script = ExtResource("1_wrbuq")
 [node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = -5
-position = Vector2(-12.999999, -9.999999)
-scale = Vector2(20, 20)
-texture = SubResource("AtlasTexture_rw7lb")
+scale = Vector2(2, 2)
+texture = ExtResource("2_6vrhq")
 
 [node name="InteractionComponent" parent="." instance=ExtResource("2_h3y18")]
 collision_mask = 8

@@ -139,11 +139,13 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		select_marker.hide()
 		can_send = false
 		ship_amonut -= 1
+		monitor.switch_light(ship_amonut)
 	)
 
 func remove_ship_radar_obj(ship: Node2D):
 	if not ship:
 		return
+	monitor.switch_light(ship_amonut, true)
 	ship_amonut += 1
 	mini_map.remove_marker(ship)
 
