@@ -191,7 +191,7 @@ position = Vector2(-504, -452)
 
 [node name="STATION_1" parent="Stations" instance=ExtResource("6_hdc4k")]
 z_index = 0
-position = Vector2(-216, 215)
+position = Vector2(270, 344)
 
 [editable path="Stations/STATION_1"]
 [editable path="Stations/STATION_1/InteractionComponent"]

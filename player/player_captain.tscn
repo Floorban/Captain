@@ -98,6 +98,7 @@ z_index = -2
 position = Vector2(1.7881393e-07, 9.536743e-06)
 rotation = -6.357302e-08
 scale = Vector2(1, 1)
+is_captain = true
 
 [node name="DetectionRadius" parent="RadarObjComponent/DetectionArea" index="0"]
 modulate = Color(0.6884535, 1.353256, 0.7041575, 0.5254902)

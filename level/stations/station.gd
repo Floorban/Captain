@@ -9,12 +9,17 @@ var has_entered := false
 @onready var radar_obj_component: RadarObjComponent = $RadarObjComponent
 
 func _ready() -> void:
+	interaction.connect("area_exited", _on_exit_station)
 	interaction.interact = Callable(self, "_on_enter_station")
 	radar_obj_component.display_name = name
 
 func _on_enter_station(_interactor: Node) -> void:
-	#if interactor.has_node("InventoryComponent"): #if player's reputation is over 10 or some lol
 	if has_entered:
 		return
 	has_entered = true
 	Global.enter_station(self)
+
+func _on_exit_station(_interactor: Node2D):
+	print(_interactor.name)
+	has_entered = false
+	Global.exit_station()

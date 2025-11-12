@@ -490,6 +490,7 @@ value = 65.0
 show_percentage = false
 
 [node name="HUD_GOUP" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
+visible = false
 custom_minimum_size = Vector2(145, 95)
 layout_mode = 1
 anchors_preset = 5

@@ -147,6 +147,40 @@ func set_stats_screen():
 	play_label_effect(label_load, msg_load)
 	animate_load_bar(load_bar, load_value)
 
+func set_station_screen():
+	set_stats_screen()
+	b_3.grab_focus()
+	b_1.pressed.disconnect(set_send_screen) 
+	b_2.pressed.disconnect(set_stats_screen)
+	b_3.pressed.disconnect(set_ascend_screen)
+	b_1.pressed.connect(confirm_purchase) 
+	b_2.pressed.connect(prev_item)
+	b_3.pressed.connect(next_item)
+	b_1.text = "[ PUECHASE ]"
+	b_2.text = "<-PREV"
+	b_3.text = "NEXT->"
+
+func disable_station_screen():
+	b_1.pressed.disconnect(confirm_purchase) 
+	b_2.pressed.disconnect(prev_item)
+	b_3.pressed.disconnect(next_item)
+	b_1.pressed.connect(set_send_screen) 
+	b_2.pressed.connect(set_stats_screen)
+	b_3.pressed.connect(set_ascend_screen)
+	b_1.text = "SEND A SHIP"
+	b_2.text = "STATS"
+	b_3.text = "GO UP"
+	set_control_screen(null)
+
+func prev_item():
+	print("<-")
+
+func next_item():
+	print("->")
+
+func confirm_purchase():
+	print("buy")
+
 var can_goup := false
 var going_up := false
 var target_depth : int

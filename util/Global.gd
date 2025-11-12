@@ -28,6 +28,8 @@ var nothing: Nothing
 var max_load := 100.0
 var cur_load := 0.0
 
+var cur_station: Station
+
 func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component
@@ -81,15 +83,12 @@ func update_stats():
 
 func enter_station(station: Station):
 	print("player has entered ", station.name)
+	cur_station = station
+	game_controller.side_screen.set_station_screen()
 
 func exit_station():
-	#could spawn a player if it died
-	max_fuel += 100.0
-	add_fuel(max_fuel)
-	game_setup()
-	main.close_shop()
-	for p in players:
-		p.health_component.cur_hp += p.health_component.max_hp
+	cur_station = null
+	game_controller.side_screen.disable_station_screen()
 
 func ascend():
 	cur_fuel = 0.0
