@@ -325,6 +325,7 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 
 [node name="HUD_Control" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
+visible = false
 custom_minimum_size = Vector2(145, 95)
 layout_mode = 1
 anchors_preset = 5
@@ -489,7 +490,6 @@ value = 65.0
 show_percentage = false
 
 [node name="HUD_GOUP" type="Control" parent="SubViewport/Background/GameMenu/Panel"]
-visible = false
 custom_minimum_size = Vector2(145, 95)
 layout_mode = 1
 anchors_preset = 5
@@ -501,23 +501,28 @@ offset_bottom = 95.0
 grow_horizontal = 2
 
 [node name="LabelGOUP" type="Label" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 60)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 28.0
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -48.5
+offset_right = 52.5
+offset_bottom = 27.5
 grow_horizontal = 2
-theme_override_constants/line_spacing = 1
+grow_vertical = 2
+theme_override_constants/line_spacing = 4
 theme_override_font_sizes/font_size = 17
-text = "Cell Not Full
-Gather More
-with Drones"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SendShipBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]
-custom_minimum_size = Vector2(140, 12)
+[node name="GoingupBar" type="ProgressBar" parent="SubViewport/Background/GameMenu/Panel/HUD_GOUP"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 15)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -525,12 +530,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -65.0
-offset_top = -17.0
+offset_top = -16.0
 offset_right = 65.0
-offset_bottom = -5.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-value = 60.0
+step = 0.1
 show_percentage = false
 
 [node name="B1" type="Button" parent="SubViewport/Background/GameMenu/Panel"]

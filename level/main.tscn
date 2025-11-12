@@ -1,208 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=6 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
-[ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
-[ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="3_qh04p"]
-[ext_resource type="PackedScene" uid="uid://b5t6r77gj5aa7" path="res://objs/pickup_items/cell.tscn" id="4_k8f8b"]
-[ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/patch.tscn" id="5_7vc00"]
+[ext_resource type="PackedScene" uid="uid://iqrv353klj26" path="res://level/level_2.tscn" id="3_k8f8b"]
+[ext_resource type="PackedScene" uid="uid://c072it0axbah4" path="res://level/level_1.tscn" id="3_nt2wp"]
+[ext_resource type="PackedScene" uid="uid://dgfwnnp3ul442" path="res://level/level_3.tscn" id="4_7vc00"]
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
-[ext_resource type="PackedScene" uid="uid://c30y7tukqgdmu" path="res://objs/pickup_items/salvage.tscn" id="7_ry1g7"]
-[ext_resource type="PackedScene" uid="uid://cge6vs6qifriy" path="res://level/stations/instances/station_1.tscn" id="15_b6row"]
 
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_414cb")
+lvls = Array[PackedScene]([ExtResource("3_nt2wp"), ExtResource("3_k8f8b"), ExtResource("4_7vc00")])
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
 top_level = true
 position = Vector2(436, 486)
-
-[node name="Level1" type="Node2D" parent="."]
-
-[node name="Obstacles" type="Node2D" parent="Level1"]
-position = Vector2(506, 453)
-script = ExtResource("3_qh04p")
-spawn_size_width = 2000.0
-spawn_size_height = 2000.0
-
-[node name="Obstacle" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(310.8036, 102.45236)
-
-[node name="Obstacle2" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-258.9866, 779.06604)
-
-[node name="Obstacle3" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(124.50061, -523.87177)
-
-[node name="Obstacle4" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(154.93372, -604.27216)
-
-[node name="Obstacle5" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-523.9903, 577.0517)
-
-[node name="Obstacle6" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(167.31189, -440.91943)
-
-[node name="Obstacle7" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-502.44632, 951.1233)
-
-[node name="Obstacle8" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(398.50464, 382.78125)
-
-[node name="Obstacle9" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-201.52069, -371.1597)
-
-[node name="Obstacle10" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(109.20178, 767.8645)
-
-[node name="Obstacle11" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-563.50323, -420.42316)
-
-[node name="Obstacle12" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(477.32275, -820.41486)
-
-[node name="Obstacle13" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-981.54376, -236.97397)
-
-[node name="Obstacle14" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(750.0205, -67.33469)
-
-[node name="Obstacle15" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-768.9632, 450.9126)
-
-[node name="Obstacle16" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(507.57715, -203.52443)
-
-[node name="Obstacle17" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-884.8676, 944.14514)
-
-[node name="Obstacle18" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(918.32886, 610.67456)
-
-[node name="Obstacle19" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-816.66907, 138.54486)
-
-[node name="Obstacle20" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(100.35248, 545.64545)
-
-[node name="Obstacle21" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-619.17804, -946.1154)
-
-[node name="Obstacle22" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-71.970276, -958.4912)
-
-[node name="Obstacle23" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-796.1599, 304.73975)
-
-[node name="Obstacle24" parent="Level1/Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-966.58716, 154.93164)
-
-[node name="Pickups" type="Node2D" parent="Level1"]
-position = Vector2(479, 426)
-script = ExtResource("3_qh04p")
-spawn_size_width = 2000.0
-spawn_size_height = 2000.0
-
-[node name="Patch" parent="Level1/Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-232.05518, -590.56116)
-
-[node name="Patch2" parent="Level1/Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(527.75006, 379.95642)
-
-[node name="Patch3" parent="Level1/Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-524.15, 4.7268677)
-
-[node name="Patch4" parent="Level1/Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(421.1548, 15.282043)
-
-[node name="Patch5" parent="Level1/Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-183.54257, -327.7652)
-
-[node name="Cell" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(86.94031, 318.90668)
-
-[node name="Cell2" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(132.74475, 487.14954)
-
-[node name="Cell3" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(831.9734, -119.68564)
-
-[node name="Cell4" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(-474.13123, -227.2201)
-
-[node name="Cell5" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(-109.165955, -662.26575)
-
-[node name="Cell6" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(-476.7578, 840.66077)
-
-[node name="Cell7" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(751.8811, -311.20322)
-
-[node name="Cell8" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(-183.84253, 491.6338)
-
-[node name="Cell9" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(-830.99304, 753.36035)
-
-[node name="Cell10" parent="Level1/Pickups" instance=ExtResource("4_k8f8b")]
-position = Vector2(-66.03488, -312.87057)
-
-[node name="Salvage" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-363.8675, -229.14035)
-
-[node name="Salvage2" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-769.01886, 948.2263)
-
-[node name="Salvage3" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-724.89594, 670.80164)
-
-[node name="Salvage4" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(307.1189, 555.5608)
-
-[node name="Salvage5" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-661.41907, 836.8583)
-
-[node name="Salvage6" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(117.25049, -561.9834)
-
-[node name="Salvage7" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(955.11084, -606.52325)
-
-[node name="Salvage8" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(932.8601, 793.29346)
-
-[node name="Salvage9" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(40.395935, 523.3584)
-
-[node name="Salvage10" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-543.20074, 686.56177)
-
-[node name="Salvage11" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-336.0358, 649.9082)
-
-[node name="Salvage12" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(549.1991, 523.8927)
-
-[node name="Salvage13" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(226.97394, -49.74707)
-
-[node name="Salvage14" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(909.9241, 38.32794)
-
-[node name="Salvage15" parent="Level1/Pickups" instance=ExtResource("7_ry1g7")]
-position = Vector2(-48.657104, -722.4933)
-
-[node name="Stations" type="Node2D" parent="Level1"]
-
-[node name="STATION_1" parent="Level1/Stations" instance=ExtResource("15_b6row")]
-z_index = 0
-position = Vector2(-216, 215)
 
 [editable path="PlayerCaptain"]
 [editable path="PlayerCaptain/InteractionComponent"]
 [editable path="PlayerCaptain/InteractionController"]
 [editable path="PlayerCaptain/HitboxComponent"]
 [editable path="PlayerCaptain/RadarObjComponent"]
-[editable path="Level1/Stations/STATION_1"]
-[editable path="Level1/Stations/STATION_1/InteractionComponent"]
-[editable path="Level1/Stations/STATION_1/RadarObjComponent"]

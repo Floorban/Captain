@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d364675shhcy6" path="res://assets/power-up.png" id="5_6vrhq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vrhq"]
-radius = 92.00543
+radius = 140.01428
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3y18"]
-radius = 105.00476
+radius = 107.01869
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j800o"]
 atlas = ExtResource("5_6vrhq")

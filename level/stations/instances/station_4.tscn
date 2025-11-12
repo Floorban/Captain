@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlvxwmtsb4pf0"]
+[gd_scene load_steps=6 format=3 uid="uid://dlvxwmtsb4pf0"]
 
 [ext_resource type="PackedScene" uid="uid://dfhrsd3cdrmtl" path="res://level/stations/station.tscn" id="1_1cs8d"]
 [ext_resource type="Texture2D" uid="uid://f3cw4slbaude" path="res://assets/space_station_1_refinery.png" id="2_6i454"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6i454"]
+radius = 74.00676
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6i454"]
+load_path = "res://.godot/imported/power-up.png-51d27a662c656b851bb10b37092323ce.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hdst"]
+atlas = SubResource("CompressedTexture2D_6i454")
+region = Rect2(0, 16, 16, 16)
+
 [node name="STATION_4" instance=ExtResource("1_1cs8d")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(35, -46)
 
 [node name="Icon" parent="." index="1"]
 position = Vector2(-1, -2)
@@ -14,6 +27,14 @@ z_index = -5
 position = Vector2(67, -70.5)
 rotation = -0.8441316
 texture = ExtResource("2_6i454")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractionComponent" index="1"]
+position = Vector2(102, -110)
+shape = SubResource("CircleShape2D_6i454")
+
+[node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
+position = Vector2(35, -40.999996)
+texture = SubResource("AtlasTexture_5hdst")
 
 [editable path="InteractionComponent"]
 [editable path="RadarObjComponent"]

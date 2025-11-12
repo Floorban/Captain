@@ -7,7 +7,7 @@
 
 [node name="Icon" parent="." index="1"]
 rotation = -1.5707964
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 texture = ExtResource("2_32uiv")
 
 [editable path="InteractionComponent"]

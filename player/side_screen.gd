@@ -28,11 +28,15 @@ class_name SideScreen
 @onready var load_bar: ProgressBar = %LoadBar
 
 @onready var hud_goup: Control = $SubViewport/Background/GameMenu/Panel/HUD_GOUP
+@onready var label_goup: Label = %LabelGOUP
+@onready var goingup_bar: ProgressBar = %GoingupBar
 
 func bind_button_to_menu(id:int):
 	Global.game_controller.set_game_menu_content(id)
 
 func set_main_menu():
+	can_goup = false
+	going_up = false
 	main_menu.show()
 	game_menu.hide()
 	button_1.grab_focus()
@@ -46,6 +50,8 @@ func set_main_menu():
 	button_4.text = "START"
 
 func set_game_menu():
+	can_goup = false
+	going_up = false
 	main_menu.hide()
 	game_menu.show()
 	b_1.grab_focus()
@@ -58,6 +64,8 @@ func set_game_menu():
 	b_3.text = "GO UP"
 
 func set_control_screen(found_target: Station, first_time := false):
+	can_goup = false
+	going_up = false
 	hud_control.show()
 	hud_send.hide()
 	hud_stats.hide()
@@ -104,6 +112,8 @@ func set_control_screen(found_target: Station, first_time := false):
 		play_label_effect(label_control, msg)
 
 func set_send_screen():
+	can_goup = false
+	going_up = false
 	hud_control.hide()
 	hud_send.show()
 	hud_stats.hide()
@@ -113,6 +123,8 @@ func set_send_screen():
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
 func set_stats_screen():
+	can_goup = false
+	going_up = false
 	#b_2.grab_focus()
 	hud_control.hide()
 	hud_send.hide()
@@ -131,11 +143,40 @@ func set_stats_screen():
 	play_label_effect(label_load, msg_load)
 	animate_load_bar(load_bar, load_value)
 
+var can_goup := false
+var going_up := false
+var target_depth : int
+
 func set_ascend_screen():
 	hud_control.hide()
 	hud_send.hide()
 	hud_stats.hide()
 	hud_goup.show()
+	var msg := "Cell Not Full
+				Gather More
+				with Drones"
+	if can_goup:
+		target_depth = -((Global.main.cur_lvl_id + 1) * 25000)
+		msg = "Reaching level\n%d m\nHold steady..." % target_depth
+		going_up = true
+	if not can_goup and Global.cur_fuel >= Global.max_fuel:
+		msg = "Systems Ready
+				Confirm Again
+				to Ascend"
+		can_goup = true
+	play_label_effect(label_goup, msg)
+
+func _physics_process(delta: float) -> void:
+	if going_up:
+		Global.radar_controller.monitor.trauma = 0.15
+		goingup_bar.value += delta * 15.0
+		if goingup_bar.value >= goingup_bar.max_value:
+			Global.main.go_up()
+			play_label_effect(label_goup, "Arrived at depth\n%d m" % target_depth)
+			going_up = false
+			can_goup = false
+	else:
+		goingup_bar.value = 0.0
 
 var label_effect_version := {}  # Label -> int
 
