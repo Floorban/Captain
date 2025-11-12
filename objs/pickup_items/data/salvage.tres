@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_k3i7p")
-item_name = "Sqalvage"
+item_name = "Salvage"
 icon = ExtResource("1_ty1ed")
-item_type = 2
+item_type = 3
 value = 1.0
-is_stackable = false
+max_stack = 2
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

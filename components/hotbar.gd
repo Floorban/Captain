@@ -23,7 +23,10 @@ func _update_hotbar():
 			slot_btn.get_node("CountLabel").text = ""
 		else:
 			slot_btn.texture = slot_data.item.icon
-			slot_btn.get_node("CountLabel").text = str(slot_data.count)
+			if slot_data.item.is_stackable:
+				slot_btn.get_node("CountLabel").text = str(slot_data.count)
+			else:
+				slot_btn.get_node("CountLabel").text = ""
 
 func _highlight_hotbar(slot_index : int):
 	for i in range(slots.size()):

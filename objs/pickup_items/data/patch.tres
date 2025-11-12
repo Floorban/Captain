@@ -13,5 +13,5 @@ item_name = "Patch"
 icon = SubResource("AtlasTexture_autkr")
 item_type = 1
 value = 1.0
-max_stack = 2
+is_stackable = false
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

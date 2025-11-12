@@ -283,7 +283,8 @@ https://godgoldfear.itch.io/psx-industrial-environment-asset-pack
 https://kaboff.itch.io/160-cursors-crosshairs-pack-32x32
 https://felmir-productions.itch.io/configurable-space-station-sprite-set
 https://foozlecc.itch.io/sci-fi-lab-pick-ups
-https://foozlecc.itch.io/void-pickups-pack"
+https://foozlecc.itch.io/void-pickups-packhttps://www.101soundboards.com/boards/663817-lethal-company-version-49-all-sfx-video-game-music
+https://adamatomic.itch.io/sci-fi-inventory"
 
 [node name="Title2" type="Label" parent="GameControl/Credits/VBoxContainer"]
 modulate = Color(0.26666668, 0.9882353, 0.5372549, 1)
@@ -363,4 +364,7 @@ environment = SubResource("Environment_qyphg")
 [editable path="Main/PlayerCaptain/InteractionController"]
 [editable path="Main/PlayerCaptain/HitboxComponent"]
 [editable path="Main/PlayerCaptain/RadarObjComponent"]
+[editable path="Main/Level1/Stations/STATION_1"]
+[editable path="Main/Level1/Stations/STATION_1/InteractionComponent"]
+[editable path="Main/Level1/Stations/STATION_1/RadarObjComponent"]
 [editable path="GameControl/SideScreen"]

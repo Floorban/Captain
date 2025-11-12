@@ -1,0 +1,154 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckhsfu8dljb37"]
+
+[ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
+[ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
+[ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="3_lsbgt"]
+[ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="4_o4h07"]
+[ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="5_sb0gl"]
+[ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_tbyui"]
+[ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://assets/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
+[ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="7_y1pwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1pwk"]
+bg_color = Color(0.22571012, 0.5318337, 0.31789196, 1)
+
+[node name="Window" type="Window"]
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4294967293
+oversampling_override = 1.0
+title = "crew1"
+position = Vector2i(0, 36)
+size = Vector2i(350, 350)
+unresizable = true
+always_on_top = true
+sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
+keep_title_visible = true
+content_scale_aspect = 1
+script = ExtResource("1_iwyyp")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nen6l")]
+targets = [NodePath("../Player")]
+min_zoom = 0.2
+max_zoom = 1.0
+
+[node name="Player" parent="." node_paths=PackedStringArray("hp_bar", "inventory") instance=ExtResource("3_lsbgt")]
+position = Vector2(350, 570)
+hp_bar = NodePath("../UI/ShipUI/Header/Bar_Hp")
+inventory = NodePath("../UI/ShipUI/Bottom/InventoryComponent")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ShipUI" type="Control" parent="UI"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonDrop" type="Button" parent="UI/ShipUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "Space to 
+drop item"
+
+[node name="Header" type="TextureRect" parent="UI/ShipUI"]
+texture_filter = 1
+custom_minimum_size = Vector2(320, 20)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -20.0
+offset_right = 175.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_tbyui")
+expand_mode = 1
+
+[node name="Bar_Hp" type="ProgressBar" parent="UI/ShipUI/Header"]
+texture_filter = 1
+custom_minimum_size = Vector2(350, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_sb0gl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y1pwk")
+step = 0.1
+value = 50.0
+show_percentage = false
+script = ExtResource("5_tbyui")
+
+[node name="Label_Fuel" type="Label" parent="UI/ShipUI/Header"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " Fuel"
+vertical_alignment = 1
+
+[node name="Labek)_HP" type="Label" parent="UI/ShipUI/Header"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bottom" type="TextureRect" parent="UI/ShipUI"]
+texture_filter = 1
+custom_minimum_size = Vector2(220, 30)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 30.0
+texture = ExtResource("7_tbyui")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/ShipUI/Bottom"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+offset_right = 73.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = " Inventory:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryComponent" parent="UI/ShipUI/Bottom" instance=ExtResource("5_sb0gl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 1
+offset_left = 75.0
+offset_right = 205.0
+pickup_scene = ExtResource("7_y1pwk")
+
+[node name="Background" parent="." instance=ExtResource("4_o4h07")]
+script = null
+
+[editable path="UI/ShipUI/Bottom/InventoryComponent"]
