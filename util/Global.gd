@@ -11,7 +11,7 @@ var players : Array[Player]
 
 var game_speed := 1.0
 
-@export var max_fuel := 50.0
+@export var max_fuel := 200.0
 var cur_fuel := 0.0
 var fuel_heating_speed := 5.0
 
@@ -79,7 +79,6 @@ func update_stats():
 
 func enter_station(station: Station):
 	print("player has entered ", station.name)
-	main.open_shop()
 
 func exit_station():
 	#could spawn a player if it died

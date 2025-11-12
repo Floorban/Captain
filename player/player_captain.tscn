@@ -62,7 +62,6 @@ build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
 [node name="RadarObjComponent" parent="." index="9"]
-visible = false
 is_detectable = true
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]

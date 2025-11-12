@@ -11,15 +11,20 @@ class_name GameControl
 var in_main_menu := false
 var in_game := false
 
+@onready var hp_bar: HealthBar = %HpBar
+@onready var fuel_bar: ProgressBar = %FuelBar
+
 func _ready() -> void:
 	Global.game_controller = self
-	set_game_content()
-	#set_game_menu_content(0)
+	#set_game_content()
+	set_game_menu_content(0)
 
 func set_game_menu_content(menu_id: int):
 	if credits.visible:
 		credits.hide()
 	if not in_main_menu:
+		hp_bar.hide()
+		fuel_bar.hide()
 		side_screen.set_main_menu()
 		main.hide()
 		select_marker.hide()
@@ -33,6 +38,8 @@ func set_game_content():
 	if credits.visible:
 		credits.hide()
 	if not in_game:
+		hp_bar.show()
+		fuel_bar.show()
 		side_screen.set_game_menu()
 		main.show()
 		select_marker.show()

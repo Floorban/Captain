@@ -10,13 +10,13 @@
 [node name="Level1" type="Node2D"]
 
 [node name="Obstacles" type="Node2D" parent="."]
-position = Vector2(506, 453)
+position = Vector2(2, 1)
 script = ExtResource("1_l1g64")
 spawn_size_width = 2000.0
 spawn_size_height = 2000.0
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("2_vb5hv")]
-position = Vector2(310.8036, 102.45236)
+position = Vector2(-444, -328.00003)
 
 [node name="Obstacle2" parent="Obstacles" instance=ExtResource("2_vb5hv")]
 position = Vector2(-258.9866, 779.06604)
@@ -88,7 +88,7 @@ position = Vector2(-796.1599, 304.73975)
 position = Vector2(-966.58716, 154.93164)
 
 [node name="Pickups" type="Node2D" parent="."]
-position = Vector2(479, 426)
+position = Vector2(-25, -26)
 script = ExtResource("1_l1g64")
 spawn_size_width = 2000.0
 spawn_size_height = 2000.0
@@ -184,6 +184,7 @@ position = Vector2(909.9241, 38.32794)
 position = Vector2(-48.657104, -722.4933)
 
 [node name="Stations" type="Node2D" parent="."]
+position = Vector2(-504, -452)
 
 [node name="STATION_1" parent="Stations" instance=ExtResource("6_hdc4k")]
 z_index = 0

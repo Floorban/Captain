@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="1_0q0f2"]
 
 [node name="Obstacle_Easy" instance=ExtResource("1_0q0f2")]
+min_speed = 5.0
+max_speed = 10.0
 
 [editable path="HitboxComponent"]
 [editable path="AttackComponent"]

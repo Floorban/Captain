@@ -23,6 +23,7 @@ func _load_level(id: int):
 		return
 	var lvl_scene := lvls[id]
 	cur_lvl = lvl_scene.instantiate()
+	cur_lvl.global_position = Global.get_captain().global_position
 	add_child(cur_lvl)
 	print("Loaded level", id)
 	if Global.game_controller:
