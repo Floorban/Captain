@@ -63,7 +63,7 @@ func set_game_menu():
 	b_2.text = "STATS"
 	b_3.text = "GO UP"
 
-func set_control_screen(found_target: Station, first_time := false):
+func set_control_screen(found_target: Station, first_time := false, is_dead := false):
 	can_goup = false
 	going_up = false
 	hud_control.show()
@@ -72,7 +72,11 @@ func set_control_screen(found_target: Station, first_time := false):
 	hud_goup.hide()
 	label_control.hide()
 	#label_detection.hide()
-	if found_target:
+	if is_dead:
+		#%SelectMarker.hide()
+		label_control.modulate = Color.RED
+		label_control.text = "No Response"
+	elif found_target:
 		var pos := found_target.axis
 		var msg = "Station Detected\n(%d, %d)\n%s" % [
 			int(pos.x),
@@ -189,6 +193,7 @@ func play_label_effect(label: Label, full_text: String) -> void:
 	_type_glitch_versioned(label, full_text, 0.02, 0.5, my_version)
 
 func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
+	if Global.is_dead: return
 	for i in range(blinks):
 		if label_effect_version[label] != version:
 			return
@@ -197,6 +202,7 @@ func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_del
 	label.visible = true
 
 func _type_glitch_versioned(label: Label, text: String, char_delay: float, glitch_chance: float, version: int) -> void:
+	if Global.is_dead: return
 	var output := ""
 	var chars = text.split("")
 	for c in chars:

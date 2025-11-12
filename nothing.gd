@@ -20,6 +20,7 @@ var can_attack := false
 var blink_tween: Tween
 
 func _ready() -> void:
+	Global.nothing = self
 	radar_obj_component.display_name = "Unknow Signal"
 	radar_obj_component.display_color = Color.RED
 	

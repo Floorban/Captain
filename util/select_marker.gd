@@ -6,6 +6,7 @@ class_name SelectMarker
 @onready var label_y: Label = $VBoxContainer/LabelY
 
 func no_result(x,y):
+	if Global.is_dead: return
 	show()
 	label_name.text = "???"
 	label_name.modulate = Color.WHITE
@@ -16,6 +17,7 @@ func no_result(x,y):
 	label_y.show()
 
 func set_label_text(n,x,y,c):
+	if Global.is_dead: return
 	show()
 	label_name.text = n
 	label_name.modulate = c

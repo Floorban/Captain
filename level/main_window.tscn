@@ -363,4 +363,5 @@ environment = SubResource("Environment_qyphg")
 [editable path="Main/PlayerCaptain/InteractionController"]
 [editable path="Main/PlayerCaptain/HitboxComponent"]
 [editable path="Main/PlayerCaptain/RadarObjComponent"]
+[editable path="Main/PlayerCaptain/RadarObjComponent/DetectionArea"]
 [editable path="GameControl/SideScreen"]

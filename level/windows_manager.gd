@@ -60,10 +60,10 @@ func get_fixed_positions_top_row(w) -> Array:
 	]
 
 func close_all_windows():
-	var delay := randf_range(0.4, 0.7)
+	var delay := randf_range(0.8, 1.2)
 	for w in subwindows:
 		if is_instance_valid(w):
-			w._clear_window()
+			w._clear_window(true)
 			await get_tree().create_timer(delay).timeout
 	subwindows.clear()
 	main_sub_window.queue_free()

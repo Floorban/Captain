@@ -30,6 +30,9 @@ func _physics_process(delta: float) -> void:
 	_go_to_destination(delta)
 
 func _set_destination(event):
+	if Global.is_dead: 
+		select_marker.hide()
+		return
 	if event.is_action_pressed("primary") and can_control:
 		if event.global_position.x < 275 or event.global_position.x > 630 or event.global_position.y < 125 or event.global_position.y > 470:
 			return
@@ -170,5 +173,6 @@ func move_interrupted():
 	can_control = false
 	target = null
 	await get_tree().create_timer(0.5).timeout
+	Global.game_controller.side_screen.b_1.grab_focus()
 	select_marker.show()
 	can_control = true

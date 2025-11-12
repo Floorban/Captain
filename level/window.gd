@@ -104,12 +104,18 @@ func _on_focus_entered() -> void:
 func _on_focus_exited() -> void:
 	if player: player.can_control = false
 
-func _clear_window():
+func _clear_window(captain_dead := false):
 	var tween = create_tween()
 	tween.tween_property(death_menu.material, "shader_parameter/shake", 10.0, 0.1)
 	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
 	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
 	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
-	Global.game_controller.side_screen.play_label_effect(label_death, "DRONE IS \nDAMAGED")
-	await get_tree().create_timer(3.5).timeout
-	queue_free()
+	if captain_dead:
+		label_death.show()
+		label_death.text = "SIGNAL LOST..."
+		await get_tree().create_timer(1.0).timeout
+		queue_free()
+	else:
+		Global.game_controller.side_screen.play_label_effect(label_death, "DRONE IS \nDAMAGED")
+		await get_tree().create_timer(3.5).timeout
+		queue_free()

@@ -9,7 +9,7 @@ enum GAME_STATE {
 @onready var main : Main = get_tree().get_first_node_in_group("main")
 var players : Array[Player]
 
-var game_speed := 1.0
+var is_dead := false
 
 @export var max_fuel := 200.0
 var cur_fuel := 0.0
@@ -22,6 +22,8 @@ var windows_manager: WindowManager
 var game_controller: GameControl
 
 var radar_controller: RadarController
+
+var nothing: Nothing
 
 var max_load := 100.0
 var cur_load := 0.0
@@ -95,6 +97,21 @@ func ascend():
 
 func game_over():
 	print("--- Game Over ---")
+	is_dead = true
+	radar_controller.path.hide()
+	game_controller.retro_effect_rect.show()
+	radar_controller.monitor.trauma = 1.5
+	#main.hide()
+	nothing.queue_free()
+	get_captain().hide()
+	var ps = get_tree().get_nodes_in_group("radar_objs")
+	for p in ps:
+		p.hide()
+	game_controller.select_marker.hide()
+	game_controller.side_screen.set_control_screen(null, false, true)
+	game_controller.mini_map.label_death.text = "Connection Failed"
+	game_controller.mini_map.death_menu.show()
+	await get_tree().create_timer(3.5).timeout
 	windows_manager.close_all_windows()
 	for p in get_players():
 		p.is_dead = true

@@ -27,6 +27,7 @@ var scanning := false
 
 @onready var menu_screens: Array[Control] = [%About, %Control, %Control2, %Start]
 @onready var death_menu: ColorRect = %DeathMenu
+@onready var label_death: Label = $SubViewportContainer/SubViewport/DeathMenu/LabelDeath
 
 func set_menu(menu_id: int):
 	radar.hide()
