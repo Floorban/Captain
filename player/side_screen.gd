@@ -156,7 +156,7 @@ func set_ascend_screen():
 				Gather More
 				with Drones"
 	if can_goup:
-		target_depth = -((Global.main.cur_lvl_id + 1) * 25000)
+		target_depth = -((5 - Global.main.cur_lvl_id) * 25000)
 		msg = "Reaching level\n%d m\nHold steady..." % target_depth
 		going_up = true
 	if not can_goup and Global.cur_fuel >= Global.max_fuel:
@@ -171,7 +171,7 @@ func _physics_process(delta: float) -> void:
 		Global.radar_controller.monitor.trauma = 0.15
 		goingup_bar.value += delta * 15.0
 		if goingup_bar.value >= goingup_bar.max_value:
-			Global.main.go_up()
+			Global.ascend()
 			play_label_effect(label_goup, "Arrived at depth\n%d m" % target_depth)
 			going_up = false
 			can_goup = false

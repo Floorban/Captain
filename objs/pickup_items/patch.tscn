@@ -13,7 +13,6 @@ item_data = ExtResource("2_pr2r7")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(1, -1)
-scale = Vector2(1.4, 1.4)
 texture = SubResource("AtlasTexture_p31j3")
 
 [node name="InteractionComponent" parent="." index="4"]

@@ -65,7 +65,7 @@ func _update_ui(delta: float) -> void:
 
 	# update label position + text
 	label.text = current_pickup.interact_name
-	label.global_position = current_pickup.global_position + Vector2(-label.size.x / 2, -30)
+	label.global_position = current_pickup.global_position + Vector2(-label.size.x / 2, -45)
 	label.show()
 
 	# update pickup timer and progress bar

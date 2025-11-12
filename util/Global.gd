@@ -89,6 +89,10 @@ func exit_station():
 	for p in players:
 		p.health_component.cur_hp += p.health_component.max_hp
 
+func ascend():
+	cur_fuel = 0.0
+	main.go_up()
+
 func game_over():
 	print("--- Game Over ---")
 	windows_manager.close_all_windows()

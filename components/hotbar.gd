@@ -17,12 +17,13 @@ func _update_hotbar():
 	for i in range(slots.size()):
 		var slot_btn: TextureRect = slots[i]
 		var slot_data: InventorySlot = inventory.hotbar[i]
+		var slot_icon : TextureRect = slot_btn.get_node("Icon")
 
 		if slot_data.is_empty():
-			slot_btn.texture = null
+			slot_icon.texture = null
 			slot_btn.get_node("CountLabel").text = ""
 		else:
-			slot_btn.texture = slot_data.item.icon
+			slot_icon.texture = slot_data.item.icon
 			if slot_data.item.is_stackable:
 				slot_btn.get_node("CountLabel").text = str(slot_data.count)
 			else:

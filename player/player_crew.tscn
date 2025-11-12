@@ -23,7 +23,7 @@ atlas = ExtResource("4_c6f1t")
 region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mbj16"]
-radius = 195.0
+radius = 228.0022
 
 [node name="PlayerCrew" groups=["radar_objs"] instance=ExtResource("1_acesj")]
 input_left = "left2"
@@ -75,7 +75,7 @@ visibility_layer = 3
 [node name="DetectionRadius" parent="DetectionArea" index="0"]
 modulate = Color(0.2597405, 0.54840225, 0.2916289, 0.39215687)
 visibility_layer = 1
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.35, 0.35)
 
 [node name="CollisionShape2D" parent="DetectionArea" index="1"]
 visibility_layer = 1

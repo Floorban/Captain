@@ -12,10 +12,10 @@ atlas = ExtResource("2_miwr7")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edhjt"]
-radius = 29.068884
+radius = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua8cb"]
-radius = 35.0
+radius = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nd6li"]
 atlas = ExtResource("6_guss0")
@@ -29,7 +29,7 @@ min_speed = 0.0
 max_speed = 0.0
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(5, 5)
+scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_vak6t")
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -43,12 +43,14 @@ health_component = NodePath("../HealthComponent")
 
 [node name="AttackComponent" parent="." index="4" instance=ExtResource("3_ua8cb")]
 collision_mask = 2
-attack_knockback = 50.0
+attack_knockback = 80.0
+stun_time = 0.5
 
 [node name="CollisionShape2D" parent="AttackComponent" index="0"]
 shape = SubResource("CircleShape2D_ua8cb")
 
 [node name="RadarObjComponent" parent="." index="5" instance=ExtResource("5_ictk4")]
+visible = false
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
