@@ -136,7 +136,7 @@ func set_stats_screen():
 	var load_percent = load_value * 100
 
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
-	var msg_fuel = "CELL:  " + str(int(fuel_percent)) + " %"
+	var msg_fuel = "Fuel:  " + str(int(fuel_percent)) + " %"
 	var msg_load = "LOAD:  " + str(int(load_percent)) + " %"
 	play_label_effect(label_hp, msg_hp)
 	play_label_effect(label_fuel, msg_fuel)
@@ -152,8 +152,8 @@ func set_ascend_screen():
 	hud_send.hide()
 	hud_stats.hide()
 	hud_goup.show()
-	var msg := "Cell Not Full
-				Gather More
+	var msg := "Fuel Not Full
+				Gather Cells
 				with Drones"
 	if can_goup:
 		target_depth = -((5 - Global.main.cur_lvl_id) * 25000)

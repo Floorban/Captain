@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckhsfu8dljb37"]
+[gd_scene load_steps=12 format=3 uid="uid://ckhsfu8dljb37"]
 
 [ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
@@ -8,27 +8,13 @@
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_tbyui"]
 [ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://assets/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
 [ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="7_y1pwk"]
-[ext_resource type="Shader" uid="uid://fcr5pmj46rrv" path="res://level/retro.gdshader" id="8_sqm3f"]
+[ext_resource type="Material" uid="uid://dx4jdrvp8kqol" path="res://window_death.tres" id="8_sqm3f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]
 bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1pwk"]
 bg_color = Color(0.22571012, 0.5318337, 0.31789196, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xkr2"]
-shader = ExtResource("8_sqm3f")
-shader_parameter/shake = 0.015
-shader_parameter/noiseQuality = 250.0
-shader_parameter/noiseIntensity = 0.001
-shader_parameter/offsetIntensity = 0.0045
-shader_parameter/colorOffsetIntensity = 0.2
-shader_parameter/pixelSize = 84.9130039858675
-shader_parameter/grainIntensity = 0.6210000294975
-shader_parameter/use_overlay = true
-shader_parameter/use_lens_distortion = true
-shader_parameter/overlay_color = Color(1, 1, 1, 10)
-shader_parameter/lens_distortion_strength = 0.05
 
 [node name="Window" type="Window"]
 canvas_item_default_texture_filter = 0
@@ -45,6 +31,7 @@ maximize_disabled = true
 keep_title_visible = true
 content_scale_aspect = 1
 script = ExtResource("1_iwyyp")
+death_mat = ExtResource("8_sqm3f")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nen6l")]
 targets = [NodePath("../Player")]
@@ -166,7 +153,6 @@ pickup_scene = ExtResource("7_y1pwk")
 
 [node name="DeathMenu" type="ColorRect" parent="UI/ShipUI"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_3xkr2")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

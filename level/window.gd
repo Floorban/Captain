@@ -12,6 +12,9 @@ var size_tween : Tween
 @onready var player: Player = $Player
 @onready var button_drop: Button = %ButtonDrop
 @onready var inventory_component: InventoryComponent = %InventoryComponent
+@onready var death_menu: ColorRect = %DeathMenu
+@onready var label_death: Label = $UI/ShipUI/DeathMenu/LabelDeath
+@export var death_mat: Material
 
 func random_size() -> Vector2i:
 	return Vector2(randi_range(width_range.x, width_range.y), randi_range(height_range.x, height_range.y))
@@ -47,6 +50,8 @@ func init_window_signals():
 
 func _ready() -> void:
 	init_window_signals()
+	var mat = death_mat.duplicate()
+	death_menu.material = mat
 
 func resize_window(target_size: Vector2i):
 	unresizable = false
@@ -69,6 +74,28 @@ func check_window_size():
 func try_drop():
 	inventory_component.drop_item(player.global_position + Vector2(randf_range(-30,30), randf_range(-30,30)))
 
+func signal_lost():
+	#death_menu.show()
+	if player.health_component.cur_hp > 0:
+		var tween = create_tween()
+		tween.tween_property(death_menu.material, "shader_parameter/shake", 10.0, 0.1)
+		tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
+		tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
+		tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
+		
+		Global.game_controller.side_screen.play_label_effect(label_death, "SIGNAL IS \nDISCONNECTED")
+	else:
+		_clear_window()
+
+func signal_recover():
+	#death_menu.hide()
+	label_death.hide()
+	var tween = create_tween()
+	tween.tween_property(death_menu.material, "shader_parameter/shake", 0.015, 0.1)
+	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 200.0, 0.3)
+	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.04, 0.2)
+	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.01, 0.1)
+
 func _on_focus_entered() -> void:
 	if player: player.can_control = true
 	button_drop.grab_focus()
@@ -78,4 +105,11 @@ func _on_focus_exited() -> void:
 	if player: player.can_control = false
 
 func _clear_window():
+	var tween = create_tween()
+	tween.tween_property(death_menu.material, "shader_parameter/shake", 10.0, 0.1)
+	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
+	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
+	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
+	Global.game_controller.side_screen.play_label_effect(label_death, "DRONE IS \nDAMAGED")
+	await get_tree().create_timer(3.5).timeout
 	queue_free()

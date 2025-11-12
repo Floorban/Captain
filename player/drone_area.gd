@@ -21,6 +21,8 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 		marker.is_detectable = true
 		var p : Player = body
+		var w : Wwindow = p.get_parent()
+		w.signal_recover()
 		p.can_move = true
 		detected_drones.append(p)
 
@@ -28,6 +30,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body is Player and detected_drones.has(body):
 		var p : Player = body
 		p.can_move = false
+		var w : Wwindow = p.get_parent()
+		w.signal_lost()
 		var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 		marker.is_detectable = false
 		detected_drones.erase(body)
