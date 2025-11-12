@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx0pfblj5x8nl"]
+
+[ext_resource type="PackedScene" uid="uid://ccuuum1gbxwhf" path="res://monster/nothing.tscn" id="1_xh5g0"]
+
+[node name="Nothing_2" instance=ExtResource("1_xh5g0")]
+base_distance = 1500.0
+min_appearances = 6
+rest_time = 40.0
+invisible_chance = 0.3
+
+[editable path="RadarObjComponent"]

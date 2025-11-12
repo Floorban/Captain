@@ -43,7 +43,6 @@ func _set_destination(event):
 
 		target = get_global_mouse_position()
 		dist = player.global_position.distance_to(target)
-		print(dist)
 		for obj in mini_map.markers:
 			if is_instance_valid(obj):
 				var marker : RadarObjComponent = mini_map.markers[obj]

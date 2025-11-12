@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgfwnnp3ul442"]
+[gd_scene load_steps=9 format=3 uid="uid://dgfwnnp3ul442"]
 
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="1_6e3ox"]
+[ext_resource type="PackedScene" uid="uid://dsut3w0rdyx2p" path="res://monster/nothing_3.tscn" id="1_lopto"]
 [ext_resource type="PackedScene" uid="uid://b3cuhhtwie32y" path="res://objs/obstacles/obstacle_hard.tscn" id="2_6e3ox"]
 [ext_resource type="PackedScene" uid="uid://c30y7tukqgdmu" path="res://objs/pickup_items/salvage.tscn" id="2_21jwj"]
 [ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/patch.tscn" id="3_6e3ox"]
@@ -9,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cv7qy8pw7x2ne" path="res://level/stations/instances/station_5.tscn" id="7_5mhvx"]
 
 [node name="Level3" type="Node2D"]
+
+[node name="Nothing_3" parent="." instance=ExtResource("1_lopto")]
 
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2(92, 12)

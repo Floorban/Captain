@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c072it0axbah4"]
+[gd_scene load_steps=8 format=3 uid="uid://c072it0axbah4"]
 
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="1_l1g64"]
+[ext_resource type="PackedScene" uid="uid://yoisnrxi1ur8" path="res://monster/nothing_1.tscn" id="1_vb5hv"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="2_vb5hv"]
 [ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/patch.tscn" id="3_vndax"]
 [ext_resource type="PackedScene" uid="uid://b5t6r77gj5aa7" path="res://objs/pickup_items/cell.tscn" id="4_k4ctk"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cge6vs6qifriy" path="res://level/stations/instances/station_1.tscn" id="6_hdc4k"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="Nothing_1" parent="." instance=ExtResource("1_vb5hv")]
 
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2(2, 1)

@@ -8,7 +8,7 @@
 [ext_resource type="Shader" uid="uid://dqa54i3pjcfs5" path="res://player/round.gdshader" id="5_l0kmr"]
 [ext_resource type="Texture2D" uid="uid://wullxy8nd1te" path="res://assets/Radar.png" id="6_l0kmr"]
 [ext_resource type="Script" uid="uid://bunhhpoumtkwh" path="res://player/start.gd" id="7_4ereb"]
-[ext_resource type="PackedScene" uid="uid://bv2braax0er4h" path="res://death_menu.tscn" id="9_67s8b"]
+[ext_resource type="PackedScene" uid="uid://bv2braax0er4h" path="res://util/death_menu.tscn" id="9_67s8b"]
 
 [sub_resource type="Shader" id="Shader_itq3j"]
 code = "shader_type canvas_item;

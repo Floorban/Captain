@@ -1,19 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccuuum1gbxwhf"]
+[gd_scene load_steps=7 format=3 uid="uid://ccuuum1gbxwhf"]
 
-[ext_resource type="Script" uid="uid://cfo4kfaq6eysi" path="res://nothing.gd" id="1_5b0ok"]
+[ext_resource type="Script" uid="uid://cfo4kfaq6eysi" path="res://monster/nothing.gd" id="1_5b0ok"]
 [ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="1_nioae"]
 [ext_resource type="Texture2D" uid="uid://bd47h2emgabos" path="res://assets/tir-et-vie-all-sprites.png" id="2_825ph"]
 [ext_resource type="PackedScene" uid="uid://dw7xbffokiusi" path="res://components/attack_component.tscn" id="2_esy1c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esy1c"]
+radius = 42.0119
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b0ok"]
 atlas = ExtResource("2_825ph")
 region = Rect2(18, 19, 10, 10)
 
-[node name="Nothing" type="Node2D" groups=["radar_objs"]]
+[node name="Nothing" type="CharacterBody2D" groups=["nothing", "radar_objs"]]
 light_mask = 0
-visibility_layer = 0
+visibility_layer = 8
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_5b0ok")
-base_distance = 1500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_esy1c")
 
 [node name="AttackComponent" parent="." instance=ExtResource("2_esy1c")]
 
@@ -26,6 +33,5 @@ scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_5b0ok")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-ignore_time_scale = true
 
 [editable path="RadarObjComponent"]

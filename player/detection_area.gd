@@ -8,6 +8,8 @@ class_name DetectionArea
 var detected_obstacles : Array[Obstacle] = []
 var detected_stations : Array[Station] = []
 
+@export var is_captain := false
+
 func grow_detection_radius(_scale: float):
 	detection_radius.scale *= _scale
 	col.radius *= _scale
@@ -16,10 +18,19 @@ func _ready() -> void:
 	body_entered.connect(_on_detection_area_body_entered)
 	body_exited.connect(_on_detection_area_body_exited)
 
+var seen_enemy := false
+
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 	if not marker: return
 	marker.is_detectable = true
+	if body is Nothing:
+		seen_enemy = true
+		Global.radar_controller.monitor.start_danger_blink()
+		#ui prompt
+		if not is_captain:
+			var n : Nothing = body
+			n.interrupt_behaviour()
 	if body is Obstacle:
 		var o : Obstacle = body
 		detected_obstacles.append(o)
@@ -32,10 +43,14 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 	if not marker: return
+	if body is Nothing and seen_enemy:
+		seen_enemy = false
+		Global.radar_controller.monitor.stop_danger_blink()
+		#ui prompt
 	if body is Obstacle and detected_obstacles.has(body):
 		marker.is_detectable = false
 		detected_obstacles.erase(body)
-		if detected_obstacles.size() <= 0:
+		if detected_obstacles.size() <= 0 and not seen_enemy:
 			Global.radar_controller.monitor.stop_danger_blink()
 	if body is Station and detected_stations.has(body):
 		#marker.is_detectable = false

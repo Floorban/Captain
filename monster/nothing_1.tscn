@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://yoisnrxi1ur8"]
+
+[ext_resource type="PackedScene" uid="uid://ccuuum1gbxwhf" path="res://monster/nothing.tscn" id="1_8ceeg"]
+
+[node name="Nothing_1" instance=ExtResource("1_8ceeg")]
+min_spawn_time = 8.0
+max_spawn_time = 15.0
+
+[editable path="RadarObjComponent"]

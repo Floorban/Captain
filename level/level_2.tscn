@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://iqrv353klj26"]
+[gd_scene load_steps=9 format=3 uid="uid://iqrv353klj26"]
 
+[ext_resource type="PackedScene" uid="uid://dx0pfblj5x8nl" path="res://monster/nothing_2.tscn" id="1_vir0n"]
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="1_vl510"]
 [ext_resource type="PackedScene" uid="uid://c30y7tukqgdmu" path="res://objs/pickup_items/salvage.tscn" id="2_dxks8"]
 [ext_resource type="PackedScene" uid="uid://by55udqidg5ri" path="res://objs/obstacles/obstacle_easy.tscn" id="2_vl510"]
@@ -9,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c1y2se5kfhvct" path="res://level/stations/instances/station_3.tscn" id="7_uivbl"]
 
 [node name="Level2" type="Node2D"]
+
+[node name="Nothing_2" parent="." instance=ExtResource("1_vir0n")]
 
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2(-2, 38)

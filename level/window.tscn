@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_tbyui"]
 [ext_resource type="Texture2D" uid="uid://elvi4p87jcpd" path="res://assets/ProgressBar_01/BarV1_Bar.png" id="7_tbyui"]
 [ext_resource type="PackedScene" uid="uid://clifbh41d7o0h" path="res://objs/pickup_items/pickup.tscn" id="7_y1pwk"]
-[ext_resource type="Material" uid="uid://dx4jdrvp8kqol" path="res://window_death.tres" id="8_sqm3f"]
+[ext_resource type="Material" uid="uid://dx4jdrvp8kqol" path="res://util/window_death.tres" id="8_sqm3f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb0gl"]
 bg_color = Color(0.18431373, 0.18431373, 0.18431373, 1)

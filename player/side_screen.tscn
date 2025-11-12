@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="1_1ftww"]
 [ext_resource type="Script" uid="uid://dt8orla2jidtw" path="res://player/side_screen.gd" id="1_1x5p7"]
-[ext_resource type="StyleBox" uid="uid://cyqon26itkt1j" path="res://btn_press_style.tres" id="3_l53wi"]
-[ext_resource type="StyleBox" uid="uid://dr50ts51okksv" path="res://btn_hover_style.tres" id="4_1xwaj"]
+[ext_resource type="StyleBox" uid="uid://cyqon26itkt1j" path="res://util/btn_press_style.tres" id="3_l53wi"]
+[ext_resource type="StyleBox" uid="uid://dr50ts51okksv" path="res://util/btn_hover_style.tres" id="4_1xwaj"]
 
 [sub_resource type="Shader" id="Shader_aoaw7"]
 code = "shader_type canvas_item;
