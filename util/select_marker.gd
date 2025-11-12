@@ -15,10 +15,10 @@ func no_result(x,y):
 	label_x.show()
 	label_y.show()
 
-func set_label_text(n,x,y):
+func set_label_text(n,x,y,c):
 	show()
 	label_name.text = n
-	label_name.modulate = Color.GREEN
+	label_name.modulate = c
 	label_x.text = x
 	label_y.text = y
 	label_name.show()

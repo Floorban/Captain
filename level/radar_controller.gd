@@ -47,7 +47,7 @@ func _set_destination(event):
 				if marker.is_detectable:
 					var distance = obj.global_position.distance_to(target)
 					if distance < 100 and marker.modulate.a > 0.1:
-						select_marker.set_label_text(obj.name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
+						select_marker.set_label_text(marker.display_name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))), marker.display_color)
 				
 		path.global_position = player.global_position
 		path_follow.progress = 0.01
