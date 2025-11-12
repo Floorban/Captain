@@ -8,7 +8,7 @@ var speed: float
 
 func _ready() -> void:
 	radar_obj_component.display_name = "Reef"
-	radar_obj_component.display_color = Color.RED
+	radar_obj_component.display_color = Color.ORANGE
 	rotation_degrees = randf() * 360.0
 	speed = randf_range(min_speed, max_speed)
 

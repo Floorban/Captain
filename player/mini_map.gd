@@ -14,7 +14,7 @@ var markers := {}
 @onready var damage_effect: ColorRect = %DamageEffectRect
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 4.0
+var scan_wait_time := 1.0
 var marker_age := {}   # { obj: seconds_since_seen }
 var fade_speed := 0.3
 @onready var mat: ShaderMaterial = scan_effect.material
@@ -26,6 +26,7 @@ var scanning := false
 @onready var control_menu: Control = $SubViewportContainer/SubViewport/Menu
 
 @onready var menu_screens: Array[Control] = [%About, %Control, %Control2, %Start]
+@onready var death_menu: ColorRect = %DeathMenu
 
 func set_menu(menu_id: int):
 	radar.hide()

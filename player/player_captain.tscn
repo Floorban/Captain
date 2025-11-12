@@ -76,12 +76,13 @@ is_detectable = true
 [node name="DroneArea" type="Area2D" parent="RadarObjComponent" index="0"]
 light_mask = 0
 visibility_layer = 2
+z_index = -2
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("5_3178a")
 
 [node name="DetectionRadius" type="Sprite2D" parent="RadarObjComponent/DroneArea" index="0"]
-modulate = Color(0.87897164, 0.37663054, 0.7825472, 0.39215687)
+modulate = Color(0.8784314, 0.3764706, 0.78431374, 0.3137255)
 light_mask = 0
 visibility_layer = 2
 z_index = -2
@@ -93,12 +94,13 @@ shape = SubResource("CircleShape2D_m7lgq")
 
 [node name="DetectionArea" parent="RadarObjComponent" index="1" instance=ExtResource("6_m7lgq")]
 unique_name_in_owner = true
+z_index = -2
 position = Vector2(1.7881393e-07, 9.536743e-06)
 rotation = -6.357302e-08
 scale = Vector2(1, 1)
 
 [node name="DetectionRadius" parent="RadarObjComponent/DetectionArea" index="0"]
-modulate = Color(0.6509062, 1.2797759, 0.6648811, 0.5058824)
+modulate = Color(0.6884535, 1.353256, 0.7041575, 0.5254902)
 scale = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D" parent="RadarObjComponent/DetectionArea" index="1"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=7 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
 [ext_resource type="PackedScene" uid="uid://iqrv353klj26" path="res://level/level_2.tscn" id="3_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://c072it0axbah4" path="res://level/level_1.tscn" id="3_nt2wp"]
 [ext_resource type="PackedScene" uid="uid://dgfwnnp3ul442" path="res://level/level_3.tscn" id="4_7vc00"]
+[ext_resource type="PackedScene" uid="uid://ccuuum1gbxwhf" path="res://nothing.tscn" id="6_7vc00"]
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
 
 [node name="Main" type="Node2D" groups=["main"]]
@@ -14,8 +15,14 @@ lvls = Array[PackedScene]([ExtResource("3_nt2wp"), ExtResource("3_k8f8b"), ExtRe
 top_level = true
 position = Vector2(436, 486)
 
+[node name="Nothing" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_7vc00")]
+position = Vector2(-750, -93)
+player = NodePath("../PlayerCaptain")
+max_appearances = 2
+
 [editable path="PlayerCaptain"]
 [editable path="PlayerCaptain/InteractionComponent"]
 [editable path="PlayerCaptain/InteractionController"]
 [editable path="PlayerCaptain/HitboxComponent"]
 [editable path="PlayerCaptain/RadarObjComponent"]
+[editable path="PlayerCaptain/RadarObjComponent/DetectionArea"]

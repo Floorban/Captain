@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://coh3irofycf56" path="res://objs/obstacles/obstacle.gd" id="2_vak6t"]
 [ext_resource type="PackedScene" uid="uid://dw7xbffokiusi" path="res://components/attack_component.tscn" id="3_ua8cb"]
 [ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="5_ictk4"]
-[ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="6_guss0"]
+[ext_resource type="Texture2D" uid="uid://bd47h2emgabos" path="res://assets/tir-et-vie-all-sprites.png" id="6_guss0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vak6t"]
 atlas = ExtResource("2_miwr7")
@@ -19,7 +19,7 @@ radius = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nd6li"]
 atlas = ExtResource("6_guss0")
-region = Rect2(56, 104, 8, 8)
+region = Rect2(35, 19, 10, 10)
 
 [node name="Obstacle" groups=["radar_objs"] instance=ExtResource("1_sp7f0")]
 collision_layer = 20
@@ -52,9 +52,9 @@ shape = SubResource("CircleShape2D_ua8cb")
 [node name="RadarObjComponent" parent="." index="5" instance=ExtResource("5_ictk4")]
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
-modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
+modulate = Color(1, 1, 1, 1)
 position = Vector2(0, -1)
-scale = Vector2(18, 18)
+scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_nd6li")
 
 [editable path="HitboxComponent"]

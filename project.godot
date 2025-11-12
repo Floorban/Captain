@@ -146,7 +146,6 @@ scan={
 2d_physics/layer_3="obstacle"
 2d_physics/layer_4="captain"
 2d_physics/layer_5="radar_obstacle"
-2d_physics/layer_6="drone"
 
 [rendering]
 
