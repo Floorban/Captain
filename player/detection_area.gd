@@ -1,21 +1,20 @@
 extends Area2D
 class_name DetectionArea
 
-var radius = 250.0
 @onready var detection_radius: Sprite2D = $DetectionRadius
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var col : CircleShape2D = collision_shape.shape
+
+var detected_obstacles : Array[Obstacle] = []
+var detected_stations : Array[Station] = []
 
 func grow_detection_radius(_scale: float):
-	apply_scale(Vector2(_scale, _scale))
-	radius *= _scale
-	print(radius)
+	detection_radius.scale *= _scale
+	col.radius *= _scale
 
 func _ready() -> void:
 	body_entered.connect(_on_detection_area_body_entered)
 	body_exited.connect(_on_detection_area_body_exited)
-
-var detected_obstacles : Array[Obstacle] = []
-var detected_stations : Array[Station] = []
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	var marker : RadarObjComponent = body.get_node("RadarObjComponent")
@@ -39,7 +38,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		if detected_obstacles.size() <= 0:
 			Global.radar_controller.monitor.stop_danger_blink()
 	if body is Station and detected_stations.has(body):
-		marker.is_detectable = false
+		#marker.is_detectable = false
 		detected_stations.erase(body)
 		if detected_stations.size() <= 0:
 			Global.game_controller.side_screen.set_control_screen(null)

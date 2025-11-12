@@ -1,15 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://631pf63y7wqo"]
+[gd_scene load_steps=12 format=3 uid="uid://631pf63y7wqo"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
 [ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
 [ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="2_umdq8"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_kgmax"]
+[ext_resource type="Script" uid="uid://ygghh06jen7" path="res://player/drone_area.gd" id="5_3178a"]
 [ext_resource type="Texture2D" uid="uid://mlmboodiiuvb" path="res://assets/160+ Cursors Crosshairs - Pack (32x32)/white/80.png" id="5_mshal"]
 [ext_resource type="PackedScene" uid="uid://flcja1x22vf6" path="res://player/detection_area.tscn" id="6_m7lgq"]
+[ext_resource type="Texture2D" uid="uid://bjy71ka32hxpk" path="res://assets/circle.png" id="7_fa2mc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fa2mc"]
 atlas = ExtResource("2_umdq8")
 region = Rect2(72, 16, 16, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7lgq"]
+radius = 654.9412
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3178a"]
+radius = 250.0
 
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
@@ -65,22 +73,46 @@ polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.
 visible = true
 is_detectable = true
 
-[node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
+[node name="DroneArea" type="Area2D" parent="RadarObjComponent" index="0"]
+light_mask = 0
+visibility_layer = 2
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("5_3178a")
+
+[node name="DetectionRadius" type="Sprite2D" parent="RadarObjComponent/DroneArea" index="0"]
+modulate = Color(0.87897164, 0.37663054, 0.7825472, 0.39215687)
+light_mask = 0
+visibility_layer = 2
+z_index = -2
+position = Vector2(0.09999983, -0.5000012)
+texture = ExtResource("7_fa2mc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RadarObjComponent/DroneArea" index="1"]
+shape = SubResource("CircleShape2D_m7lgq")
+
+[node name="DetectionArea" parent="RadarObjComponent" index="1" instance=ExtResource("6_m7lgq")]
+unique_name_in_owner = true
+position = Vector2(1.7881393e-07, 9.536743e-06)
+rotation = -6.357302e-08
+scale = Vector2(1, 1)
+
+[node name="DetectionRadius" parent="RadarObjComponent/DetectionArea" index="0"]
+modulate = Color(0.6509062, 1.2797759, 0.6648811, 0.5058824)
+scale = Vector2(0.4, 0.4)
+
+[node name="CollisionShape2D" parent="RadarObjComponent/DetectionArea" index="1"]
+shape = SubResource("CircleShape2D_3178a")
+
+[node name="MiniMapIcon" parent="RadarObjComponent" index="2"]
 modulate = Color(0.27835503, 1.4178978, 0.55013067, 1)
 position = Vector2(0.9999981, 31.999998)
 rotation = 3.1415927
 scale = Vector2(10, 10)
 texture = ExtResource("5_mshal")
 
-[node name="DetectionArea" parent="RadarObjComponent/MiniMapIcon" index="0" instance=ExtResource("6_m7lgq")]
-unique_name_in_owner = true
-position = Vector2(0.10000007, 3.1999989)
-
-[node name="DetectionRadius" parent="RadarObjComponent/MiniMapIcon/DetectionArea" index="0"]
-scale = Vector2(0.04, 0.04)
-
 [editable path="InteractionComponent"]
 [editable path="InteractionController"]
 [editable path="HitboxComponent"]
 [editable path="RadarObjComponent"]
-[editable path="RadarObjComponent/MiniMapIcon/DetectionArea"]
+[editable path="RadarObjComponent/DetectionArea"]

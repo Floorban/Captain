@@ -40,7 +40,7 @@ func _set_destination(event):
 
 		target = get_global_mouse_position()
 		dist = player.global_position.distance_to(target)
-
+		print(dist)
 		for obj in mini_map.markers:
 			if is_instance_valid(obj):
 				var marker : RadarObjComponent = mini_map.markers[obj]
@@ -101,7 +101,7 @@ func _go_to_destination(delta):
 func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
 	if target != null and can_send:
 		var distance := player.global_position.distance_to(target)
-		if distance <= player.detection_area.radius:
+		if distance <= player.detection_area.col.radius:
 			var delay := distance / send_ship_delay
 			wait_and_spawn(delay, target, btn, loading_bar, axis_label)
 		else:

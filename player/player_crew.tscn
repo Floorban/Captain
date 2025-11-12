@@ -26,6 +26,7 @@ region = Rect2(48, 16, 16, 16)
 radius = 228.0022
 
 [node name="PlayerCrew" groups=["radar_objs"] instance=ExtResource("1_acesj")]
+collision_layer = 35
 input_left = "left2"
 input_right = "right2"
 input_up = "up2"
