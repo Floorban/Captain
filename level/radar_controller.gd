@@ -40,7 +40,7 @@ func _set_destination(event):
 
 		target = get_global_mouse_position()
 		dist = player.global_position.distance_to(target)
-		
+
 		for obj in mini_map.markers:
 			if is_instance_valid(obj):
 				var marker : RadarObjComponent = mini_map.markers[obj]
@@ -101,8 +101,13 @@ func _go_to_destination(delta):
 func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
 	if target != null and can_send:
 		var distance := player.global_position.distance_to(target)
-		var delay := distance / send_ship_delay
-		wait_and_spawn(delay, target, btn, loading_bar, axis_label)
+		if distance <= player.detection_area.radius:
+			var delay := distance / send_ship_delay
+			wait_and_spawn(delay, target, btn, loading_bar, axis_label)
+		else:
+			var msg := "Target is Too
+						Far Away"
+			Global.game_controller.side_screen.play_label_effect(axis_label, msg)
 
 var ship_amonut := 3
 
@@ -111,24 +116,28 @@ var is_sending := false
 var can_send := false
 
 func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: ProgressBar, axis_label: Label) -> void:
+	var msg := ""
 	if is_sending:
 		if send_ship_tween:
 			send_ship_tween.kill()
 		loading_bar.value = 0.0
 		is_sending = false
 		btn.text = "SEND A DRONE"
-		axis_label.text = "Target Required"
+		msg = "Target Required"
+		Global.game_controller.side_screen.play_label_effect(axis_label, msg)
 		path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
 		return
 	if ship_amonut <= 0:
 		btn.text = "No Drones(3/3)"
-		axis_label.text = "Recycle a Drone \n to Reuse It"
+		msg = "Recycle a Drone \n to Reuse It"
+		Global.game_controller.side_screen.play_label_effect(axis_label, msg)
 		return
 	is_sending = true
-	axis_label.text = "Sending to\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
+	msg = "Sending to\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
 	btn.text = "STOP"
+	Global.game_controller.side_screen.play_label_effect(axis_label, msg)
 	var end_value := loading_bar.max_value
 	if send_ship_tween:
 		send_ship_tween.kill()
@@ -139,7 +148,6 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		loading_bar.value = 0.0
 		is_sending = false
 		btn.text = "SEND A DRONE"
-		axis_label.text = "Target Required"
 		path.curve.clear_points()
 		select_marker.hide()
 		can_send = false

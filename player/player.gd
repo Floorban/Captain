@@ -31,6 +31,7 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @onready var interaction_controller : InteractionController = $InteractionController
 @export var interaction : InteractionComponent
 @export var inventory : InventoryComponent
+@onready var detection_area: DetectionArea = %DetectionArea
 
 func _ready() -> void:
 	_init_player_signals()

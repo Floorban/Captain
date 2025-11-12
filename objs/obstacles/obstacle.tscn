@@ -50,7 +50,6 @@ stun_time = 0.5
 shape = SubResource("CircleShape2D_ua8cb")
 
 [node name="RadarObjComponent" parent="." index="5" instance=ExtResource("5_ictk4")]
-visible = false
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)

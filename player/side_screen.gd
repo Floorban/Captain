@@ -118,8 +118,8 @@ func set_send_screen():
 	hud_send.show()
 	hud_stats.hide()
 	hud_goup.hide()
-	#play_label_effect(label_send, "Target Required")
-	label_send.text = "Target Required"
+	play_label_effect(label_send, "Target Required")
+	#label_send.text = "Target Required"
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
 func set_stats_screen():
@@ -186,7 +186,7 @@ func play_label_effect(label: Label, full_text: String) -> void:
 	label.text = ""
 	label.show()
 	_blink_label_versioned(label, 6, 0.05, 0.15, my_version)
-	_type_glitch_versioned(label, full_text, 0.03, 0.5, my_version)
+	_type_glitch_versioned(label, full_text, 0.02, 0.5, my_version)
 
 func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
 	for i in range(blinks):

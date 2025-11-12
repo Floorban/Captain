@@ -62,6 +62,7 @@ build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
 [node name="RadarObjComponent" parent="." index="9"]
+visible = true
 is_detectable = true
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
@@ -72,9 +73,14 @@ scale = Vector2(10, 10)
 texture = ExtResource("5_mshal")
 
 [node name="DetectionArea" parent="RadarObjComponent/MiniMapIcon" index="0" instance=ExtResource("6_m7lgq")]
+unique_name_in_owner = true
 position = Vector2(0.10000007, 3.1999989)
+
+[node name="DetectionRadius" parent="RadarObjComponent/MiniMapIcon/DetectionArea" index="0"]
+scale = Vector2(0.04, 0.04)
 
 [editable path="InteractionComponent"]
 [editable path="InteractionController"]
 [editable path="HitboxComponent"]
 [editable path="RadarObjComponent"]
+[editable path="RadarObjComponent/MiniMapIcon/DetectionArea"]

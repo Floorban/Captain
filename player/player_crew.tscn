@@ -50,6 +50,9 @@ collision_layer = 2
 [node name="CollisionShape2D" parent="InteractionController" index="0"]
 shape = SubResource("CircleShape2D_c6f1t")
 
+[node name="HealthComponent" parent="." index="4"]
+max_hp = 1
+
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_gbhii")
 
@@ -70,6 +73,7 @@ offset_right = 491.99994
 offset_bottom = 494.40005
 
 [node name="DetectionArea" parent="." index="7" instance=ExtResource("3_c6f1t")]
+unique_name_in_owner = true
 visibility_layer = 3
 
 [node name="DetectionRadius" parent="DetectionArea" index="0"]

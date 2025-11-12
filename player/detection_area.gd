@@ -1,11 +1,14 @@
 extends Area2D
 class_name DetectionArea
 
+var radius = 250.0
 @onready var detection_radius: Sprite2D = $DetectionRadius
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func grow_detection_radius(_scale: float):
 	apply_scale(Vector2(_scale, _scale))
+	radius *= _scale
+	print(radius)
 
 func _ready() -> void:
 	body_entered.connect(_on_detection_area_body_entered)
