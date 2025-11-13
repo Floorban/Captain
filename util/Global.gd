@@ -52,7 +52,7 @@ var upgrade_effects = {
 		radar_controller.mini_map.scan_wait_time -= 2.5
 		radar_controller.mini_map.fade_speed += 0.05,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
-	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.35),
+	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.4),
 	"drone_vision": func(): windows_manager.vision_range *= 1.2,
 	"drone_speed": func(): added_player_speed += 20.0,
 	"drone_capacity": func() -> void:
@@ -66,7 +66,7 @@ func game_setup():
 	health_component = get_captain().health_component
 	_init_signals()
 	health_component.cur_hp = health_component.max_hp
-	add_fuel(max_fuel/2)
+	add_fuel(max_fuel)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):
@@ -137,7 +137,6 @@ func enter_station(station: Station):
 	main.hide()
 	radar_controller.mini_map.set_upgrades(true)
 	radar_controller.can_control = false
-	radar_controller.path.curve.clear_points()
 	cur_station = station
 	game_controller.side_screen.set_station_screen()
 	get_tree().paused = true

@@ -56,6 +56,12 @@ func dmg_effect():
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DAMAGED)
 		Global.main.mini_map.play_dmg_effect()
 		Global.radar_controller.move_interrupted()
+		Global.game_controller.side_screen.set_control_screen(null,false,false,false)
+		can_move = false
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
+		await get_tree().create_timer(3.5).timeout
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ENTER_STATION)
+		can_move = true
 	else:
 		Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DMGED, global_position)
 

@@ -187,7 +187,6 @@ func try_add_drone() -> bool:
 func move_interrupted():
 	monitor.trauma = 0.8
 	monitor.target_speed = 0.0
-	#path.curve.clear_points()
 	select_marker.hide()
 	can_control = false
 	target = null

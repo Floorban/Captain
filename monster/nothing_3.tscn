@@ -10,4 +10,7 @@ invisible_chance = 0.5
 min_spawn_time = 3.0
 max_spawn_time = 7.0
 
+[node name="AttackComponent" parent="." index="1"]
+attack_damage = 2
+
 [editable path="RadarObjComponent"]

@@ -71,6 +71,11 @@ func set_game_menu():
 	b_3.text = "GO UP"
 
 func set_control_screen(found_target: Station, first_time := false, is_dead := false, see_nothing := false):
+	if not Global.get_captain().can_move:
+		var msg = "Unknown Source:\nHostile Impact" 
+		label_control.modulate = Color.RED
+		play_label_effect(label_control, msg)
+		return
 	can_goup = false
 	going_up = false
 	hud_control.show()
