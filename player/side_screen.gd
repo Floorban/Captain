@@ -152,7 +152,6 @@ func set_stats_screen():
 	var hp_percent = (float(Global.health_component.cur_hp) / Global.health_component.max_hp) * 100
 	var fuel_percent = (Global.cur_fuel / Global.max_fuel) * 100
 	var load_value = Global.cur_load / Global.max_load
-	var load_percent = load_value * 100
 
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
 	var msg_fuel = "Fuel:  " + str(int(fuel_percent)) + " %"
@@ -250,7 +249,7 @@ func _physics_process(delta: float) -> void:
 	if going_up:
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 		Global.radar_controller.monitor.trauma = 0.15
-		goingup_bar.value += delta * 15.0
+		goingup_bar.value += delta * 20.0
 		if goingup_bar.value >= goingup_bar.max_value:
 			Global.ascend()
 			play_label_effect(label_goup, "Arrived at depth\n%d m" % target_depth)

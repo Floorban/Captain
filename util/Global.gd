@@ -11,7 +11,7 @@ var players : Array[Player]
 
 var is_dead := false
 
-@export var max_fuel := 300.0
+@export var max_fuel := 200.0
 var cur_fuel := 0.0
 var fuel_heating_speed := 2.5
 
@@ -48,7 +48,7 @@ var upgrade_effects = {
 		max_load += 50.0
 		update_stats(),
 	"scan_speed": func() -> void:
-		radar_controller.mini_map.scan_wait_time -= 2.0
+		radar_controller.mini_map.scan_wait_time -= 2.5
 		radar_controller.mini_map.fade_speed += 0.05,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
 	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.75),

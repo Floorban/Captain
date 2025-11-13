@@ -14,9 +14,9 @@ var markers := {}
 @onready var damage_effect: ColorRect = %DamageEffectRect
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 8.0
+var scan_wait_time := 5.5
 var marker_age := {}   # { obj: seconds_since_seen }
-var fade_speed := 0.1
+var fade_speed := 0.15
 @onready var mat: ShaderMaterial = scan_effect.material
 var scan_elapsed := 0.0
 var scanning := false
@@ -66,9 +66,15 @@ func _physics_process(delta: float) -> void:
 	for obj in markers.keys():
 		if is_instance_valid(obj):
 			var marker : RadarObjComponent = markers[obj]
-			marker_age[obj] += delta
-			var new_alpha = clamp(1.0 - marker_age[obj] * fade_speed, 0.0, 1.0)
-			marker.modulate.a = new_alpha
+			if obj is Nothing and obj.has_interrupted:
+				var n : Nothing = obj
+				if n.has_shown:
+					marker.modulate = Color.BLACK
+			else:
+				marker.modulate = Color.WHITE
+				marker_age[obj] += delta
+				var new_alpha = clamp(1.0 - marker_age[obj] * fade_speed, 0.0, 1.0)
+				marker.modulate.a = new_alpha
 			var marker_offset = obj.global_position - player.global_position
 			var distance = marker_offset.length()
 			if distance > radius:
@@ -119,7 +125,9 @@ func update_markers_position():
 			else: marker.hide()
 			var marker_offset = obj.global_position - player.global_position
 			var distance = marker_offset.length()
-
+			if obj is Nothing:
+				obj.has_shown = true
+				Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.NOTHING_SHOW, obj.global_position)
 			marker.global_rotation = obj.global_rotation
 
 			if distance > radius:

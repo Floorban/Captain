@@ -822,7 +822,7 @@ text = "Cargo Capacity
 
 [node name="Upgrade6" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-max_boughts = 3
+max_boughts = 2
 upgrade_type = "scan_speed"
 cost = 30
 

@@ -18,6 +18,9 @@ class_name Nothing
 var current_appearance := 0
 var target_point: Vector2
 
+var has_shown := false
+var has_interrupted := false
+
 func _ready() -> void:
 	radar_obj_component.display_name = "Unknow Signal"
 	radar_obj_component.display_color = Color.RED
@@ -38,6 +41,9 @@ func _on_spawn_timer_timeout() -> void:
 
 func _do_monster_behavior() -> void:
 	if not player: return
+	has_shown = false
+	has_interrupted = false
+	radar_obj_component.icon.modulate = Color.WHITE
 	current_appearance += 1
 	radar_obj_component.is_detectable = randf() > invisible_chance
 	var t := clampf(float(current_appearance) / float(min_appearances), 0.0, 1.0)
@@ -45,8 +51,9 @@ func _do_monster_behavior() -> void:
 	var offset = Vector2.RIGHT.rotated(randf() * TAU) * distance
 	var target_pos = player.global_position + offset
 	global_position = target_pos
+	has_shown = false
 	var dist = global_position.distance_to(player.global_position)
-	if dist <= 500.0:
+	if dist <= 600.0:
 		var hint_sounds = [
 			SoundEffect.SOUND_EFFECT_TYPE.MONSTER_HINT1,
 			SoundEffect.SOUND_EFFECT_TYPE.MONSTER_HINT2,
@@ -86,11 +93,14 @@ func reset_behaviour():
 	_restart_timer()
 
 func interrupt_behaviour() -> void:
-	if spawn_timer.is_stopped():
+	if spawn_timer.is_stopped() or has_interrupted:
 		return
+	has_interrupted = true
+	radar_obj_component.show()
+	radar_obj_component.is_detectable = true
 	Global.game_controller.side_screen.set_control_screen(null, false, false, true)
 	Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.NOTHING_DETECTED, global_position)
 	spawn_timer.paused = true
-	await get_tree().create_timer((min_spawn_time+max_spawn_time)/2).timeout
+	await get_tree().create_timer(rest_time).timeout
 	spawn_timer.paused = false
 	reset_behaviour()

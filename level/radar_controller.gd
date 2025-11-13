@@ -76,7 +76,10 @@ func _set_destination(event):
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
 
 func _go_to_destination(delta):
-	if Input.is_action_pressed("secondary") and target != null and can_control and player.can_move:
+	if Input.is_action_pressed("secondary") and target != null and can_control:
+		if not player.can_move:
+			Global.update_stats()
+			return
 		monitor.switch_nagivate_light(true)
 		monitor.trauma = 0.2
 		monitor.target_speed = 8.0
@@ -98,7 +101,7 @@ func _go_to_destination(delta):
 			#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 			Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
 	else:
-			monitor.switch_nagivate_light(false)
+		monitor.switch_nagivate_light(false)
 	if Input.is_action_just_released("secondary") and not has_arrived and can_control and target != null:
 		#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
