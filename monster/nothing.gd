@@ -51,10 +51,6 @@ func _do_monster_behavior() -> void:
 	else:
 		_restart_timer()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("scan"):
-		attack_player()
-
 func attack_player() -> void:
 	if not player: return
 	radar_obj_component.is_detectable = true
@@ -84,7 +80,7 @@ func reset_behaviour():
 func interrupt_behaviour() -> void:
 	if spawn_timer.is_stopped():
 		return
-	print("nothing being interrupted")
+	Global.game_controller.side_screen.set_control_screen(null, false, false, true)
 	spawn_timer.paused = true
 	await get_tree().create_timer((min_spawn_time+max_spawn_time)/2).timeout
 	spawn_timer.paused = false

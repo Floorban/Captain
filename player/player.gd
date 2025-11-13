@@ -138,5 +138,5 @@ func _on_item_delivered(item: ItemData, count: int):
 		item.ITEM_TYPE.SHIELD:
 			Global.add_shield(item.value * count)
 		item.ITEM_TYPE.SALVAGE:
-			Global.add_load(item.weight * count)
+			Global.add_load(item.value * count)
 	Global.update_stats()

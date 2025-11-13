@@ -70,7 +70,7 @@ func set_game_menu():
 	b_2.text = "STATS"
 	b_3.text = "GO UP"
 
-func set_control_screen(found_target: Station, first_time := false, is_dead := false):
+func set_control_screen(found_target: Station, first_time := false, is_dead := false, see_nothing := false):
 	can_goup = false
 	going_up = false
 	hud_control.show()
@@ -83,6 +83,10 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 		#%SelectMarker.hide()
 		label_control.modulate = Color.RED
 		label_control.text = "No Response"
+	elif see_nothing:
+		var msg = "There is Nothing..."
+		label_control.modulate = Color.RED
+		play_label_effect(label_control, msg)
 	elif found_target:
 		var pos := found_target.axis
 		var msg = "Station Detected\n(%d, %d)\n%s" % [

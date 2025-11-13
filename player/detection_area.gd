@@ -27,7 +27,6 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is Nothing:
 		seen_enemy = true
 		Global.radar_controller.monitor.start_danger_blink()
-		#ui prompt
 		if not is_captain:
 			var n : Nothing = body
 			n.interrupt_behaviour()
@@ -46,7 +45,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body is Nothing and seen_enemy:
 		seen_enemy = false
 		Global.radar_controller.monitor.stop_danger_blink()
-		#ui prompt
+		Global.game_controller.side_screen.set_control_screen(null)
 	if body is Obstacle and detected_obstacles.has(body):
 		marker.is_detectable = false
 		detected_obstacles.erase(body)

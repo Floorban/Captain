@@ -11,6 +11,6 @@ region = Rect2(0, 96, 16, 16)
 script = ExtResource("2_1nlsp")
 item_name = "Cell"
 icon = SubResource("AtlasTexture_x3bde")
-value = 20.0
+value = 40.0
 max_stack = 2
 metadata/_custom_type_script = "uid://bjljm860oh4bu"
