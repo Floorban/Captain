@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://cdqyykw6k8qli"]
+
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_mbycr"]
+[ext_resource type="AudioStream" uid="uid://lh541b1ktety" path="res://audio/audio_source/enter_station.mp3" id="2_w63fp"]
+
+[resource]
+script = ExtResource("1_mbycr")
+limit = 5
+type = 0
+sound_effect = ExtResource("2_w63fp")
+volume = 0.585
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://y7iv8is4xp2x"

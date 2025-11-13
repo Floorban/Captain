@@ -150,7 +150,9 @@ func exit_station():
 
 func ascend():
 	cur_fuel = 0.0
+	update_stats()
 	main.go_up()
+	windows_manager.close_all_windows()
 
 func game_over():
 	print("--- Game Over ---")
@@ -175,7 +177,9 @@ func game_over():
 	for p in get_players():
 		p.is_dead = true
 	is_dead = false
-	await get_tree().create_timer(3.5).timeout
+	await get_tree().create_timer(2.0).timeout
+	windows_manager.main_sub_window.queue_free()
+	get_tree().call_deferred("quit")
 	get_captain().show()
 	game_controller.mini_map.death_menu.hide()
 	game_controller.retro_effect_rect.hide()

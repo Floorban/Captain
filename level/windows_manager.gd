@@ -75,8 +75,6 @@ func close_all_windows():
 			w._clear_window(true)
 			await get_tree().create_timer(delay).timeout
 	subwindows.clear()
-	main_sub_window.queue_free()
-	get_tree().call_deferred("quit")
 
 func _on_files_dropped(files: PackedStringArray):
 	for f in files:

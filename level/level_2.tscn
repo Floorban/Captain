@@ -96,197 +96,1388 @@ position = Vector2(636.31, -1166.51)
 position = Vector2(-118.704, -403.671)
 
 [node name="Pickups" type="Node2D" parent="."]
-position = Vector2(14, 17)
+position = Vector2(49, 22)
 script = ExtResource("1_vl510")
 rand = true
 spawn_size_width = 3000.0
 spawn_size_height = 3000.0
 
 [node name="Salvage" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1037.2, -423.24)
+position = Vector2(-727.448, 1267.83)
 
 [node name="Salvage2" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-868.422, 775.698)
+position = Vector2(-282.049, 768.72)
 
 [node name="Salvage3" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-1051.37, 1390.48)
+position = Vector2(-1309.76, -1373.87)
 
 [node name="Salvage4" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-942.446, -2.86979)
+position = Vector2(338.026, 819.182)
 
 [node name="Salvage5" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-909.111, 22.5946)
+position = Vector2(1210.56, 1003.16)
 
 [node name="Salvage6" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-647.86, 1327.14)
+position = Vector2(1139.46, 459.785)
 
 [node name="Salvage7" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1008.48, -632.358)
+position = Vector2(-650.201, -1326.87)
 
 [node name="Salvage8" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-703.937, 1195.72)
+position = Vector2(233.27, 192.027)
 
 [node name="Salvage9" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-29.9906, -1376.89)
+position = Vector2(-1420.2, 1421.85)
 
 [node name="Salvage10" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-1494.65, -869.071)
+position = Vector2(-528.872, 793.483)
 
 [node name="Salvage11" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-1068.1, 711.784)
+position = Vector2(776.607, 41.6302)
 
 [node name="Salvage12" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1019.34, 1463.52)
+position = Vector2(363.885, -452.454)
 
 [node name="Salvage13" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-49.172, 935.531)
+position = Vector2(76.9519, -848.968)
 
 [node name="Salvage14" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(348.703, 540.186)
+position = Vector2(740.054, 278.454)
 
 [node name="Salvage15" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(995.784, 1076.49)
+position = Vector2(-307.145, -1037.17)
 
 [node name="Salvage16" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1400.21, -600.832)
+position = Vector2(1058.51, 1000.46)
 
 [node name="Salvage17" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(458.485, 500.17)
+position = Vector2(-590.475, 204.777)
 
 [node name="Salvage18" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1241.73, -1196.5)
+position = Vector2(-663.598, -953.954)
 
 [node name="Salvage19" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(844.858, -1015.25)
+position = Vector2(-974.09, -824.823)
 
 [node name="Salvage20" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1462.8, 764.379)
+position = Vector2(-1421.42, 801.629)
 
 [node name="Salvage21" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1445, -1140.43)
+position = Vector2(1410.76, 279.076)
 
 [node name="Salvage22" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-816.402, 1170.2)
+position = Vector2(-251.43, 1233.49)
 
 [node name="Salvage23" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1194.22, -1248.34)
+position = Vector2(-1419.33, 1078.66)
 
 [node name="Salvage24" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-868.291, 1306.85)
+position = Vector2(1163.31, -605.178)
 
 [node name="Salvage25" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1432.29, 644.868)
+position = Vector2(1183.56, 941.06)
 
 [node name="Salvage26" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-934.74, 657.011)
+position = Vector2(-809.591, 1300.6)
 
 [node name="Salvage27" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-1102.24, 1227.67)
+position = Vector2(-113.947, -1441.95)
 
 [node name="Salvage28" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-362.859, 355.765)
+position = Vector2(-533.507, 422.539)
 
 [node name="Salvage29" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(-146.43, 1274.45)
+position = Vector2(548.761, 971.595)
 
 [node name="Salvage30" parent="Pickups" instance=ExtResource("2_dxks8")]
-position = Vector2(1292.09, 415.687)
+position = Vector2(-803.437, -282.914)
+
+[node name="Salvage31" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(259.914, 1217.54)
+
+[node name="Salvage32" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-780.397, -1080.16)
+
+[node name="Salvage33" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1437.18, -765.625)
+
+[node name="Salvage34" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(17.8291, 474.7)
+
+[node name="Salvage35" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(25.2377, 1332.58)
+
+[node name="Salvage36" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1372.02, -1273.78)
+
+[node name="Salvage37" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-24.1066, -578.151)
+
+[node name="Salvage38" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1121.75, 358.484)
+
+[node name="Salvage39" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1061.47, -990.63)
+
+[node name="Salvage40" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-480.534, 1196.25)
+
+[node name="Salvage41" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(166.551, -921.275)
+
+[node name="Salvage42" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1438.42, 944.62)
+
+[node name="Salvage43" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(641.18, -535.503)
+
+[node name="Salvage44" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-25.9182, 155.83)
+
+[node name="Salvage45" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1065.23, 1306.49)
+
+[node name="Salvage46" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1323.31, -46.5515)
+
+[node name="Salvage47" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1362.6, 826.267)
+
+[node name="Salvage48" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-319.786, 163.072)
+
+[node name="Salvage49" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-958.38, 1319.57)
+
+[node name="Salvage50" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1020.31, 1442.2)
+
+[node name="Salvage51" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-27.3324, 225.336)
+
+[node name="Salvage52" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-354.707, 1481.34)
+
+[node name="Salvage53" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1470.06, 449.53)
+
+[node name="Salvage54" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1140.19, -814.153)
+
+[node name="Salvage55" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(317.652, -688.166)
+
+[node name="Salvage56" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-617.56, 1035.89)
+
+[node name="Salvage57" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(828.276, -345.701)
+
+[node name="Salvage58" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(487.024, 845.949)
+
+[node name="Salvage59" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-706.814, -957.586)
+
+[node name="Salvage60" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-81.0998, 931.668)
+
+[node name="Salvage61" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(398.987, -1052.44)
+
+[node name="Salvage62" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1264.41, 16.853)
+
+[node name="Salvage63" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-478.467, 391.607)
+
+[node name="Salvage64" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-152.942, -1072.4)
+
+[node name="Salvage65" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1163.77, 1060.96)
+
+[node name="Salvage66" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1297.4, 1165.77)
+
+[node name="Salvage67" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(759.677, -118.78)
+
+[node name="Salvage68" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(402.184, -1121.29)
+
+[node name="Salvage69" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1405.11, 111.447)
+
+[node name="Salvage70" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(699.131, -768.909)
+
+[node name="Salvage71" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1285.74, -737.247)
+
+[node name="Salvage72" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1468.97, -494.783)
+
+[node name="Salvage73" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(877.99, 318.38)
+
+[node name="Salvage74" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(196.281, -162.566)
 
 [node name="Patch" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(335.744, 796.594)
+position = Vector2(-307.341, -915.147)
 
 [node name="Patch2" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(36.1377, 1237.61)
+position = Vector2(-1017.67, 1307.16)
 
 [node name="Patch3" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(-1238.15, 850.321)
+position = Vector2(-629.509, 336.91)
 
 [node name="Patch4" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(-1453.72, 867.841)
+position = Vector2(62.6998, -67.941)
 
 [node name="Patch5" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(-968.428, -134.508)
+position = Vector2(-1465.32, 1271.86)
 
 [node name="Patch6" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(100.228, 47.5947)
+position = Vector2(1032.53, 1222.4)
 
 [node name="Patch7" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(-894.852, 577.636)
+position = Vector2(479.069, 986.779)
 
 [node name="Patch8" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(807.734, 160.952)
+position = Vector2(904.059, -11.6304)
 
 [node name="Patch9" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(475.093, -1045.53)
+position = Vector2(339.079, -1091.96)
 
 [node name="Patch11" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(-757.768, 1362.59)
+position = Vector2(-1392.89, 21.4936)
 
 [node name="Patch12" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(1070.25, -1212.61)
+position = Vector2(-1200.65, 1327.73)
 
 [node name="Patch10" parent="Pickups" instance=ExtResource("3_vl510")]
-position = Vector2(724.568, 1164.79)
+position = Vector2(-155.026, -1153.67)
+
+[node name="Patch13" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-437.331, -178.629)
+
+[node name="Patch14" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1104.94, -313.911)
+
+[node name="Patch15" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-968.167, -1262.52)
+
+[node name="Patch16" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-526.436, 1257)
+
+[node name="Patch17" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(614.951, 336.89)
+
+[node name="Patch18" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(998.947, 669.105)
+
+[node name="Patch19" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1320.43, 375.306)
+
+[node name="Patch20" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1227.82, 1071.36)
+
+[node name="Patch21" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-314.643, 524.837)
+
+[node name="Patch22" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-821.844, -1018.74)
+
+[node name="Patch23" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1034.79, -1420.24)
+
+[node name="Patch24" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1175.24, -1215.29)
 
 [node name="Cell" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-498.668, 652.977)
+position = Vector2(-461.93, 882.19)
 
 [node name="Cell2" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(1307.77, 1118.3)
+position = Vector2(-547.342, -258.479)
 
 [node name="Cell3" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-576.092, 286.572)
+position = Vector2(-727.121, -266.434)
 
 [node name="Cell4" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-1068.92, 554.07)
+position = Vector2(782.145, 455.646)
 
 [node name="Cell5" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(735.558, -1445.76)
+position = Vector2(1055.4, -404.268)
 
 [node name="Cell6" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(507.821, 1226.84)
+position = Vector2(927.846, 828.594)
 
 [node name="Cell7" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-1380.61, 1424.51)
+position = Vector2(-1428.21, -1442.65)
 
 [node name="Cell8" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-750.459, -548.406)
+position = Vector2(-688.836, -1384)
 
 [node name="Cell9" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(403.744, 232.144)
+position = Vector2(-1152.22, -265.386)
+
+[node name="Cell51" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(341.146, -1338.22)
+
+[node name="Cell52" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(88.4565, 421.099)
+
+[node name="Cell53" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-228.299, -716.789)
+
+[node name="Cell54" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1441.74, -911.235)
+
+[node name="Cell55" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1488.46, 38.2691)
 
 [node name="Cell16" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-832.066, 998.576)
+position = Vector2(-1407.93, -434.835)
 
 [node name="Cell17" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-139.75, 1395.19)
+position = Vector2(773.279, -156.661)
 
 [node name="Cell18" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(565.377, -177.599)
+position = Vector2(-1265.85, 909.318)
 
 [node name="Cell19" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-1420.52, 76.7316)
+position = Vector2(-850.389, 364.233)
 
 [node name="Cell20" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(1181.67, -568.911)
+position = Vector2(237.264, -189.288)
 
 [node name="Cell10" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(1316.34, -692.088)
+position = Vector2(1233.54, -1268.85)
 
 [node name="Cell11" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(26.5737, 339.139)
+position = Vector2(-1031.22, 932.504)
 
 [node name="Cell12" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-976.89, 272.236)
+position = Vector2(494.259, 1071.82)
 
 [node name="Cell13" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(1322.68, -593.26)
+position = Vector2(-900.23, -1498.85)
 
 [node name="Cell14" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-1214.37, -592.791)
+position = Vector2(-1257.72, 82.9065)
 
 [node name="Cell15" parent="Pickups" instance=ExtResource("4_vir0n")]
-position = Vector2(-1478.68, -1124.33)
+position = Vector2(-1073.39, -304.161)
+
+[node name="Cell21" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1239.74, 601.701)
+
+[node name="Cell22" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1311.82, 1025.37)
+
+[node name="Cell23" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1205.84, -355.49)
+
+[node name="Cell24" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1464.91, 1125.22)
+
+[node name="Cell25" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(184.259, -313.851)
+
+[node name="Cell26" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-661.959, 326.579)
+
+[node name="Cell27" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-105.179, -352.909)
+
+[node name="Cell28" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(803.145, 1384.27)
+
+[node name="Cell29" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1109.94, 1464.05)
+
+[node name="Cell30" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1468.95, 304.191)
+
+[node name="Cell31" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(386.392, 50.9908)
+
+[node name="Cell32" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(585.725, -1433.62)
+
+[node name="Cell33" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-436.335, -1423.27)
+
+[node name="Cell34" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-355.819, 1170.9)
+
+[node name="Cell35" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-368.864, 169.537)
+
+[node name="Cell36" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(503.787, -514.593)
+
+[node name="Cell37" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-497.483, -394.912)
+
+[node name="Cell38" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1263.2, -1239.35)
+
+[node name="Cell39" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1174.38, 584.01)
+
+[node name="Cell40" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-722.34, -1262.1)
+
+[node name="Cell41" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-578.386, 223.12)
+
+[node name="Cell42" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-660.19, -1015.71)
+
+[node name="Cell43" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(125.284, 470.425)
+
+[node name="Cell44" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-468.718, 1404.81)
+
+[node name="Cell45" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1025.04, 1220.89)
+
+[node name="Cell46" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-333.88, -378.498)
+
+[node name="Cell47" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1156.57, -39.1714)
+
+[node name="Cell48" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1051.14, 1044.05)
+
+[node name="Cell49" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1476.42, -1308.19)
+
+[node name="Cell50" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(279.536, 333.749)
+
+[node name="Salvage75" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1144.07, 346.632)
+
+[node name="Salvage76" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1206.19, 27.9706)
+
+[node name="Salvage77" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1226.88, 1379.43)
+
+[node name="Salvage78" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-444.101, 920.538)
+
+[node name="Salvage79" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(349.582, -1273.06)
+
+[node name="Salvage80" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-177.247, -1354.49)
+
+[node name="Salvage81" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-166.877, -98.3054)
+
+[node name="Salvage82" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(712.563, -388.497)
+
+[node name="Salvage83" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1018.94, -1365.39)
+
+[node name="Salvage84" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(815.831, -956.585)
+
+[node name="Salvage85" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1005.57, 371.606)
+
+[node name="Salvage86" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-74.0059, 611.902)
+
+[node name="Salvage87" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-275.173, -746.667)
+
+[node name="Salvage88" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(402.591, -710.999)
+
+[node name="Salvage89" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-904.352, 857.513)
+
+[node name="Salvage90" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1374.11, -56.5139)
+
+[node name="Salvage91" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1398.35, 55.9697)
+
+[node name="Salvage92" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(109.355, 214.617)
+
+[node name="Salvage93" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1403.92, -969.408)
+
+[node name="Salvage94" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1099, -566.483)
+
+[node name="Salvage95" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1138.01, 1336.77)
+
+[node name="Salvage96" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1469.74, -1152.07)
+
+[node name="Salvage97" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1283.16, -1489.46)
+
+[node name="Salvage98" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(781.679, -306.324)
+
+[node name="Salvage99" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1472.49, -10.385)
+
+[node name="Salvage100" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(898.064, -1291.69)
+
+[node name="Salvage101" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(713.809, 1094)
+
+[node name="Salvage102" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(832.486, -773.335)
+
+[node name="Salvage103" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1167.18, -234.031)
+
+[node name="Salvage104" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-257.918, 147.738)
+
+[node name="Salvage105" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-290.138, 468.217)
+
+[node name="Salvage106" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-356.875, 1463.68)
+
+[node name="Salvage107" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(699.95, 1010.24)
+
+[node name="Salvage108" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(833.201, 0.134743)
+
+[node name="Salvage109" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(972.036, 429.533)
+
+[node name="Salvage110" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1049.47, 729.727)
+
+[node name="Salvage111" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(562.208, -1165.94)
+
+[node name="Salvage112" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-5.19463, -844.707)
+
+[node name="Salvage113" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1416.83, -811.755)
+
+[node name="Salvage114" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1395.99, 332.823)
+
+[node name="Salvage115" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-83.1183, -610.173)
+
+[node name="Salvage116" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-954.303, -73.7766)
+
+[node name="Salvage117" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-667.849, -89.1609)
+
+[node name="Salvage118" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1494.57, -277.829)
+
+[node name="Salvage119" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1202.84, 634.552)
+
+[node name="Salvage120" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-919.845, -438.646)
+
+[node name="Salvage121" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(40.276, -1036)
+
+[node name="Salvage122" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(882.331, 506.5)
+
+[node name="Salvage123" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1044.79, 1127.6)
+
+[node name="Salvage124" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1314.81, 624.393)
+
+[node name="Salvage125" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(665.005, 875.499)
+
+[node name="Salvage126" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(427.782, 284.831)
+
+[node name="Salvage127" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(646.753, -1349.57)
+
+[node name="Salvage128" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1239.63, 1249.24)
+
+[node name="Salvage129" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-235.486, -985.642)
+
+[node name="Salvage130" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-274.522, 1293.31)
+
+[node name="Salvage131" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1484.45, 291.756)
+
+[node name="Salvage132" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1003.04, -1031.89)
+
+[node name="Salvage133" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-940.987, -1287.78)
+
+[node name="Salvage134" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(783.013, 1476.66)
+
+[node name="Salvage135" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1268.19, 328.484)
+
+[node name="Salvage136" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-216.614, 471.967)
+
+[node name="Salvage137" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-503.183, 431.757)
+
+[node name="Salvage138" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1068.18, 900.947)
+
+[node name="Salvage139" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-71.5382, -434.715)
+
+[node name="Salvage140" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1235.25, 392.124)
+
+[node name="Salvage141" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1053.53, 1415.34)
+
+[node name="Salvage142" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1304.35, -298.885)
+
+[node name="Salvage143" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(885.568, 148.381)
+
+[node name="Salvage144" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(63.1579, -433.184)
+
+[node name="Salvage145" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1023.32, 382.262)
+
+[node name="Salvage146" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1432.99, 1247.09)
+
+[node name="Salvage147" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(449.044, 396.899)
+
+[node name="Salvage148" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1097.26, -988.226)
+
+[node name="Patch25" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(90.1543, -1084.33)
+
+[node name="Patch26" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-58.9139, -196.889)
+
+[node name="Patch27" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1264.79, -1103.18)
+
+[node name="Patch28" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(83.0177, -240.226)
+
+[node name="Patch29" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1066.19, 919.323)
+
+[node name="Patch30" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1476.4, 440.285)
+
+[node name="Patch31" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-191.328, -1154.48)
+
+[node name="Patch32" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-445.308, 1215.67)
+
+[node name="Patch33" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-771.179, 1319.18)
+
+[node name="Patch34" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1041.87, -217.719)
+
+[node name="Patch35" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-476.609, -920.33)
+
+[node name="Patch36" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(327.81, 1106.45)
+
+[node name="Patch37" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1035.91, 1059.79)
+
+[node name="Patch38" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-854.437, 496.176)
+
+[node name="Patch39" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(67.996, -487.302)
+
+[node name="Patch40" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1452.17, -1008.45)
+
+[node name="Patch41" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-575.182, -614.097)
+
+[node name="Patch42" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1125.86, -167.581)
+
+[node name="Patch43" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(981.376, 587.793)
+
+[node name="Patch44" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(564.096, 717.511)
+
+[node name="Patch45" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-649.232, 547.537)
+
+[node name="Patch46" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-279.34, 482.823)
+
+[node name="Patch47" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(792.922, 985.828)
+
+[node name="Patch48" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1363.75, -44.0935)
+
+[node name="Cell56" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-237.521, -1390)
+
+[node name="Cell57" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1364.97, -599.91)
+
+[node name="Cell58" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1284.88, -1491.03)
+
+[node name="Cell59" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1029.71, 658.575)
+
+[node name="Cell60" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-897.303, 275.443)
+
+[node name="Cell61" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-568.113, 760.7)
+
+[node name="Cell62" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1498.3, -801.936)
+
+[node name="Cell63" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-304.996, -1043.88)
+
+[node name="Cell64" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1385.53, 1179.56)
+
+[node name="Cell65" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(648.344, -566.485)
+
+[node name="Cell66" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(119.148, -1065.2)
+
+[node name="Cell67" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(773.286, -439.134)
+
+[node name="Cell68" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1233.77, 1358.69)
+
+[node name="Cell69" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1381.63, -275.579)
+
+[node name="Cell70" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-977.127, -84.7519)
+
+[node name="Cell71" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-528.178, 791.497)
+
+[node name="Cell72" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(858.935, 852.383)
+
+[node name="Cell73" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1094.98, 812.195)
+
+[node name="Cell74" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1356.26, 70.4615)
+
+[node name="Cell75" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1013.54, -965.819)
+
+[node name="Cell76" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(452.801, 214.55)
+
+[node name="Cell77" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-155.41, -545.409)
+
+[node name="Cell78" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(385.211, -708.518)
+
+[node name="Cell79" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(86.5607, 475.312)
+
+[node name="Cell80" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-562.304, -555.724)
+
+[node name="Cell81" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1412.63, -1427.72)
+
+[node name="Cell82" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-516.746, 1293.93)
+
+[node name="Cell83" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(203.074, -12.7241)
+
+[node name="Cell84" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(432.977, -934.599)
+
+[node name="Cell85" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1042.09, -977.195)
+
+[node name="Cell86" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-340.511, 1342.41)
+
+[node name="Cell87" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(555.645, 1035.36)
+
+[node name="Cell88" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-482.002, -915.472)
+
+[node name="Cell89" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(696.276, -1362.2)
+
+[node name="Cell90" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-662.905, 375.275)
+
+[node name="Cell91" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-461.222, 150.563)
+
+[node name="Cell92" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1438.28, -1315.41)
+
+[node name="Cell93" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-686.648, -1222.77)
+
+[node name="Cell94" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-467.62, 1072.8)
+
+[node name="Cell95" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-256.835, 138.293)
+
+[node name="Cell96" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(737.46, 311.031)
+
+[node name="Cell97" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(405.746, 63.4943)
+
+[node name="Cell98" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-69.1091, 1027.12)
+
+[node name="Cell99" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1233, 1495.12)
+
+[node name="Cell100" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-681.485, 1326.63)
+
+[node name="Cell101" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-302.523, -595.036)
+
+[node name="Cell102" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1347.68, 346.193)
+
+[node name="Cell103" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1102.19, 214.849)
+
+[node name="Cell104" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(12.7666, 1235.22)
+
+[node name="Cell105" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1110.18, 22.6575)
+
+[node name="Cell106" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-521.527, 1001.28)
+
+[node name="Cell107" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(579.322, -1019.99)
+
+[node name="Cell108" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(925.053, 606.117)
+
+[node name="Cell109" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1347.08, -217.03)
+
+[node name="Cell110" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(399.475, -1236.41)
+
+[node name="Salvage149" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(406.274, 633.501)
+
+[node name="Salvage150" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(935.298, -316.436)
+
+[node name="Salvage151" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-352.802, -386.054)
+
+[node name="Salvage152" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1386.94, 981.314)
+
+[node name="Salvage153" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-657.756, -408.831)
+
+[node name="Salvage154" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-759.444, 736.66)
+
+[node name="Salvage155" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-296.919, -483.733)
+
+[node name="Salvage156" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1400.68, -657.25)
+
+[node name="Salvage157" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1027.73, 817.004)
+
+[node name="Salvage158" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(721.379, 1310.48)
+
+[node name="Salvage159" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-715.543, -414.799)
+
+[node name="Salvage160" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1069.96, -304.478)
+
+[node name="Salvage161" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-418.81, 748.046)
+
+[node name="Salvage162" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1249.8, -351.167)
+
+[node name="Salvage163" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(677.795, 181.909)
+
+[node name="Salvage164" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(682.297, -221.864)
+
+[node name="Salvage165" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(45.1572, 1121.19)
+
+[node name="Salvage166" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1041.23, 259.336)
+
+[node name="Salvage167" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(990.015, 1278.54)
+
+[node name="Salvage168" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(405.15, 409.162)
+
+[node name="Salvage169" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-49.0798, -278.746)
+
+[node name="Salvage170" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-724.141, 997.387)
+
+[node name="Salvage171" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1015.08, 214.231)
+
+[node name="Salvage172" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-430.994, 12.1601)
+
+[node name="Salvage173" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-760.235, 1185.14)
+
+[node name="Salvage174" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-324.832, 277.937)
+
+[node name="Salvage175" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-944.319, -1244.86)
+
+[node name="Salvage176" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-231.994, 739.581)
+
+[node name="Salvage177" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-433.624, 879.448)
+
+[node name="Salvage178" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1434.35, -376.241)
+
+[node name="Salvage179" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-763.519, 1197.07)
+
+[node name="Salvage180" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1025.14, 540.649)
+
+[node name="Salvage181" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1457.9, 1332.18)
+
+[node name="Salvage182" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-897.846, -624.685)
+
+[node name="Salvage183" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(599.52, -1244.03)
+
+[node name="Salvage184" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(515.893, -1039.39)
+
+[node name="Salvage185" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-632.937, 1206.73)
+
+[node name="Salvage186" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1277.36, 643.211)
+
+[node name="Salvage187" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1431.93, 224.451)
+
+[node name="Salvage188" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-222.083, 1091.68)
+
+[node name="Salvage189" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-870.154, -950.218)
+
+[node name="Salvage190" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1431.89, -443.927)
+
+[node name="Salvage191" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(777.498, 1175.79)
+
+[node name="Salvage192" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-288.955, -507.427)
+
+[node name="Salvage193" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(717.324, -240.757)
+
+[node name="Salvage194" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(404.075, 9.81353)
+
+[node name="Salvage195" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(499.424, 691.636)
+
+[node name="Salvage196" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-122.26, 705.524)
+
+[node name="Salvage197" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1118.36, 1062.94)
+
+[node name="Salvage198" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1253.66, 1243.64)
+
+[node name="Salvage199" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1048.66, 1334.55)
+
+[node name="Salvage200" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1376.67, -89.9489)
+
+[node name="Salvage201" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-838.095, -419.517)
+
+[node name="Salvage202" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1269.02, 1270.46)
+
+[node name="Salvage203" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1268.76, -1068.64)
+
+[node name="Salvage204" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(406.51, -660.54)
+
+[node name="Salvage205" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-824.213, 163.551)
+
+[node name="Salvage206" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(287.791, -44.2989)
+
+[node name="Salvage207" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(350.945, 445.141)
+
+[node name="Salvage208" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(840.648, -284.942)
+
+[node name="Salvage209" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1347.35, -1070.83)
+
+[node name="Salvage210" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(917.049, 222.06)
+
+[node name="Salvage211" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-659.982, -780.971)
+
+[node name="Salvage212" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(66.0632, -1401.33)
+
+[node name="Salvage213" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1026.55, 1115.27)
+
+[node name="Salvage214" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-1437.28, 61.1813)
+
+[node name="Salvage215" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-448.358, -818.017)
+
+[node name="Salvage216" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1404.93, 1199.35)
+
+[node name="Salvage217" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(659.778, 778.062)
+
+[node name="Salvage218" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-233.989, 664.389)
+
+[node name="Salvage219" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(-837.859, 1032.81)
+
+[node name="Salvage220" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1362.19, -506.14)
+
+[node name="Salvage221" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(1457.76, -1436.21)
+
+[node name="Salvage222" parent="Pickups" instance=ExtResource("2_dxks8")]
+position = Vector2(16.0943, -1176.01)
+
+[node name="Patch49" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(667.619, -804.89)
+
+[node name="Patch50" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-530.005, -303.533)
+
+[node name="Patch51" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-861.807, 1007.4)
+
+[node name="Patch52" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(234.893, -1023.15)
+
+[node name="Patch53" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1349.52, 1331.79)
+
+[node name="Patch54" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-917, 1004.26)
+
+[node name="Patch55" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-381.64, -709.63)
+
+[node name="Patch56" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1206.83, 1404.27)
+
+[node name="Patch57" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1084.99, 179.718)
+
+[node name="Patch58" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(332.081, -569.125)
+
+[node name="Patch59" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1043.8, 800.716)
+
+[node name="Patch60" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(36.6839, -691.017)
+
+[node name="Patch61" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1200.03, 859.207)
+
+[node name="Patch62" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-761.427, 711.224)
+
+[node name="Patch63" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1064.24, 417.203)
+
+[node name="Patch64" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-281.464, 172.637)
+
+[node name="Patch65" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1310.36, -821.382)
+
+[node name="Patch66" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(1362.74, -1355.37)
+
+[node name="Patch67" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-361.904, 745.369)
+
+[node name="Patch68" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1407.37, 1345.88)
+
+[node name="Patch69" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-337.477, 1077.07)
+
+[node name="Patch70" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-764.106, -68.5578)
+
+[node name="Patch71" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(-1378.49, -329.83)
+
+[node name="Patch72" parent="Pickups" instance=ExtResource("3_vl510")]
+position = Vector2(354.875, 91.0838)
+
+[node name="Cell111" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(643.682, -1491.66)
+
+[node name="Cell112" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(191.515, -1328.31)
+
+[node name="Cell113" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(438.243, -14.6253)
+
+[node name="Cell114" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-617.562, -1353.52)
+
+[node name="Cell115" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1022.11, 1090.29)
+
+[node name="Cell116" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(285.318, 84.1746)
+
+[node name="Cell117" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-579.378, -232.254)
+
+[node name="Cell118" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1373.21, 1351.74)
+
+[node name="Cell119" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1115.71, -136.383)
+
+[node name="Cell120" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(561.69, -586.345)
+
+[node name="Cell121" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1070.43, 845.58)
+
+[node name="Cell122" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-84.9624, -914.799)
+
+[node name="Cell123" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-291.517, 845.622)
+
+[node name="Cell124" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(99.657, 614.858)
+
+[node name="Cell125" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(937.723, -1097.2)
+
+[node name="Cell126" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(872.074, 1075.61)
+
+[node name="Cell127" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-635.808, -1290.8)
+
+[node name="Cell128" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(27.224, -656.837)
+
+[node name="Cell129" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1263.11, -874.782)
+
+[node name="Cell130" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-5.05058, -97.6624)
+
+[node name="Cell131" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(423.091, 1479.64)
+
+[node name="Cell132" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(51.3026, -1083.58)
+
+[node name="Cell133" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(401.366, -1400.99)
+
+[node name="Cell134" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1431.25, -597.384)
+
+[node name="Cell135" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(708.99, -15.1497)
+
+[node name="Cell136" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(502.943, -846.455)
+
+[node name="Cell137" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1397.32, 832.815)
+
+[node name="Cell138" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-791.362, -152.935)
+
+[node name="Cell139" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1382.48, -168.318)
+
+[node name="Cell140" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1436.13, -1303.75)
+
+[node name="Cell141" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-841.067, 618.809)
+
+[node name="Cell142" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(42.4829, -40.5578)
+
+[node name="Cell143" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-110.181, -382.522)
+
+[node name="Cell144" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1460.68, 522.218)
+
+[node name="Cell145" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1136.18, 290.325)
+
+[node name="Cell146" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-379.241, -281.877)
+
+[node name="Cell147" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-456.675, 294.038)
+
+[node name="Cell148" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1050.31, 496.774)
+
+[node name="Cell149" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-1334.37, -508.189)
+
+[node name="Cell150" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(544.366, 1296.94)
+
+[node name="Cell151" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(345.935, -410.031)
+
+[node name="Cell152" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(244.954, 307.997)
+
+[node name="Cell153" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-351.403, 854.589)
+
+[node name="Cell154" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-65.4252, 1104.75)
+
+[node name="Cell155" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(297.66, 693.31)
+
+[node name="Cell156" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-126.056, -343.062)
+
+[node name="Cell157" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(956.84, -1122.87)
+
+[node name="Cell158" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-619.829, 1470.99)
+
+[node name="Cell159" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(755.392, -1455.68)
+
+[node name="Cell160" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-256.397, 1450.46)
+
+[node name="Cell161" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-875.287, -1199.73)
+
+[node name="Cell162" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(533.164, 505.3)
+
+[node name="Cell163" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(1193.47, -1454.86)
+
+[node name="Cell164" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(-285.64, 321.534)
+
+[node name="Cell165" parent="Pickups" instance=ExtResource("4_vir0n")]
+position = Vector2(216.504, -49.7873)
 
 [node name="Stations" type="Node2D" parent="."]
 
