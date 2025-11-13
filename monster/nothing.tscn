@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dw7xbffokiusi" path="res://components/attack_component.tscn" id="2_esy1c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esy1c"]
-radius = 42.0119
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b0ok"]
 atlas = ExtResource("2_825ph")

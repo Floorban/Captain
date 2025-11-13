@@ -14,21 +14,22 @@ atlas = ExtResource("2_umdq8")
 region = Rect2(72, 16, 16, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7lgq"]
-radius = 654.941
+radius = 750.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3178a"]
 radius = 250.0
 
-[node name="PlayerCaptain" node_paths=PackedStringArray("interaction") groups=["cap"] instance=ExtResource("1_6ae7q")]
+[node name="PlayerCaptain" node_paths=PackedStringArray("interaction", "drone_area") groups=["cap"] instance=ExtResource("1_6ae7q")]
 input_left = "left3"
 input_right = "right3"
 input_up = "up3"
 input_down = "down3"
 is_captain = true
-move_speed = 0.2
+move_speed = 0.15
 friction = 0.8
 rotation_smoothness = 4.0
 interaction = NodePath("InteractionComponent")
+drone_area = NodePath("RadarObjComponent/DroneArea")
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = -1
@@ -87,6 +88,7 @@ light_mask = 0
 visibility_layer = 2
 z_index = -2
 position = Vector2(0.0999998, -0.500001)
+scale = Vector2(1.15, 1.15)
 texture = ExtResource("7_fa2mc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RadarObjComponent/DroneArea" index="1"]

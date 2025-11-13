@@ -71,7 +71,6 @@ func set_game_menu():
 	b_3.text = "GO UP"
 
 func set_control_screen(found_target: Station, first_time := false, is_dead := false, see_nothing := false):
-	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_TIP)
 	can_goup = false
 	going_up = false
 	hud_control.show()
@@ -98,6 +97,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 		label_control.modulate = Color.GREEN
 		play_label_effect(label_control, msg)
 	else:
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_TIP)
 		var messages = []
 		if first_time:
 			messages = [
@@ -140,6 +140,7 @@ func set_send_screen():
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
 func set_stats_screen():
+	if Global.main: Global.main.update_fuel_bar(Global.cur_fuel / Global.max_fuel)
 	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_REFRESH)
 	can_goup = false
 	going_up = false
@@ -226,6 +227,7 @@ var going_up := false
 var target_depth : int
 
 func set_ascend_screen():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_REFRESH)
 	hud_control.hide()
 	hud_send.hide()
 	hud_stats.hide()

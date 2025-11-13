@@ -824,10 +824,10 @@ text = "Cargo Capacity
 layout_mode = 2
 max_boughts = 3
 upgrade_type = "scan_speed"
-cost = 25
+cost = 30
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="1"]
-text = "25KG Load"
+text = "30KG Load"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="2"]
 text = "Radar Scan 
@@ -837,10 +837,10 @@ Speed ++"
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "deploy_range"
-cost = 50
+cost = 55
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7/Hbox" index="1"]
-text = "50KG Load"
+text = "55KG Load"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7/Hbox" index="2"]
 text = "Drone Deploy 
@@ -850,9 +850,10 @@ Range ++"
 layout_mode = 2
 max_boughts = 3
 upgrade_type = "drone_signal_range"
+cost = 45
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="1"]
-text = "65KG Load"
+text = "45KG Load"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="2"]
 text = "Drone Signal 
@@ -862,9 +863,10 @@ Range ++"
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "drone_vision"
+cost = 80
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="1"]
-text = "100KG Load"
+text = "80KG Load"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="2"]
 text = "Drone Vision
@@ -874,6 +876,7 @@ Range ++"
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "drone_speed"
+cost = 50
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10/Hbox" index="1"]
 text = "50KG Load"
@@ -900,6 +903,8 @@ text = "Drone Capacity
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "fuel_cell_efficiency"
+cost = 50
+fuel_cost = 0.8
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12/Hbox" index="1"]
 text = "50KG Load
