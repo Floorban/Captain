@@ -19,6 +19,8 @@ func _on_pressed() -> void:
 	if Global.try_consume_load(cost) and Global.try_consume_fuel(fuel_cost):
 		on_buy.call()
 		bought_times += 1
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UPGRADE)
+		Global.update_stats()
 		if is_sold_out():
 			queue_free()
 	else:

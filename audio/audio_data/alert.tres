@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bc181vc2l2jvy"]
 
 [ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_iuq78"]
-[ext_resource type="AudioStream" uid="uid://bsxraub24l447" path="res://audio/audio_source/alert.mp3" id="2_gyity"]
+[ext_resource type="AudioStream" uid="uid://c8du4w8tgcjsh" path="res://audio/audio_source/warning.mp3" id="2_gyity"]
 
 [resource]
 script = ExtResource("1_iuq78")
-limit = 5
+limit = 1
 type = 5
 sound_effect = ExtResource("2_gyity")
-volume = 0.585
+volume = 0.193
 pitch_scale = 1.0
 pitch_randomness = 0.0
 metadata/_custom_type_script = "uid://y7iv8is4xp2x"

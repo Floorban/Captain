@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dw2nq4j6f4ba0"]
 
-[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_k1miy"]
-[ext_resource type="AudioStream" uid="uid://cng3ga8i6mad" path="res://audio/audio_source/damaged1.mp3" id="2_kkaku"]
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_ml7mv"]
+[ext_resource type="AudioStream" uid="uid://d3m0k34biykye" path="res://audio/audio_source/damaged.mp3" id="2_k3ufn"]
 
 [resource]
-script = ExtResource("1_k1miy")
-limit = 5
+script = ExtResource("1_ml7mv")
+limit = 1
 type = 8
-sound_effect = ExtResource("2_kkaku")
+sound_effect = ExtResource("2_k3ufn")
 volume = 0.585
 pitch_scale = 1.0
 pitch_randomness = 0.0

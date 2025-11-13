@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_mbycr")
-limit = 5
+limit = 1
 type = 4
 sound_effect = ExtResource("2_w63fp")
 volume = 0.585

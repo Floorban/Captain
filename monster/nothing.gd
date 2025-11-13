@@ -46,6 +46,14 @@ func _do_monster_behavior() -> void:
 	var target_pos = player.global_position + offset
 	global_position = target_pos
 	var dist = global_position.distance_to(player.global_position)
+	if dist <= 500.0:
+		var hint_sounds = [
+			SoundEffect.SOUND_EFFECT_TYPE.MONSTER_HINT1,
+			SoundEffect.SOUND_EFFECT_TYPE.MONSTER_HINT2,
+			SoundEffect.SOUND_EFFECT_TYPE.MONSTER_HINT3
+		]
+		var sfx = hint_sounds[randi() % hint_sounds.size()]
+		Audio.create_2d_audio_at_location(sfx, global_position)
 	if dist <= attack_distance and current_appearance >= min_appearances:
 		attack_player()
 	else:
@@ -81,6 +89,7 @@ func interrupt_behaviour() -> void:
 	if spawn_timer.is_stopped():
 		return
 	Global.game_controller.side_screen.set_control_screen(null, false, false, true)
+	Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.NOTHING_DETECTED, global_position)
 	spawn_timer.paused = true
 	await get_tree().create_timer((min_spawn_time+max_spawn_time)/2).timeout
 	spawn_timer.paused = false

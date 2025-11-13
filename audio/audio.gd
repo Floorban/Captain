@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 ## Creates a sound effect at a specific location if the limit has not been reached. Pass [param location] for the global position of the audio effect, and [param type] for the SoundEffect to be queued.
-func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
+func create_2d_audio_at_location(type: SoundEffect.SOUND_EFFECT_TYPE, location: Vector2 = Global.get_captain().global_position) -> void:
 	if sound_effect_dict.has(type):
 		var sound_effect: SoundEffect = sound_effect_dict[type]
 		if sound_effect.has_open_limit():
@@ -21,7 +21,7 @@ func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFE
 			new_2D_audio.stream = sound_effect.sound_effect
 			new_2D_audio.volume_db = sound_effect.volume
 			new_2D_audio.pitch_scale = sound_effect.pitch_scale
-			new_2D_audio.pitch_scale += Global.rng.randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
+			new_2D_audio.pitch_scale += randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			new_2D_audio.finished.connect(sound_effect.on_audio_finished)
 			new_2D_audio.finished.connect(new_2D_audio.queue_free)
 			new_2D_audio.play()
@@ -40,9 +40,22 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 			new_audio.stream = sound_effect.sound_effect
 			new_audio.volume_db = sound_effect.volume
 			new_audio.pitch_scale = sound_effect.pitch_scale
-			new_audio.pitch_scale += Global.rng.randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
+			new_audio.pitch_scale += randf_range(-sound_effect.pitch_randomness, sound_effect.pitch_randomness )
 			new_audio.finished.connect(sound_effect.on_audio_finished)
 			new_audio.finished.connect(new_audio.queue_free)
 			new_audio.play()
 	else:
 		push_error("Audio Manager failed to find setting for type ", type)
+
+## Stops all currently playing audio (both 2D and normal).
+func stop_and_free_all_audio() -> void:
+	for child in get_children():
+		if child is AudioStreamPlayer or child is AudioStreamPlayer2D:
+			child.stop()
+			child.queue_free()
+
+func stop_audio_by_type(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
+	for child in get_children():
+		if (child is AudioStreamPlayer or child is AudioStreamPlayer2D) and child.stream == sound_effect_dict[type].sound_effect:
+			child.stop()
+			child.queue_free()

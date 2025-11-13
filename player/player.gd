@@ -53,6 +53,7 @@ func _init_player_signals():
 	hitbox_component.turn_invulnerable.connect(_toggle_player_shield)
 
 func dmg_effect():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DAMAGED)
 	Global.main.mini_map.play_dmg_effect()
 	Global.radar_controller.move_interrupted()
 

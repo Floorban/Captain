@@ -25,7 +25,7 @@ var radar_controller: RadarController
 
 var nothing: Nothing
 
-var max_load := 150.0
+var max_load := 100.0
 var cur_load := 0.0
 
 var cur_station: Station
@@ -52,7 +52,7 @@ var upgrade_effects = {
 		radar_controller.mini_map.fade_speed += 0.05,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
 	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(2.0),
-	"drone_vision": func(): windows_manager.vision_range *= 1.5,
+	"drone_vision": func(): windows_manager.vision_range *= 1.2,
 	"drone_speed": func(): added_player_speed += 20.0,
 	"drone_capacity": func() -> void:
 		salvage_res.max_stack += 2
@@ -127,9 +127,11 @@ func try_consume_load(amount: float) -> bool:
 		return true
 
 func update_stats():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_REFRESH)
 	game_controller.side_screen.set_stats_screen()
 
 func enter_station(station: Station):
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ENTER_STATION)
 	print("player has entered ", station.name)
 	main.hide()
 	radar_controller.mini_map.set_upgrades(true)
@@ -149,12 +151,14 @@ func exit_station():
 	game_controller.side_screen.disable_station_screen()
 
 func ascend():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ARRIVE_NEW_LEVEL)
 	cur_fuel = 0.0
-	update_stats()
 	main.go_up()
+	update_stats()
 	windows_manager.close_all_windows()
 
 func game_over():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ALERT)
 	print("--- Game Over ---")
 	is_dead = true
 	radar_controller.out_ships.clear()
@@ -173,11 +177,12 @@ func game_over():
 	game_controller.mini_map.label_death.text = "Connection Failed"
 	game_controller.mini_map.death_menu.show()
 	await get_tree().create_timer(3.5).timeout
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DEAD)
 	windows_manager.close_all_windows()
 	for p in get_players():
 		p.is_dead = true
 	is_dead = false
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	windows_manager.main_sub_window.queue_free()
 	get_tree().call_deferred("quit")
 	get_captain().show()

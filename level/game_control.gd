@@ -16,8 +16,8 @@ var in_game := false
 
 func _ready() -> void:
 	Global.game_controller = self
-	set_game_content()
-	#set_game_menu_content(0)
+	#set_game_content()
+	set_game_menu_content(0)
 
 func set_game_menu_content(menu_id: int):
 	if credits.visible:

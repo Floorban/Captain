@@ -86,6 +86,7 @@ func _on_scan_timer_timeout() -> void:
 	for marker in markers.keys():
 		marker_age[marker] = 0.0
 	update_markers_position()
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RADAR_SCAN)
 
 func refresh_marker(obj):
 	if markers.has(obj):

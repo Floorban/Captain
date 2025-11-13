@@ -71,6 +71,7 @@ func set_game_menu():
 	b_3.text = "GO UP"
 
 func set_control_screen(found_target: Station, first_time := false, is_dead := false, see_nothing := false):
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_TIP)
 	can_goup = false
 	going_up = false
 	hud_control.show()
@@ -127,6 +128,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 		play_label_effect(label_control, msg)
 
 func set_send_screen():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_CANCEL)
 	can_goup = false
 	going_up = false
 	hud_control.hide()
@@ -138,6 +140,7 @@ func set_send_screen():
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
 func set_stats_screen():
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_REFRESH)
 	can_goup = false
 	going_up = false
 	#b_2.grab_focus()
@@ -147,7 +150,7 @@ func set_stats_screen():
 	hud_goup.hide()
 	var hp_percent = (float(Global.health_component.cur_hp) / Global.health_component.max_hp) * 100
 	var fuel_percent = (Global.cur_fuel / Global.max_fuel) * 100
-	var load_value = Global.cur_load / Global.max_load
+	var load_value = Global.cur_load
 	var load_percent = load_value * 100
 
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
@@ -202,6 +205,7 @@ func repair_hull():
 		not_enough_to_buy("Hull Integrity\nAlready Optimal" )
 
 func not_enough_to_buy(m := ""):
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_CANCEL)
 	var msg = "Not Enough
 				To Buy This"
 	if m != "":
@@ -242,6 +246,7 @@ func set_ascend_screen():
 
 func _physics_process(delta: float) -> void:
 	if going_up:
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 		Global.radar_controller.monitor.trauma = 0.15
 		goingup_bar.value += delta * 15.0
 		if goingup_bar.value >= goingup_bar.max_value:
@@ -251,6 +256,7 @@ func _physics_process(delta: float) -> void:
 			can_goup = false
 	else:
 		goingup_bar.value = 0.0
+		#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 
 var label_effect_version := {}  # Label -> int
 

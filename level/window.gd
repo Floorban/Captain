@@ -39,6 +39,7 @@ func init_window(_x: float, _y: float, _t: Vector2, size_scale: float):
 
 func init_player(target_pos: Vector2):
 	if not player: return
+	Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.DRONE_CONNECT)
 	button_drop.pressed.connect(try_drop)
 	player.show()
 	player.global_position = target_pos
@@ -84,7 +85,7 @@ func signal_lost():
 		tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
 		tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
 		tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
-		
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
 		Global.game_controller.side_screen.play_label_effect(label_death, "SIGNAL IS \nDISCONNECTED")
 	else:
 		_clear_window()
@@ -97,6 +98,8 @@ func signal_recover():
 	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 500.0, 0.3)
 	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.02, 0.2)
 	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.01, 0.1)
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_CONNECT)
+	label_death.hide()
 
 func _on_focus_entered() -> void:
 	if player: player.can_control = true
@@ -112,6 +115,7 @@ func _clear_window(captain_dead := false):
 	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
 	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
 	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
+	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
 	if captain_dead:
 		label_death.show()
 		label_death.text = "SIGNAL LOST..."
