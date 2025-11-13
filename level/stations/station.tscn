@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d364675shhcy6" path="res://assets/power-up.png" id="5_6vrhq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vrhq"]
-radius = 140.01428
+radius = 140.014
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3y18"]
-radius = 107.01869
+radius = 107.019
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j800o"]
 atlas = ExtResource("5_6vrhq")
@@ -43,16 +43,16 @@ shape = SubResource("CircleShape2D_h3y18")
 is_detectable = true
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
-modulate = Color(1.8299679, 1.8181071, 1.8181071, 1)
+modulate = Color(1.82997, 1.81811, 1.81811, 1)
 position = Vector2(5, 3)
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_j800o")
 
 [node name="PixelEffect" parent="RadarObjComponent/MiniMapIcon" index="0"]
 offset_left = -491.5
-offset_top = -492.57144
+offset_top = -492.571
 offset_right = 492.5
-offset_bottom = 491.42856
+offset_bottom = 491.429
 
 [editable path="InteractionComponent"]
 [editable path="RadarObjComponent"]

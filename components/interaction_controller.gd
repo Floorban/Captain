@@ -62,10 +62,11 @@ func unregister_area(area: InteractionComponent):
 func _update_ui(delta: float) -> void:
 	if current_pickup == null:
 		return
-
+	if not current_pickup.can_interact:
+		return
 	# update label position + text
 	label.text = current_pickup.interact_name
-	label.global_position = current_pickup.global_position + Vector2(-label.size.x / 2, -45)
+	label.global_position = current_pickup.global_position + Vector2(-label.size.x / 2, -60)
 	label.show()
 
 	# update pickup timer and progress bar

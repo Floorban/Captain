@@ -26,7 +26,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	marker.is_detectable = true
 	if body is Nothing:
 		seen_enemy = true
-		#Global.radar_controller.monitor.start_danger_blink()
+		Global.radar_controller.monitor.start_danger_blink()
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ALERT)
 		if not is_captain and global_position.direction_to(body.global_position).length() <= 20.0:
 			var n : Nothing = body
@@ -45,7 +45,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 	if not marker: return
-	if body is Nothing and seen_enemy:
+	if not is_captain and body is Nothing and seen_enemy:
 		seen_enemy = false
 		Global.radar_controller.monitor.stop_danger_blink()
 		Global.game_controller.side_screen.set_control_screen(null)

@@ -4,6 +4,7 @@ class_name InteractionComponent
 @export var need_input := false
 @export var interact_name := "Pickup"
 @export var interact_duration := 1.0
+var can_interact := true
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -16,6 +17,7 @@ func _on_area_entered(area: Node) -> void:
 func _on_area_exited(area: Node) -> void:
 	if area is InteractionController:
 		area.unregister_area(self)
+		can_interact = true
 
 var interact: Callable = func(_interactor : Node):
 	pass

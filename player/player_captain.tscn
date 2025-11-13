@@ -17,7 +17,7 @@ region = Rect2(72, 16, 16, 24)
 radius = 750.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3178a"]
-radius = 250.0
+radius = 350.0
 
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction", "drone_area") groups=["cap"] instance=ExtResource("1_6ae7q")]
 input_left = "left3"
@@ -25,7 +25,7 @@ input_right = "right3"
 input_up = "up3"
 input_down = "down3"
 is_captain = true
-move_speed = 50.0
+move_speed = 35.0
 friction = 0.8
 rotation_smoothness = 3.0
 interaction = NodePath("InteractionComponent")
@@ -107,7 +107,7 @@ is_captain = true
 
 [node name="DetectionRadius" parent="RadarObjComponent/DetectionArea" index="0"]
 modulate = Color(0.688453, 1.35326, 0.704157, 0.52549)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="RadarObjComponent/DetectionArea" index="1"]
 shape = SubResource("CircleShape2D_3178a")

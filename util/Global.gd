@@ -133,6 +133,7 @@ func update_stats():
 	game_controller.side_screen.set_stats_screen()
 
 func enter_station(station: Station):
+	windows_manager.set_windows(false)
 	print("player has entered ", station.name)
 	main.hide()
 	radar_controller.mini_map.set_upgrades(true)
@@ -144,6 +145,7 @@ func enter_station(station: Station):
 
 func exit_station():
 	get_tree().paused = false
+	windows_manager.set_windows(true)
 	main.show()
 	radar_controller.can_control = true
 	radar_controller.target = null

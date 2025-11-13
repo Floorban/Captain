@@ -18,13 +18,14 @@ var size_tween : Tween
 
 @onready var signals : Array[Node] = [$UI/ShipUI/MarginContainer/Signal_0, $UI/ShipUI/MarginContainer/Signal_1, $UI/ShipUI/MarginContainer/Signal_2]
 var thresholds = []
-
+var is_dead := false
 func update_signal_display(a: Node2D, b: Node2D) -> void:
 	var dist = a.global_position.distance_to(b.global_position)
 	for i in range(signals.size()):
 		signals[i].visible = dist <= thresholds[i]
 
 func _process(delta: float) -> void:
+	if is_dead: return
 	update_signal_display(player, Global.get_captain())
 
 func random_size() -> Vector2i:
@@ -125,6 +126,7 @@ func _on_focus_exited() -> void:
 	if player: player.can_control = false
 
 func _clear_window(captain_dead := false):
+	is_dead = true
 	var tween = create_tween()
 	tween.tween_property(death_menu.material, "shader_parameter/shake", 10.0, 0.1)
 	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)

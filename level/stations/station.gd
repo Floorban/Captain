@@ -16,6 +16,7 @@ func _ready() -> void:
 func _on_enter_station(_interactor: Node) -> void:
 	if has_entered:
 		return
+	interaction.can_interact = false
 	has_entered = true
 	Global.enter_station(self)
 

@@ -7,6 +7,13 @@ class_name WindowManager
 @export var main_sub_window: Window
 var subwindows: Array[Wwindow] = []
 
+func set_windows(on:bool):
+	if subwindows.size() <= 0:
+		return
+	for w in subwindows:
+		if not on: w.hide()
+		else: w.show()
+
 func _ready():
 	Global.windows_manager = self
 	_init_main_window()
