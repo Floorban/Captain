@@ -85,7 +85,7 @@ func _go_to_destination(delta):
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
 		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
-		if path.curve.point_count > 0 and path_follow.progress_ratio + player.move_speed * delta < 1.0:
+		if path.curve.point_count > 0 and path_follow.progress_ratio < 1.0:
 			path_follow.progress_ratio += player.move_speed * delta
 			Global._process_fuel(delta)
 			Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
@@ -95,12 +95,12 @@ func _go_to_destination(delta):
 			monitor.target_speed = 0.0
 			Input.action_release("secondary")
 			print("arrive")
-			Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
+			#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 			Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
 	else:
 			monitor.switch_nagivate_light(false)
 	if Input.is_action_just_released("secondary") and not has_arrived and can_control and target != null:
-		Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
+		#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
 		monitor.switch_nagivate_light(false)
 		monitor.trauma = 0.3

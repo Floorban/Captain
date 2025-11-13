@@ -150,12 +150,12 @@ func set_stats_screen():
 	hud_goup.hide()
 	var hp_percent = (float(Global.health_component.cur_hp) / Global.health_component.max_hp) * 100
 	var fuel_percent = (Global.cur_fuel / Global.max_fuel) * 100
-	var load_value = Global.cur_load
+	var load_value = Global.cur_load / Global.max_load
 	var load_percent = load_value * 100
 
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
 	var msg_fuel = "Fuel:  " + str(int(fuel_percent)) + " %"
-	var msg_load = "LOAD:  " + str(int(load_percent)) + " KG"
+	var msg_load = "LOAD:  " + str(int(Global.cur_load)) + " KG"
 	play_label_effect(label_hp, msg_hp)
 	play_label_effect(label_fuel, msg_fuel)
 	play_label_effect(label_load, msg_load)

@@ -52,10 +52,10 @@ func stop_and_free_all_audio() -> void:
 	for child in get_children():
 		if child is AudioStreamPlayer or child is AudioStreamPlayer2D:
 			child.stop()
-			child.queue_free()
+			#child.queue_free()
 
 func stop_audio_by_type(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 	for child in get_children():
 		if (child is AudioStreamPlayer or child is AudioStreamPlayer2D) and child.stream == sound_effect_dict[type].sound_effect:
 			child.stop()
-			child.queue_free()
+			#child.queue_free()

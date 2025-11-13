@@ -14,12 +14,12 @@ atlas = ExtResource("2_umdq8")
 region = Rect2(72, 16, 16, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7lgq"]
-radius = 654.9412
+radius = 654.941
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3178a"]
 radius = 250.0
 
-[node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
+[node name="PlayerCaptain" node_paths=PackedStringArray("interaction") groups=["cap"] instance=ExtResource("1_6ae7q")]
 input_left = "left3"
 input_right = "right3"
 input_up = "up3"
@@ -32,7 +32,7 @@ interaction = NodePath("InteractionComponent")
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = -1
-rotation = 3.1415927
+rotation = 3.14159
 scale = Vector2(5, 5)
 texture = SubResource("AtlasTexture_fa2mc")
 
@@ -82,11 +82,11 @@ collision_mask = 32
 script = ExtResource("5_3178a")
 
 [node name="DetectionRadius" type="Sprite2D" parent="RadarObjComponent/DroneArea" index="0"]
-modulate = Color(0.8784314, 0.3764706, 0.78431374, 0.3137255)
+modulate = Color(0.878431, 0.376471, 0.784314, 0.313726)
 light_mask = 0
 visibility_layer = 2
 z_index = -2
-position = Vector2(0.09999983, -0.5000012)
+position = Vector2(0.0999998, -0.500001)
 texture = ExtResource("7_fa2mc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RadarObjComponent/DroneArea" index="1"]
@@ -95,22 +95,22 @@ shape = SubResource("CircleShape2D_m7lgq")
 [node name="DetectionArea" parent="RadarObjComponent" index="1" instance=ExtResource("6_m7lgq")]
 unique_name_in_owner = true
 z_index = -2
-position = Vector2(1.7881393e-07, 9.536743e-06)
-rotation = -6.357302e-08
+position = Vector2(1.78814e-07, 9.53674e-06)
+rotation = -6.3573e-08
 scale = Vector2(1, 1)
 is_captain = true
 
 [node name="DetectionRadius" parent="RadarObjComponent/DetectionArea" index="0"]
-modulate = Color(0.6884535, 1.353256, 0.7041575, 0.5254902)
+modulate = Color(0.688453, 1.35326, 0.704157, 0.52549)
 scale = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D" parent="RadarObjComponent/DetectionArea" index="1"]
 shape = SubResource("CircleShape2D_3178a")
 
 [node name="MiniMapIcon" parent="RadarObjComponent" index="2"]
-modulate = Color(0.27835503, 1.4178978, 0.55013067, 1)
-position = Vector2(0.9999981, 31.999998)
-rotation = 3.1415927
+modulate = Color(0.278355, 1.4179, 0.550131, 1)
+position = Vector2(0.999998, 32)
+rotation = 3.14159
 scale = Vector2(10, 10)
 texture = ExtResource("5_mshal")
 

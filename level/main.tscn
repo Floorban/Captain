@@ -15,7 +15,7 @@ top_level = true
 position = Vector2(436, 486)
 
 [node name="DetectionArea" parent="PlayerCaptain/RadarObjComponent" index="1"]
-is_captain = null
+is_captain = false
 
 [editable path="PlayerCaptain"]
 [editable path="PlayerCaptain/InteractionComponent"]

@@ -65,7 +65,7 @@ func game_setup():
 	health_component = get_captain().health_component
 	_init_signals()
 	health_component.cur_hp = health_component.max_hp
-	add_fuel(max_fuel/2)
+	add_fuel(max_fuel)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):

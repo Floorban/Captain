@@ -28,8 +28,7 @@ func _load_level(id: int):
 	cur_lvl = lvl_scene.instantiate()
 	cur_lvl.global_position = Global.get_captain().global_position
 	add_child(cur_lvl)
-	nothing = get_tree().get_first_node_in_group("nothing")
-	nothing.player = Global.get_captain()
+	nothing = cur_lvl.get_node("Nothing")
 	nothing.reset_behaviour()
 	Global.nothing = nothing
 	print("Loaded level ", id+1)

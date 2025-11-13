@@ -1,7 +1,7 @@
 extends Node2D
 class_name Nothing
 
-var player : Player 
+@onready var player : Player = get_tree().get_first_node_in_group("cap")
 @onready var attack_component: AttackComponent = $AttackComponent
 @onready var radar_obj_component: RadarObjComponent = $RadarObjComponent
 @onready var spawn_timer: Timer = $SpawnTimer

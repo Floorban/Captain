@@ -27,13 +27,13 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is Nothing:
 		seen_enemy = true
 		#Global.radar_controller.monitor.start_danger_blink()
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ALERT)
 		if not is_captain:
 			var n : Nothing = body
 			n.interrupt_behaviour()
 	if body is Obstacle:
 		var o : Obstacle = body
 		detected_obstacles.append(o)
-		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ALERT)
 		#Global.radar_controller.monitor.start_danger_blink()
 	if body is Station:
 		var s : Station = body
