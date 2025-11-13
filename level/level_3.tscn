@@ -20,94 +20,94 @@ spawn_size_width = 3000.0
 spawn_size_height = 3000.0
 
 [node name="Obstacle_Hard" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-265.2516, 473.57938)
+position = Vector2(-1433.8152, -1260.4945)
 
 [node name="Obstacle_Hard2" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(906.0924, -69.255684)
+position = Vector2(1329.215, -1240.4714)
 
 [node name="Obstacle_Hard3" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(113.891754, -1026.7407)
+position = Vector2(-945.4472, 703.9097)
 
 [node name="Obstacle_Hard4" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(705.1561, -859.4023)
+position = Vector2(-545.4018, -703.52563)
 
 [node name="Obstacle_Hard5" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-550.00806, 631.30066)
+position = Vector2(974.51416, -120.30831)
 
 [node name="Obstacle_Hard6" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-1034.8809, -461.41168)
+position = Vector2(722.73566, -1155.1494)
 
 [node name="Obstacle_Hard7" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-1198.4431, -693.2936)
+position = Vector2(-652.23, 580.55505)
 
 [node name="Obstacle_Hard8" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-227.65744, -953.64136)
+position = Vector2(390.68918, -1237.8872)
 
 [node name="Obstacle_Hard9" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-1263.975, 1190.2482)
+position = Vector2(-207.13422, 701.6695)
 
 [node name="Obstacle_Hard10" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-661.48926, -193.78607)
+position = Vector2(1324.2462, 798.3953)
 
 [node name="Obstacle_Hard11" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-617.8888, 887.9144)
+position = Vector2(1433.7245, 283.26453)
 
 [node name="Obstacle_Hard12" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-720.5841, -383.6443)
+position = Vector2(841.9235, 733.406)
 
 [node name="Obstacle_Hard13" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(723.015, 520.7566)
+position = Vector2(-1450.8602, -564.5314)
 
 [node name="Obstacle_Hard14" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-474.4845, -174.5763)
+position = Vector2(561.3494, -244.62437)
 
 [node name="Obstacle_Hard15" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-1147.0787, 1067.8773)
+position = Vector2(429.6311, 1284.955)
 
 [node name="Obstacle_Hard16" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(754.91565, -825.1993)
+position = Vector2(697.31116, -840.2934)
 
 [node name="Obstacle_Hard17" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(162.76457, -1245.4979)
+position = Vector2(-660.26764, -359.43253)
 
 [node name="Obstacle_Hard18" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(1023.2744, 1035.5345)
+position = Vector2(-653.9119, 426.1112)
 
 [node name="Obstacle_Hard19" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-531.774, 1290.2793)
+position = Vector2(530.1136, -316.93375)
 
 [node name="Obstacle_Hard20" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-230.87387, 464.65714)
+position = Vector2(-1278.367, -272.10867)
 
 [node name="Obstacle_Hard21" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(545.8148, 751.51685)
+position = Vector2(188.66565, -1038.3615)
 
 [node name="Obstacle_Hard22" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-647.33636, -593.89844)
+position = Vector2(-747.0996, 161.28748)
 
 [node name="Obstacle_Hard23" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-680.82074, 430.10126)
+position = Vector2(496.78558, -948.474)
 
 [node name="Obstacle_Hard24" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(552.3823, 447.95172)
+position = Vector2(1324.7029, -1134.1016)
 
 [node name="Obstacle_Hard25" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-941.3596, -1366.1833)
+position = Vector2(1022.13855, 1190.5214)
 
 [node name="Obstacle_Hard26" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-612.719, 640.59924)
+position = Vector2(912.64734, 23.473648)
 
 [node name="Obstacle_Hard27" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-530.14325, 306.9625)
+position = Vector2(-84.30441, 1455.6373)
 
 [node name="Obstacle_Hard28" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-519.90546, 1230.2393)
+position = Vector2(1166.1957, -669.38477)
 
 [node name="Obstacle_Hard29" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(311.47202, -404.47208)
+position = Vector2(159.9752, 105.210625)
 
 [node name="Obstacle_Hard30" parent="Obstacles" instance=ExtResource("2_6e3ox")]
-position = Vector2(-1183.8909, 382.47284)
+position = Vector2(-1321.768, -452.66675)
 
 [node name="Pickups" type="Node2D" parent="."]
 position = Vector2(14, 17)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmdd1mwf4w5ml"]
+
+[ext_resource type="StyleBox" uid="uid://cyqon26itkt1j" path="res://util/btn_press_style.tres" id="1_50jy6"]
+[ext_resource type="StyleBox" uid="uid://dr50ts51okksv" path="res://util/btn_hover_style.tres" id="2_klxme"]
+[ext_resource type="Script" uid="uid://c8l4bbkg4k8d8" path="res://player/upgrade_button.gd" id="3_moly5"]
+[ext_resource type="Texture2D" uid="uid://bkmyovyyqc62y" path="res://assets/set.png" id="4_diibn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oykq"]
+atlas = ExtResource("4_diibn")
+region = Rect2(64, 64, 16, 16)
+
+[node name="Upgrade" type="Button"]
+process_mode = 3
+process_priority = 2
+custom_minimum_size = Vector2(0, 50)
+theme_override_styles/pressed = ExtResource("1_50jy6")
+theme_override_styles/hover = ExtResource("2_klxme")
+theme_override_styles/focus = ExtResource("2_klxme")
+script = ExtResource("3_moly5")
+
+[node name="Hbox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 45.0
+theme_override_constants/separation = 18
+
+[node name="Icon" type="TextureRect" parent="Hbox"]
+texture_filter = 1
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_0oykq")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="Hbox"]
+custom_minimum_size = Vector2(100, 43)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "10% load +"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Hbox"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "Repair Hull"

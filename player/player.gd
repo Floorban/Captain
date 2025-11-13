@@ -32,6 +32,7 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @export var interaction : InteractionComponent
 @export var inventory : InventoryComponent
 @onready var detection_area: DetectionArea = %DetectionArea
+@export var drone_area : DroneArea
 
 func _ready() -> void:
 	_init_player_signals()

@@ -28,6 +28,8 @@ func _init_main_window():
 	main_window.min_size = Vector2.ZERO
 	main_window.size = Vector2.ZERO
 
+var vision_range := 1.0
+
 func spawn_window(pos: Vector2):
 	if not window_scene:
 		return
@@ -45,7 +47,7 @@ func spawn_window(pos: Vector2):
 		var index = subwindows.size() - 1
 		var fixed_positions = get_fixed_positions_top_row(w)
 		var spawn_pos = fixed_positions[index % fixed_positions.size()]
-		w.init_window(spawn_pos.x, spawn_pos.y, pos)
+		w.init_window(spawn_pos.x, spawn_pos.y, pos, vision_range)
 
 func get_fixed_positions_top_row(w) -> Array:
 	var screen_size = DisplayServer.screen_get_size()

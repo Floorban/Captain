@@ -19,12 +19,13 @@ var size_tween : Tween
 func random_size() -> Vector2i:
 	return Vector2(randi_range(width_range.x, width_range.y), randi_range(height_range.x, height_range.y))
 
-func init_window(_x: float, _y: float, _t: Vector2):
+func init_window(_x: float, _y: float, _t: Vector2, size_scale: float):
 	position.x = int(_x)
 	position.y = int(_y)
 	player.hide()
 	#await get_tree().create_timer(delay).timeout
 	init_player(_t)
+	resize_window(Vector2(size.x,size.y) * size_scale)
 
 	#if not player or not is_instance_valid(player) or not Global.get_captain():
 		#return
@@ -41,6 +42,7 @@ func init_player(target_pos: Vector2):
 	button_drop.pressed.connect(try_drop)
 	player.show()
 	player.global_position = target_pos
+	player.move_speed += Global.added_player_speed
 	Global.main.mini_map.get_minimap_objs()
 
 func init_window_signals():

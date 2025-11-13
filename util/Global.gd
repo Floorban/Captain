@@ -25,10 +25,38 @@ var radar_controller: RadarController
 
 var nothing: Nothing
 
-var max_load := 100.0
-var cur_load := 0.0
+var max_load := 1000.0
+var cur_load := 1000.0
 
 var cur_station: Station
+
+var added_player_speed := 0.0
+@export var salvage_res : ItemData
+@export var cell_res : ItemData
+
+var upgrade_effects = {
+	"max_hull": func() -> void:
+		health_component.max_hp += 1
+		health_component.health_bar.update_hp_bar(health_component.cur_hp)
+		update_stats(),
+	"max_fuel": func() -> void:
+		max_fuel += 50.0
+		update_stats(),
+	"fuel_efficiency": func(): get_captain().fuel_heating_speed -= 1.0,
+	"max_speed": func(): get_captain().move_speed += 0.1,
+	"cargo_capacity": func() -> void:
+		max_load += 50.0
+		update_stats(),
+	"scan_speed": func(): radar_controller.mini_map.scan_wait_time -= 2.0,
+	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
+	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(2.0),
+	"drone_vision": func(): windows_manager.vision_range *= 1.5,
+	"drone_speed": func(): added_player_speed += 20.0,
+	"drone_capacity": func() -> void:
+		salvage_res.max_stack += 2
+		cell_res.max_stack += 2,
+	"fuel_cell_efficiency": func(): cell_res.value *= 2.0
+}
 
 func game_setup():
 	players = get_players()
@@ -83,9 +111,9 @@ func add_shield(amount: int) -> void:
 	print("Shield boosted by:", amount)
 
 func try_consume_fuel(amount: float) -> bool:
-	if cur_fuel <= 0 or cur_fuel - amount < 0: 
+	if cur_fuel <= 0 or cur_fuel - max_fuel * amount < 0: 
 		return false
-	cur_fuel = clamp(cur_fuel - amount, 0, max_fuel)
+	cur_fuel = clamp(cur_fuel - max_fuel * amount, 0, max_fuel)
 	return true
 
 func try_consume_load(amount: float) -> bool:

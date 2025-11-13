@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=19 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
@@ -8,11 +8,9 @@
 [ext_resource type="Shader" uid="uid://dqa54i3pjcfs5" path="res://player/round.gdshader" id="5_l0kmr"]
 [ext_resource type="Texture2D" uid="uid://wullxy8nd1te" path="res://assets/Radar.png" id="6_l0kmr"]
 [ext_resource type="Script" uid="uid://bunhhpoumtkwh" path="res://player/start.gd" id="7_4ereb"]
+[ext_resource type="Script" uid="uid://bpiu6rpjwme3w" path="res://player/upgrades.gd" id="9_0oykq"]
 [ext_resource type="PackedScene" uid="uid://bv2braax0er4h" path="res://util/death_menu.tscn" id="9_67s8b"]
-[ext_resource type="StyleBox" uid="uid://cyqon26itkt1j" path="res://util/btn_press_style.tres" id="9_qgvr3"]
-[ext_resource type="Texture2D" uid="uid://bkmyovyyqc62y" path="res://assets/set.png" id="9_tbvrb"]
-[ext_resource type="StyleBox" uid="uid://dr50ts51okksv" path="res://util/btn_hover_style.tres" id="10_ber1x"]
-[ext_resource type="Script" uid="uid://c8l4bbkg4k8d8" path="res://player/upgrade_button.gd" id="11_ber1x"]
+[ext_resource type="PackedScene" uid="uid://cmdd1mwf4w5ml" path="res://upgrade.tscn" id="9_tbvrb"]
 
 [sub_resource type="Shader" id="Shader_itq3j"]
 code = "shader_type canvas_item;
@@ -253,10 +251,6 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0oykq"]
-atlas = ExtResource("9_tbvrb")
-region = Rect2(64, 64, 16, 16)
 
 [node name="MiniMap" type="CanvasLayer"]
 process_mode = 3
@@ -760,189 +754,148 @@ offset_right = 155.5
 offset_bottom = 340.0
 grow_horizontal = 2
 theme_override_constants/separation = 10
+script = ExtResource("9_0oykq")
 
-[node name="Button" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
-process_mode = 3
-process_priority = 2
-custom_minimum_size = Vector2(0, 50)
+[node name="Upgrade" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button5")
-focus_neighbor_bottom = NodePath("../Button2")
-theme_override_styles/pressed = ExtResource("9_qgvr3")
-theme_override_styles/hover = ExtResource("10_ber1x")
-theme_override_styles/focus = ExtResource("10_ber1x")
-script = ExtResource("11_ber1x")
+upgrade_type = "max_hull"
 
-[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button"]
-layout_mode = 0
-offset_right = 311.0
-offset_bottom = 45.0
-theme_override_constants/separation = 25
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="1"]
+text = "20KG Load"
 
-[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button/Upgrade"]
-texture_filter = 1
-custom_minimum_size = Vector2(45, 45)
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="2"]
+text = "Max Hull ++"
+
+[node name="Upgrade2" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_0oykq")
-expand_mode = 1
+upgrade_type = "max_fuel"
+cost = 15
 
-[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button/Upgrade"]
-custom_minimum_size = Vector2(80, 43)
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2/Hbox" index="1"]
+text = "15KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2/Hbox" index="2"]
+text = "Max Fuel ++"
+
+[node name="Upgrade3" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "10% load +"
-vertical_alignment = 1
+upgrade_type = "fuel_efficiency"
+fuel_cost = 0.5
 
-[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button/Upgrade"]
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3/Hbox" index="1"]
+text = "20KG Load
++ 50% Fuel"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3/Hbox" index="2"]
+text = "Fuel Efficiency 
+++"
+
+[node name="Upgrade4" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "Repair Hull"
+upgrade_type = "max_speed"
+cost = 10
 
-[node name="Button2" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade4/Hbox" index="1"]
+text = "10KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade4/Hbox" index="2"]
+text = "Max Speed ++"
+
+[node name="Upgrade5" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button")
-focus_neighbor_bottom = NodePath("../Button3")
-theme_override_styles/pressed = ExtResource("9_qgvr3")
-theme_override_styles/hover = ExtResource("10_ber1x")
-theme_override_styles/focus = ExtResource("10_ber1x")
+upgrade_type = "cargo_capacity"
+cost = 30
+fuel_cost = 0.3
 
-[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2"]
-layout_mode = 0
-offset_right = 311.0
-offset_bottom = 45.0
-theme_override_constants/separation = 25
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade5/Hbox" index="1"]
+text = "30KG Load
++ 30% Fuel"
 
-[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2/Upgrade"]
-texture_filter = 1
-custom_minimum_size = Vector2(45, 45)
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade5/Hbox" index="2"]
+text = "Cargo Capacity
+++"
+
+[node name="Upgrade6" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_0oykq")
-expand_mode = 1
+upgrade_type = "scan_speed"
+cost = 25
 
-[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2/Upgrade"]
-custom_minimum_size = Vector2(80, 43)
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="1"]
+text = "25KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="2"]
+text = "Radar Scan 
+Speed ++"
+
+[node name="Upgrade7" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "10% load +"
-vertical_alignment = 1
+upgrade_type = "deploy_range"
+cost = 50
 
-[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2/Upgrade"]
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7/Hbox" index="1"]
+text = "50KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7/Hbox" index="2"]
+text = "Drone Deploy 
+Range ++"
+
+[node name="Upgrade8" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "Repair Hull"
+upgrade_type = "drone_signal_range"
 
-[node name="Button3" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="1"]
+text = "65KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="2"]
+text = "Drone Signal 
+Range ++"
+
+[node name="Upgrade9" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button2")
-focus_neighbor_bottom = NodePath("../Button4")
-theme_override_styles/pressed = ExtResource("9_qgvr3")
-theme_override_styles/hover = ExtResource("10_ber1x")
-theme_override_styles/focus = ExtResource("10_ber1x")
+upgrade_type = "drone_vision"
 
-[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3"]
-layout_mode = 0
-offset_right = 311.0
-offset_bottom = 45.0
-theme_override_constants/separation = 25
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="1"]
+text = "100KG Load"
 
-[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3/Upgrade"]
-texture_filter = 1
-custom_minimum_size = Vector2(45, 45)
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="2"]
+text = "Drone Vision
+Range ++"
+
+[node name="Upgrade10" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_0oykq")
-expand_mode = 1
+upgrade_type = "drone_speed"
 
-[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3/Upgrade"]
-custom_minimum_size = Vector2(80, 43)
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10/Hbox" index="1"]
+text = "50KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10/Hbox" index="2"]
+text = "Drone Speed ++"
+
+[node name="Upgrade11" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "10% load +"
-vertical_alignment = 1
+upgrade_type = "drone_capacity"
+cost = 80
+fuel_cost = 0.2
 
-[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3/Upgrade"]
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="1"]
+text = "80KG Load
++ 20% Fuel"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="2"]
+text = "Drone Capacity
+++"
+
+[node name="Upgrade12" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "Repair Hull"
+upgrade_type = "fuel_cell_efficiency"
 
-[node name="Button4" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-focus_neighbor_top = NodePath("../Button3")
-focus_neighbor_bottom = NodePath("../Button5")
-theme_override_styles/pressed = ExtResource("9_qgvr3")
-theme_override_styles/hover = ExtResource("10_ber1x")
-theme_override_styles/focus = ExtResource("10_ber1x")
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12/Hbox" index="1"]
+text = "50KG Load
+80% Fuel"
 
-[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4"]
-layout_mode = 0
-offset_right = 311.0
-offset_bottom = 45.0
-theme_override_constants/separation = 25
-
-[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4/Upgrade"]
-texture_filter = 1
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-texture = SubResource("AtlasTexture_0oykq")
-expand_mode = 1
-
-[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4/Upgrade"]
-custom_minimum_size = Vector2(80, 43)
-layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "10% load +"
-vertical_alignment = 1
-
-[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4/Upgrade"]
-layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "Repair Hull"
-
-[node name="Button5" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-focus_neighbor_top = NodePath("../Button4")
-focus_neighbor_bottom = NodePath("../Button")
-theme_override_styles/pressed = ExtResource("9_qgvr3")
-theme_override_styles/hover = ExtResource("10_ber1x")
-theme_override_styles/focus = ExtResource("10_ber1x")
-
-[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5"]
-layout_mode = 0
-offset_right = 311.0
-offset_bottom = 45.0
-theme_override_constants/separation = 25
-
-[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5/Upgrade"]
-texture_filter = 1
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-texture = SubResource("AtlasTexture_0oykq")
-expand_mode = 1
-
-[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5/Upgrade"]
-custom_minimum_size = Vector2(80, 43)
-layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "10% load +"
-vertical_alignment = 1
-
-[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5/Upgrade"]
-layout_mode = 2
-theme_override_constants/line_spacing = -3
-theme_override_font_sizes/font_size = 17
-text = "Repair Hull"
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12/Hbox" index="2"]
+text = "Fuel Cell 
+Efficiency ++"
 
 [node name="DeathMenu" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_67s8b")]
 unique_name_in_owner = true
@@ -952,4 +905,16 @@ visible = false
 unique_name_in_owner = true
 autostart = true
 
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade4"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade5"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12"]
 [editable path="SubViewportContainer/SubViewport/DeathMenu"]

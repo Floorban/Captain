@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://drgifw8uyb7e7"]
+[gd_scene load_steps=4 format=3 uid="uid://drgifw8uyb7e7"]
 
 [ext_resource type="Script" uid="uid://d1wd47m3hkxg8" path="res://util/Global.gd" id="1_fl6xk"]
+[ext_resource type="Resource" uid="uid://chxjghf0c5mv0" path="res://objs/pickup_items/data/salvage.tres" id="2_fcp4n"]
+[ext_resource type="Resource" uid="uid://b782kgbo7651y" path="res://objs/pickup_items/data/cell.tres" id="3_raf1u"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_fl6xk")
+salvage_res = ExtResource("2_fcp4n")
+cell_res = ExtResource("3_raf1u")
