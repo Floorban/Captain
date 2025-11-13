@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=47 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
@@ -251,6 +251,104 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0oykq"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgvr3"]
+atlas = SubResource("CompressedTexture2D_0oykq")
+region = Rect2(48, 160, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qgvr3"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ber1x"]
+atlas = SubResource("CompressedTexture2D_qgvr3")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ber1x"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cq7y"]
+atlas = SubResource("CompressedTexture2D_ber1x")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8cq7y"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1cvp"]
+atlas = SubResource("CompressedTexture2D_8cq7y")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m1cvp"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ma7p"]
+atlas = SubResource("CompressedTexture2D_m1cvp")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ma7p"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw4tt"]
+atlas = SubResource("CompressedTexture2D_4ma7p")
+region = Rect2(64, 160, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qw4tt"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imiv7"]
+atlas = SubResource("CompressedTexture2D_qw4tt")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imiv7"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhto4"]
+atlas = SubResource("CompressedTexture2D_imiv7")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kofl6"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p70a"]
+atlas = SubResource("CompressedTexture2D_kofl6")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhto4"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kofl6"]
+atlas = SubResource("CompressedTexture2D_bhto4")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5p70a"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlqqn"]
+atlas = SubResource("CompressedTexture2D_5p70a")
+region = Rect2(16, 144, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wlqqn"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0l5w"]
+atlas = SubResource("CompressedTexture2D_wlqqn")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0l5w"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj4wl"]
+atlas = SubResource("CompressedTexture2D_h0l5w")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sj4wl"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifii2"]
+atlas = SubResource("CompressedTexture2D_sj4wl")
+region = Rect2(32, 160, 16, 16)
 
 [node name="MiniMap" type="CanvasLayer"]
 process_mode = 3
@@ -713,7 +811,6 @@ step = 0.1
 [node name="Station" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -756,10 +853,45 @@ grow_horizontal = 2
 theme_override_constants/separation = 10
 script = ExtResource("9_0oykq")
 
+[node name="Upgrade13" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
+layout_mode = 2
+max_boughts = 2
+upgrade_type = "drone_max_hp"
+cost = 55
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade13/Hbox" index="0"]
+texture = SubResource("AtlasTexture_qgvr3")
+
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade13/Hbox" index="1"]
+text = "55KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade13/Hbox" index="2"]
+text = "Drones' 
+Max HP ++"
+
+[node name="Upgrade14" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
+layout_mode = 2
+max_boughts = 2
+upgrade_type = "radar_fade"
+cost = 25
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="0"]
+texture = SubResource("AtlasTexture_ber1x")
+
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="1"]
+text = "25KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="2"]
+text = "Radar Signal 
+Retention ++"
+
 [node name="Upgrade" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "max_hull"
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="0"]
+texture = SubResource("AtlasTexture_8cq7y")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="1"]
 text = "20KG Load"
@@ -773,6 +905,9 @@ max_boughts = 2
 upgrade_type = "max_fuel"
 cost = 15
 
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2/Hbox" index="0"]
+texture = SubResource("AtlasTexture_m1cvp")
+
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2/Hbox" index="1"]
 text = "15KG Load"
 
@@ -784,6 +919,9 @@ layout_mode = 2
 max_boughts = 2
 upgrade_type = "fuel_efficiency"
 fuel_cost = 0.5
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3/Hbox" index="0"]
+texture = SubResource("AtlasTexture_4ma7p")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3/Hbox" index="1"]
 text = "20KG Load
@@ -799,6 +937,9 @@ max_boughts = 2
 upgrade_type = "max_speed"
 cost = 10
 
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade4/Hbox" index="0"]
+texture = SubResource("AtlasTexture_qw4tt")
+
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade4/Hbox" index="1"]
 text = "10KG Load"
 
@@ -811,6 +952,9 @@ max_boughts = 2
 upgrade_type = "cargo_capacity"
 cost = 30
 fuel_cost = 0.3
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade5/Hbox" index="0"]
+texture = SubResource("AtlasTexture_imiv7")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade5/Hbox" index="1"]
 text = "30KG Load
@@ -826,6 +970,9 @@ max_boughts = 2
 upgrade_type = "scan_speed"
 cost = 30
 
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="0"]
+texture = SubResource("AtlasTexture_bhto4")
+
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="1"]
 text = "30KG Load"
 
@@ -838,6 +985,9 @@ layout_mode = 2
 max_boughts = 2
 upgrade_type = "deploy_range"
 cost = 55
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7/Hbox" index="0"]
+texture = SubResource("AtlasTexture_5p70a")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade7/Hbox" index="1"]
 text = "55KG Load"
@@ -852,6 +1002,9 @@ max_boughts = 2
 upgrade_type = "drone_signal_range"
 cost = 45
 
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="0"]
+texture = SubResource("AtlasTexture_kofl6")
+
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="1"]
 text = "45KG Load"
 
@@ -864,6 +1017,9 @@ layout_mode = 2
 max_boughts = 2
 upgrade_type = "drone_vision"
 cost = 80
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="0"]
+texture = SubResource("AtlasTexture_wlqqn")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="1"]
 text = "80KG Load"
@@ -878,6 +1034,9 @@ max_boughts = 2
 upgrade_type = "drone_speed"
 cost = 50
 
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10/Hbox" index="0"]
+texture = SubResource("AtlasTexture_h0l5w")
+
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10/Hbox" index="1"]
 text = "50KG Load"
 
@@ -890,6 +1049,9 @@ max_boughts = 2
 upgrade_type = "drone_capacity"
 cost = 80
 fuel_cost = 0.2
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="0"]
+texture = SubResource("AtlasTexture_sj4wl")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="1"]
 text = "80KG Load
@@ -905,6 +1067,9 @@ max_boughts = 2
 upgrade_type = "fuel_cell_efficiency"
 cost = 50
 fuel_cost = 0.8
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12/Hbox" index="0"]
+texture = SubResource("AtlasTexture_ifii2")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12/Hbox" index="1"]
 text = "50KG Load
@@ -922,6 +1087,8 @@ visible = false
 unique_name_in_owner = true
 autostart = true
 
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade13"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3"]

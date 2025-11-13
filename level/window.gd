@@ -16,6 +16,17 @@ var size_tween : Tween
 @onready var label_death: Label = $UI/ShipUI/DeathMenu/LabelDeath
 @export var death_mat: Material
 
+@onready var signals : Array[Node] = [$UI/ShipUI/MarginContainer/Signal_0, $UI/ShipUI/MarginContainer/Signal_1, $UI/ShipUI/MarginContainer/Signal_2]
+var thresholds = []
+
+func update_signal_display(a: Node2D, b: Node2D) -> void:
+	var dist = a.global_position.distance_to(b.global_position)
+	for i in range(signals.size()):
+		signals[i].visible = dist <= thresholds[i]
+
+func _process(delta: float) -> void:
+	update_signal_display(player, Global.get_captain())
+
 func random_size() -> Vector2i:
 	return Vector2(randi_range(width_range.x, width_range.y), randi_range(height_range.x, height_range.y))
 
@@ -26,6 +37,8 @@ func init_window(_x: float, _y: float, _t: Vector2, size_scale: float):
 	#await get_tree().create_timer(delay).timeout
 	init_player(_t)
 	resize_window(Vector2(size.x,size.y) * size_scale)
+	var max_dist = Global.get_captain().drone_area.col.radius
+	thresholds = [max_dist*3/4, max_dist*2/4, max_dist/4]
 
 	#if not player or not is_instance_valid(player) or not Global.get_captain():
 		#return

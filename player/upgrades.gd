@@ -27,7 +27,7 @@ func init_upgrades():
 		return
 
 	available_upgrades.shuffle()
-	var to_enable = available_upgrades.slice(0, min(4, available_upgrades.size()))
+	var to_enable = available_upgrades.slice(0, min(5, available_upgrades.size()))
 
 	for u in to_enable:
 		u.disabled = false
