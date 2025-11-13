@@ -23,6 +23,8 @@ func _on_pressed() -> void:
 		Global.update_stats()
 		if is_sold_out():
 			queue_free()
+		else:
+			hide()
 	else:
 		Global.game_controller.side_screen.not_enough_to_buy()
 

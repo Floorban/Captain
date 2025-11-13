@@ -31,6 +31,7 @@ var cur_load := 0.0
 var cur_station: Station
 
 var added_player_speed := 0.0
+var added_player_hp := 2
 @export var salvage_res : ItemData
 @export var cell_res : ItemData
 
@@ -51,7 +52,7 @@ var upgrade_effects = {
 		radar_controller.mini_map.scan_wait_time -= 2.5
 		radar_controller.mini_map.fade_speed += 0.05,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
-	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.75),
+	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.35),
 	"drone_vision": func(): windows_manager.vision_range *= 1.2,
 	"drone_speed": func(): added_player_speed += 20.0,
 	"drone_capacity": func() -> void:

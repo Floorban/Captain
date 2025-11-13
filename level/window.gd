@@ -44,6 +44,8 @@ func init_player(target_pos: Vector2):
 	player.show()
 	player.global_position = target_pos
 	player.move_speed += Global.added_player_speed
+	player.health_component.max_hp += Global.added_player_hp
+	player.health_component.set_cur_hp(player.health_component.max_hp)
 	Global.main.mini_map.get_minimap_objs()
 
 func init_window_signals():

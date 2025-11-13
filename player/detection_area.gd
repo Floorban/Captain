@@ -39,6 +39,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is Station:
 		var s : Station = body
 		detected_stations.append(s)
+		Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.UI_CONFIRM, s.global_position)
 		Global.game_controller.side_screen.set_control_screen(s)
 
 func _on_detection_area_body_exited(body: Node2D) -> void:

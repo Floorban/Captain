@@ -25,6 +25,7 @@ func add_item(item: ItemData, amount: int = 1) -> bool:
 			amount -= to_add
 			inventory_changed.emit()
 			if amount <= 0:
+				Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.PICK_UP)
 				return true
 
 	# try put in empty slots
@@ -36,8 +37,9 @@ func add_item(item: ItemData, amount: int = 1) -> bool:
 			amount -= slot.count
 			inventory_changed.emit()
 			if amount <= 0:
+				Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.PICK_UP)
 				return true
-
+	Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.INVENTORY_FULL)
 	print("Inventory full — couldn't add", amount, item.item_name)
 	return false
 
@@ -56,6 +58,7 @@ func drop_item(drop_pos: Vector2):
 		inst.global_position = drop_pos
 		dropped_slot.drop()
 		inventory_changed.emit()
+		Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.DROP)
 
 func deliver_inventory():
 	for slot in hotbar:

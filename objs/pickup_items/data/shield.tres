@@ -1,17 +1,20 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dchmvfra38mv0"]
 
-[ext_resource type="Texture2D" uid="uid://bcd88gw5iuv5m" path="res://assets/Main Ship - Shields - Round Shield.png" id="1_u0ssu"]
+[ext_resource type="Texture2D" uid="uid://benn0ymhkvyku" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="1_2n5ta"]
 [ext_resource type="Script" uid="uid://bjljm860oh4bu" path="res://objs/pickup_items/data/item_data.gd" id="2_erq5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erq5y"]
-atlas = ExtResource("1_u0ssu")
-region = Rect2(0, 0, 64, 64)
+atlas = ExtResource("1_2n5ta")
+region = Rect2(88, 32, 16, 16)
 
 [resource]
 script = ExtResource("2_erq5y")
-item_name = "shield"
+weight = 10.0
+item_name = "bubble"
 icon = SubResource("AtlasTexture_erq5y")
 item_type = 2
 value = 1.0
 is_stackable = false
+max_stack = 1
+description = ""
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

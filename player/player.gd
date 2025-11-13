@@ -44,8 +44,7 @@ func _ready() -> void:
 func _init_player_signals():
 	if not is_captain:
 		health_component.died.connect(_on_player_dead)
-	if is_captain:
-		hitbox_component.hit.connect(dmg_effect)
+	hitbox_component.hit.connect(dmg_effect)
 	if hp_bar: 
 		health_component.health_bar = hp_bar
 		health_component.health_bar.health_component = health_component
@@ -53,9 +52,12 @@ func _init_player_signals():
 	hitbox_component.turn_invulnerable.connect(_toggle_player_shield)
 
 func dmg_effect():
-	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DAMAGED)
-	Global.main.mini_map.play_dmg_effect()
-	Global.radar_controller.move_interrupted()
+	if is_captain:
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DAMAGED)
+		Global.main.mini_map.play_dmg_effect()
+		Global.radar_controller.move_interrupted()
+	else:
+		Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DMGED, global_position)
 
 func _on_player_dead():
 	## explode particle here

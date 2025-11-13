@@ -13,6 +13,7 @@ item_data = ExtResource("2_7lxed")
 can_anim = false
 
 [node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_7lxed")
 
 [node name="InteractionComponent" parent="." index="4"]

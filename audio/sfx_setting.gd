@@ -26,7 +26,11 @@ enum SOUND_EFFECT_TYPE {
 	SEND_DRONE,
 	DRONE_CONNECT,
 	DRONE_DISCONNECT,
-	UI_FOCUS
+	UI_FOCUS,
+	PICK_UP,
+	DROP,
+	INVENTORY_FULL,
+	DRONE_DMGED
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.

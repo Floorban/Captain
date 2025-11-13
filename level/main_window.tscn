@@ -171,6 +171,7 @@ oversampling_override = 1.0
 title = "???"
 initial_position = 2
 size = Vector2i(900, 600)
+unresizable = true
 always_on_top = true
 maximize_disabled = true
 theme_override_colors/title_color = Color(0, 0, 0, 1)
