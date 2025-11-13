@@ -2,8 +2,6 @@ extends Camera2D
 class_name RadarController
 
 @onready var player: Player = Global.get_captain()
-@onready var path: Path2D = $Path2D
-@onready var path_follow = $Path2D/PathFollow2D
 @onready var mini_map: MiniMap = %MiniMap
 @onready var select_marker: SelectMarker = %SelectMarker
 
@@ -11,9 +9,6 @@ var click_pos
 
 var target
 var dist : float
-var curve_point = position
-var curve_dist = 300.0
-var curve_angle = 60.0
 var has_arrived := false
 
 var send_ship_delay := 500
@@ -31,7 +26,6 @@ func _physics_process(delta: float) -> void:
 
 func _set_destination(event):
 	if Global.is_dead or not can_control: 
-		path.curve.clear_points()
 		select_marker.hide()
 		return
 	if event.is_action_pressed("primary"):
@@ -52,9 +46,6 @@ func _set_destination(event):
 					if distance < 100 and marker.modulate.a > 0.1:
 						select_marker.set_label_text(marker.display_name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))), marker.display_color)
 				
-		path.global_position = player.global_position
-		path_follow.progress = 0.01
-		path.curve.clear_points()
 		has_arrived = false
 		
 		var to_target = (target - player.global_position).normalized()
@@ -64,16 +55,6 @@ func _set_destination(event):
 		)
 		var angle_deg = rad_to_deg(forward.angle_to(to_target))
 		
-		path.curve.add_point(to_local(player.global_position))
-
-		if dist < curve_dist or (angle_deg >= -curve_angle and angle_deg <= curve_angle):
-			path.curve.add_point(to_local(target))
-		else:
-			curve_point = Vector2(
-				curve_dist * sin(player.global_rotation) + player.global_position.x,
-				curve_dist * cos(player.global_rotation) + player.global_position.y
-			)
-			path.curve.add_point(to_local(target), to_local(curve_point - target))
 
 func _go_to_destination(delta):
 	if Input.is_action_pressed("secondary") and target != null and can_control:
@@ -85,21 +66,39 @@ func _go_to_destination(delta):
 		monitor.target_speed = 8.0
 		select_marker.hide_labels()
 		can_send = false
-		player.global_position = path_follow.global_position
-		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
-		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
-		if path.curve.point_count > 0 and path_follow.progress_ratio < 1.0:
-			path_follow.progress_ratio += player.move_speed * delta
-			Global._process_fuel(delta)
-			Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
-		elif not has_arrived:
-			has_arrived = true
-			monitor.trauma = 0.3
-			monitor.target_speed = 0.0
-			Input.action_release("secondary")
-			print("arrive")
-			#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
-			Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
+		var to_target = target - player.global_position
+		var dist = to_target.length()
+		if dist < 2.0:
+			if not has_arrived:
+				has_arrived = true
+				monitor.switch_nagivate_light(false)
+				monitor.trauma = 0.3
+				monitor.target_speed = 0.0
+				Input.action_release("secondary")
+				Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
+			return
+		var desired_rot = to_target.angle() + deg_to_rad(90)
+		player.global_rotation = lerp_angle(
+			player.global_rotation,
+			desired_rot,
+			player.rotation_smoothness * delta
+		)
+		var move_step = to_target.normalized() * player.move_speed * delta
+		player.global_position += move_step
+		
+		monitor.switch_nagivate_light(true)
+		monitor.trauma = 0.2
+		monitor.target_speed = 8.0
+		Global._process_fuel(delta)
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
+		#elif not has_arrived:
+			#has_arrived = true
+			#monitor.trauma = 0.3
+			#monitor.target_speed = 0.0
+			#Input.action_release("secondary")
+			#print("arrive")
+			##Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
+			#Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.STOP_MOVING)
 	else:
 		monitor.switch_nagivate_light(false)
 	if Input.is_action_just_released("secondary") and not has_arrived and can_control and target != null:
@@ -137,7 +136,7 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		btn.text = "SEND A DRONE"
 		msg = "Target Required"
 		Global.game_controller.side_screen.play_label_effect(axis_label, msg)
-		path.curve.clear_points()
+		#path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
 		return
@@ -160,7 +159,7 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		loading_bar.value = 0.0
 		is_sending = false
 		btn.text = "SEND A DRONE"
-		path.curve.clear_points()
+		#path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
 		ship_amonut -= 1
@@ -188,7 +187,7 @@ func try_add_drone() -> bool:
 func move_interrupted():
 	monitor.trauma = 0.8
 	monitor.target_speed = 0.0
-	path.curve.clear_points()
+	#path.curve.clear_points()
 	select_marker.hide()
 	can_control = false
 	target = null

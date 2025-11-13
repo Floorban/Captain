@@ -25,9 +25,9 @@ input_right = "right3"
 input_up = "up3"
 input_down = "down3"
 is_captain = true
-move_speed = 0.15
+move_speed = 50.0
 friction = 0.8
-rotation_smoothness = 4.0
+rotation_smoothness = 3.0
 interaction = NodePath("InteractionComponent")
 drone_area = NodePath("RadarObjComponent/DroneArea")
 

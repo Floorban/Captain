@@ -199,6 +199,7 @@ limit_enabled = false
 script = ExtResource("2_bso6d")
 
 [node name="Path2D" type="Path2D" parent="MiniMapCamera"]
+visible = false
 top_level = true
 light_mask = 0
 visibility_layer = 2
@@ -207,6 +208,7 @@ position = Vector2(-460, -40)
 curve = SubResource("Curve2D_o043x")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="MiniMapCamera/Path2D"]
+visible = false
 
 [node name="MiniMap" parent="." node_paths=PackedStringArray("player", "mini_map_camera") instance=ExtResource("3_bso6d")]
 unique_name_in_owner = true

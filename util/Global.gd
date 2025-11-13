@@ -44,7 +44,7 @@ var upgrade_effects = {
 		max_fuel += 50.0
 		update_stats(),
 	"fuel_efficiency": func(): get_captain().fuel_heating_speed -= 1.0,
-	"max_speed": func(): get_captain().move_speed += 0.08,
+	"max_speed": func(): get_captain().move_speed += 25.0,
 	"cargo_capacity": func() -> void:
 		max_load += 50.0
 		update_stats(),
