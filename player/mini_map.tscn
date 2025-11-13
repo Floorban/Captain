@@ -758,6 +758,7 @@ script = ExtResource("9_0oykq")
 
 [node name="Upgrade" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "max_hull"
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="1"]
@@ -768,6 +769,7 @@ text = "Max Hull ++"
 
 [node name="Upgrade2" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "max_fuel"
 cost = 15
 
@@ -779,6 +781,7 @@ text = "Max Fuel ++"
 
 [node name="Upgrade3" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "fuel_efficiency"
 fuel_cost = 0.5
 
@@ -792,6 +795,7 @@ text = "Fuel Efficiency
 
 [node name="Upgrade4" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "max_speed"
 cost = 10
 
@@ -803,6 +807,7 @@ text = "Max Speed ++"
 
 [node name="Upgrade5" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "cargo_capacity"
 cost = 30
 fuel_cost = 0.3
@@ -817,6 +822,7 @@ text = "Cargo Capacity
 
 [node name="Upgrade6" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 3
 upgrade_type = "scan_speed"
 cost = 25
 
@@ -829,6 +835,7 @@ Speed ++"
 
 [node name="Upgrade7" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "deploy_range"
 cost = 50
 
@@ -841,6 +848,7 @@ Range ++"
 
 [node name="Upgrade8" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 3
 upgrade_type = "drone_signal_range"
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade8/Hbox" index="1"]
@@ -852,6 +860,7 @@ Range ++"
 
 [node name="Upgrade9" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "drone_vision"
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade9/Hbox" index="1"]
@@ -863,6 +872,7 @@ Range ++"
 
 [node name="Upgrade10" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "drone_speed"
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade10/Hbox" index="1"]
@@ -873,6 +883,7 @@ text = "Drone Speed ++"
 
 [node name="Upgrade11" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "drone_capacity"
 cost = 80
 fuel_cost = 0.2
@@ -887,6 +898,7 @@ text = "Drone Capacity
 
 [node name="Upgrade12" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
+max_boughts = 2
 upgrade_type = "fuel_cell_efficiency"
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade12/Hbox" index="1"]

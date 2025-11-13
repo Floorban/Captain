@@ -25,8 +25,8 @@ var radar_controller: RadarController
 
 var nothing: Nothing
 
-var max_load := 1000.0
-var cur_load := 1000.0
+var max_load := 100.0
+var cur_load := 0.0
 
 var cur_station: Station
 

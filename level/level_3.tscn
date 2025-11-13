@@ -119,6 +119,21 @@ spawn_size_height = 3000.0
 [node name="Salvage" parent="Pickups" instance=ExtResource("2_21jwj")]
 position = Vector2(-1004.865, 69.16042)
 
+[node name="Salvage26" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(-1004.865, 69.16042)
+
+[node name="Salvage27" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(-1004.865, 69.16042)
+
+[node name="Salvage28" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(-1004.865, 69.16042)
+
+[node name="Salvage29" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(-1004.865, 69.16042)
+
+[node name="Salvage30" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(-1004.865, 69.16042)
+
 [node name="Salvage2" parent="Pickups" instance=ExtResource("2_21jwj")]
 position = Vector2(-653.9675, 154.92082)
 
@@ -191,6 +206,36 @@ position = Vector2(226.14038, 1420.6635)
 [node name="Salvage25" parent="Pickups" instance=ExtResource("2_21jwj")]
 position = Vector2(1120.0599, 1093.9321)
 
+[node name="Salvage31" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage32" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage33" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage34" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage35" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage36" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage37" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage38" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage39" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
+[node name="Salvage40" parent="Pickups" instance=ExtResource("2_21jwj")]
+position = Vector2(1120.0599, 1093.9321)
+
 [node name="Patch" parent="Pickups" instance=ExtResource("3_6e3ox")]
 position = Vector2(-1374.8663, 1252.7152)
 
@@ -224,6 +269,12 @@ position = Vector2(357.35257, 895.2693)
 [node name="Patch11" parent="Pickups" instance=ExtResource("3_6e3ox")]
 position = Vector2(619.236, -249.76703)
 
+[node name="Patch16" parent="Pickups" instance=ExtResource("3_6e3ox")]
+position = Vector2(619.236, -249.76703)
+
+[node name="Patch17" parent="Pickups" instance=ExtResource("3_6e3ox")]
+position = Vector2(619.236, -249.76703)
+
 [node name="Patch12" parent="Pickups" instance=ExtResource("3_6e3ox")]
 position = Vector2(-610.4002, 970.14844)
 
@@ -234,6 +285,15 @@ position = Vector2(-122.670105, -1112.7318)
 position = Vector2(-934.39307, 1235.2261)
 
 [node name="Patch15" parent="Pickups" instance=ExtResource("3_6e3ox")]
+position = Vector2(-423.21735, -485.70816)
+
+[node name="Patch18" parent="Pickups" instance=ExtResource("3_6e3ox")]
+position = Vector2(-423.21735, -485.70816)
+
+[node name="Patch19" parent="Pickups" instance=ExtResource("3_6e3ox")]
+position = Vector2(-423.21735, -485.70816)
+
+[node name="Patch20" parent="Pickups" instance=ExtResource("3_6e3ox")]
 position = Vector2(-423.21735, -485.70816)
 
 [node name="Cell" parent="Pickups" instance=ExtResource("4_lopto")]
@@ -294,6 +354,24 @@ position = Vector2(1247.1539, -665.0775)
 position = Vector2(-212.93306, -291.416)
 
 [node name="Cell20" parent="Pickups" instance=ExtResource("4_lopto")]
+position = Vector2(-1202.2394, 934.9048)
+
+[node name="Cell21" parent="Pickups" instance=ExtResource("4_lopto")]
+position = Vector2(-1202.2394, 934.9048)
+
+[node name="Cell22" parent="Pickups" instance=ExtResource("4_lopto")]
+position = Vector2(-1202.2394, 934.9048)
+
+[node name="Cell23" parent="Pickups" instance=ExtResource("4_lopto")]
+position = Vector2(-1202.2394, 934.9048)
+
+[node name="Cell24" parent="Pickups" instance=ExtResource("4_lopto")]
+position = Vector2(-1202.2394, 934.9048)
+
+[node name="Cell25" parent="Pickups" instance=ExtResource("4_lopto")]
+position = Vector2(-1202.2394, 934.9048)
+
+[node name="Cell26" parent="Pickups" instance=ExtResource("4_lopto")]
 position = Vector2(-1202.2394, 934.9048)
 
 [node name="Stations" type="Node2D" parent="."]
