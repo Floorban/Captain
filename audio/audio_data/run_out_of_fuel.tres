@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="SoundEffect" load_steps=2 format=3 uid="uid://dcgf7blsksmvp"]
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dcgf7blsksmvp"]
 
 [ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_yjxcn"]
+[ext_resource type="AudioStream" uid="uid://505sf62g7bjd" path="res://audio/audio_source/no_fuel.mp3" id="2_fistb"]
 
 [resource]
 script = ExtResource("1_yjxcn")
 limit = 5
-type = 0
+type = 2
+sound_effect = ExtResource("2_fistb")
 volume = 0.585
 pitch_scale = 1.0
 pitch_randomness = 0.0

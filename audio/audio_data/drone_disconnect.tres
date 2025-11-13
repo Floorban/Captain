@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bdbuwvsj8xvc7"]
+
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_m22yp"]
+[ext_resource type="AudioStream" uid="uid://iqxoq28m54gf" path="res://audio/audio_source/drone_lost.mp3" id="2_m22yp"]
+
+[resource]
+script = ExtResource("1_m22yp")
+limit = 5
+type = 21
+sound_effect = ExtResource("2_m22yp")
+volume = 0.585
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://y7iv8is4xp2x"

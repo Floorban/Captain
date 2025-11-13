@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="SoundEffect" load_steps=2 format=3 uid="uid://c2pu4romi2ys1"]
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://c2pu4romi2ys1"]
 
 [ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_q3x8i"]
+[ext_resource type="AudioStream" uid="uid://cun0lkh5iv8qv" path="res://audio/audio_source/moving.mp3" id="2_j5jdd"]
 
 [resource]
 script = ExtResource("1_q3x8i")
 limit = 5
 type = 0
+sound_effect = ExtResource("2_j5jdd")
 volume = 0.585
 pitch_scale = 1.0
 pitch_randomness = 0.0

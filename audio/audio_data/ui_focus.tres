@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://tfq8cs3fy0ll"]
+
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_a81rx"]
+[ext_resource type="AudioStream" uid="uid://dmbphdt8a4v0a" path="res://audio/audio_source/ui_focus.mp3" id="2_a81rx"]
+
+[resource]
+script = ExtResource("1_a81rx")
+limit = 5
+type = 22
+sound_effect = ExtResource("2_a81rx")
+volume = 0.585
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://y7iv8is4xp2x"

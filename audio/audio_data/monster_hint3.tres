@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://d16u8hrsxr371"]
+
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_tcoq2"]
+[ext_resource type="AudioStream" uid="uid://cheslaiw8iwih" path="res://audio/audio_source/monster_hint_3.mp3" id="2_tcoq2"]
+
+[resource]
+script = ExtResource("1_tcoq2")
+limit = 5
+type = 12
+sound_effect = ExtResource("2_tcoq2")
+volume = -0.071
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://y7iv8is4xp2x"

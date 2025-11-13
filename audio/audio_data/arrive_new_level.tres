@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xw1yk")
 limit = 5
-type = 8
+type = 9
 sound_effect = ExtResource("2_ocf4h")
 volume = 0.585
 pitch_scale = 1.0

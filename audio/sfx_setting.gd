@@ -8,18 +8,27 @@ enum SOUND_EFFECT_TYPE {
 	STOP_MOVING,
 	RUN_OUT_OF_FUEL,
 	RADAR_SCAN,
-	FOUND_STATION,
+	ENTER_STATION,
 	ALERT,
+	NOTHING_SHOW,
+	NOTHING_DETECTED,
 	DAMAGED,
 	ARRIVE_NEW_LEVEL,
-	ITEM_DELIVERED,
 	MONSTER_HINT1,
 	MONSTER_HINT2,
 	MONSTER_HINT3,
-	MONSTER_KILLED,
+	DEAD,
+	UI_TIP,
 	UI_CONFIRM,
-	UI_REFRESH
+	UI_CANCEL,
+	UI_REFRESH,
+	UPGRADE,
+	SEND_DRONE,
+	DRONE_CONNECT,
+	DRONE_DISCONNECT,
+	UI_FOCUS
 }
+
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.
 @export var type: SOUND_EFFECT_TYPE ## The unique sound effect in the [enum SOUND_EFFECT_TYPE] to associate with this effect. Each SoundEffect resource should have it's own unique [enum SOUND_EFFECT_TYPE] setting.

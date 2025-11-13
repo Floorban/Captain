@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_iuq78")
 limit = 5
-type = 6
+type = 5
 sound_effect = ExtResource("2_gyity")
 volume = 0.585
 pitch_scale = 1.0

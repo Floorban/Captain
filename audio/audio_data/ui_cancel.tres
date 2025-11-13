@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://twfewlfvnl7e"]
+
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_xt84m"]
+[ext_resource type="AudioStream" uid="uid://dt5sxq86f0yl0" path="res://audio/audio_source/ui_cancel.mp3" id="2_xt84m"]
+
+[resource]
+script = ExtResource("1_xt84m")
+limit = 5
+type = 16
+sound_effect = ExtResource("2_xt84m")
+volume = 0.585
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://y7iv8is4xp2x"

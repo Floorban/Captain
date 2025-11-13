@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://cdwok88kbhpp3"]
+
+[ext_resource type="Script" uid="uid://y7iv8is4xp2x" path="res://audio/sfx_setting.gd" id="1_ck38t"]
+[ext_resource type="AudioStream" uid="uid://dad14802ekpod" path="res://audio/audio_source/ui_refresh.mp3" id="2_ck38t"]
+
+[resource]
+script = ExtResource("1_ck38t")
+limit = 5
+type = 17
+sound_effect = ExtResource("2_ck38t")
+volume = 0.585
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://y7iv8is4xp2x"
