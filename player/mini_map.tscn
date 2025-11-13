@@ -181,31 +181,31 @@ void fragment()
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ereb"]
 shader = SubResource("Shader_itq3j")
 shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.210000009975
-shader_parameter/scanlines_width = 0.198000009405
-shader_parameter/grille_opacity = 0.02400000114
+shader_parameter/scanlines_opacity = 0.21
+shader_parameter/scanlines_width = 0.198
+shader_parameter/grille_opacity = 0.024
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = true
 shader_parameter/roll = true
 shader_parameter/roll_speed = 2.0
-shader_parameter/roll_size = 44.44800211128
-shader_parameter/roll_variation = 0.59700002509762
+shader_parameter/roll_size = 44.448
+shader_parameter/roll_variation = 0.597
 shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.59600002831
+shader_parameter/noise_opacity = 0.596
 shader_parameter/noise_speed = 3.275
-shader_parameter/static_noise_intensity = 0.2000000095
-shader_parameter/aberration = 0.7050000809874999
+shader_parameter/static_noise_intensity = 0.2
+shader_parameter/aberration = 0.705
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.2000000095
+shader_parameter/warp_amount = 0.2
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.565
-shader_parameter/vignette_opacity = 0.402000019095
+shader_parameter/vignette_opacity = 0.402
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l0kmr"]
 shader = ExtResource("5_itq3j")
-shader_parameter/lightning_color = Color(2.2589493, 2.0816524, 1.9930037, 0.6509804)
-shader_parameter/size = 0.00800000038
+shader_parameter/lightning_color = Color(2.25895, 2.08165, 1.993, 0.65098)
+shader_parameter/size = 0.008
 shader_parameter/width = 1.0
 shader_parameter/speed = 1.0
 shader_parameter/cycle = 0.2
@@ -219,8 +219,8 @@ shader_parameter/glow_intensity = 1.0
 shader = ExtResource("4_60amn")
 shader_parameter/flash_color = Color(1, 0, 0, 1)
 shader_parameter/intensity = 0.0
-shader_parameter/edge_power = 2.00000009174012
-shader_parameter/inner_ratio = 0.10000000475
+shader_parameter/edge_power = 2.0
+shader_parameter/inner_ratio = 0.1
 shader_parameter/feather = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60amn"]
@@ -234,19 +234,19 @@ shader_parameter/pulse_speed = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67s8b"]
 shader = ExtResource("1_r8eax")
-shader_parameter/circle_width = 0.05000000074506
+shader_parameter/circle_width = 0.05
 shader_parameter/wait_time = 5.0
-shader_parameter/speed = 1.5000000223518
+shader_parameter/speed = 1.5
 shader_parameter/alpha_boost = 1.0
 shader_parameter/scan_active = true
 shader_parameter/scan_time = 0.0
-shader_parameter/glow_color = Color(0.5880192, 1.5173489, 0.37140858, 1)
+shader_parameter/glow_color = Color(0.588019, 1.51735, 0.371409, 1)
 shader_parameter/intensity = 1.5
 shader_parameter/spread = 1.0
 shader_parameter/pulse_speed = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbvrb"]
-bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.9607843)
+bg_color = Color(0.223529, 0.223529, 0.223529, 0.960784)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -281,7 +281,7 @@ render_target_update_mode = 4
 
 [node name="Background" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-modulate = Color(0.69687116, 0.05970768, 0.05970768, 1)
+modulate = Color(0.696871, 0.0597077, 0.0597077, 1)
 visibility_layer = 3
 z_index = -1
 texture_filter = 1
@@ -295,7 +295,7 @@ texture = ExtResource("4_dh8qp")
 expand_mode = 1
 
 [node name="ScreenEffectRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
-modulate = Color(4.9925256, 4.9925256, 4.9925256, 1)
+modulate = Color(4.99253, 4.99253, 4.99253, 1)
 light_mask = 0
 visibility_layer = 2
 material = SubResource("ShaderMaterial_l0kmr")
@@ -341,7 +341,7 @@ expand_mode = 1
 
 [node name="ScanEffect" type="ColorRect" parent="SubViewportContainer/SubViewport/Radar"]
 unique_name_in_owner = true
-modulate = Color(0.8465545, 1.8247963, 0.790655, 1)
+modulate = Color(0.846555, 1.8248, 0.790655, 1)
 light_mask = 0
 visibility_layer = 2
 material = SubResource("ShaderMaterial_67s8b")
@@ -352,7 +352,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.7722081, 1.353256, 0.77744275, 1)
+color = Color(0.772208, 1.35326, 0.777443, 1)
 
 [node name="Menu" type="Control" parent="SubViewportContainer/SubViewport"]
 z_index = 1
@@ -404,7 +404,7 @@ offset_top = 45.0
 offset_right = 177.0
 offset_bottom = 95.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_colors/font_color = Color(0.419608, 0.952941, 0.388235, 1)
 theme_override_font_sizes/font_size = 26
 text = "About The Game:"
 
@@ -454,7 +454,7 @@ offset_top = 205.0
 offset_right = 177.0
 offset_bottom = 255.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_colors/font_color = Color(0.419608, 0.952941, 0.388235, 1)
 theme_override_font_sizes/font_size = 26
 text = "Be Aware:"
 
@@ -515,7 +515,7 @@ offset_top = 45.0
 offset_right = 177.0
 offset_bottom = 95.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_colors/font_color = Color(0.419608, 0.952941, 0.388235, 1)
 theme_override_font_sizes/font_size = 26
 text = "Menu Controls:"
 
@@ -544,7 +544,7 @@ offset_top = 160.0
 offset_right = 177.0
 offset_bottom = 210.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.41977924, 0.95484024, 0.38950685, 1)
+theme_override_colors/font_color = Color(0.419779, 0.95484, 0.389507, 1)
 theme_override_font_sizes/font_size = 26
 text = "Game Controls:"
 
@@ -606,7 +606,7 @@ offset_top = 45.0
 offset_right = 177.0
 offset_bottom = 95.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_colors/font_color = Color(0.419608, 0.952941, 0.388235, 1)
 theme_override_font_sizes/font_size = 26
 text = "Windows Controls:"
 
@@ -636,7 +636,7 @@ offset_top = 150.0
 offset_right = 177.0
 offset_bottom = 200.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.41977924, 0.95484024, 0.38950685, 1)
+theme_override_colors/font_color = Color(0.419779, 0.95484, 0.389507, 1)
 theme_override_font_sizes/font_size = 26
 text = "File Controls:"
 

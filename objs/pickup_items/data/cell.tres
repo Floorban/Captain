@@ -9,8 +9,12 @@ region = Rect2(0, 96, 16, 16)
 
 [resource]
 script = ExtResource("2_1nlsp")
+weight = 10.0
 item_name = "Cell"
 icon = SubResource("AtlasTexture_x3bde")
+item_type = 0
 value = 40.0
+is_stackable = true
 max_stack = 2
+description = ""
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

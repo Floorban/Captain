@@ -92,7 +92,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 		var msg = "Station Detected\n(%d, %d)\n%s" % [
 			int(pos.x),
 			int(pos.y),
-		    "Go Get Upgrades"
+			"Go Get Upgrades"
 		]
 		label_control.modulate = Color.GREEN
 		play_label_effect(label_control, msg)
@@ -116,7 +116,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 				"You Have a Max.
 				of 3 Drones",
 				
-			    "Monitor Your 
+				"Monitor Your 
 				HP & FUEL",
 				
 				"Return Drones to 

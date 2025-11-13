@@ -9,9 +9,12 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_vw2b7")
+weight = 10.0
 item_name = "Patch"
 icon = SubResource("AtlasTexture_autkr")
 item_type = 1
 value = 1.0
 is_stackable = false
+max_stack = 1
+description = ""
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

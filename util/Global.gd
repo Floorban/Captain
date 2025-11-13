@@ -25,8 +25,8 @@ var radar_controller: RadarController
 
 var nothing: Nothing
 
-var max_load := 15000.0
-var cur_load := 15000.0
+var max_load := 150.0
+var cur_load := 0.0
 
 var cur_station: Station
 
@@ -65,7 +65,7 @@ func game_setup():
 	health_component = get_captain().health_component
 	_init_signals()
 	health_component.cur_hp = health_component.max_hp
-	add_fuel(max_fuel)
+	add_fuel(max_fuel/2)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):
