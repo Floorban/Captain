@@ -11,9 +11,9 @@ var players : Array[Player]
 
 var is_dead := false
 
-@export var max_fuel := 200.0
+@export var max_fuel := 300.0
 var cur_fuel := 0.0
-var fuel_heating_speed := 5.0
+var fuel_heating_speed := 2.5
 
 var health_component: HealthComponent
 
@@ -25,8 +25,8 @@ var radar_controller: RadarController
 
 var nothing: Nothing
 
-var max_load := 100.0
-var cur_load := 0.0
+var max_load := 15000.0
+var cur_load := 15000.0
 
 var cur_station: Station
 
@@ -47,7 +47,9 @@ var upgrade_effects = {
 	"cargo_capacity": func() -> void:
 		max_load += 50.0
 		update_stats(),
-	"scan_speed": func(): radar_controller.mini_map.scan_wait_time -= 2.0,
+	"scan_speed": func() -> void:
+		radar_controller.mini_map.scan_wait_time -= 2.0
+		radar_controller.mini_map.fade_speed += 0.1,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
 	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(2.0),
 	"drone_vision": func(): windows_manager.vision_range *= 1.5,
@@ -62,6 +64,7 @@ func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component
 	_init_signals()
+	health_component.cur_hp = health_component.max_hp
 	add_fuel(max_fuel)
 
 func _init_signals():
@@ -152,10 +155,12 @@ func ascend():
 func game_over():
 	print("--- Game Over ---")
 	is_dead = true
+	radar_controller.out_ships.clear()
 	radar_controller.path.hide()
 	game_controller.retro_effect_rect.show()
 	radar_controller.monitor.trauma = 1.5
 	#main.hide()
+	main.cur_lvl.queue_free()
 	nothing.queue_free()
 	get_captain().hide()
 	var ps = get_tree().get_nodes_in_group("radar_objs")
@@ -169,3 +174,12 @@ func game_over():
 	windows_manager.close_all_windows()
 	for p in get_players():
 		p.is_dead = true
+	is_dead = false
+	await get_tree().create_timer(3.5).timeout
+	get_captain().show()
+	game_controller.mini_map.death_menu.hide()
+	game_controller.retro_effect_rect.hide()
+	radar_controller.try_add_drone()
+	radar_controller.try_add_drone()
+	radar_controller.try_add_drone()
+	game_controller.set_game_menu_content(0)

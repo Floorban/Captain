@@ -14,9 +14,9 @@ var markers := {}
 @onready var damage_effect: ColorRect = %DamageEffectRect
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 9.0
+var scan_wait_time := 8.0
 var marker_age := {}   # { obj: seconds_since_seen }
-var fade_speed := 0.3
+var fade_speed := 0.1
 @onready var mat: ShaderMaterial = scan_effect.material
 var scan_elapsed := 0.0
 var scanning := false

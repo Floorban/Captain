@@ -51,6 +51,10 @@ func _do_monster_behavior() -> void:
 	else:
 		_restart_timer()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("scan"):
+		attack_player()
+
 func attack_player() -> void:
 	if not player: return
 	radar_obj_component.is_detectable = true

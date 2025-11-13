@@ -40,10 +40,14 @@ func set_main_menu():
 	main_menu.show()
 	game_menu.hide()
 	button_1.grab_focus()
-	button_1.pressed.connect(bind_button_to_menu.bind(0))
-	button_2.pressed.connect(bind_button_to_menu.bind(1))
-	button_3.pressed.connect(bind_button_to_menu.bind(2))
-	button_4.pressed.connect(bind_button_to_menu.bind(3))
+	if not button_1.is_connected("pressed", bind_button_to_menu.bind(0)):
+		button_1.pressed.connect(bind_button_to_menu.bind(0))
+	if not button_2.is_connected("pressed", bind_button_to_menu.bind(1)):
+		button_2.pressed.connect(bind_button_to_menu.bind(1))
+	if not button_3.is_connected("pressed", bind_button_to_menu.bind(2)):
+		button_3.pressed.connect(bind_button_to_menu.bind(2))
+	if not button_4.is_connected("pressed", bind_button_to_menu.bind(3)):
+		button_4.pressed.connect(bind_button_to_menu.bind(3))
 	button_1.text = "ABOUT"
 	button_2.text = "CONTROL1"
 	button_3.text = "CONTROL2"
@@ -56,9 +60,12 @@ func set_game_menu():
 	game_menu.show()
 	b_1.grab_focus()
 	set_control_screen(null, true)
-	b_1.pressed.connect(set_send_screen) 
-	b_2.pressed.connect(set_stats_screen)
-	b_3.pressed.connect(set_ascend_screen)
+	if not b_1.is_connected("pressed", set_send_screen):
+		b_1.pressed.connect(set_send_screen)
+	if not b_2.is_connected("pressed", set_stats_screen):
+		b_2.pressed.connect(set_stats_screen)
+	if not b_3.is_connected("pressed", set_ascend_screen):
+		b_3.pressed.connect(set_ascend_screen)
 	b_1.text = "SEND A SHIP"
 	b_2.text = "STATS"
 	b_3.text = "GO UP"
