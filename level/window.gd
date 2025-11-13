@@ -91,9 +91,9 @@ func signal_recover():
 	#death_menu.hide()
 	label_death.hide()
 	var tween = create_tween()
-	tween.tween_property(death_menu.material, "shader_parameter/shake", 0.015, 0.1)
-	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 200.0, 0.3)
-	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.04, 0.2)
+	tween.tween_property(death_menu.material, "shader_parameter/shake", 0.01, 0.1)
+	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 500.0, 0.3)
+	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.02, 0.2)
 	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.01, 0.1)
 
 func _on_focus_entered() -> void:

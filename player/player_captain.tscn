@@ -25,9 +25,9 @@ input_right = "right3"
 input_up = "up3"
 input_down = "down3"
 is_captain = true
-move_speed = 0.1
+move_speed = 0.15
 friction = 0.8
-rotation_smoothness = 2.0
+rotation_smoothness = 2.5
 interaction = NodePath("InteractionComponent")
 
 [node name="Sprite2D" parent="." index="0"]

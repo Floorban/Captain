@@ -41,7 +41,8 @@ func _ready() -> void:
 		shield_sprite.hide()
 
 func _init_player_signals():
-	health_component.died.connect(_on_player_dead)
+	if not is_captain:
+		health_component.died.connect(_on_player_dead)
 	if is_captain:
 		hitbox_component.hit.connect(dmg_effect)
 	if hp_bar: 
@@ -124,7 +125,7 @@ func _receive_items(interactor: Node):
 		inv.deliver_inventory()
 		inv.item_delivered.disconnect(_on_item_delivered)
 	if interactor != self and interactor is Player:
-		Global.radar_controller.remove_ship_radar_obj(interactor)
+		Global.radar_controller.remove_ship_radar_obj(interactor, true)
 
 func _on_item_delivered(item: ItemData, count: int):
 	print("Captain received:", item.item_name, "x", count)

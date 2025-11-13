@@ -142,3 +142,14 @@ func play_dmg_effect():
 	var tween = create_tween()
 	tween.tween_property(damage_effect.material, "shader_parameter/intensity", 1.0, 0.1)
 	tween.tween_property(damage_effect.material, "shader_parameter/intensity", 0.0, 0.2)
+
+@onready var station: MarginContainer = %Station
+@onready var upgrades: VBoxContainer = %Upgrades
+
+func set_upgrades(enter: bool):
+	if enter:
+		station.show()
+		var b1: Button = upgrades.get_child(0)
+		if b1: b1.grab_focus()
+	else:
+		station.hide()

@@ -112,6 +112,7 @@ position = Vector2(-1183.8909, 382.47284)
 [node name="Pickups" type="Node2D" parent="."]
 position = Vector2(14, 17)
 script = ExtResource("1_6e3ox")
+rand = true
 spawn_size_width = 3000.0
 spawn_size_height = 3000.0
 

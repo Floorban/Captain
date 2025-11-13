@@ -49,8 +49,15 @@ func spawn_window(pos: Vector2):
 
 func get_fixed_positions_top_row(w) -> Array:
 	var screen_size = DisplayServer.screen_get_size()
-	var y = 30  # distance from top edge
-	var spacing = 500  # horizontal spacing from the center
+	var size := subwindows.size()
+	var y := 0
+	if size <= 3:
+		y = 30
+	elif size <= 6:
+		y = 230
+	else:
+		y = 430
+	var spacing = 500 
 
 	var center_x = (screen_size.x - w.size.x) / 2
 	return [

@@ -20,6 +20,4 @@ func _on_enter_station(_interactor: Node) -> void:
 	Global.enter_station(self)
 
 func _on_exit_station(_interactor: Node2D):
-	print(_interactor.name)
 	has_entered = false
-	Global.exit_station()

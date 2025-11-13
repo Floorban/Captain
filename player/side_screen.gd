@@ -141,7 +141,7 @@ func set_stats_screen():
 
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
 	var msg_fuel = "Fuel:  " + str(int(fuel_percent)) + " %"
-	var msg_load = "LOAD:  " + str(int(load_percent)) + " %"
+	var msg_load = "LOAD:  " + str(int(load_percent)) + " KG"
 	play_label_effect(label_hp, msg_hp)
 	play_label_effect(label_fuel, msg_fuel)
 	play_label_effect(label_load, msg_load)
@@ -153,17 +153,17 @@ func set_station_screen():
 	b_1.pressed.disconnect(set_send_screen) 
 	b_2.pressed.disconnect(set_stats_screen)
 	b_3.pressed.disconnect(set_ascend_screen)
-	b_1.pressed.connect(confirm_purchase) 
-	b_2.pressed.connect(prev_item)
-	b_3.pressed.connect(next_item)
-	b_1.text = "[ PUECHASE ]"
-	b_2.text = "<-PREV"
-	b_3.text = "NEXT->"
+	b_1.pressed.connect(buy_drone) 
+	b_2.pressed.connect(repair_hull)
+	b_3.pressed.connect(exit_station)
+	b_1.text = "BUY DRONE"
+	b_2.text = "REPAIR"
+	b_3.text = "EXIT"
 
 func disable_station_screen():
-	b_1.pressed.disconnect(confirm_purchase) 
-	b_2.pressed.disconnect(prev_item)
-	b_3.pressed.disconnect(next_item)
+	b_1.pressed.disconnect(buy_drone) 
+	b_2.pressed.disconnect(repair_hull)
+	b_3.pressed.disconnect(exit_station)
 	b_1.pressed.connect(set_send_screen) 
 	b_2.pressed.connect(set_stats_screen)
 	b_3.pressed.connect(set_ascend_screen)
@@ -172,14 +172,39 @@ func disable_station_screen():
 	b_3.text = "GO UP"
 	set_control_screen(null)
 
-func prev_item():
-	print("<-")
+func buy_drone():
+	if Global.radar_controller.try_add_drone():
+		if Global.try_consume_load(20.0):
+			set_stats_screen()
+		else:
+			not_enough_to_buy()
+	else:
+		not_enough_to_buy("Maximum Drone\nCapacity Reached")
 
-func next_item():
-	print("->")
+func repair_hull():
+	if Global.add_health(1):
+		if Global.try_consume_load(20.0):
+			set_stats_screen()
+		else:
+			not_enough_to_buy()
+	else:
+		not_enough_to_buy("Hull Integrity\nAlready Optimal" )
 
-func confirm_purchase():
-	print("buy")
+func not_enough_to_buy(m := ""):
+	var msg = "Not Enough
+				To Buy This"
+	if m != "":
+		load_bar.hide()
+		msg = m
+	else:
+		var load_value = Global.cur_load / Global.max_load
+		animate_load_bar(load_bar, load_value)
+	label_hp.hide()
+	label_fuel.hide()
+	play_label_effect(label_load, msg)
+
+func exit_station():
+	Global.exit_station()
 
 var can_goup := false
 var going_up := false
@@ -254,14 +279,16 @@ func _random_glitch_char() -> String:
 	return pool[randi() % pool.size()]
 
 func animate_load_bar(bar: ProgressBar, target_value: float, duration: float = 0.8) -> void:
+	load_bar.show()
 	load_bar.value = 0.0
-	await get_tree().create_timer(0.5).timeout
+	#await get_tree().create_timer(0.3, false, true, true).timeout
 	if bar.has_meta("tween") and is_instance_valid(bar.get_meta("tween")):
 		var old_tween = bar.get_meta("tween")
 		old_tween.kill()
-
 	bar.value = 0
 	var tween = get_tree().create_tween()
+	tween.set_ignore_time_scale(true)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	bar.set_meta("tween", tween)
 
 	# animate from 0 to target_value

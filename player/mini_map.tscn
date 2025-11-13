@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=22 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://wullxy8nd1te" path="res://assets/Radar.png" id="6_l0kmr"]
 [ext_resource type="Script" uid="uid://bunhhpoumtkwh" path="res://player/start.gd" id="7_4ereb"]
 [ext_resource type="PackedScene" uid="uid://bv2braax0er4h" path="res://util/death_menu.tscn" id="9_67s8b"]
+[ext_resource type="StyleBox" uid="uid://cyqon26itkt1j" path="res://util/btn_press_style.tres" id="9_qgvr3"]
+[ext_resource type="Texture2D" uid="uid://bkmyovyyqc62y" path="res://assets/set.png" id="9_tbvrb"]
+[ext_resource type="StyleBox" uid="uid://dr50ts51okksv" path="res://util/btn_hover_style.tres" id="10_ber1x"]
+[ext_resource type="Script" uid="uid://c8l4bbkg4k8d8" path="res://player/upgrade_button.gd" id="11_ber1x"]
 
 [sub_resource type="Shader" id="Shader_itq3j"]
 code = "shader_type canvas_item;
@@ -243,7 +247,19 @@ shader_parameter/intensity = 1.5
 shader_parameter/spread = 1.0
 shader_parameter/pulse_speed = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbvrb"]
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.9607843)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oykq"]
+atlas = ExtResource("9_tbvrb")
+region = Rect2(64, 64, 16, 16)
+
 [node name="MiniMap" type="CanvasLayer"]
+process_mode = 3
 layer = -1
 script = ExtResource("1_1la25")
 
@@ -355,6 +371,7 @@ grow_vertical = 2
 
 [node name="About" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -698,6 +715,234 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 26
 step = 0.1
+
+[node name="Station" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Station"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbvrb")
+
+[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Upgrades"
+horizontal_alignment = 1
+
+[node name="Upgrades" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_top = 45.0
+offset_right = 155.5
+offset_bottom = 340.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
+process_mode = 3
+process_priority = 2
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Button5")
+focus_neighbor_bottom = NodePath("../Button2")
+theme_override_styles/pressed = ExtResource("9_qgvr3")
+theme_override_styles/hover = ExtResource("10_ber1x")
+theme_override_styles/focus = ExtResource("10_ber1x")
+script = ExtResource("11_ber1x")
+
+[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 45.0
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button/Upgrade"]
+texture_filter = 1
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_0oykq")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button/Upgrade"]
+custom_minimum_size = Vector2(80, 43)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "10% load +"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button/Upgrade"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "Repair Hull"
+
+[node name="Button2" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button3")
+theme_override_styles/pressed = ExtResource("9_qgvr3")
+theme_override_styles/hover = ExtResource("10_ber1x")
+theme_override_styles/focus = ExtResource("10_ber1x")
+
+[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 45.0
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2/Upgrade"]
+texture_filter = 1
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_0oykq")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2/Upgrade"]
+custom_minimum_size = Vector2(80, 43)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "10% load +"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button2/Upgrade"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "Repair Hull"
+
+[node name="Button3" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button4")
+theme_override_styles/pressed = ExtResource("9_qgvr3")
+theme_override_styles/hover = ExtResource("10_ber1x")
+theme_override_styles/focus = ExtResource("10_ber1x")
+
+[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 45.0
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3/Upgrade"]
+texture_filter = 1
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_0oykq")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3/Upgrade"]
+custom_minimum_size = Vector2(80, 43)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "10% load +"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button3/Upgrade"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "Repair Hull"
+
+[node name="Button4" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../Button5")
+theme_override_styles/pressed = ExtResource("9_qgvr3")
+theme_override_styles/hover = ExtResource("10_ber1x")
+theme_override_styles/focus = ExtResource("10_ber1x")
+
+[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 45.0
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4/Upgrade"]
+texture_filter = 1
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_0oykq")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4/Upgrade"]
+custom_minimum_size = Vector2(80, 43)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "10% load +"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button4/Upgrade"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "Repair Hull"
+
+[node name="Button5" type="Button" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Button4")
+focus_neighbor_bottom = NodePath("../Button")
+theme_override_styles/pressed = ExtResource("9_qgvr3")
+theme_override_styles/hover = ExtResource("10_ber1x")
+theme_override_styles/focus = ExtResource("10_ber1x")
+
+[node name="Upgrade" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5"]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 45.0
+theme_override_constants/separation = 25
+
+[node name="Icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5/Upgrade"]
+texture_filter = 1
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_0oykq")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5/Upgrade"]
+custom_minimum_size = Vector2(80, 43)
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "10% load +"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Button5/Upgrade"]
+layout_mode = 2
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 17
+text = "Repair Hull"
 
 [node name="DeathMenu" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_67s8b")]
 unique_name_in_owner = true

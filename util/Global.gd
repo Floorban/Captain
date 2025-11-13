@@ -34,7 +34,7 @@ func game_setup():
 	players = get_players()
 	health_component = get_captain().health_component
 	_init_signals()
-	add_fuel(max_fuel/2)
+	add_fuel(max_fuel)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):
@@ -69,8 +69,12 @@ func add_fuel(amount: float) -> void:
 	if cur_fuel > 0:
 		get_captain().can_move = true
 
-func add_health(amount: int) -> void:
-	if health_component: health_component.cur_hp += amount
+func add_health(amount: int) -> bool:
+	if not health_component or health_component.cur_hp == health_component.max_hp: 
+		return false
+	health_component.cur_hp += amount
+	update_stats()
+	return true
 
 func add_load(amount: float):
 	cur_load = clamp(cur_load + amount, 0, max_load)
@@ -78,15 +82,38 @@ func add_load(amount: float):
 func add_shield(amount: int) -> void:
 	print("Shield boosted by:", amount)
 
+func try_consume_fuel(amount: float) -> bool:
+	if cur_fuel <= 0 or cur_fuel - amount < 0: 
+		return false
+	cur_fuel = clamp(cur_fuel - amount, 0, max_fuel)
+	return true
+
+func try_consume_load(amount: float) -> bool:
+	if cur_load <= 0 or cur_load - amount < 0: 
+		return false
+	else:
+		cur_load = clamp(cur_load - amount, 0, max_load)
+		return true
+
 func update_stats():
 	game_controller.side_screen.set_stats_screen()
 
 func enter_station(station: Station):
 	print("player has entered ", station.name)
+	main.hide()
+	radar_controller.mini_map.set_upgrades(true)
+	radar_controller.can_control = false
+	radar_controller.path.curve.clear_points()
 	cur_station = station
 	game_controller.side_screen.set_station_screen()
+	get_tree().paused = true
 
 func exit_station():
+	get_tree().paused = false
+	main.show()
+	radar_controller.can_control = true
+	radar_controller.target = null
+	radar_controller.mini_map.set_upgrades(false)
 	cur_station = null
 	game_controller.side_screen.disable_station_screen()
 

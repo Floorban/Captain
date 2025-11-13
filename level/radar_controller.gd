@@ -30,10 +30,11 @@ func _physics_process(delta: float) -> void:
 	_go_to_destination(delta)
 
 func _set_destination(event):
-	if Global.is_dead: 
+	if Global.is_dead or not can_control: 
+		path.curve.clear_points()
 		select_marker.hide()
 		return
-	if event.is_action_pressed("primary") and can_control:
+	if event.is_action_pressed("primary"):
 		if event.global_position.x < 275 or event.global_position.x > 630 or event.global_position.y < 125 or event.global_position.y > 470:
 			return
 		click_pos = event.global_position
@@ -112,7 +113,7 @@ func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
 			Global.game_controller.side_screen.play_label_effect(axis_label, msg)
 
 var ship_amonut := 3
-
+var out_ships : Array[int] = []
 var send_ship_tween : Tween
 var is_sending := false
 var can_send := false
@@ -154,15 +155,26 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		select_marker.hide()
 		can_send = false
 		ship_amonut -= 1
+		out_ships.append(0)
 		monitor.switch_light(ship_amonut)
 	)
 
-func remove_ship_radar_obj(ship: Node2D):
+func remove_ship_radar_obj(ship: Node2D, recycle := false):
 	if not ship:
 		return
+	if recycle:
+		monitor.switch_light(ship_amonut, true)
+		ship_amonut += 1
+		Global.update_stats()
+	out_ships.erase(0)
+	mini_map.remove_marker(ship)
+
+func try_add_drone() -> bool:
+	if ship_amonut >= 3 or ship_amonut + out_ships.size() >= 3:
+		return false
 	monitor.switch_light(ship_amonut, true)
 	ship_amonut += 1
-	mini_map.remove_marker(ship)
+	return true
 
 func move_interrupted():
 	monitor.trauma = 0.8

@@ -15,6 +15,7 @@
 [node name="Obstacles" type="Node2D" parent="."]
 position = Vector2(2, 1)
 script = ExtResource("1_l1g64")
+rand = null
 spawn_size_width = 2000.0
 spawn_size_height = 2000.0
 
@@ -93,6 +94,7 @@ position = Vector2(-966.58716, 154.93164)
 [node name="Pickups" type="Node2D" parent="."]
 position = Vector2(-25, -26)
 script = ExtResource("1_l1g64")
+rand = true
 spawn_size_width = 2000.0
 spawn_size_height = 2000.0
 
@@ -192,6 +194,8 @@ position = Vector2(-504, -452)
 [node name="STATION_1" parent="Stations" instance=ExtResource("6_hdc4k")]
 z_index = 0
 position = Vector2(270, 344)
+
+[connection signal="body_exited" from="Stations/STATION_1/InteractionComponent" to="Stations/STATION_1" method="_on_interaction_component_body_exited"]
 
 [editable path="Stations/STATION_1"]
 [editable path="Stations/STATION_1/InteractionComponent"]

@@ -218,6 +218,7 @@ material = SubResource("ShaderMaterial_dol8q")
 
 [node name="GameControl" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 layer = -1
 script = ExtResource("9_gvqxy")
 
