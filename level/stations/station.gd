@@ -1,6 +1,7 @@
 extends Node2D
 class_name Station
 
+@export var is_exit := false
 @onready var icon: Sprite2D = %Icon
 @onready var interaction: InteractionComponent = $InteractionComponent
 var has_entered := false
@@ -14,6 +15,9 @@ func _ready() -> void:
 	radar_obj_component.display_name = name
 
 func _on_enter_station(_interactor: Node) -> void:
+	if is_exit:
+		Global.game_over()
+		return
 	if has_entered:
 		return
 	interaction.can_interact = false

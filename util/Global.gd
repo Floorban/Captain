@@ -50,14 +50,14 @@ var upgrade_effects = {
 		update_stats(),
 	"scan_speed": func(): radar_controller.mini_map.scan_wait_time -= 2.2,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
-	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.4),
+	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.3),
 	"drone_vision": func(): windows_manager.vision_range *= 1.2,
 	"drone_speed": func(): added_player_speed += 20.0,
 	"drone_capacity": func() -> void:
 		salvage_res.max_stack += 2
 		cell_res.max_stack += 2,
 	"fuel_cell_efficiency": func(): cell_res.value *= 2.0,
-	"drone_max_hp": func(): added_player_hp += 2,
+	"drone_max_hp": func(): added_player_hp += 1,
 	"radar_fade": func(): radar_controller.mini_map.fade_speed -= 0.1
 }
 
@@ -66,7 +66,7 @@ func game_setup():
 	health_component = get_captain().health_component
 	_init_signals()
 	health_component.cur_hp = health_component.max_hp
-	add_fuel(max_fuel)
+	add_fuel(max_fuel/2)
 
 func _init_signals():
 	if health_component and not health_component.died.is_connected(game_over):
@@ -165,7 +165,7 @@ func game_over():
 	print("--- Game Over ---")
 	is_dead = true
 	radar_controller.out_ships.clear()
-	radar_controller.path.hide()
+	#radar_controller.path.hide()
 	game_controller.retro_effect_rect.show()
 	radar_controller.monitor.trauma = 1.5
 	#main.hide()

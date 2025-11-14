@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=8 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
 [ext_resource type="PackedScene" uid="uid://iqrv353klj26" path="res://level/level_2.tscn" id="3_k8f8b"]
 [ext_resource type="PackedScene" uid="uid://c072it0axbah4" path="res://level/level_1.tscn" id="3_nt2wp"]
 [ext_resource type="PackedScene" uid="uid://dgfwnnp3ul442" path="res://level/level_3.tscn" id="4_7vc00"]
+[ext_resource type="PackedScene" uid="uid://b4c444ld0g45p" path="res://level/level_4.tscn" id="5_klgnm"]
+[ext_resource type="PackedScene" uid="uid://dx0pfblj5x8nl" path="res://monster/nothing_2.tscn" id="6_7vc00"]
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
 
-[node name="Main" type="Node2D" groups=["main"]]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("nothing2") groups=["main"]]
 script = ExtResource("1_414cb")
-lvls = Array[PackedScene]([ExtResource("3_nt2wp"), ExtResource("3_k8f8b"), ExtResource("4_7vc00")])
+lvls = Array[PackedScene]([ExtResource("3_nt2wp"), ExtResource("3_k8f8b"), ExtResource("4_7vc00"), ExtResource("5_klgnm")])
+nothing2 = NodePath("Nothing2")
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
 top_level = true
@@ -16,6 +19,15 @@ position = Vector2(436, 486)
 
 [node name="DetectionArea" parent="PlayerCaptain/RadarObjComponent" index="1"]
 is_captain = false
+
+[node name="Nothing2" parent="." instance=ExtResource("6_7vc00")]
+visible = false
+position = Vector2(1982, 1690)
+min_appearances = 8
+rest_time = 20.0
+invisible_chance = 0.2
+min_spawn_time = 8.0
+max_spawn_time = 12.0
 
 [editable path="PlayerCaptain"]
 [editable path="PlayerCaptain/InteractionComponent"]

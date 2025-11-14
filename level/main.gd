@@ -9,6 +9,7 @@ var cur_lvl: Node2D = null
 var cur_lvl_id := 0
 
 var nothing : Nothing
+@export var nothing2 : Nothing
 
 func _ready() -> void:
 	Global.game_setup()
@@ -31,6 +32,9 @@ func _load_level(id: int):
 	nothing = cur_lvl.get_node("Nothing")
 	nothing.reset_behaviour()
 	Global.nothing = nothing
+	if cur_lvl_id == 3 and nothing2:
+		nothing2.show()
+		nothing2.reset_behaviour()
 	print("Loaded level ", id+1)
 	if Global.game_controller:
 		Global.game_controller.mini_map.get_minimap_objs()

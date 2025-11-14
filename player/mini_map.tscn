@@ -736,25 +736,26 @@ offset_bottom = 200.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.419779, 0.95484, 0.389507, 1)
 theme_override_font_sizes/font_size = 26
-text = "File Controls:"
+text = "Upgrades:"
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel/LabelGameC"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
+offset_left = -174.5
 offset_top = 35.0
-offset_right = 161.0
+offset_right = 157.5
 offset_bottom = 185.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "Locate the folder “something”
-inside the game files.
-You'll need to drag and drop
-the required files into the main
-window until there's nothing."
+text = "Bring the resource back to the
+main ship by the small drones.
+Buy upgrades at the stations.
+Use'go up' button at right corner
+to go up when the fuel is full.
+"
 
 [node name="Start" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
 unique_name_in_owner = true
@@ -875,12 +876,14 @@ layout_mode = 2
 max_boughts = 2
 upgrade_type = "radar_fade"
 cost = 25
+fuel_cost = 0.3
 
 [node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="0"]
 texture = SubResource("AtlasTexture_ber1x")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="1"]
-text = "25KG Load"
+text = "25KG Load
++ 30% Fuel"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="2"]
 text = "Radar Signal 
@@ -890,12 +893,14 @@ Retention ++"
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "max_hull"
+fuel_cost = 0.1
 
 [node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="0"]
 texture = SubResource("AtlasTexture_8cq7y")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="1"]
-text = "20KG Load"
+text = "20KG Load
++ 10% Fuel"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade/Hbox" index="2"]
 text = "Max Hull ++"
@@ -969,13 +974,13 @@ text = "Cargo Capacity
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "scan_speed"
-cost = 30
+cost = 65
 
 [node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="0"]
 texture = SubResource("AtlasTexture_bhto4")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="1"]
-text = "30KG Load"
+text = "65KG Load"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade6/Hbox" index="2"]
 text = "Radar Scan 

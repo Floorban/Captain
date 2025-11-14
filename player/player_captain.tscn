@@ -14,7 +14,7 @@ atlas = ExtResource("2_umdq8")
 region = Rect2(72, 16, 16, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7lgq"]
-radius = 750.0
+radius = 800.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3178a"]
 radius = 350.0
@@ -91,7 +91,7 @@ light_mask = 0
 visibility_layer = 2
 z_index = -2
 position = Vector2(0.0999998, -0.500001)
-scale = Vector2(1.15, 1.15)
+scale = Vector2(1.23, 1.23)
 texture = ExtResource("7_fa2mc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RadarObjComponent/DroneArea" index="1"]

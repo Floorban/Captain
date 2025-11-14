@@ -136,6 +136,7 @@ theme_override_constants/separation = 26
 
 [node name="DeathMenu" type="ColorRect" parent="UI/ShipUI"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -159,29 +160,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/ShipUI"]
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 1
 offset_right = 70.0
 offset_bottom = 100.0
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 30
 
 [node name="Signal_0" type="TextureRect" parent="UI/ShipUI/MarginContainer"]
-modulate = Color(0.339221, 0.984955, 0.492978, 1)
-custom_minimum_size = Vector2(70, 70)
+modulate = Color(1, 0.142571, 0.28922, 1)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 texture = ExtResource("9_blt35")
 expand_mode = 1
 
 [node name="Signal_1" type="TextureRect" parent="UI/ShipUI/MarginContainer"]
-modulate = Color(0.339221, 0.984955, 0.492978, 1)
-custom_minimum_size = Vector2(70, 70)
+modulate = Color(1, 0.142571, 0.28922, 1)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 texture = ExtResource("10_qksnu")
 expand_mode = 1
 
 [node name="Signal_2" type="TextureRect" parent="UI/ShipUI/MarginContainer"]
-modulate = Color(0.339221, 0.984955, 0.492978, 1)
-custom_minimum_size = Vector2(70, 70)
+modulate = Color(1, 0.142571, 0.28922, 1)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 texture = ExtResource("9_3xkr2")
 expand_mode = 1
