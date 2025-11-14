@@ -28,7 +28,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		seen_enemy = true
 		Global.radar_controller.monitor.start_danger_blink()
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ALERT)
-		if not is_captain and global_position.direction_to(body.global_position).length() <= 20.0:
+		if not is_captain and global_position.direction_to(body.global_position).length() <= 10.0:
 			var n : Nothing = body
 			if n.has_shown and not n.has_interrupted:
 				n.interrupt_behaviour()

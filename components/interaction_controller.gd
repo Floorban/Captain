@@ -15,6 +15,7 @@ var pickup_speed := 1.0
 func _ready() -> void:
 	interact_progress_bar.hide()
 	label.hide()
+	pickup_speed += Global.added_pickup_time
 
 func _process(delta: float) -> void:
 	label.global_position += global_position

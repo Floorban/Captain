@@ -39,7 +39,7 @@ func init_window(_x: float, _y: float, _t: Vector2, size_scale: float):
 	init_player(_t)
 	resize_window(Vector2(size.x,size.y) * size_scale)
 	var max_dist = Global.get_captain().drone_area.col.radius
-	thresholds = [max_dist*3/4, max_dist*2/4, max_dist/4]
+	thresholds = [max_dist*0.9, max_dist*0.5, max_dist*0.1]
 
 	#if not player or not is_instance_valid(player) or not Global.get_captain():
 		#return

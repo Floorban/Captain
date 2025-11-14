@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=49 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
@@ -265,6 +265,13 @@ load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex
 [sub_resource type="AtlasTexture" id="AtlasTexture_ber1x"]
 atlas = SubResource("CompressedTexture2D_qgvr3")
 region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ifii2"]
+load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sj7i"]
+atlas = SubResource("CompressedTexture2D_ifii2")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ber1x"]
 load_path = "res://.godot/imported/set.png-3b9a683b39dd04cfbddb0ebce9369e84.ctex"
@@ -736,7 +743,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.419779, 0.95484, 0.389507, 1)
 theme_override_font_sizes/font_size = 26
-text = "Upgrades:"
+text = "Drones:"
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control2/Panel/LabelGameC"]
 layout_mode = 1
@@ -750,11 +757,12 @@ offset_bottom = 185.0
 grow_horizontal = 2
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 21
-text = "Bring the resource back to the
-main ship by the small drones.
-Buy upgrades at the stations.
-Use'go up' button at right corner
-to go up when the fuel is full.
+text = "Send them out to bring the 
+resource back to the main ship.
+They can only be sent within the
+green radius, and can't move out
+of the red radius.
+
 "
 
 [node name="Start" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
@@ -888,6 +896,22 @@ text = "25KG Load
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14/Hbox" index="2"]
 text = "Radar Signal 
 Retention ++"
+
+[node name="Upgrade15" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
+layout_mode = 2
+max_boughts = 2
+upgrade_type = "pickup_time"
+cost = 50
+
+[node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade15/Hbox" index="0"]
+texture = SubResource("AtlasTexture_1sj7i")
+
+[node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade15/Hbox" index="1"]
+text = "50KG Load"
+
+[node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade15/Hbox" index="2"]
+text = "Drone Pick Up
+Item Speed ++"
 
 [node name="Upgrade" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades" instance=ExtResource("9_tbvrb")]
 layout_mode = 2
@@ -1053,14 +1077,14 @@ text = "Drone Speed ++"
 layout_mode = 2
 max_boughts = 2
 upgrade_type = "drone_capacity"
-cost = 80
+cost = 65
 fuel_cost = 0.2
 
 [node name="Icon" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="0"]
 texture = SubResource("AtlasTexture_sj4wl")
 
 [node name="Price" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="1"]
-text = "80KG Load
+text = "65KG Load
 + 20% Fuel"
 
 [node name="Description" parent="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade11/Hbox" index="2"]
@@ -1095,6 +1119,7 @@ autostart = true
 
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade13"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade14"]
+[editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade15"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade2"]
 [editable path="SubViewportContainer/SubViewport/Station/Panel/Upgrades/Upgrade3"]
