@@ -31,7 +31,7 @@ var cur_load := 0.0
 var cur_station: Station
 
 var added_player_speed := 0.0
-var added_player_hp := 2
+var added_player_hp := 0
 @export var salvage_res : ItemData
 @export var cell_res : ItemData
 
