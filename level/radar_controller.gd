@@ -15,6 +15,8 @@ var send_ship_delay := 500
 @onready var monitor: Monitor = $"../Monitor"
 var can_control := false
 
+var started := false
+
 func _ready() -> void:
 	Global.radar_controller = self
 
