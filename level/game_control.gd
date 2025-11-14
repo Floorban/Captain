@@ -15,6 +15,7 @@ var in_game := false
 
 @onready var hp_bar: HealthBar = %HpBar
 @onready var fuel_bar: ProgressBar = %FuelBar
+@onready var win: Panel = %Win
 
 func _ready() -> void:
 	Global.game_controller = self

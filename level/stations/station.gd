@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _on_enter_station(_interactor: Node) -> void:
 	if is_exit:
-		Global.game_over()
+		Global.game_win()
 		return
 	if has_entered:
 		return

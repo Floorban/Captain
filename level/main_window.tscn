@@ -301,6 +301,36 @@ the salvage (Load) to buy upgrades at stations when your main ship reach them.
 Use'go up' button at right corner to go up when the fuel is full.
 (You have to click the .exe to restart the game when you die, unfortunately)"
 
+[node name="Win" type="Panel" parent="GameControl"]
+unique_name_in_owner = true
+visible = false
+light_mask = 0
+visibility_layer = 2
+z_index = 20
+texture_filter = 1
+custom_minimum_size = Vector2(800, 550)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gvqxy")
+
+[node name="Title" type="Label" parent="GameControl/Win"]
+modulate = Color(0.266667, 0.988235, 0.537255, 1)
+light_mask = 0
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Thanks for Playing :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SideScreen" parent="GameControl" instance=ExtResource("10_gvqxy")]
 unique_name_in_owner = true
 

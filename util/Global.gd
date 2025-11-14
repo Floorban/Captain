@@ -42,7 +42,7 @@ var upgrade_effects = {
 		health_component.health_bar.update_hp_bar(health_component.cur_hp)
 		update_stats(),
 	"max_fuel": func() -> void:
-		max_fuel += 50.0
+		max_fuel += 25.0
 		update_stats(),
 	"fuel_efficiency": func(): get_captain().fuel_heating_speed -= 1.0,
 	"max_speed": func(): get_captain().move_speed += 25.0,
@@ -197,3 +197,8 @@ func game_over():
 	radar_controller.try_add_drone()
 	radar_controller.try_add_drone()
 	game_controller.set_game_menu_content(0)
+
+func game_win():
+	game_controller.win.show()
+	await get_tree().create_timer(1.5).timeout
+	game_over()
