@@ -13,14 +13,15 @@ var thresholds = []
 func _ready() -> void:
 	_get_signal_screen_effect_mat(death_mat)
 
-func init_window(window_pos_x: float, window_pos_y: float, world_pos: Vector2):
+func init_window(window_id: int, window_pos_x: float, window_pos_y: float, world_pos: Vector2):
 	position.x = int(window_pos_x)
 	position.y = int(window_pos_y)
-	init_player(world_pos)
+	init_player(window_id, world_pos)
 
-func init_player(target_pos: Vector2):
+func init_player(id: int, target_pos: Vector2):
 	if not player: return
 	update_player_upgrades(player)
+	player.init_player_input_keys("up"+str(id), "left"+str(id), "down"+str(id), "right"+str(id), str(id))
 	button_drop.text = "Press " + player.drop_key + "\nTo Drop"
 	
 	player.global_position = target_pos
@@ -63,6 +64,7 @@ func signal_lost(recycle := false):
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
 
 func _clear_window(captain_dead := false):
+	Global.windows_manager.remove_subwindow(self)
 	_signal_screen_effect(false)
 	if captain_dead:
 		screen_label.show()

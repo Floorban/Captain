@@ -6,7 +6,7 @@ class_name Player
 @export var input_right := "right1"
 @export var input_up := "up1"
 @export var input_down := "down1"
-@export var drop_key := "F"
+@export var drop_key := "1"
 
 ## --- Attributes ---
 var is_dead: bool = false
@@ -52,6 +52,13 @@ func _init_player_signals():
 		health_component.init_hp()
 	hitbox_component.turn_invulnerable.connect(_toggle_player_shield)
 
+func init_player_input_keys(w,a,s,d,f):
+	input_up = w
+	input_left = a
+	input_down = s
+	input_right = d
+	drop_key = f
+
 func dmg_effect():
 	if is_captain:
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DAMAGED)
@@ -83,6 +90,8 @@ func _physics_process(delta: float) -> void:
 	_process_knockback(delta)
 	_process_movement(delta)
 	_process_rotation(delta)
+	if Input.is_action_just_pressed(drop_key):
+		try_drop_inventory_item()
 
 ## --- Input ---
 func _get_move_input() -> Vector2:
@@ -131,6 +140,8 @@ func apply_knockback(direction: Vector2, strength: float, duration: float) -> vo
 	knockback_velocity = direction.normalized() * strength
 
 func try_drop_inventory_item():
+	if not inventory:
+		return
 	inventory.drop_item(global_position + Vector2(randf_range(-30,30), randf_range(-30,30)))
 
 func _receive_items(interactor: Node):

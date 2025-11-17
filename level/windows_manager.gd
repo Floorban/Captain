@@ -5,6 +5,9 @@ class_name WindowManager
 @export var window_scene: PackedScene
 @export var main_sub_window: Window
 var subwindows: Array[SubWindow] = []
+var window_ids := {}
+var free_ids: Array[int] = []
+var next_id := 0
 
 func _ready():
 	Global.windows_manager = self
@@ -30,28 +33,26 @@ func spawn_window(world_pos: Vector2):
 	var w = window_scene.instantiate()
 	if w is SubWindow:
 		w.world_2d = main_window.world_2d
-		w.tree_exited.connect(func():
-			subwindows.erase(w)
-			print("Removed window:", w.name)
-		)
+		var id = acquire_window_id()
+		window_ids[w] = id
 		add_child(w)
 		subwindows.append(w)
-		w.name = "SubWindow_%d" % subwindows.size()
-		w.title = "Crew_%d" % subwindows.size()
-		var index = subwindows.size() - 1
+
+		w.name = "SubWindow_%d" % (id+1)
+		w.title = "Crew_%d" % (id+1)
 		var fixed_positions = get_window_spawn_positions(w)
-		var spawn_pos = fixed_positions[index % fixed_positions.size()]
-		w.init_window(spawn_pos.x, spawn_pos.y, world_pos)
+		var spawn_pos = fixed_positions[id % fixed_positions.size()]
+		w.init_window(id+1, spawn_pos.x, spawn_pos.y, world_pos)
 
 func get_window_spawn_positions(w: Window) -> Array:
 	var screen_size = DisplayServer.screen_get_size()
 	var size := subwindows.size()
 	var y : float = (screen_size.y - w.size.y) / 2
-	var spacing : float = float(main_sub_window.size.x)
-	var center_x = (screen_size.x - w.size.x + spacing) / 2
+	var spacing : float = float(main_sub_window.size.x) / 2 + 200
+	var center_x = (screen_size.x - w.size.x) / 2
 	return [
-		Vector2(center_x - spacing, y),
-		Vector2(center_x + spacing, y)
+		Vector2(center_x + spacing, y),
+		Vector2(center_x - spacing, y)
 	]
 
 func set_windows_visibility(enable: bool):
@@ -60,6 +61,29 @@ func set_windows_visibility(enable: bool):
 	for w in subwindows:
 		if not enable: w.hide()
 		else: w.show()
+
+func acquire_window_id() -> int:
+	if free_ids.size() > 0:
+		return free_ids.pop_back()
+	
+	var id = next_id
+	next_id += 1
+	return id
+
+func reset_window_ids():
+	next_id = 0
+	free_ids.clear()
+	window_ids.clear()
+
+func remove_subwindow(window: SubWindow):
+	if not subwindows.has(window):
+		return
+	var id = window_ids[window]
+	free_ids.append(id)
+	window_ids.erase(window)
+	subwindows.erase(window)
+	if subwindows.is_empty():
+		reset_window_ids()
 
 func close_all_windows():
 	var delay := randf_range(0.8, 1.2)
