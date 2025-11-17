@@ -22,6 +22,7 @@ var cur_load := 0.0
 var added_player_speed := 0.0
 var added_player_hp := 0
 var added_pickup_time := 0.0
+var drone_vision_scale := Vector2.ONE
 @export var salvage_res : ItemData
 @export var cell_res : ItemData
 
@@ -41,14 +42,14 @@ var upgrade_effects = {
 	"scan_speed": func(): radar_controller.mini_map.scan_wait_time -= 0.5,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
 	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.4),
-	"drone_vision": func(): windows_manager.vision_range *= 1.2,
+	"drone_vision": func(): drone_vision_scale *= 1.2,
 	"drone_speed": func(): added_player_speed += 20.0,
 	"drone_capacity": func() -> void:
 		salvage_res.max_stack += 2
 		cell_res.max_stack += 2,
 	"fuel_cell_efficiency": func(): cell_res.value *= 2.0,
 	"drone_max_hp": func(): added_player_hp += 1,
-	"radar_fade": func(): radar_controller.mini_map.fade_speed -= 0.1,
+	"radar_fade": func(): radar_controller.mini_map.fade_speed -= 0.15,
 	"pickup_time": func(): added_pickup_time += 0.5
 }
 

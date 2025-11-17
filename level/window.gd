@@ -16,6 +16,7 @@ func _ready() -> void:
 func init_window(window_id: int, window_pos_x: float, window_pos_y: float, world_pos: Vector2):
 	position.x = int(window_pos_x)
 	position.y = int(window_pos_y)
+	resize_window(Global.drone_vision_scale)
 	init_player(window_id, world_pos)
 
 func init_player(id: int, target_pos: Vector2):
@@ -43,9 +44,9 @@ func update_signal_distance_indicator(a: Node2D, b: Node2D) -> void:
 	for i in range(signals.size()):
 		signals[i].visible = dist <= thresholds[i]
 
-func resize_window(target_size: Vector2i):
+func resize_window(size_scale: Vector2i):
 	unresizable = false
-	size = target_size
+	size *= size_scale
 	unresizable = true
 
 func signal_connected():
