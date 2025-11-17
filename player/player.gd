@@ -6,6 +6,7 @@ class_name Player
 @export var input_right := "right1"
 @export var input_up := "up1"
 @export var input_down := "down1"
+@export var drop_key := "F"
 
 ## --- Attributes ---
 var is_dead: bool = false
@@ -67,6 +68,7 @@ func dmg_effect():
 
 func _on_player_dead():
 	## explode particle here
+	is_dead = true
 	Global.radar_controller.remove_ship_radar_obj(self)
 
 func _toggle_player_shield(has_shield: bool):
@@ -128,13 +130,20 @@ func apply_knockback(direction: Vector2, strength: float, duration: float) -> vo
 	stun_timer = duration
 	knockback_velocity = direction.normalized() * strength
 
+func try_drop_inventory_item():
+	inventory.drop_item(global_position + Vector2(randf_range(-30,30), randf_range(-30,30)))
+
 func _receive_items(interactor: Node):
-	if interactor is Player and interactor.inventory != null:
+	if interactor is not Player:
+		return
+	if interactor.inventory != null:
 		var inv = interactor.inventory as InventoryComponent
 		inv.item_delivered.connect(_on_item_delivered)
 		inv.deliver_inventory()
 		inv.item_delivered.disconnect(_on_item_delivered)
-	if interactor != self and interactor is Player:
+	if interactor != self:
+		var window : SubWindow = interactor.get_parent()
+		if window: window.signal_lost(true)
 		Global.radar_controller.remove_ship_radar_obj(interactor, true)
 
 func _on_item_delivered(item: ItemData, count: int):

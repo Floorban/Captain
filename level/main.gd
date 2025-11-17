@@ -12,6 +12,7 @@ var nothing : Nothing
 @export var nothing2 : Nothing
 
 func _ready() -> void:
+	Global.main = self
 	Global.game_setup()
 	_load_level(cur_lvl_id)
 

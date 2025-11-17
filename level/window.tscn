@@ -34,8 +34,6 @@ maximize_disabled = true
 keep_title_visible = true
 content_scale_aspect = 1
 script = ExtResource("1_iwyyp")
-width_range = Vector2i(600, 600)
-height_range = Vector2i(600, 600)
 death_mat = ExtResource("8_sqm3f")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nen6l")]
@@ -152,7 +150,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/line_spacing = 10
 theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 34
 text = "SIGNAL IS
 DISCONNECTED"
 horizontal_alignment = 1

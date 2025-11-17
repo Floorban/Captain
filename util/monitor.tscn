@@ -1965,12 +1965,12 @@ skeleton = NodePath("")
 unique_name_in_owner = true
 
 [node name="light3" type="MeshInstance3D" parent="Collada visual scene group/Light3"]
-visible = false
 mesh = SubResource("ArrayMesh_d3kvg")
 skeleton = NodePath("")
 
 [node name="real_light3" type="MeshInstance3D" parent="Collada visual scene group/Light3"]
 transform = Transform3D(0.99999964, 0, -4.2351647e-22, -1.4210855e-14, 1, -1.4210855e-14, 2.1175824e-22, 0, 0.99999964, -0.19181642, 0.0046864664, -2.0485227e-10)
+visible = false
 mesh = SubResource("ArrayMesh_op2ol")
 skeleton = NodePath("")
 

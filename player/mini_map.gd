@@ -14,9 +14,9 @@ var markers := {}
 @onready var damage_effect: ColorRect = %DamageEffectRect
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 5.5
+var scan_wait_time := 2.0
 var marker_age := {}   # { obj: seconds_since_seen }
-var fade_speed := 0.3
+var fade_speed := 0.6
 @onready var mat: ShaderMaterial = scan_effect.material
 var scan_elapsed := 0.0
 var scanning := false
@@ -141,7 +141,7 @@ func update_markers_position():
 func remove_marker(marker_obj: Node2D):
 	if not marker_obj or not markers.has(marker_obj):
 		return
-	var window: Wwindow = marker_obj.get_parent()
+	var window: SubWindow = marker_obj.get_parent()
 	markers.erase(marker_obj)
 	marker_age.erase(marker_obj)
 	window._clear_window()

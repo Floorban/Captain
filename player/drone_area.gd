@@ -21,8 +21,8 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 		marker.is_detectable = true
 		var p : Player = body
-		var w : Wwindow = p.get_parent()
-		w.signal_recover()
+		var w : SubWindow = p.get_parent()
+		w.signal_connected()
 		p.can_move = true
 		detected_drones.append(p)
 
@@ -30,12 +30,15 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body is Player and detected_drones.has(body):
 		var p : Player = body
 		p.can_move = false
-		var w : Wwindow = p.get_parent()
-		w.signal_lost()
+		var w : SubWindow = p.get_parent()
+		var dist : float = p.global_position.distance_to(global_position)
+		if dist < col.radius:
+			w.signal_lost(true)
+		else:
+			w.signal_lost()
 		var marker : RadarObjComponent = body.get_node("RadarObjComponent")
 		marker.is_detectable = false
 		detected_drones.erase(body)
 		if detected_drones.size() <= 0:
-			Global.radar_controller.monitor.stop_danger_blink()
-			# lose signal prompt
-			
+			pass
+			# lose signal prompt: "lose all the drones, need to buy more"

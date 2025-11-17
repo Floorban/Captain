@@ -3,28 +3,13 @@ class_name WindowManager
 
 @onready var main_window: Window = get_window()
 @export var window_scene: PackedScene
-@export var spawn_area: Vector2 = Vector2(1500, 800)
 @export var main_sub_window: Window
-var subwindows: Array[Wwindow] = []
-
-func set_windows(on:bool):
-	if subwindows.size() <= 0:
-		return
-	for w in subwindows:
-		if not on: w.hide()
-		else: w.show()
+var subwindows: Array[SubWindow] = []
 
 func _ready():
 	Global.windows_manager = self
 	_init_main_window()
-	main_sub_window.files_dropped.connect(_on_files_dropped)
-	main_sub_window.world_2d = main_window.world_2d
-	var screen_size = DisplayServer.screen_get_size()
-	main_sub_window.position = Vector2(
-		screen_size.x -main_sub_window.size.x - 50,
-		screen_size.y - main_sub_window.size.y - 50
-	)
-	main_sub_window.grab_focus()
+	_connect_main_sub_window_to_world()
 
 func _init_main_window():
 	main_window.gui_embed_subwindows = false
@@ -35,45 +20,46 @@ func _init_main_window():
 	main_window.min_size = Vector2.ZERO
 	main_window.size = Vector2.ZERO
 
-var vision_range := 1.0
+func _connect_main_sub_window_to_world():
+	main_sub_window.world_2d = main_window.world_2d
+	main_sub_window.grab_focus()
 
-func spawn_window(pos: Vector2):
+func spawn_window(world_pos: Vector2):
 	if not window_scene:
 		return
-
 	var w = window_scene.instantiate()
-	if w is Wwindow:
+	if w is SubWindow:
 		w.world_2d = main_window.world_2d
 		w.tree_exited.connect(func():
 			subwindows.erase(w)
 			print("Removed window:", w.name)
 		)
-		w.name = "SubWindow_%d" % subwindows.size()
 		add_child(w)
 		subwindows.append(w)
+		w.name = "SubWindow_%d" % subwindows.size()
+		w.title = "Crew_%d" % subwindows.size()
 		var index = subwindows.size() - 1
-		var fixed_positions = get_fixed_positions_top_row(w)
+		var fixed_positions = get_window_spawn_positions(w)
 		var spawn_pos = fixed_positions[index % fixed_positions.size()]
-		w.init_window(spawn_pos.x, spawn_pos.y, pos, vision_range)
+		w.init_window(spawn_pos.x, spawn_pos.y, world_pos)
 
-func get_fixed_positions_top_row(w) -> Array:
+func get_window_spawn_positions(w: Window) -> Array:
 	var screen_size = DisplayServer.screen_get_size()
 	var size := subwindows.size()
-	var y := 0
-	if size <= 3:
-		y = 30
-	elif size <= 6:
-		y = 230
-	else:
-		y = 430
-	var spacing = 500 
-
-	var center_x = (screen_size.x - w.size.x) / 2
+	var y : float = (screen_size.y - w.size.y) / 2
+	var spacing : float = float(main_sub_window.size.x)
+	var center_x = (screen_size.x - w.size.x + spacing) / 2
 	return [
 		Vector2(center_x - spacing, y),
-		Vector2(center_x, y),
 		Vector2(center_x + spacing, y)
 	]
+
+func set_windows_visibility(enable: bool):
+	if subwindows.size() <= 0:
+		return
+	for w in subwindows:
+		if not enable: w.hide()
+		else: w.show()
 
 func close_all_windows():
 	var delay := randf_range(0.8, 1.2)
@@ -82,23 +68,3 @@ func close_all_windows():
 			w._clear_window(true)
 			await get_tree().create_timer(delay).timeout
 	subwindows.clear()
-
-func _on_files_dropped(files: PackedStringArray):
-	for f in files:
-		print("File dropped:", f)
-		check_file(f)
-
-func check_file(f: String):
-	var fname = f.get_file()
-	if fname == "start.txt":
-		delete_file(f)
-		Global.game_controller.set_game_menu_content(0)
-		#spawn resource in the game
-
-func delete_file(path: String) -> void:
-	var dir := DirAccess.open(path.get_base_dir())
-	if dir and dir.file_exists(path.get_file()):
-		dir.remove(path.get_file())
-	#var err := DirAccess.remove_absolute(path)
-	#if err != OK:
-		#push_warning("Could not delete file: %s" % path)

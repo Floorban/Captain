@@ -5,10 +5,9 @@
 
 [resource]
 script = ExtResource("1_db4fj")
-limit = 5
+limit = 2
 type = 19
 sound_effect = ExtResource("2_db4fj")
-volume = 0.0
-pitch_scale = 1.0
-pitch_randomness = 0.1
+volume = -15.0
+pitch_randomness = 0.05
 metadata/_custom_type_script = "uid://y7iv8is4xp2x"
