@@ -1,34 +1,23 @@
 extends Node
 
-enum GAME_STATE {
-	PAUSED,
-	MOVING,
-	STOP
-}
+var main : Main
+var windows_manager: WindowManager
+var game_controller: GameControl
+var radar_controller: RadarController
+var nothing: Nothing
 
-@onready var main : Main = get_tree().get_first_node_in_group("main")
 var players : Array[Player]
+var cur_station: Station
 
 var is_dead := false
+var health_component: HealthComponent
 
 @export var max_fuel := 200.0
 var cur_fuel := 0.0
 var fuel_heating_speed := 2.5
 
-var health_component: HealthComponent
-
-var windows_manager: WindowManager
-
-var game_controller: GameControl
-
-var radar_controller: RadarController
-
-var nothing: Nothing
-
 var max_load := 100.0
 var cur_load := 0.0
-
-var cur_station: Station
 
 var added_player_speed := 0.0
 var added_player_hp := 0
@@ -44,12 +33,12 @@ var upgrade_effects = {
 	"max_fuel": func() -> void:
 		max_fuel += 25.0
 		update_stats(),
-	"fuel_efficiency": func(): get_captain().fuel_heating_speed -= 1.0,
+	"fuel_efficiency": func(): fuel_heating_speed -= 1.0,
 	"max_speed": func(): get_captain().move_speed += 25.0,
 	"cargo_capacity": func() -> void:
 		max_load += 50.0
 		update_stats(),
-	"scan_speed": func(): radar_controller.mini_map.scan_wait_time -= 2.2,
+	"scan_speed": func(): radar_controller.mini_map.scan_wait_time -= 0.5,
 	"deploy_range": func(): get_captain().detection_area.grow_detection_radius(1.5),
 	"drone_signal_range": func(): get_captain().drone_area.grow_detection_radius(1.4),
 	"drone_vision": func(): windows_manager.vision_range *= 1.2,
@@ -135,7 +124,7 @@ func update_stats():
 	game_controller.side_screen.set_stats_screen()
 
 func enter_station(station: Station):
-	windows_manager.set_windows(false)
+	windows_manager.set_windows_visibility(false)
 	print("player has entered ", station.name)
 	main.hide()
 	radar_controller.mini_map.set_upgrades(true)
@@ -147,7 +136,7 @@ func enter_station(station: Station):
 
 func exit_station():
 	get_tree().paused = false
-	windows_manager.set_windows(true)
+	windows_manager.set_windows_visibility(true)
 	main.show()
 	radar_controller.can_control = true
 	radar_controller.target = null
@@ -202,3 +191,41 @@ func game_win():
 	game_controller.win.show()
 	await get_tree().create_timer(1.5).timeout
 	game_over()
+
+
+var label_effect_version := {}  # Label -> int
+
+func play_label_effect(label: Label, full_text: String) -> void:
+	label_effect_version[label] = label_effect_version.get(label, 0) + 1
+	var my_version = label_effect_version[label]
+	label.text = ""
+	label.show()
+	_blink_label_versioned(label, 6, 0.05, 0.15, my_version)
+	_type_glitch_versioned(label, full_text, 0.02, 0.5, my_version)
+
+func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
+	if Global.is_dead: return
+	for i in range(blinks):
+		if label_effect_version[label] != version:
+			return
+		label.visible = not label.visible
+		await get_tree().create_timer(randf_range(min_delay, max_delay)).timeout
+	label.visible = true
+
+func _type_glitch_versioned(label: Label, text: String, char_delay: float, glitch_chance: float, version: int) -> void:
+	if Global.is_dead: return
+	var output := ""
+	var chars = text.split("")
+	for c in chars:
+		if label_effect_version[label] != version:
+			return
+		if randf() < glitch_chance:
+			label.text = output + _random_glitch_char()
+			await get_tree().create_timer(char_delay * 0.5).timeout
+		output += c
+		label.text = output
+		await get_tree().create_timer(char_delay).timeout
+
+func _random_glitch_char() -> String:
+	var pool = ["#", "%", "&", "*", "@", "?", "/", "\\", "!", "~", "±", "§"]
+	return pool[randi() % pool.size()]

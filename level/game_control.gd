@@ -19,7 +19,8 @@ var in_game := false
 
 func _ready() -> void:
 	Global.game_controller = self
-	get_tree().paused = true
+	#get_tree().paused = true
+	set_game_content()
 
 func set_game_menu_content(menu_id: int):
 	if credits.visible:

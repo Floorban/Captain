@@ -217,6 +217,7 @@ mini_map_camera = NodePath("../MiniMapCamera")
 
 [node name="RetroEffectRect" parent="MiniMap" instance=ExtResource("8_qyphg")]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_dol8q")
 
 [node name="GameControl" type="CanvasLayer" parent="."]

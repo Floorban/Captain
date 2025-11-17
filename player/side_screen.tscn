@@ -262,9 +262,9 @@ focus_neighbor_top = NodePath("../Button4")
 focus_neighbor_right = NodePath("../Button2")
 focus_neighbor_bottom = NodePath("../Button2")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="Button2" type="Button" parent="SubViewport/Background/MainMenu"]
@@ -276,9 +276,9 @@ focus_neighbor_top = NodePath("../Button1")
 focus_neighbor_right = NodePath("../Button3")
 focus_neighbor_bottom = NodePath("../Button3")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="Button3" type="Button" parent="SubViewport/Background/MainMenu"]
@@ -290,9 +290,9 @@ focus_neighbor_top = NodePath("../Button2")
 focus_neighbor_right = NodePath("../Button4")
 focus_neighbor_bottom = NodePath("../Button4")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="Button4" type="Button" parent="SubViewport/Background/MainMenu"]
@@ -304,9 +304,9 @@ focus_neighbor_top = NodePath("../Button3")
 focus_neighbor_right = NodePath("../Button1")
 focus_neighbor_bottom = NodePath("../Button1")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="GameMenu" type="MarginContainer" parent="SubViewport/Background"]
@@ -553,9 +553,9 @@ focus_neighbor_top = NodePath("../HBoxContainer/B3")
 focus_neighbor_right = NodePath("../HBoxContainer/B2")
 focus_neighbor_bottom = NodePath("../HBoxContainer/B2")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Background/GameMenu/Panel"]
@@ -581,9 +581,9 @@ focus_neighbor_top = NodePath("../../B1")
 focus_neighbor_right = NodePath("../B3")
 focus_neighbor_bottom = NodePath("../B3")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"
 
 [node name="B3" type="Button" parent="SubViewport/Background/GameMenu/Panel/HBoxContainer"]
@@ -595,7 +595,7 @@ focus_neighbor_top = NodePath("../B2")
 focus_neighbor_right = NodePath("../../B1")
 focus_neighbor_bottom = NodePath("../../B1")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = ExtResource("4_1xwaj")
-theme_override_styles/hover = ExtResource("4_1xwaj")
 theme_override_styles/pressed = ExtResource("3_l53wi")
+theme_override_styles/hover = ExtResource("4_1xwaj")
+theme_override_styles/focus = ExtResource("4_1xwaj")
 text = "START"

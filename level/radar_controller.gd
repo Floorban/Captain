@@ -56,7 +56,6 @@ func _set_destination(event):
 			sin(player.global_rotation - deg_to_rad(90))
 		)
 		var angle_deg = rad_to_deg(forward.angle_to(to_target))
-		
 
 func _go_to_destination(delta):
 	if Input.is_action_pressed("secondary") and target != null and can_control:
@@ -119,9 +118,10 @@ func send_ship(btn: Button, loading_bar: ProgressBar, axis_label: Label):
 		else:
 			var msg := "Target is Too
 						Far Away"
-			Global.game_controller.side_screen.play_label_effect(axis_label, msg)
+			Global.play_label_effect(axis_label, msg)
 
-var ship_amonut := 3
+const MAX_SHIP_AMOUNT := 2
+var ship_amonut := 2
 var out_ships : Array[int] = []
 var send_ship_tween : Tween
 var is_sending := false
@@ -137,7 +137,7 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 		is_sending = false
 		btn.text = "SEND A DRONE"
 		msg = "Target Required"
-		Global.game_controller.side_screen.play_label_effect(axis_label, msg)
+		Global.play_label_effect(axis_label, msg)
 		#path.curve.clear_points()
 		select_marker.hide()
 		can_send = false
@@ -145,12 +145,12 @@ func wait_and_spawn(delay: float, pos: Vector2, btn: Button, loading_bar: Progre
 	if ship_amonut <= 0:
 		btn.text = "No Drones(3/3)"
 		msg = "Recycle a Drone \n to Reuse It"
-		Global.game_controller.side_screen.play_label_effect(axis_label, msg)
+		Global.play_label_effect(axis_label, msg)
 		return
 	is_sending = true
 	msg = "Sending to\n" + ("( " + str(int(click_pos.x))) + (", " + str(int(click_pos.y)) + " )")
 	btn.text = "STOP"
-	Global.game_controller.side_screen.play_label_effect(axis_label, msg)
+	Global.play_label_effect(axis_label, msg)
 	var end_value := loading_bar.max_value
 	if send_ship_tween:
 		send_ship_tween.kill()
@@ -176,11 +176,14 @@ func remove_ship_radar_obj(ship: Node2D, recycle := false):
 		monitor.switch_light(ship_amonut, true)
 		ship_amonut += 1
 		Global.update_stats()
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SEND_DRONE)
+	else:
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
 	out_ships.erase(0)
 	mini_map.remove_marker(ship)
 
 func try_add_drone() -> bool:
-	if ship_amonut >= 3 or ship_amonut + out_ships.size() >= 3:
+	if ship_amonut >= MAX_SHIP_AMOUNT or ship_amonut + out_ships.size() >= MAX_SHIP_AMOUNT:
 		return false
 	monitor.switch_light(ship_amonut, true)
 	ship_amonut += 1

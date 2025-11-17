@@ -1,144 +1,93 @@
 extends Window
-class_name Wwindow
-
-@export var width_range: Vector2i = Vector2i(400, 400)
-@export var height_range: Vector2i = Vector2i(400, 400)
-
-@export var max_distance: float = 500.0  # beyond this, window is minimum size
-@export var min_window_size: Vector2i = Vector2i(250, 250)
-
-var size_tween : Tween
+class_name SubWindow
 
 @onready var player: Player = $Player
 @onready var button_drop: Button = %ButtonDrop
-@onready var inventory_component: InventoryComponent = %InventoryComponent
-@onready var death_menu: ColorRect = %DeathMenu
-@onready var label_death: Label = $UI/ShipUI/DeathMenu/LabelDeath
-@export var death_mat: Material
-
 @onready var signals : Array[Node] = [$UI/ShipUI/MarginContainer/Signal_0, $UI/ShipUI/MarginContainer/Signal_1, $UI/ShipUI/MarginContainer/Signal_2]
 var thresholds = []
-var is_dead := false
-func update_signal_display(a: Node2D, b: Node2D) -> void:
+
+@export var death_mat: Material
+@onready var death_menu: ColorRect = %DeathMenu
+@onready var screen_label: Label = $UI/ShipUI/DeathMenu/LabelDeath
+
+func _ready() -> void:
+	_get_signal_screen_effect_mat(death_mat)
+
+func init_window(window_pos_x: float, window_pos_y: float, world_pos: Vector2):
+	position.x = int(window_pos_x)
+	position.y = int(window_pos_y)
+	init_player(world_pos)
+
+func init_player(target_pos: Vector2):
+	if not player: return
+	update_player_upgrades(player)
+	button_drop.text = "Press " + player.drop_key + "\nTo Drop"
+	
+	player.global_position = target_pos
+	player.health_component.set_cur_hp(player.health_component.max_hp)
+	#TODO: add player in the dictionry instead of asking for refreshing all the markers
+	Global.main.mini_map.get_minimap_objs()
+	signal_connected()
+
+func update_player_upgrades(p: Player, speed_bonus: float = Global.added_player_hp, max_hp_bonus: int = Global.added_player_hp):
+	p.move_speed += speed_bonus
+	p.health_component.max_hp += max_hp_bonus
+
+func _process(_delta: float) -> void:
+	if thresholds.size() <= 0 or not player or player.is_dead: return
+	update_signal_distance_indicator(player, Global.get_captain())
+
+func update_signal_distance_indicator(a: Node2D, b: Node2D) -> void:
 	var dist = a.global_position.distance_to(b.global_position)
 	for i in range(signals.size()):
 		signals[i].visible = dist <= thresholds[i]
 
-func _process(delta: float) -> void:
-	if is_dead: return
-	update_signal_display(player, Global.get_captain())
+func resize_window(target_size: Vector2i):
+	unresizable = false
+	size = target_size
+	unresizable = true
 
-func random_size() -> Vector2i:
-	return Vector2(randi_range(width_range.x, width_range.y), randi_range(height_range.x, height_range.y))
-
-func init_window(_x: float, _y: float, _t: Vector2, size_scale: float):
-	position.x = int(_x)
-	position.y = int(_y)
-	player.hide()
-	#await get_tree().create_timer(delay).timeout
-	init_player(_t)
-	resize_window(Vector2(size.x,size.y) * size_scale)
+func signal_connected():
+	_signal_screen_effect(true)
 	var max_dist = Global.get_captain().drone_area.col.radius
 	thresholds = [max_dist*0.9, max_dist*0.5, max_dist*0.1]
 
-	#if not player or not is_instance_valid(player) or not Global.get_captain():
-		#return
-	#var dist := player.global_transform.origin.distance_to(Global.get_captain().global_transform.origin)
-	#var t : float = clamp(dist / max_distance, 0.0, 1.0)  # 0 = close, 1 = far
-#
-	#var target_w = lerp(width_range.y, width_range.x, t)
-	#var target_h = lerp(height_range.y, height_range.x, t)
-	#var target_size = Vector2i(target_w, target_h)
-	#resize_window(target_size)
+func signal_lost(recycle := false):
+	_signal_screen_effect(false)
+	if player.is_dead:
+		Global.play_label_effect(screen_label, "DRONE IS \nDAMAGED")
+	elif recycle: 
+		Global.play_label_effect(screen_label, "CREW HAS RETURNED\n SUCCESSFULLY")
+	else: 
+		Global.play_label_effect(screen_label, "SIGNAL LOST... \nPLEASE STAY IN THE \nCAPTAIN SIGNAL RANGE")
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
 
-func init_player(target_pos: Vector2):
-	if not player: return
-	Audio.create_2d_audio_at_location(SoundEffect.SOUND_EFFECT_TYPE.DRONE_CONNECT)
-	button_drop.pressed.connect(try_drop)
-	player.show()
-	player.global_position = target_pos
-	player.move_speed += Global.added_player_speed
-	player.health_component.max_hp += Global.added_player_hp
-	player.health_component.set_cur_hp(player.health_component.max_hp)
-	Global.main.mini_map.get_minimap_objs()
+func _clear_window(captain_dead := false):
+	_signal_screen_effect(false)
+	if captain_dead:
+		screen_label.show()
+		screen_label.text = "LOST CONNECTION\n WITH CAPTAIN..."
+	else:
+		Global.play_label_effect(screen_label, "DRONE IS \nDAMAGED")
+	await get_tree().create_timer(3.0).timeout
+	queue_free()
 
-func init_window_signals():
-	focus_entered.connect(_on_focus_entered)
-	focus_exited.connect(_on_focus_exited)
-	close_requested.connect(_clear_window)
-
-func _ready() -> void:
-	init_window_signals()
-	var mat = death_mat.duplicate()
+func _get_signal_screen_effect_mat(base_mat: Material):
+	var mat = base_mat.duplicate()
 	death_menu.material = mat
 
-func resize_window(target_size: Vector2i):
-	unresizable = false
-	if size_tween and size_tween.is_running():
-		size_tween.kill()
-
-	size_tween = create_tween()
-	size_tween.tween_property(self, "size", target_size, 0.2)
-	#.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
-	size_tween.finished.connect(func(): unresizable = true)
-	
-	check_window_size()
-
-func check_window_size():
-	if size.y <= min_window_size.y:
-		if visible:
-			Global.windows_manager.main_sub_window.grab_focus()
-			visible = false
-
-func try_drop():
-	inventory_component.drop_item(player.global_position + Vector2(randf_range(-30,30), randf_range(-30,30)))
-
-func signal_lost():
-	#death_menu.show()
-	if player.health_component.cur_hp > 0:
-		var tween = create_tween()
+func _signal_screen_effect(connected: bool):
+	var tween = create_tween()
+	if connected:
+		screen_label.hide()
+		tween.tween_property(death_menu.material, "shader_parameter/shake", 0.01, 0.1)
+		tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 500.0, 0.3)
+		tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.02, 0.2)
+		tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.01, 0.1)
+		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_CONNECT)
+	else:
+		screen_label.show()
 		tween.tween_property(death_menu.material, "shader_parameter/shake", 10.0, 0.1)
 		tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
 		tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
 		tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
-		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
-		Global.game_controller.side_screen.play_label_effect(label_death, "SIGNAL IS \nDISCONNECTED")
-	else:
-		_clear_window()
-
-func signal_recover():
-	#death_menu.hide()
-	label_death.hide()
-	var tween = create_tween()
-	tween.tween_property(death_menu.material, "shader_parameter/shake", 0.01, 0.1)
-	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 500.0, 0.3)
-	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.02, 0.2)
-	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.01, 0.1)
-	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_CONNECT)
-	label_death.hide()
-
-func _on_focus_entered() -> void:
-	if player: player.can_control = true
-	button_drop.grab_focus()
-	#if has_focus(): resize_window(size*0.8)
-
-func _on_focus_exited() -> void:
-	if player: player.can_control = false
-
-func _clear_window(captain_dead := false):
-	is_dead = true
-	var tween = create_tween()
-	tween.tween_property(death_menu.material, "shader_parameter/shake", 10.0, 0.1)
-	tween.tween_property(death_menu.material, "shader_parameter/pixelSize", 60.0, 0.3)
-	tween.tween_property(death_menu.material, "shader_parameter/grainIntensity", 0.9, 0.2)
-	tween.tween_property(death_menu.material, "shader_parameter/lens_distortion_strength", 0.1, 0.1)
-	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DRONE_DISCONNECT)
-	if captain_dead:
-		label_death.show()
-		label_death.text = "SIGNAL LOST..."
-		await get_tree().create_timer(1.0).timeout
-		queue_free()
-	else:
-		Global.game_controller.side_screen.play_label_effect(label_death, "DRONE IS \nDAMAGED")
-		await get_tree().create_timer(3.5).timeout
-		queue_free()

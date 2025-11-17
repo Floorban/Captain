@@ -74,7 +74,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 	if not Global.get_captain().can_move:
 		var msg = "Unknown Source:\nHostile Impact" 
 		label_control.modulate = Color.RED
-		play_label_effect(label_control, msg)
+		Global.play_label_effect(label_control, msg)
 		return
 	can_goup = false
 	going_up = false
@@ -91,7 +91,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 	elif see_nothing:
 		var msg = "There is Nothing..."
 		label_control.modulate = Color.RED
-		play_label_effect(label_control, msg)
+		Global.play_label_effect(label_control, msg)
 	elif found_target:
 		var pos := found_target.axis
 		var msg = "Station Detected\n(%d, %d)\n%s" % [
@@ -100,7 +100,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 			"Go Get Upgrades"
 		]
 		label_control.modulate = Color.GREEN
-		play_label_effect(label_control, msg)
+		Global.play_label_effect(label_control, msg)
 	else:
 		Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_TIP)
 		var messages = []
@@ -130,7 +130,7 @@ func set_control_screen(found_target: Station, first_time := false, is_dead := f
 			]
 		var msg = messages.pick_random()
 		label_control.modulate = Color.WHITE
-		play_label_effect(label_control, msg)
+		Global.play_label_effect(label_control, msg)
 
 func set_send_screen():
 	Audio.create_audio(SoundEffect.SOUND_EFFECT_TYPE.UI_CANCEL)
@@ -140,7 +140,7 @@ func set_send_screen():
 	hud_send.show()
 	hud_stats.hide()
 	hud_goup.hide()
-	play_label_effect(label_send, "Target Required")
+	Global.play_label_effect(label_send, "Target Required")
 	#label_send.text = "Target Required"
 	Global.radar_controller.send_ship(b_1, send_ship_bar, label_send)
 
@@ -161,9 +161,9 @@ func set_stats_screen():
 	var msg_hp = "HULL:  " + str(int(hp_percent)) + " %"
 	var msg_fuel = "Fuel:  " + str(int(fuel_percent)) + " %"
 	var msg_load = "LOAD:  " + str(int(Global.cur_load)) + " KG"
-	play_label_effect(label_hp, msg_hp)
-	play_label_effect(label_fuel, msg_fuel)
-	play_label_effect(label_load, msg_load)
+	Global.play_label_effect(label_hp, msg_hp)
+	Global.play_label_effect(label_fuel, msg_fuel)
+	Global.play_label_effect(label_load, msg_load)
 	animate_load_bar(load_bar, load_value)
 
 func set_station_screen():
@@ -221,7 +221,7 @@ func not_enough_to_buy(m := ""):
 		animate_load_bar(load_bar, load_value)
 	label_hp.hide()
 	label_fuel.hide()
-	play_label_effect(label_load, msg)
+	Global.play_label_effect(label_load, msg)
 
 func exit_station():
 	Global.exit_station()
@@ -248,7 +248,7 @@ func set_ascend_screen():
 				Confirm Again
 				to Ascend"
 		can_goup = true
-	play_label_effect(label_goup, msg)
+	Global.play_label_effect(label_goup, msg)
 
 func _physics_process(delta: float) -> void:
 	if going_up:
@@ -257,49 +257,12 @@ func _physics_process(delta: float) -> void:
 		goingup_bar.value += delta * 20.0
 		if goingup_bar.value >= goingup_bar.max_value:
 			Global.ascend()
-			play_label_effect(label_goup, "Arrived at depth\n%d m" % target_depth)
+			Global.play_label_effect(label_goup, "Arrived at depth\n%d m" % target_depth)
 			going_up = false
 			can_goup = false
 	else:
 		goingup_bar.value = 0.0
 		#Audio.stop_audio_by_type(SoundEffect.SOUND_EFFECT_TYPE.MOVING)
-
-var label_effect_version := {}  # Label -> int
-
-func play_label_effect(label: Label, full_text: String) -> void:
-	label_effect_version[label] = label_effect_version.get(label, 0) + 1
-	var my_version = label_effect_version[label]
-	label.text = ""
-	label.show()
-	_blink_label_versioned(label, 6, 0.05, 0.15, my_version)
-	_type_glitch_versioned(label, full_text, 0.02, 0.5, my_version)
-
-func _blink_label_versioned(label: Label, blinks: int, min_delay: float, max_delay: float, version: int) -> void:
-	if Global.is_dead: return
-	for i in range(blinks):
-		if label_effect_version[label] != version:
-			return
-		label.visible = not label.visible
-		await get_tree().create_timer(randf_range(min_delay, max_delay)).timeout
-	label.visible = true
-
-func _type_glitch_versioned(label: Label, text: String, char_delay: float, glitch_chance: float, version: int) -> void:
-	if Global.is_dead: return
-	var output := ""
-	var chars = text.split("")
-	for c in chars:
-		if label_effect_version[label] != version:
-			return
-		if randf() < glitch_chance:
-			label.text = output + _random_glitch_char()
-			await get_tree().create_timer(char_delay * 0.5).timeout
-		output += c
-		label.text = output
-		await get_tree().create_timer(char_delay).timeout
-
-func _random_glitch_char() -> String:
-	var pool = ["#", "%", "&", "*", "@", "?", "/", "\\", "!", "~", "±", "§"]
-	return pool[randi() % pool.size()]
 
 func animate_load_bar(bar: ProgressBar, target_value: float, duration: float = 0.8) -> void:
 	load_bar.show()
